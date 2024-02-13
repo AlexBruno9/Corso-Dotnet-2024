@@ -1,0 +1,227 @@
+body {
+    background-color: aqua;
+    margin: 0px;
+    padding: 0px;
+    /* distanza dal bordo */
+    font-family: Arial, Helvetica, sans-serif;
+    /* carattere del testo */
+}
+
+p {
+    text-align: justify;
+    text-indent: 20px;
+    line-height: 1.5;
+}
+
+
+header h1 {
+    /* agisce solo sull'h1 in header */
+    text-align: center;
+    text-indent: 20px;
+    line-height: 1.5;
+}
+
+header p {
+    /* agisce solo sulla p in header */
+    text-align: center;
+    text-indent: 20px;
+    line-height: 1.5;
+}
+
+header {
+    background-color: #333;
+    color: white;
+    padding: 50px;
+    text-align: center;
+    font-family: 'Times New Roman', Times, serif;
+   /* border-radius: 20%;*/ /* rotondità background titolo */
+}
+
+a {
+    text-decoration: underline;
+    color: #000;
+
+}
+
+a:hover {
+
+    color: #666;
+}
+
+
+nav {
+    padding: 5ch;
+    background-color: #666;
+    color: #fff;
+    text-align: center;
+/*
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-gap: 20px;
+*/
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    padding: 20px;
+}
+
+/*colora i link quando ci passo sopra*/
+nav a:hover {
+    background-color: #fff;
+    /*padding: 40px;*/
+    color: #333;
+}
+
+section {
+    padding: 20px;
+    display: flex;
+    /*
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    grid-gap: 20px;
+    
+
+   */
+}
+
+section div{
+    flex: 2;
+    margin: 20px;
+}
+
+footer {
+    background-color: #333;
+    color: #666;
+    padding: 20px;
+}
+
+footer p {
+
+    text-align: center;
+}
+
+h1{
+    text-align: center;
+}
+
+footer ul {
+
+    padding: 30px;
+    text-indent: 20px;
+}
+
+img {
+    display: inline-block;
+    margin: 0 auto;
+    /* image random*/
+}
+
+
+body ul {
+    list-style-type: none;
+    /* tipo di lista (con pallini, con numeri, lettere, senza nulla...) */
+    padding: 0;
+}
+
+body ul li {
+    /* agisce solo sulle li nella lista unhordinary */
+    padding: 20px;
+}
+
+body ol {
+    list-style-type: upper-alpha;
+    padding: 0;
+}
+
+body ol li {
+    /* agisce solo sulle li nella lista ordinary */
+    padding: 20px;
+}
+
+table { /* agisce sulla tabella */
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th,
+td {/* agisce sul th e td della tabella */
+    border: 1px solid #000;
+    padding: 10px;
+    text-align: center;
+}
+
+form{
+    text-align: center;
+}
+
+input, textarea, select{
+    padding:10px;
+    margin:10px;
+    width:300px;
+    display: block;
+}
+
+button {
+    border-radius: 8px;
+    padding:10px;
+    margin:10px;
+    display: block;
+}
+
+div{
+   
+    padding:20px;
+    margin: 20px;
+    border: 1px solid #000;
+}
+
+hr{
+    border-color:rgb(164, 164, 164);
+    border-style: dotted;
+}
+
+.colorea{ /* Usare sempre il punto */
+    background-color:rgb(177, 235, 255);
+}
+
+.coloreb{
+    background-color:rgb(255, 162, 157);
+}
+
+footer ol{
+    text-align: center;
+    list-style-type:none;
+}
+/*
+ @media(max-width:768px){
+    header{
+   
+        background-color:#ff0000;
+    }
+ }
+ */
+
+ @media(max-width:700px){
+    header{
+   
+        background-color: blueviolet;
+    }
+
+    nav{
+        font-size: smaller;
+    }
+ }
+
+ @media(max-width:580px){
+    header{
+   
+        background-color: green;
+    }
+    nav{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 20px;
+    }
+ }
