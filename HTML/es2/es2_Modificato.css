@@ -4,12 +4,6 @@ body {
     padding: 0;
     box-sizing: border-box;
 
-    /*
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 20px;
-    */
-
 }
 
 header {
@@ -17,22 +11,26 @@ header {
     color: white;
     padding: 20px;
     text-align: center;
+    border-radius: 5px;
 }
 
 nav ul {
     list-style-type: none;
-    padding: 0;
+    padding: 0px;
+    margin-right: 90px;
 }
 
 nav ul li {
     display: inline;
     margin: 0 10px;
+    padding: 30px;
 }
-
+/*
 nav ul li a {
     color: white;
     text-decoration: none;
 }
+*/
 
 section {
     padding: 20px;
@@ -50,6 +48,7 @@ footer {
     position: fixed;
     bottom: 0;
     width: 100%;
+    border-radius: 10px;
 
 }
 
@@ -79,15 +78,69 @@ footer {
 
 }
 
-/*mettere i DIV*/
+img{
+    border-radius: 20px;
+    transition: transform 0.5s;
+}
+
+img:hover{
+    transform: translateY(-10px);
+}
+
+nav ul li a{
+    position: relative;  
+    color: white;
+    font-family: Montserrat;
+    text-decoration: none;
+    
+}
 
 
+nav ul li a:before{
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    height: 2px;
+    width: 100%;
+    background: white;
+    border-radius: 50px;
+    transform: scaleX(0);
+    transition: transform 0.2s linear;
+    
+    
+}
+nav ul li a:hover:before{
+    transform: scaleX(1);
+}
 
-@media(max-width:560px) {
+i{
+
+        color:#007bff;
+
+    /* questo colora tutte le icone del colore dell'header*/
+
+}
+
+
+@media(max-width:1100px) {
+
+    nav{
+        font-size: x-small;
+    }
+    nav ul li{
+        padding: 10px;
+    }
+
+}
+
+@media(max-width:670px) {
 
 
     nav {
-        font-size: x-small;
+        font-size: xx-small;
+    }
+    nav ul li{
+        padding: 0px;
     }
 
     .destra {
@@ -98,16 +151,16 @@ footer {
         font-size: x-small;
     }
 
+}
+
+@media(max-width:1100px) {
+
+    nav{
+        font-size: x-small;
+    }
+    nav ul li{
+        padding: 10px;
+    }
 
 }
 
-/*
-dividere a metà schermo, metà immagine metà testo
-
-
-    nav{
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-gap: 20px;
-    }
-*/
