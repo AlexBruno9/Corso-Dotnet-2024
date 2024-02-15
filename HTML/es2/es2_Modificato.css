@@ -1,6 +1,8 @@
 
    /* 
-   provare background linear gradient
+   provare br, hr, bold(<b>), blocco restrizione pagina
+   vedere mantinee
+   bs5 per bootstrap init
    */
 
 body {
@@ -9,7 +11,9 @@ body {
     padding: 0;
     box-sizing: border-box;
     background-image: linear-gradient( white,rgb(235, 196, 196), cyan, rgb(137, 137, 243), white);
-    /*ci sono vari comandi per mandare la sfumatura da un lato all'altro, ecc*/
+    /* + lo
+    
+    ci sono vari comandi per mandare la sfumatura da un lato all'altro, ecc*/
 
 }
 
@@ -31,7 +35,7 @@ nav ul {
 
 nav ul li {
     display: inline;
-    margin: 0 10px;
+    margin: 10px;
     padding: 30px;
 }
 
@@ -81,10 +85,10 @@ img{
 }
 
 
-
 img:hover{
     transform: translateY(-10px);
 }
+
 
 nav ul li a{
     position: relative;  
@@ -157,6 +161,15 @@ a button{
 
 
 
+/*
+.container{
+
+    width: 80%;
+}
+*/
+
+
+
 @media(max-width:1100px) {
 
     header{
@@ -187,7 +200,7 @@ a button{
 
     nav ul li{
         display: inline;
-        margin: 0 5px;
+        margin: 5px;
     }
 
 
@@ -220,7 +233,7 @@ a button{
 
     nav ul li{
         display: inline;
-        margin: 0 -7px;
+        margin: -7px;
     }
 
 
@@ -244,7 +257,7 @@ a button{
 
     nav ul li{
         display: inline;
-        margin: 0 -11px;
+        margin: -11px;
     }
 
 
