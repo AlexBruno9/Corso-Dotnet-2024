@@ -1,0 +1,110 @@
+
+body {
+    font-family: Roboto, sans-serif;
+}
+
+
+
+#documentazione {
+
+    display: flex;
+    padding: 20px;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+
+header{
+    
+    background-color: black;
+    
+    border-color: #333;
+    border-style: initial;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 8px;
+    
+}
+
+
+.navbar-toggler-icon{
+
+    background-color: white;
+
+}
+
+a .nav-link{
+    color: white;
+    
+}
+
+
+
+
+footer {
+    background-color: black;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    border-radius: 10px;
+
+}
+
+
+/*   -----------  NAV  -----------   */
+
+nav ul {
+    list-style-type: none;
+    padding: 0px;
+    margin-right: 90px;
+}
+
+nav ul li {
+    display: inline;
+    margin: 10px;
+    padding: 30px;
+}
+
+nav ul li a {
+    position: relative;
+    color: white;
+    font-family: Montserrat;
+    text-decoration: none;
+
+}
+
+nav ul li a:before {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    height: 2px;
+    width: 100%;
+    background: white;
+    border-radius: 50px;
+    transition: transform 0.2s linear;
+    transform: scaleX(0);
+
+
+}
+
+nav ul li a:hover:before {
+    transform: scaleX(1);
+}
+
+
+i {
+
+    color: #007bff;
+
+}
+
+nav ul i {
+    font-size: 48px;
+}
+
+/*     ----------------------------     */

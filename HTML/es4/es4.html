@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progetto Full-Stack in C#</title>
+    <link rel="stylesheet" href="es4.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <header>
+        <!--
+        <nav>
+            <ul>
+                <li></li><i class="fas fa-spell-check" style="color:#00ffbb;"></i>
+
+                <li><a href="#funzionalita">Funzionalità</a></li>
+                <li><a href="#interfaccia">Interfaccia</a></li>
+                <li><a href="#struttura">Struttura</a></li>
+                <li><a href="#codice">Codice</a></li>
+                <li><a href="#file">File</a></li>
+
+            </ul>
+        </nav>
+        -->
+
+        <nav class="navbar navbar-expand-lg body-tertiary">
+            <div class="container">
+                <!--a class="navbar-brand" href="#">Navbar</a>-->
+                <i class="fas fa-3x fa-spell-check" style="color:#00ffbb;"></i>
+
+
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <!--div class="ciao"-->
+                                <a>Documentazione</a>
+                            <!--/div-->
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Codice</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">File</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </nav>
+
+
+
+    </header>
+
+
+    <section id="documentazione">
+
+
+        <p>
+
+        <h1>
+            <i class="fas fa-handshake"></i> Definizione di funzionalità e obiettivi
+        </h1>
+
+
+
+        <ul>
+            <li>il programma deve prendere in inserimento dei dischi e li va a catalogare</li>
+            <li>al lancio del programma verrà creata una cartella Catalogo</li>
+            <li>per ogni artista di cui viene inserito un disco, verrà creata una cartella all'interno della
+                cartella Catalogo:
+                <ul>
+                    <li>ogni cartella di un artista conterrà un file json per ogni suo album registrato nel catalogo
+                    </li>
+                    <li>ogni file json conterrà il nome dell'album, l'anno di pubblicazione e le copie disponibili
+                        in negozio</li>
+                </ul>
+            </li>
+            <li>se viene inserito un album di un artista di cui non è ancora presente una cartella all'interno del
+                Catalogo, verrà creata; </li>
+            <li>se viene inserito un album già presente in catalogo, verrà aggiornata la quantità di copie
+                disponibili </li>
+            <li>possibilità di rimuovere album dal catalogo (in caso vengano venduti)</li>
+            <li>possibilità di stampare elenco album di un determinato artista presenti in catalogo </li>
+        </ul>
+
+        </p>
+
+
+
+
+
+        <!--    /section>
+
+
+    <section id="Interfaccia    -->
+
+
+        <p>
+
+        <h1>
+            <i class="fas fa-handshake"></i>Interfaccia utente
+        </h1>
+
+
+
+        <ul>
+            <li>l'utente opererà sul catalogo dischi attraverso un menu che permette di aggiungere, eliminare o cercare
+                dischi</li>
+            <li>richiesta all'utente di inserire il nome dell'artista di cui si vuole inserire un disco in catalogo</li>
+
+            <li>richiesta di inserire il titolo dell'album e l'anno di pubblicazione </li>
+            <li>possibilità di continuare ad inserire album dello stesso artista </li>
+            <li>richiesta di passare al catalogo di un altro artista di cui inserire album, o chiudere il programma</li>
+            <li>in caso di ricerca verra mostrato l'elenco degli album con anno di pubblicazione, e a destra la
+                disponibilità</li>
+
+            <li>verranno creati più documenti:
+                <ul>
+                    <li>una cartella Catalogo </li>
+                    <li>una cartella per ogni artista, dentro Catalogo</li>
+                    <li>un file json per ogni album, dentro cartella artista</li>
+                </ul>
+            </li>
+        </ul>
+
+        </p>
+
+    </section>
+
+
+
+    <footer>
+        <p>&copy; 2024 Prova AB. Tutti i diritti riservati.</p>
+    </footer>
+
+</body>
+
+</html>
