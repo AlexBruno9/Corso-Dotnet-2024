@@ -3,6 +3,20 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Csharp", "Csharp", "{5AB5E20F-7C2B-4317-990B-3043AC44BFF0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Programma6_Discografia", "Csharp\Programma6_Discografia\Programma6_Discografia.csproj", "{F3B2E65B-2549-4494-8C70-198F36208824}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Programma5_dadi", "Csharp\Programma5_dadi\Programma5_dadi.csproj", "{07783B75-1D7A-474E-B408-8626F738E4B3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Programma4_indovinello", "Csharp\Programma4_indovinello\Programma4_indovinello.csproj", "{0AE995FC-78A7-4A56-961B-56EFE8D1A184}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Programma3_calcolatrice", "Csharp\Programma3_calcolatrice\Programma3_calcolatrice.csproj", "{42B7AABE-0220-4236-9C47-51E164D4CBD2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Programma2", "Csharp\Programma2_divisibili\Programma2.csproj", "{420ABDA8-CB09-4D62-B8F5-5465211EADDC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Programmi", "Csharp\Programma1_menu\Programmi.csproj", "{B676F754-26D5-492A-9CDC-B64E6A37C009}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -10,5 +24,39 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F3B2E65B-2549-4494-8C70-198F36208824}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3B2E65B-2549-4494-8C70-198F36208824}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3B2E65B-2549-4494-8C70-198F36208824}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3B2E65B-2549-4494-8C70-198F36208824}.Release|Any CPU.Build.0 = Release|Any CPU
+		{07783B75-1D7A-474E-B408-8626F738E4B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{07783B75-1D7A-474E-B408-8626F738E4B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{07783B75-1D7A-474E-B408-8626F738E4B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{07783B75-1D7A-474E-B408-8626F738E4B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0AE995FC-78A7-4A56-961B-56EFE8D1A184}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0AE995FC-78A7-4A56-961B-56EFE8D1A184}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0AE995FC-78A7-4A56-961B-56EFE8D1A184}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0AE995FC-78A7-4A56-961B-56EFE8D1A184}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42B7AABE-0220-4236-9C47-51E164D4CBD2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42B7AABE-0220-4236-9C47-51E164D4CBD2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42B7AABE-0220-4236-9C47-51E164D4CBD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42B7AABE-0220-4236-9C47-51E164D4CBD2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{420ABDA8-CB09-4D62-B8F5-5465211EADDC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{420ABDA8-CB09-4D62-B8F5-5465211EADDC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{420ABDA8-CB09-4D62-B8F5-5465211EADDC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{420ABDA8-CB09-4D62-B8F5-5465211EADDC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B676F754-26D5-492A-9CDC-B64E6A37C009}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B676F754-26D5-492A-9CDC-B64E6A37C009}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B676F754-26D5-492A-9CDC-B64E6A37C009}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B676F754-26D5-492A-9CDC-B64E6A37C009}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F3B2E65B-2549-4494-8C70-198F36208824} = {5AB5E20F-7C2B-4317-990B-3043AC44BFF0}
+		{07783B75-1D7A-474E-B408-8626F738E4B3} = {5AB5E20F-7C2B-4317-990B-3043AC44BFF0}
+		{0AE995FC-78A7-4A56-961B-56EFE8D1A184} = {5AB5E20F-7C2B-4317-990B-3043AC44BFF0}
+		{42B7AABE-0220-4236-9C47-51E164D4CBD2} = {5AB5E20F-7C2B-4317-990B-3043AC44BFF0}
+		{420ABDA8-CB09-4D62-B8F5-5465211EADDC} = {5AB5E20F-7C2B-4317-990B-3043AC44BFF0}
+		{B676F754-26D5-492A-9CDC-B64E6A37C009} = {5AB5E20F-7C2B-4317-990B-3043AC44BFF0}
 	EndGlobalSection
 EndGlobal
