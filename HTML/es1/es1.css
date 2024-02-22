@@ -194,14 +194,7 @@ footer ol{
     text-align: center;
     list-style-type:none;
 }
-/*
- @media(max-width:768px){
-    header{
-   
-        background-color:#ff0000;
-    }
- }
- */
+
 
  @media(max-width:700px){
     header{

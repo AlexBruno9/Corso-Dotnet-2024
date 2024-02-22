@@ -35,10 +35,7 @@ header{
 
 }
 
-a .nav-link{
-    color: white;
-    
-}
+
 
 
 
@@ -57,6 +54,7 @@ footer {
 
 
 /*   -----------  NAV  -----------   */
+/*
 
 nav ul {
     list-style-type: none;
@@ -106,5 +104,7 @@ i {
 nav ul i {
     font-size: 48px;
 }
+
+*/
 
 /*     ----------------------------     */
