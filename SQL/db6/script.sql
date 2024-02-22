@@ -4,20 +4,15 @@ CREATE TABLE album (id INTEGER PRIMARY KEY AUTOINCREMENT, titolo TEXT UNIQUE, an
 
 
 INSERT INTO artisti (nome) VALUES ('Neffa');
-INSERT INTO artisti (nome) VALUES ('Bob Dylan');
-
 INSERT INTO generi (genere) VALUES ('Rap');
-INSERT INTO generi (genere) VALUES ('Rock');
+INSERT INTO album (titolo, anno, quantita, id_artista, id_genere) VALUES ('Neffa & i Messaggeri della Dopa', 1995, 1, 1, 1); 
 
-
-INSERT INTO album (titolo, anno, quantita, id_artista, id_genere) VALUES ('primo_Neffa', 1994, 4, 1, 1);
-INSERT INTO album (titolo, anno, quantita, id_artista, id_genere) VALUES ('secondo_Neffa', 1996, 2, 1, 1);
-INSERT INTO album (titolo, anno, quantita, id_artista, id_genere) VALUES ('primo_Bob_Dylan', 1962, 8, 2, 2);
 
 SELECT * FROM artisti;
 SELECT * FROM generi;
 SELECT * FROM album;
 
 
-SELECT album.id, album.titolo, album.anno, album.quantita, artisti.nome AS artista, generi.genere AS genere FROM album JOIN artisti ON album.id_artista = artisti.id JOIN generi ON album.id_genere = generi.id; 
+SELECT album.id, album.titolo, album.anno, album.quantita, artisti.nome AS artista, generi.genere AS genere FROM album JOIN artisti ON album.id_artista = artisti.id JOIN generi ON album.id_genere = generi.id ORDER BY anno; 
 
+INSERT INTO album (titolo, anno, quantita, id_artista, id_genere) VALUES ('Neffa 2', 1995, 1, (SELECT id FROM artisti WHERE nome = 'Neffa'), (SELECT id FROM generi WHERE genere = 'Rap')); 
