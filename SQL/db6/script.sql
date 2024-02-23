@@ -1,11 +1,14 @@
 CREATE TABLE artisti (id INTEGER PRIMARY KEY AUTOINCREMENT, nome TEXT UNIQUE);
 CREATE TABLE generi (id INTEGER PRIMARY KEY AUTOINCREMENT, genere TEXT UNIQUE);
-CREATE TABLE album (id INTEGER PRIMARY KEY AUTOINCREMENT, titolo TEXT UNIQUE, anno INTEGER, quantita INTEGER CHECK (quantita >= 0), id_artista INTEGER, id_genere INTEGER, FOREIGN KEY (id_artista) REFERENCES artisti(id), FOREIGN KEY (id_genere) REFERENCES generi(id));
+CREATE TABLE album (id INTEGER PRIMARY KEY AUTOINCREMENT, titolo TEXT UNIQUE, anno INTEGER, quantita INTEGER CHECK (quantita >= 0), prezzo REAL, id_artista INTEGER, id_genere INTEGER, FOREIGN KEY (id_artista) REFERENCES artisti(id), FOREIGN KEY (id_genere) REFERENCES generi(id));
 
 
 INSERT INTO artisti (nome) VALUES ('Neffa');
+INSERT INTO artisti (nome) VALUES ('Pink Floyd');
 INSERT INTO generi (genere) VALUES ('Rap');
-INSERT INTO album (titolo, anno, quantita, id_artista, id_genere) VALUES ('Neffa & i Messaggeri della Dopa', 1995, 1, 1, 1); 
+INSERT INTO generi (genere) VALUES ('Rock');
+INSERT INTO album (titolo, anno, quantita, prezzo, id_artista, id_genere) VALUES ('Neffa & i Messaggeri della Dopa', 1995, 2, 35, 1, 1); 
+INSERT INTO album (titolo, anno, quantita, id_artista, id_genere) VALUES ('The Dark Side of the Moon', 1973, 9, 20, 2, 2); 
 
 
 SELECT * FROM artisti;
