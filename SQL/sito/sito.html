@@ -1,0 +1,244 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap">
+    <link rel="stylesheet" href="style.css">
+    <!-- highlight CDN css -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/default.min.css">
+
+    <title>Negozio Dischi</title>
+</head>
+
+<body>
+    <!-- navbar -->
+    <nav class="navbar bg-light navbar-expand-md navbar-light pt-5 pb-4">
+        <div class="container-xxl">
+            <!-- navbar brand / title -->
+
+            <span class="text-secondary fw-bold">
+                <i class="bi bi-boombox"></i>
+                Negozio Dischi
+            </span>
+
+            <!-- toggle button for mobile nav -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#main-nav"
+                aria-controls="main-nav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- navbar links -->
+            <div class="collapse navbar-collapse justify-content-end align-center" id="main-nav">
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Prodotti
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#lp">1. LP</a></li>
+
+                            <li><a class="dropdown-item" href="#cd">2. CD</a></li>
+
+                            <li><a class="dropdown-item" href="#cd">3. MC</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="#usato">Usato</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#codice">Carrello</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#file">Contatti</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <section>
+
+        <div class="row justify-content-center align-items-center m-4">
+            <div class="col-md-8 text-md-start">
+
+                <div class="display-4 my-3">
+                    Prodotti
+                </div>
+
+                <section id="lp">
+
+                    <div class="display-5 text-muted mt-5">LP</div>
+                    
+                    <div class="container-sm ">
+                        <table class="table table-striped table-bordered table">
+                            <thead>
+                                <tr>
+                                    <th scope="col">#</th>
+                                    <th scope="col">IMG</th>
+                                    <th scope="col">Album</th>
+                                    <th scope="col">Artist</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th scope="row">1</th>
+                                    <td>#</td>
+                                    <td>107 elementi</td>
+                                    <td>Neffa</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">2</th>
+                                    <td>#</td>
+                                    <td>Animals</td>
+                                    <td>Pink Floyd</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">3</th>
+                                    <td>#</td>
+                                    <td>Highway 61</td>
+                                    <td>Bob Dylan</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                  
+                </section>
+
+            </div>
+        </div>
+
+
+
+
+
+        <div class="row justify-content-center align-items-center m-4">
+            <div class="col-md-8 text-md-start">
+
+                <section id="cd">
+                    <div class="display-5 text-muted mt-5">CD</div>
+
+                    <p class="lead my-4">
+                    <ul>
+                        <li class="my-2">compact disc</li>
+                        <li class="my-2">compact disc</li>
+                        <li class="my-2">compact disc</li>
+                        <li class="my-2">compact disc</li>
+                        <li class="my-2">compact disc</li>
+                        <li class="my-2">compact disc</li>
+                    </ul>
+                    </p>
+                </section>
+
+
+            </div>
+        </div>
+
+
+        <div class="row justify-content-center align-items-center m-4">
+            <div class="col-md-8 text-md-start">
+
+                <section id="cd">
+                    <div class="display-5 text-muted mt-5">MC</div>
+
+                    <p class="lead my-4">
+                    <ul>
+                        <li class="my-2">musicassetta</li>
+                        <li class="my-2">musicassetta</li>
+                        <li class="my-2">musicassetta</li>
+                        <li class="my-2">musicassetta</li>
+                        <li class="my-2">musicassetta</li>
+                        <li class="my-2">musicassetta</li>
+                    </ul>
+                    </p>
+                </section>
+
+
+            </div>
+        </div>
+
+    </section>
+
+    <p><br><br><br><br></p>
+
+    <section id="usato">
+
+        <div class="row justify-content-center align-items-center m-4">
+            <div class="col-md-8 text-md-start">
+
+                <div class="display-5 my-3 text-muted">
+                    Usato
+                </div>
+
+                <section>
+
+
+
+                    <p class="lead my-4">
+                    <ul>
+                        <li class="my-2">vinile</li>
+                        <li class="my-2">vinile</li>
+                        <li class="my-2">vinile</li>
+                        <li class="my-2">vinile</li>
+                        <li class="my-2">compact disc</li>
+                        <li class="my-2">compact disc</li>
+                        <li class="my-2">musicassetta</li>
+                        <li class="my-2">musicassetta</li>
+                        <li class="my-2">musicassetta</li>
+                    </ul>
+                    </p>
+                </section>
+
+            </div>
+        </div>
+
+    </section>
+
+    <p><br><br><br><br></p>
+    <p><br><br><br><br></p>
+
+
+
+
+    <footer class="bg-body-tertiary text-center">
+        <!-- Grid container -->
+        <div class="container p-4"></div>
+        <!-- Grid container -->
+
+        <!-- Copyright -->
+        <div class="text-center p-5" style="background-color: rgba(0, 0, 0, 0.05);">
+            © 2024 Copyright:
+            <a class="text-body" href="https://mdbootstrap.com/">ABdischi.com</a>
+        </div>
+        <!-- Copyright -->
+    </footer>
+
+
+
+
+
+
+    <!-- higlight CDN js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"
+        integrity="sha512-D9gUyxqja7hBtkWpPWGt9wfbfaMGVt9gnyCvYa+jojwwPHLCzUm5i8rpk7vD7wNee9bA35eYIjobYPaQuKS1MQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/go.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
+        </script>
+
+</body>
+
+</html>
