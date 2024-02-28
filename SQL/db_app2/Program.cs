@@ -1,4 +1,4 @@
-﻿using System.ComponentModel.Design;
+﻿﻿using System.ComponentModel.Design;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Data.SQLite;
 using Spectre.Console;
@@ -60,16 +60,18 @@ class Program
 
                         INSERT INTO artisti (nome) VALUES ('Neffa');
                         INSERT INTO artisti (nome) VALUES ('Pink Floyd');
+                        INSERT INTO artisti (nome) VALUES ('Bob Dylan');
 
                         INSERT INTO generi (genere) VALUES ('Rap');
                         INSERT INTO generi (genere) VALUES ('Rock');
-                        INSERT INTO generi (genere) VALUES ('Blues');
-                        INSERT INTO generi (genere) VALUES ('Funk');
-                        INSERT INTO generi (genere) VALUES ('Punk');
-                        INSERT INTO generi (genere) VALUES ('Jazz');
 
                         INSERT INTO album (titolo, anno, quantita, prezzo, id_artista, id_genere) VALUES ('Neffa & i Messaggeri della Dopa', 1995, 2, 35, 1, 1); 
-                        INSERT INTO album (titolo, anno, quantita, prezzo, id_artista, id_genere) VALUES ('The Dark Side of the Moon', 1973, 9, 20, 2, 2);";
+                        INSERT INTO album (titolo, anno, quantita, prezzo, id_artista, id_genere) VALUES ('Highway 61', 1965, 12, 15, 3, 2);                         
+                        INSERT INTO album (titolo, anno, quantita, prezzo, id_artista, id_genere) VALUES ('The Dark Side of the Moon', 1973, 9, 20, 2, 2);
+                        INSERT INTO album (titolo, anno, quantita, prezzo, id_artista, id_genere) VALUES ('107 elementi', 1997, 1, 40, 1, 1); 
+
+                        
+                        ";
 
             SQLiteCommand command = new SQLiteCommand(sql, connection); // crea il comando sql da eseguire sulla connessione al database se non esiste
             command.ExecuteNonQuery(); // esegue il comando sql sulla connessione al database se non esiste
@@ -310,60 +312,17 @@ class Program
         string prezzo = Console.ReadLine()!;
         Console.WriteLine("inserisci la quantità del prodotto");
         string quantita = Console.ReadLine()!;
-
-
-        Console.WriteLine("inserisci il nome dell'artista");
-        string nomeArtista = Console.ReadLine()!;
-
-
+        Console.WriteLine("inserisci l'id dell'artista");
+        string id_artista = Console.ReadLine()!;
         SQLiteConnection connection = new SQLiteConnection($"Data Source=database.db;Version=3;");
-        connection.Open();
-
-        string sql= $"SELECT * FROM artisti";
-
-        SQLiteCommand command = new SQLiteCommand(sql, connection);     //crea il comando sql da eseguire sulla connessione al database
-        SQLiteDataReader reader = command.ExecuteReader();              //esegue il comando sulla connessione al db e salva i dati in reader che è un oggetto di sql incaricato di leggere i dati
-
-        
-
-        while(reader.Read())
-        {
-
-
-            object identita=reader["nome"];
-            string name=identita.ToString()!;
-            if(nomeArtista==name)
-            {
-                identita=reader["id"];
-                string ident=identita.ToString()!;
-                nomeArtista=ident;
-            }
-
-
-        }
-        Console.WriteLine($"id associata al nome:{nomeArtista}");
-        connection.Close();
-        
-        
         Console.WriteLine("inserisci l'id del genere");
-        Console.WriteLine("1 - Rap");
-        Console.WriteLine("2 - Rock");
-        Console.WriteLine("3 - Blues");
-        Console.WriteLine("4 - Funk");
-        Console.WriteLine("5 - Punk");
-        Console.WriteLine("6 - Jazz");
-
         string id_genere = Console.ReadLine()!;
-
-        
-        SQLiteConnection connection2 = new SQLiteConnection($"Data Source=database.db;Version=3;");
-        connection2.Open();
-        
-        string sql2 = $"INSERT INTO album (titolo, anno, prezzo, quantita, id_artista, id_genere) VALUES ('{titolo}', {anno}, {prezzo}, {quantita}, {nomeArtista}, {id_genere})"; // crea il comando sql che inserisce un prodotto
-        command = new SQLiteCommand(sql2, connection2);
+        connection = new SQLiteConnection($"Data Source=database.db;Version=3;");
+        connection.Open();
+        string sql = $"INSERT INTO album (titolo, anno, prezzo, quantita, id_artista, id_genere) VALUES ('{titolo}', {anno}, {prezzo}, {quantita}, {id_artista}, {id_genere})"; // crea il comando sql che inserisce un prodotto
+        SQLiteCommand command = new SQLiteCommand(sql, connection);
         command.ExecuteNonQuery();
-
-        connection2.Close();
+        connection.Close();
     }
 
     static void VisualizzaProdotto()
@@ -387,15 +346,12 @@ class Program
     {
         Console.WriteLine("inserisci l'id del genere");
         string id_genere = Console.ReadLine()!;
-        
-        // funzione converti che ha dentro la query usata nell'altro script
-        
         SQLiteConnection connection = new SQLiteConnection($"Data Source=database.db;Version=3;");
         connection.Open();
 
-        string sql =$"SELECT * FROM album JOIN artisti ON album.id_artista = artisti.id JOIN generi ON album.id_genere = generi.id WHERE id_genere = {id_genere};"; //WHERE id_genere=ciao; //crea il comando sql che seleziona tutti i dati dalla tabella prodotti
+        string sql = $"SELECT * FROM album JOIN artisti ON album.id_artista = artisti.id JOIN generi ON album.id_genere = generi.id WHERE id_genere = {id_genere};"; //WHERE id_genere=ciao; //crea il comando sql che seleziona tutti i dati dalla tabella prodotti
 
-        
+
         // crea il comando sql che seleziona tutti i dati dalla tabella prodotti con id_categoria uguale a quello inserito
 
         stampaTabella(sql, connection);
@@ -416,28 +372,16 @@ class Program
         connection.Close();
     }
 
-
-
     static void InserisciArtista()
     {
         Console.WriteLine("inserisci il nome dell'artista");
-        string nomeArtista = Console.ReadLine()!;
+        string nome = Console.ReadLine()!;
         SQLiteConnection connection = new SQLiteConnection($"Data Source=database.db;Version=3;");
         connection.Open();
-
-
-        
-        string sql = $"INSERT INTO artisti (nome) VALUES ('{nomeArtista}')"; // crea il comando sql che inserisce una categoria
+        string sql = $"INSERT INTO artisti (nome) VALUES ('{nome}')"; // crea il comando sql che inserisce una categoria
         SQLiteCommand command = new SQLiteCommand(sql, connection);
         command.ExecuteNonQuery();
-
-        Console.WriteLine("id: {sql}");
-
-
         connection.Close();
-
-
-        
     }
 
 
@@ -484,5 +428,3 @@ class Program
         Console.WriteLine("\n\n");
     }
 }
-
-

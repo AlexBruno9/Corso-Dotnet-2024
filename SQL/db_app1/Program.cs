@@ -85,6 +85,11 @@ class Program
         SQLiteConnection connection = new SQLiteConnection($"Data Source=database.db;Version=3;");
         connection.Open();
 
+
+
+
+
+        
         string sql= $"SELECT * FROM prodotti";
 
         SQLiteCommand command = new SQLiteCommand(sql, connection);     //crea il comando sql da eseguire sulla connessione al database
@@ -92,8 +97,16 @@ class Program
 
         while(reader.Read())
         {
-            Console.WriteLine($"id: {reader["id"]}, nome: {reader["nome"]}, prezzo: {reader["prezzo"]}, quantita: {reader["quantita"]}");
+           /* Console.WriteLine($"id: {reader["id"]}, nome: {reader["nome"]}, prezzo: {reader["prezzo"]}, quantita: {reader["quantita"]}");*/
+           Console.WriteLine($"id: {reader["id"]}");
+           object identita=reader["id"];
+            Console.WriteLine($"{identita}\n");
+            string id=identita.ToString()!;
+        Console.WriteLine($"{id}\n");
+
+           
         }
+        
 
         connection.Close();       
 
