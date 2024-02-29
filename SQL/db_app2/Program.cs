@@ -248,10 +248,50 @@ class Program
         connection.Close();
     }
 
+
+    static bool TrovaTitolo(string titolo)
+    {
+        bool trovato=false;
+        SQLiteConnection connection = new SQLiteConnection($"Data Source=database.db;Version=3;");
+
+        connection.Open();
+
+        string sql = "SELECT titolo FROM album"; // crea il comando sql che seleziona tutti i dati dalla tabella prodotti ordinati per prezzo in modo decrescente e ne prende solo il primo
+        SQLiteCommand command = new SQLiteCommand(sql, connection);
+
+        SQLiteDataReader reader = command.ExecuteReader();
+        while (reader.Read())
+        {
+            string stringa = reader["titolo"].ToString()!;
+            if (titolo == stringa)
+            {
+       
+                
+                trovato = true;
+            }
+
+        }
+
+
+        connection.Close();
+        return trovato;
+
+    }
+
+
     static void ModificaPrezzoProdotto()
     {
         Console.WriteLine("inserisci il titolo dell'album"); // chiede il nome del prodotto da modificare
         string titolo = Console.ReadLine()!; // legge il nome del prodotto da modificare
+
+        while (!TrovaTitolo(titolo))
+        {
+            Console.Write("\nInserire titolo di un album presente in catalogo: "); // chiede il nome del prodotto da modificare
+            titolo = Console.ReadLine()!;
+        }
+
+
+
         Console.WriteLine("inserisci il nuovo prezzo"); // chiede il nuovo prezzo del prodotto da modificare
         string prezzo = Console.ReadLine()!; // legge il nuovo prezzo del prodotto da modificare
         SQLiteConnection connection = new SQLiteConnection($"Data Source=database.db;Version=3;");
@@ -401,6 +441,13 @@ class Program
     {
         Console.Write("vuoi continuare?(s/n): ");
         string risp = Console.ReadLine()!;
+        while (risp != "n" && risp != "N" && risp != "s" && risp != "S")
+        {
+            Console.Write("carattere non valido; vuoi continuare?(s/n): ");
+            risp = Console.ReadLine()!;
+
+        }
+
         if (risp == "n" || risp == "N")
         {
             return false;
