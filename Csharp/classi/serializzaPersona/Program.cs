@@ -32,7 +32,7 @@ public class GestioneJson
         string jsonDaLeggere = File.ReadAllText(@"persona.json");
         Persona personaDeserializzata = JsonConvert.DeserializeObject<Persona>(jsonDaLeggere)!;
 
-        System.Console.WriteLine(personaDeserializzata.Nome);
+        Console.WriteLine(personaDeserializzata.Nome);
 
     }
 
