@@ -1,13 +1,18 @@
 ﻿class Carta
 {
-    public string seme;
-    public string valore;
+    private string seme;
+    private string valore;
+
+    
 
     public Carta(string seme, string valore)
     {
         this.seme = seme;
         this.valore = valore;
     }
+
+    public string Seme { get => seme; set => seme = value; }
+    public string Valore { get => valore; set => valore = value; }
 }
 
 class Mazzo
@@ -23,6 +28,7 @@ class Mazzo
         {
             foreach (string valore in valori)
             {
+
                 Carta carta = new Carta(seme, valore);
                 carte.Add(carta);
             }
@@ -39,7 +45,7 @@ class Mazzo
     {
         foreach (Carta carta in carte)
         {
-            Console.WriteLine($"{carta.valore} di {carta.seme}");
+            Console.WriteLine($"{carta.Valore} di {carta.Seme}");
         }
     }
 

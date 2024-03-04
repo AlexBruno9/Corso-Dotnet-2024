@@ -2,11 +2,11 @@
 
 using System.Diagnostics.Contracts;
 
-class Dado
+class Dado                                          //dichiaraz classe dado
 {
-    private Random random=new Random();
+    private Random random=new Random();             // dichiarazione campo Random "random" per utilizzare funzione Lancia        
 
-    public int Lancia()
+    public int Lancia()                             //metodo nella classe Dado
     {
         return random.Next(1, 7);
     }
