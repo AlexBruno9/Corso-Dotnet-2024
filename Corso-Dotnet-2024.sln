@@ -9,17 +9,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "db_app1", "SQL\db_app1\db_a
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "db_app2", "SQL\db_app2\db_app2.csproj", "{EDE26D4C-26A6-48E7-A9A1-E59EBAD1971D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "classi", "Csharp\classi\classi.csproj", "{5504C095-DEA7-453D-8FB4-A2F7C41478C0}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Csharp", "Csharp", "{F6E7E86C-FF15-4CFB-BF89-F217819A96DA}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "classi", "classi", "{B34FDA3C-53EF-4092-9B59-ED5299B359C1}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "serializzaPersona", "Csharp\classi\serializzaPersona\serializzaPersona.csproj", "{B5D4773B-F723-4B08-B189-549DE130DC81}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "fattoria", "Csharp\classi\fattoria\fattoria.csproj", "{5C0FF1E2-E550-4696-8F4E-35CF41959F69}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "esempio", "Csharp\classi\esempio\esempio.csproj", "{4BD83BF1-8DCA-4294-8ABF-C6C77B233CE3}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Programmi", "Programmi", "{37965E1D-2762-4D0A-BF15-06660DF65BBA}"
 EndProject
@@ -29,15 +21,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vers2_Classi", "Csharp\Prog
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EntityFramework", "EntityFramework", "{97F46392-0A17-433B-BC4E-4196F6907E81}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "es1", "SQL\EntityFramework\es1\es1.csproj", "{E2B0A20D-7653-4D46-8437-F620B6407C56}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LavoriGruppo", "LavoriGruppo", "{9EADC311-149C-48DE-B67A-951B86408E7D}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "prog_Giochi", "LavoriGruppo\prog_Giochi\prog_Giochi.csproj", "{3D7723EE-0C5E-4EF0-8C06-29AD441E316B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "EntityFramework", "EntityFramework", "{1AE159F9-4B3F-4C99-B189-D59205E03250}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "es1", "EntityFramework\es1\es1.csproj", "{AB9BB38E-766B-4527-99A0-A993A053CCC1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
