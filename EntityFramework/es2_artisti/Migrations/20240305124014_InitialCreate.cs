@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace es1.Migrations
+namespace es2_artisti.Migrations
 {
     /// <inheritdoc />
     public partial class InitialCreate : Migration
@@ -11,55 +11,53 @@ namespace es1.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Clienti",
+                name: "Artisti",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Nome = table.Column<string>(type: "TEXT", nullable: true),
-                    Cognome = table.Column<string>(type: "TEXT", nullable: true),
-                    Cell = table.Column<string>(type: "TEXT", nullable: true)
+                    Nome = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Clienti", x => x.Id);
+                    table.PrimaryKey("PK_Artisti", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Prodotti",
+                name: "Dischi",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Nome = table.Column<string>(type: "TEXT", nullable: true),
-                    Prezzo = table.Column<double>(type: "REAL", nullable: false),
-                    ClienteId = table.Column<int>(type: "INTEGER", nullable: false)
+                    Titolo = table.Column<string>(type: "TEXT", nullable: true),
+                    Anno = table.Column<int>(type: "INTEGER", nullable: false),
+                    ArtistaId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Prodotti", x => x.Id);
+                    table.PrimaryKey("PK_Dischi", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Prodotti_Clienti_ClienteId",
-                        column: x => x.ClienteId,
-                        principalTable: "Clienti",
+                        name: "FK_Dischi_Artisti_ArtistaId",
+                        column: x => x.ArtistaId,
+                        principalTable: "Artisti",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Prodotti_ClienteId",
-                table: "Prodotti",
-                column: "ClienteId");
+                name: "IX_Dischi_ArtistaId",
+                table: "Dischi",
+                column: "ArtistaId");
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Prodotti");
+                name: "Dischi");
 
             migrationBuilder.DropTable(
-                name: "Clienti");
+                name: "Artisti");
         }
     }
 }

@@ -32,7 +32,7 @@ class Database : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)  //configura del database in memoria
     {
-        optionsBuilder.UseSqlite("Data Source=MyDatabase.sqlite");   //imposta il db in memoria
+        optionsBuilder.UseSqlite("Data Source=MyDatabase.sqlite");  
     }
 
     public void InserisciClienti(List<Cliente> clienti)
@@ -46,6 +46,7 @@ class Database : DbContext
         Prodotti.AddRange(prodotti);      //addRange aggiunge una lista di clienti al database
         SaveChanges();
     }
+
 
     public void StampaClienti()
     {
@@ -69,6 +70,7 @@ class Database : DbContext
             Console.WriteLine($"{p.Id} - {p.Nome} - {p.Prezzo} - {p.Cliente!.Nome} {p.Cliente.Cognome}");
         }
     }
+    
 
 }
 
@@ -92,7 +94,7 @@ class Program
 
 
             db.InserisciClienti(clienti);
-            db.StampaClienti();
+            //db.StampaClienti();
 
             var prodotti = new List<Prodotto>
             {
@@ -108,13 +110,12 @@ class Program
 
             Console.WriteLine("\nprodotti per clienti");
             db.InserisciProdotti(prodotti);
-            db.StampaProdotti();
+            //db.StampaProdotti();
             
 
         }
 
     }
-
 
 
 
