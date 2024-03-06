@@ -1,17 +1,9 @@
-﻿using System.Data.SQLite;
+```C#
 
-
-
-/*
-PROGRAMMA CHE CREA E GESTISCE DATABASE TRAMITE COMANDI SQL
-AGGIUNGE, ELIMINA, MODIFICA, STAMPA GLI UTENTI NEL DATABASE
-PROGRAMMA CHE SEGUE MODELLO MVC (model, view, controller)
-*/
-
-
-
-//  -----   MAIN    -----
-
+using System.Configuration;
+using System.Data.SQLite;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Sqlite;
 public class Program
 {
     static void Main(string[] args)
@@ -23,28 +15,31 @@ public class Program
     }
 }
 
-
-
-//  -----   DATABASE    -----
-
-public class Database
+public class User
 {
+    public int Id { get; set; }
+    public string? Nome { get; set; }
+    
+}
 
-    private SQLiteConnection _connection;
-    public Database()
+public class Database : DbContext
+{
+    public DbSet<User> Users { get; set; }
+
+    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)  //configura del database in memoria
     {
-        _connection = new SQLiteConnection("Data Source=database.db");          //creazione di un aconnessione al db
-        _connection.Open();                                                     //apertura della connessione
-        var command = new SQLiteCommand("CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY, name TEXT)", _connection);   //creaz. tabella users
-        command.ExecuteNonQuery();
+        optionsBuilder.UseSqlite("Data Source=MyDatabase.sqlite");
     }
 
     public void AddUser(string name)
     {
-        var command = new SQLiteCommand($"INSERT INTO users (name) VALUES ('{name}')", _connection);
-        command.ExecuteNonQuery();
+        User user=new User();
+        user.Nome=name;
+        Users.Add(user);
+        SaveChanges();
     }
 
+    /*
     public void EliminaUser(string name)
     {
         var command = new SQLiteCommand($"DELETE FROM users WHERE name=('{name}')", _connection);
@@ -58,29 +53,25 @@ public class Database
         command.ExecuteNonQuery();
     }
 
-
+*/
     public List<string> GetUsers()
     {
-        var command = new SQLiteCommand("SELECT name FROM users", _connection);         //creazione comando per leggere gli utenti
-        var reader = command.ExecuteReader();                                           //esecuzione del comando e creazione di un oggetto per leggere i risultati
-
-        var users = new List<string>();                                                 //creazione lista x memorizzare nomi degli utenti
-
-        while (reader.Read())
-        {
-            users.Add(reader.GetString(0));                                             //aggiunta del nome dell'utente alla lista
-        }
-        return users;
+       var variabile=Users.ToList();
+       List<string> lista=new ();
+       foreach(var v in variabile)
+       {
+        lista.Add(v.Nome!);
+       }
+       return lista;
     }
+    
+
+    
 
 }
 
 
-
-
-//  -----   VIEW    -----
-
-class View
+public class View
 {
 
     private Database _db;                               //riferimento al modello
@@ -94,8 +85,8 @@ class View
     {
         Console.WriteLine("1. Aggiungi user");
         Console.WriteLine("2. Leggi users");
-        Console.WriteLine("3. Modifica");
-        Console.WriteLine("4. Elimina");
+        /*Console.WriteLine("3. Modifica");
+        Console.WriteLine("4. Elimina");*/
         Console.WriteLine("5. Esci");
     }
 
@@ -112,15 +103,12 @@ class View
     {
         return Console.ReadLine()!;                      //lettura dell'input dell'utente
     }
+    
 }
 
 
 
-
-//  -----   CONTROLLER  -----
-
-
-class Controller
+public class Controller
 {
     private Database _db;               //riferimento al modello
     private View _view;                 //riferimento alla vista
@@ -142,10 +130,12 @@ class Controller
             {
                 AddUser();                          //aggiunta di un utente
             }
+            
             else if (input == "2")
             {
                 ShowUsers();                        //visualizzazione degli utenti
             }
+            /*
             else if (input == "3")
             {
                 ModificaUser();                     //visualizzazione degli utenti
@@ -153,7 +143,7 @@ class Controller
             else if (input == "4")
             {
                 EliminaUser();                      //visualizzazione degli utenti
-            }
+            }*/
             else if (input == "5")
             {
                 break;
@@ -169,7 +159,7 @@ class Controller
         _db.AddUser(name);                          //aggiunta dell'utente al database
     }
 
-    private void EliminaUser()
+/*    private void EliminaUser()
     {
         Console.WriteLine("Enter user name:");      //richiesta del nome delll utente
         var name = _view.GetInput();                //lettura del nome dell'utente
@@ -182,14 +172,15 @@ class Controller
         Console.WriteLine("Nome da modificare:");      //richiesta del nome delll utente
         var name = _view.GetInput();                //lettura del nome dell'utente
         _db.ModificaUser(name);                          //aggiunta dell'utente al database
-    }
+    }*/
 
     private void ShowUsers()
     {
         var users = _db.GetUsers();                 //lettura degli utenti del database
-        _view.ShowUsers(users);                     //visualizzazione degli utenti
+        _view.ShowUsers(users); 
     }
 
 
-
 }
+
+```

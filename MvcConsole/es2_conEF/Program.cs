@@ -2,23 +2,39 @@
 using System.Data.SQLite;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Sqlite;
+
+
+/*
+PROGRAMMA CHE CREA E GESTISCE DATABASE TRAMITE ENTITY FRAMEWORK
+AGGIUNGE, ELIMINA, MODIFICA, STAMPA GLI UTENTI NEL DATABASE
+PROGRAMMA CHE SEGUE MODELLO MVC (model, view, controller)
+*/
+
+
+
+//  -----   MAIN    -----
+
 public class Program
 {
     static void Main(string[] args)
     {
-        var db = new Database();                          //db
+        var db = new Database();                        //db
         var view = new View(db);                        //interfaccia utente
         var controller = new Controller(db, view);      //funzionalita gestisce dall'apliccazione
         controller.MainMenu();
     }
 }
 
+
+//  -----   CLASS USER  -----
 public class User
 {
     public int Id { get; set; }
     public string? Nome { get; set; }
-    
+
 }
+
+//  -----   DATABASE    -----
 
 public class Database : DbContext
 {
@@ -31,43 +47,62 @@ public class Database : DbContext
 
     public void AddUser(string name)
     {
-        User user=new User();
-        user.Nome=name;
-        Users.Add(user);
+        User utente = new User();
+        utente.Nome = name;
+        Users.Add(utente);
         SaveChanges();
     }
 
-    /*
-    public void EliminaUser(string name)
+
+    public void ModificaUser(string nome)
     {
-        var command = new SQLiteCommand($"DELETE FROM users WHERE name=('{name}')", _connection);
-        command.ExecuteNonQuery();
-    }
-    public void ModificaUser(string name)
-    {
-        Console.Write("Inserire nuovo nome: ");
-        string newname = Console.ReadLine()!;
-        var command = new SQLiteCommand($"UPDATE users SET name=('{newname}') WHERE name=('{name}')", _connection);
-        command.ExecuteNonQuery();
+        Console.Write("Inserisci nome corretto: ");
+        string nuovo = Console.ReadLine()!;
+        foreach (User u in Users)
+        {
+
+            if (u.Nome == nome)
+            {
+
+                u.Nome = nuovo;
+                SaveChanges();
+            }
+        }
     }
 
-*/
+        public void EliminaUser(string nome)
+    {
+        foreach (User u in Users)
+        {
+
+            if (u.Nome == nome)
+            {
+                Remove(u);
+                SaveChanges();
+            }
+        }
+    }
+
+
+
+
     public List<string> GetUsers()
     {
-       var variabile=Users.ToList();
-       List<string> lista=new ();
-       foreach(var v in variabile)
-       {
-        lista.Add(v.Nome);
-       }
-       return lista;
+        var variabile = Users.ToList();
+        List<string> utenti = new();
+        foreach (var v in variabile)
+        {
+            utenti.Add(v.Nome!);
+        }
+        return utenti;
     }
-    
 
-    
+
+
 
 }
 
+//  -----   VIEW    -----
 
 public class View
 {
@@ -83,28 +118,30 @@ public class View
     {
         Console.WriteLine("1. Aggiungi user");
         Console.WriteLine("2. Leggi users");
-        /*Console.WriteLine("3. Modifica");
-        Console.WriteLine("4. Elimina");*/
+        Console.WriteLine("3. Modifica user");
+        Console.WriteLine("4. Elimina user");
         Console.WriteLine("5. Esci");
     }
 
     public void ShowUsers(List<string> users)
     {
-        foreach (var user in users)
+        Console.WriteLine("Lista utenti:");
+        foreach (var u in users)
         {
-
-            Console.WriteLine(user);                 //visualizzazione del nome degli utenti
+            Console.WriteLine(u);                 //visualizzazione del nome degli utenti
         }
     }
+
 
     public string GetInput()
     {
         return Console.ReadLine()!;                      //lettura dell'input dell'utente
     }
-    
+
 }
 
 
+//  -----   CONTROLLER  -----
 
 public class Controller
 {
@@ -113,7 +150,7 @@ public class Controller
 
     public Controller(Database db, View view)
     {
-        _db = db;                         //inizializzazine del riferimento al modello
+        _db = db;                         //inizializzazione del riferimento al modello
         _view = view;                     //iniz. del riferimento alla vista
     }
 
@@ -128,20 +165,20 @@ public class Controller
             {
                 AddUser();                          //aggiunta di un utente
             }
-            
+
             else if (input == "2")
             {
                 ShowUsers();                        //visualizzazione degli utenti
             }
-            /*
             else if (input == "3")
             {
-                ModificaUser();                     //visualizzazione degli utenti
+                ModificaUser();                        //visualizzazione degli utenti
             }
             else if (input == "4")
             {
-                EliminaUser();                      //visualizzazione degli utenti
-            }*/
+                EliminaUser();                        //visualizzazione degli utenti
+            }
+
             else if (input == "5")
             {
                 break;
@@ -157,25 +194,25 @@ public class Controller
         _db.AddUser(name);                          //aggiunta dell'utente al database
     }
 
-/*    private void EliminaUser()
-    {
-        Console.WriteLine("Enter user name:");      //richiesta del nome delll utente
-        var name = _view.GetInput();                //lettura del nome dell'utente
-        _db.EliminaUser(name);                          //aggiunta dell'utente al database
-    }
-
-
-    private void ModificaUser()
-    {
-        Console.WriteLine("Nome da modificare:");      //richiesta del nome delll utente
-        var name = _view.GetInput();                //lettura del nome dell'utente
-        _db.ModificaUser(name);                          //aggiunta dell'utente al database
-    }*/
-
     private void ShowUsers()
     {
         var users = _db.GetUsers();                 //lettura degli utenti del database
-        _view.ShowUsers(users); 
+        _view.ShowUsers(users);
+    }
+
+    private void ModificaUser()
+    {
+        Console.Write("Inserisci nome dell'utente da modificare: ");
+        var nome = _view.GetInput();
+        _db.ModificaUser(nome);
+    }
+
+    private void EliminaUser()
+    {
+        Console.Write("Inserisci nome dell'utente da eliminare: ");
+        var nome = _view.GetInput();
+        _db.EliminaUser(nome);
+
     }
 
 
