@@ -1,8 +1,4 @@
-﻿using System.Configuration;
-using System.Data.SQLite;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Sqlite;
-
+﻿using Microsoft.EntityFrameworkCore;
 
 /*
 PROGRAMMA CHE CREA E GESTISCE DATABASE TRAMITE ENTITY FRAMEWORK
