@@ -179,9 +179,9 @@ class Controller
 
     private void ModificaUser()
     {
-        Console.WriteLine("Nome da modificare:");      //richiesta del nome delll utente
-        var name = _view.GetInput();                //lettura del nome dell'utente
-        _db.ModificaUser(name);                          //aggiunta dell'utente al database
+        Console.WriteLine("Nome da modificare:");       //richiesta del nome delll utente
+        var name = _view.GetInput();                    //lettura del nome dell'utente
+        _db.ModificaUser(name);                         //aggiunta dell'utente al database
     }
 
     private void ShowUsers()
