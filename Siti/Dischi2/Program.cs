@@ -1,5 +1,6 @@
 ﻿using System.Reflection.Emit;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ValueGeneration.Internal;
 
 
 
@@ -536,6 +537,42 @@ public class DiscoController
         return id;
     }
 
+    //          --------------------------------------------------
+
+    public int InsertEControlloInt()
+    {
+        int val;
+    label1:
+        try
+        {
+            val = Int32.Parse(Console.ReadLine());
+        }
+        catch (Exception)
+        {
+            Console.Write("Inserire valore numerico: ");
+            goto label1;
+        }
+        return val;
+    }
+
+    public double InsertEControlloDouble()
+    {
+        double val;
+    label1:
+        try
+        {
+            val = Double.Parse(Console.ReadLine());
+        }
+        catch (Exception)
+        {
+            Console.Write("Inserire valore numerico: ");
+            goto label1;
+        }
+        return val;
+    }
+
+
+
 
     public void AddDisco()
     {
@@ -546,11 +583,21 @@ public class DiscoController
         disco.Titolo = input;
 
         Console.Write("Enter anno:");
-        int anno = Int32.Parse(Console.ReadLine());
+        int anno = InsertEControlloInt();
+        while (anno < 1600)
+        {
+            Console.Write("Enter anno plausibile:");
+            anno = InsertEControlloInt();
+        }
         disco.Anno = anno;
 
-        Console.Write("Enter prezzo:");
-        double prezzo = Double.Parse(Console.ReadLine());
+        Console.Write("Enter prezzo:");                 //inserire il decimale con la virgola (non il punto)
+        double prezzo = InsertEControlloDouble();
+        while (prezzo <= 0)
+        {
+            Console.Write("Enter prezzo plausibile:");
+            prezzo = InsertEControlloDouble();
+        }
         disco.Prezzo = prezzo;
 
         Console.Write("Enter nome artista:");
@@ -567,10 +614,33 @@ public class DiscoController
 
         var users = _genereController.GetGeneri();
         _view.ShowGeneri(users);
-        Console.Write("\nSeleziona genere:");
 
-        int id = Int32.Parse(Console.ReadLine());
+        bool trovato = false;
+        int id = 0;
+
+        while (trovato == false)
+        {
+            Console.Write("\nSeleziona genere:");
+            id = InsertEControlloInt();
+
+            foreach (Genere g in _db.Generi)
+            {
+                if (g.Id == id)
+                {
+                    trovato = true;
+                }
+            }
+            if (trovato == false)
+            {
+                Console.WriteLine("\n\nID genere non trovato.");
+                Thread.Sleep(1000);
+                _view.ShowGeneri(users);
+            }
+        }
+
         disco.GenereId = id;
+
+
 
 
 
@@ -598,69 +668,116 @@ public class DiscoController
         }
         if (presente == false)
         {
-            Console.WriteLine($"\n\nGenere '{name}' non trovato. Nessuna modifica effettuata.\n\n");
+            Console.WriteLine($"\n\nAlbum '{name}' non trovato. Nessuna modifica effettuata.\n\n");
             Thread.Sleep(3000);
         }
     }
 
 
     //  --------------------ARRIVATO QUI---------------------------------------
-    //  fare controllo anno
-    //  controllo prezzo
-    //  controllo id
+    //  correggere funzione modifica
+    //  - chiedi titolo e artista album da modificare
+
 
     public void ModificaDisco()
     {
 
 
-        Console.Write("Enter disco da modificare:");
+        Console.Write("Enter titolo disco da modificare: ");
         var name = _view.GetInput();
+        Console.Write("Enter artista disco da modificare: ");
+        string artista = Console.ReadLine();
 
-        //  MODIFICA
+        int artId = GetIdFromArtist(artista);
+
+        //  MODIFICA        
 
 
-        foreach (Disco g in _db.Dischi)
+        foreach (Disco d in _db.Dischi)
         {
 
 
-            if (g.Titolo == name)
+            if (d.Titolo == name && d.ArtistaId == artId)
             {
 
-                Console.Write("Enter titolo:");
+                Console.Write("Enter titolo: ");
                 var input = _view.GetInput();
-                g.Titolo = input;
+                d.Titolo = input;
                 int anno;
 
-                
-                Console.Write("Enter anno:");
-                try
+
+
+                Console.Write("Enter anno: ");
+                anno = InsertEControlloInt();
+                while (anno < 1600)
                 {
-                anno = Int32.Parse(Console.ReadLine());  
-                }   
-                catch(Exception)
-                {
-                    Console.WriteLine("Digita un valore corretto.");
-                    return;
+                    Console.Write("Enter anno plausibile: ");
+                    anno = InsertEControlloInt();
                 }
-                g.Anno = anno;
+                d.Anno = anno;
 
 
-                Console.Write("Enter prezzo:");
-                double prezzo = Double.Parse(Console.ReadLine());
-                g.Prezzo = prezzo;
 
-                Console.Write("Enter ID artista:");
-                int id = Int32.Parse(Console.ReadLine());
-                g.ArtistaId = id;
+                Console.Write("Enter prezzo: ");                 //inserire il decimale con la virgola (non il punto)
+                double prezzo = InsertEControlloDouble();
+                while (prezzo <= 0)
+                {
+                    Console.Write("Enter prezzo plausibile: ");
+                    prezzo = InsertEControlloDouble();
+                }
+                d.Prezzo = prezzo;
+
+
+
+
+                Console.Write("Enter nome artista: ");
+                input = _view.GetInput();
+
+                while (GetIdFromArtist(input) == 0)
+                {
+                    System.Console.Write("Artista non presente in catalogo, inseriscine uno presente: ");
+                    input = _view.GetInput();
+                }
+
+                d.ArtistaId = GetIdFromArtist(input);
+
+
+
 
                 var users = _genereController.GetGeneri();
                 _view.ShowGeneri(users);
-                Console.Write("Enter ID genere:");
-                id = Int32.Parse(Console.ReadLine());
-                g.GenereId = id;
+
+                bool trovato = false;
+                int id = 0;
+
+                while (trovato == false)
+                {
+                    Console.Write("\nSeleziona genere:");
+                    id = InsertEControlloInt();
+
+                    foreach (Genere g in _db.Generi)
+                    {
+                        if (g.Id == id)
+                        {
+                            trovato = true;
+                        }
+                    }
+                    if (trovato == false)
+                    {
+                        Console.WriteLine("\n\nID genere non trovato.");
+                        Thread.Sleep(1000);
+                        _view.ShowGeneri(users);
+                    }
+                }
+
+                d.GenereId = id;
+
                 _db.SaveChanges();
+                break;
             }
         }
+        Console.WriteLine("\n\nDisco non trovato in catalogo\n\n");
+        Thread.Sleep(3000);
     }
 
     public string Spazio(int spazioTitolo)

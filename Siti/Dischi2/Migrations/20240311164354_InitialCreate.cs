@@ -5,7 +5,7 @@
 namespace Dischi2.Migrations
 {
     /// <inheritdoc />
-    public partial class AggRelazioni : Migration
+    public partial class InitialCreate : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -45,10 +45,8 @@ namespace Dischi2.Migrations
                     Titolo = table.Column<string>(type: "TEXT", nullable: true),
                     Anno = table.Column<int>(type: "INTEGER", nullable: false),
                     Prezzo = table.Column<double>(type: "REAL", nullable: false),
-                    Id_artista = table.Column<int>(type: "INTEGER", nullable: false),
-                    ArtistaId = table.Column<int>(type: "INTEGER", nullable: true),
-                    Id_genere = table.Column<int>(type: "INTEGER", nullable: false),
-                    GenereId = table.Column<int>(type: "INTEGER", nullable: true)
+                    ArtistaId = table.Column<int>(type: "INTEGER", nullable: false),
+                    GenereId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -57,12 +55,14 @@ namespace Dischi2.Migrations
                         name: "FK_Dischi_Artisti_ArtistaId",
                         column: x => x.ArtistaId,
                         principalTable: "Artisti",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Dischi_Generi_GenereId",
                         column: x => x.GenereId,
                         principalTable: "Generi",
-                        principalColumn: "Id");
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
