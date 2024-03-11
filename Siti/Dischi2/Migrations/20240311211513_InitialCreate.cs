@@ -65,6 +65,43 @@ namespace Dischi2.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Canzoni",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    Titolo = table.Column<string>(type: "TEXT", nullable: true),
+                    ArtistaId = table.Column<int>(type: "INTEGER", nullable: false),
+                    DiscoId = table.Column<int>(type: "INTEGER", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Canzoni", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Canzoni_Artisti_ArtistaId",
+                        column: x => x.ArtistaId,
+                        principalTable: "Artisti",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Canzoni_Dischi_DiscoId",
+                        column: x => x.DiscoId,
+                        principalTable: "Dischi",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Canzoni_ArtistaId",
+                table: "Canzoni",
+                column: "ArtistaId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Canzoni_DiscoId",
+                table: "Canzoni",
+                column: "DiscoId");
+
             migrationBuilder.CreateIndex(
                 name: "IX_Dischi_ArtistaId",
                 table: "Dischi",
@@ -79,6 +116,9 @@ namespace Dischi2.Migrations
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Canzoni");
+
             migrationBuilder.DropTable(
                 name: "Dischi");
 

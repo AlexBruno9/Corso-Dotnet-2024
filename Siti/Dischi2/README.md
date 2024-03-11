@@ -1,10 +1,9 @@
 # PROGETTO CATALOGO DISCHI
 
-
 Applicazione utilizzata per il catalogo di dischi musicali, inseriti in un database memorizzandone titolo, artista, anno di pubblicazione e genere. Anche prezzo nel caso l'applicazione venga utilizzata come catalogo per un negozio di vendita di dischi.
 
-
 ## PUBBLICO TARGET
+
 - L'applicazione può essere usata sia dagli utenti che vogliono tenere memorizzato il proprio catalogo di dischi, dai privati ai collezzionisti, sia da un negozio di vendita di dischi, il quale dovrà tenere memoria del proprio catalogo disponibile.
 
 ## DEFINIZIONE DEI REQUISITI E ANALISI
@@ -25,37 +24,36 @@ Applicazione utilizzata per il catalogo di dischi musicali, inseriti in un datab
 ## FUNZIONALITA' PER TABELLA Dischi
 
 - [x] DischiController
-    - [x] aggiungere disco
-    - [x] rimuovere disco
-    - [x] modificare disco
+
+  - [x] aggiungere disco
+  - [x] rimuovere disco
+  - [x] modificare disco
 
 - [x] DischiView
-    - [x] mostrare elenco dischi
-        - [ ] per anno
-        - [ ] per prezzo
-        - [ ] per artista
-        - [ ] per genere
-    - [ ] mostrare panoramica singolo disco
+
+  - [x] mostrare elenco dischi
+    - [ ] per anno
+    - [ ] per prezzo
+    - [ ] per artista
+    - [ ] per genere
+  - [ ] mostrare panoramica singolo disco
 
 - [x] idem per tabella artista e genere
 
 ### - MIGLIORAMENTI:
+
 - [x] STAMPA NOME ARTISTA ANZICHE ID ARTISTA QUANDO STAMPI DISCHI
 - [x] MOSTRA ELENCO GENERI DURANTE INSERIMENTO IN ADD DISCO
 - [x] INSERIRE NOME ARTISTA ANZICHE ID (ma la tabella memorizza l'Id artista)
 - [x] STAMPA DISCHI IN TABELLA ORDINATA (calcola spazi vuoti necessari)
 - [ ] AGGIUNGERE CAMPO PER NUMERO DI COPIE DISPONIBILI PER DISCO
 
-
-
-
-
 ## PIANIFICAZIONE E DESIGN DELL'ARCHITETTURA
 
 - [x] L'applicazione verrà suddivisa secondo il pattern MVC
 
->
 > Struttura dell progetto
+
 ```mermaid
 graph TD;
     A[Catalogo] --> B[Database];
@@ -74,7 +72,7 @@ graph TD;
     D --> D1[ArtistaController
              GenereController
              DiscoController
-             
+
              ];
 
 
@@ -88,7 +86,6 @@ graph TD;
 
 
 ```
-
 
 > Struttura del database `database.db`
 
@@ -113,54 +110,48 @@ erDiagram
         id int pk
         nome string
     }
-    
-    d[playlist] {
-        id int pk
-        id_tracce int fk
-        id_utente int fk
-        
 
-    }
-    
-    e[utente] {
-        id int pk
-        nome string
-    }
-
-    f[tracce ] {
+    d[canzoni] {
         id int pk
         titolo string
+        id_artista int fk
         id_disco int fk
     }
- 
-    
+
+    e[playlist] {
+        id int pk
+        titolo string
+        id_artista int fk
+        id_disco int fk
+    }
+
+
+
+
     a }|--|| b : " "
     a }|--|| c : " "
-    a }|--|| d : " "
-    d }|--|| e : " "
-    d }|--|| f : " "
-    f }|--|| a : " "
+    d }|--|| a : " "
+    e }|--|{ d : " "
 
-    
- 
+
+
+
 ```
-
 
 ### Menu principale
 
 > 1. Aggiungi artista
-> 2. Elimina artista 
+> 2. Elimina artista
 > 3. Modifica artista
-> 4. Mostra artisti  
-> 5. Aggiungi genere 
-> 6. Elimina genere  
-> 7. Modifica genere 
-> 8. Mostra generi   
-> 9. Aggiungi disco  
+> 4. Mostra artisti
+> 5. Aggiungi genere
+> 6. Elimina genere
+> 7. Modifica genere
+> 8. Mostra generi
+> 9. Aggiungi disco
 > 10. Elimina disco
 > 11. Modifica disco
 > 12. Mostra dischi
-
 
 ## DEFINIZIONE DI STRUTTURE E CONVENZIONI
 
@@ -170,19 +161,10 @@ erDiagram
 - [x] I nomi delle **variabili** devono essere camelCase.
 - [x] I nomi delle **costanti** devono essere SNAKE_UPPERCASE.
 
-
-
-
 ## TEST E DEBUGGING
 
 - [x] Controllo inserimento (lettere, numeri, spazio vuoto, numeri negativi, numeri enormi)
-    - [x] verificare inserimenti per Add, Modifica, Elimina e Mostra per tabella Artisti
-    - [x] verificare inserimenti per Add, Modifica, Elimina e Mostra per tabella Generi
-    - [x] verificare inserimenti per Add, Modifica, Elimina e Mostra per tabella Dischi
+  - [x] verificare inserimenti per Add, Modifica, Elimina e Mostra per tabella Artisti
+  - [x] verificare inserimenti per Add, Modifica, Elimina e Mostra per tabella Generi
+  - [x] verificare inserimenti per Add, Modifica, Elimina e Mostra per tabella Dischi
 - [x] Controllo inserimento dati rindondanti all'interno di una tabella
-
-
-
-
-
-

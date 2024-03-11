@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Dischi2.Migrations
 {
     [DbContext(typeof(Database))]
-    [Migration("20240311164354_InitialCreate")]
+    [Migration("20240311211513_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -30,6 +30,30 @@ namespace Dischi2.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Artisti");
+                });
+
+            modelBuilder.Entity("Canzone", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("ArtistaId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("DiscoId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Titolo")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ArtistaId");
+
+                    b.HasIndex("DiscoId");
+
+                    b.ToTable("Canzoni");
                 });
 
             modelBuilder.Entity("Disco", b =>
@@ -74,6 +98,25 @@ namespace Dischi2.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Generi");
+                });
+
+            modelBuilder.Entity("Canzone", b =>
+                {
+                    b.HasOne("Artista", "Artista")
+                        .WithMany()
+                        .HasForeignKey("ArtistaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Disco", "Disco")
+                        .WithMany()
+                        .HasForeignKey("DiscoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Artista");
+
+                    b.Navigation("Disco");
                 });
 
             modelBuilder.Entity("Disco", b =>

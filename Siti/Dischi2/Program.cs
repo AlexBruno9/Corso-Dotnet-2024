@@ -5,13 +5,7 @@ using Microsoft.EntityFrameworkCore.ValueGeneration.Internal;
 
 
 
-//  AGGIUNGERE STAMPE IN ORDINE PER PREZZO, ANNO, ARTISTI
-
-//  CONTROLLI inserimento (lettere, numeri, spazio vuoto, numeri negativi, numeri enormi)
-/*  -artista
-    -genere
-    -disco
-*/
+//  AGGIUNGERE tracce, poi playlist
 
 
 
@@ -59,30 +53,18 @@ public class Disco
 
 }
 
-public class Playlist
+
+
+public class Canzone
 {
     public int Id { get; set; }
+    public string Titolo { get; set; }
+    public int ArtistaId { get; set; }
+    public Artista Artista { get; set; }
     public int DiscoId { get; set; }
     public Disco Disco { get; set; }
-    public int UtenteId { get; set; }
-    public Utente Utente { get; set; }
-
+    //aggiungere durata
 }
-
-public class Utente
-{
-    public int Id { get; set; }
-    public string Nome { get; set; }
-}
-/*
-public class Tracklist
-{
-    public int Id { get; set; }
-    public string Nome { get; set; }
-}
-*/
-
-//  MANCA TABELLA TRACKLIST
 
 
 
@@ -95,11 +77,26 @@ public class Database : DbContext
     public DbSet<Artista> Artisti { get; set; }
     public DbSet<Genere> Generi { get; set; }
     public DbSet<Disco> Dischi { get; set; }
+    public DbSet<Canzone> Canzoni { get; set; }
 
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
         optionsBuilder.UseSqlite("Data Source=MyDatabase.sqlite");
+    }
+
+    public int GetIdFromArtist(string nome)
+    {
+        int id = 0;
+
+        foreach (var a in Artisti)
+        {
+            if (a.Nome == nome)
+            {
+                id = a.Id;
+            }
+        }
+        return id;
     }
 
 }
@@ -127,6 +124,7 @@ public class View
         Console.WriteLine("10. Elimina disco");
         Console.WriteLine("11. Modifica disco");
         Console.WriteLine("12. Mostra dischi");
+        Console.WriteLine("13. Aggiungi canzone");
         Console.WriteLine("e. Esci");
     }
 
@@ -187,6 +185,7 @@ public class Controller
     private ArtistaController _artistaController = new();
     private GenereController _genereController = new();
     private DiscoController _discoController = new();
+    private CanzoneController _canzoneController = new();
 
     public Controller(Database db, View view)
     {
@@ -257,6 +256,10 @@ public class Controller
             {
                 _discoController.ShowDischi();
             }
+            if (input == "13")
+            {
+                _canzoneController.AddCanzone();
+            }
 
 
             else if (input == "e")
@@ -273,7 +276,7 @@ public class Controller
 
 //  -----   CONTROLLER  ARTISTA  -----
 
-
+/*
 public class ArtistaController
 {
 
@@ -388,11 +391,12 @@ public class ArtistaController
     }
 
 }
+*/
 
 
 //  -----   CONTROLLER  GENERE  -----
 
-
+/*
 public class GenereController
 {
 
@@ -509,6 +513,7 @@ public class GenereController
     }
 
 }
+*/
 
 
 
@@ -523,21 +528,8 @@ public class DiscoController
     private GenereController _genereController = new();
     //private ArtistaController _artistaController = new();
 
-    public int GetIdFromArtist(string nome)
-    {
-        int id = 0;
 
-        foreach (var a in _db.Artisti)
-        {
-            if (a.Nome == nome)
-            {
-                id = a.Id;
-            }
-        }
-        return id;
-    }
 
-    //          --------------------------------------------------
 
     public int InsertEControlloInt()
     {
@@ -603,13 +595,13 @@ public class DiscoController
         Console.Write("Enter nome artista:");
         input = _view.GetInput();
 
-        while (GetIdFromArtist(input) == 0)
+        while (_db.GetIdFromArtist(input) == 0)
         {
             System.Console.Write("Artista non presente in catalogo, inseriscine uno presente: ");
             input = _view.GetInput();
         }
 
-        disco.ArtistaId = GetIdFromArtist(input);
+        disco.ArtistaId = _db.GetIdFromArtist(input);
 
 
         var users = _genereController.GetGeneri();
@@ -674,7 +666,6 @@ public class DiscoController
     }
 
 
-    //  --------------------ARRIVATO QUI---------------------------------------
     //  correggere funzione modifica
     //  - chiedi titolo e artista album da modificare
 
@@ -688,7 +679,7 @@ public class DiscoController
         Console.Write("Enter artista disco da modificare: ");
         string artista = Console.ReadLine();
 
-        int artId = GetIdFromArtist(artista);
+        int artId = _db.GetIdFromArtist(artista);
 
         //  MODIFICA        
 
@@ -733,13 +724,13 @@ public class DiscoController
                 Console.Write("Enter nome artista: ");
                 input = _view.GetInput();
 
-                while (GetIdFromArtist(input) == 0)
+                while (_db.GetIdFromArtist(input) == 0)
                 {
                     System.Console.Write("Artista non presente in catalogo, inseriscine uno presente: ");
                     input = _view.GetInput();
                 }
 
-                d.ArtistaId = GetIdFromArtist(input);
+                d.ArtistaId = _db.GetIdFromArtist(input);
 
 
 
@@ -812,6 +803,146 @@ public class DiscoController
 
         _view.ShowDischi(users);
     }
+
+}
+
+
+
+//  -----   CONTROLLER  CANZONE -----
+
+
+public class CanzoneController
+{
+
+    private Database _db = new();
+    private View _view = new();
+
+
+    public void AddCanzone()
+    {
+
+        //Canzone canzone = new Canzone();
+
+
+        Console.Write("Enter song name:");
+        var name = _view.GetInput();
+
+
+        Console.Write("Enter nome artista:");
+        string input = _view.GetInput();
+        while (_db.GetIdFromArtist(input) == 0)
+        {
+            Console.Write("Artista non presente in catalogo, inseriscine uno presente: ");
+            input = _view.GetInput();
+        }
+        int idArtist = _db.GetIdFromArtist(input);
+        //canzone.ArtistaId = idArtist;
+
+        bool trova = false;
+        foreach (Canzone c in _db.Canzoni)
+        {
+            if (c.Titolo == name && c.ArtistaId == idArtist)
+            {
+                trova = true;
+            }
+        }
+
+        if (trova == true)
+        {
+            Console.WriteLine("Canzone già presente in catalogo, nessuna modifica effettuata.");
+            Thread.Sleep(3000);
+        }
+        else
+        {
+            Canzone canzone = new Canzone();
+            Console.WriteLine("STEP 7");
+
+            canzone.Titolo = name;
+            canzone.ArtistaId = idArtist;
+
+            canzone.DiscoId = 1;
+            _db.Canzoni.Add(canzone);
+            _db.SaveChanges();
+
+        }
+
+    }
+
+
+    public void EliminaGenere()
+    {
+        Console.Write("Enter genere name:");
+        var name = _view.GetInput();
+
+        bool presente = false;
+        foreach (Genere g in _db.Generi)
+        {
+
+            if (g.Nome == name)
+            {
+                _db.Remove(g);
+                _db.SaveChanges();
+                presente = true;
+            }
+        }
+        if (presente == false)
+        {
+            Console.WriteLine($"\n\nGenere '{name}' non trovato. Nessuna modifica effettuata.\n\n");
+            Thread.Sleep(3000);
+        }
+    }
+
+
+
+    public void ModificaGenere()
+    {
+
+        Console.Write("Enter nome genere da modificare: ");
+        var name = _view.GetInput();
+
+
+
+        Console.Write("Inserisci nome corretto: ");
+        string nuovo = Console.ReadLine()!;
+        bool trovato = false;
+
+        foreach (Genere g in _db.Generi)
+        {
+
+            if (g.Nome == name)
+            {
+                g.Nome = nuovo;
+                _db.SaveChanges();
+                trovato = true;
+            }
+        }
+        if (trovato == false)
+        {
+            Console.WriteLine($"\n\nGenere '{name}' non presente in catalogo. Operazione annullata;\n\n");
+            Thread.Sleep(3000);
+        }
+    }
+
+
+    public List<string> GetGeneri()
+    {
+        var variabile = _db.Generi.ToList();
+        List<string> generi = new();
+        foreach (var v in variabile)
+        {
+            generi.Add($"{v.Id} - {v.Nome}");
+        }
+        return generi;
+    }
+
+    public void ShowGeneri()
+    {
+        var users = GetGeneri();
+        _view.ShowGeneri(users);
+        Console.Write("\n\npremi un tasto per continuare");
+        Console.ReadKey();
+    }
+
 
 }
 

@@ -29,6 +29,30 @@ namespace Dischi2.Migrations
                     b.ToTable("Artisti");
                 });
 
+            modelBuilder.Entity("Canzone", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("ArtistaId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("DiscoId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("Titolo")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ArtistaId");
+
+                    b.HasIndex("DiscoId");
+
+                    b.ToTable("Canzoni");
+                });
+
             modelBuilder.Entity("Disco", b =>
                 {
                     b.Property<int>("Id")
@@ -71,6 +95,25 @@ namespace Dischi2.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Generi");
+                });
+
+            modelBuilder.Entity("Canzone", b =>
+                {
+                    b.HasOne("Artista", "Artista")
+                        .WithMany()
+                        .HasForeignKey("ArtistaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Disco", "Disco")
+                        .WithMany()
+                        .HasForeignKey("DiscoId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Artista");
+
+                    b.Navigation("Disco");
                 });
 
             modelBuilder.Entity("Disco", b =>
