@@ -19,7 +19,17 @@ Applicazione utilizzata per il catalogo di dischi musicali, inseriti in un datab
 - [x] classi (artista, album, genere)
 - [x] entity framework
 - [x] pattern MVC (database, view, controller)
-- [x] utilizzare un controller per ogni tabella, cosi lo creo per una tabella e lo copio per le altre due
+- [x] utilizzare un controller per ogni tabella, cosi lo creo per una tabella e lo copio per le altre 
+
+
+# FUNZIONAMENTO APPLICAZIONE
+
+- l'applicazione memorizza artisti, generi, dischi, canzoni e la propria playlist
+- l'utente può inserire liberamenti artisti e generi musicali
+- prima di inserire un disco, artista e genere di quest'ultimo devono esser gia presenti nel database 
+- prima di inserire una canzone, l'album di provenienza deve essere gia presente nel database (che sia un singolo (EP) o un classico LP)
+- prima di inserire una canzone in playlist, dovrà ovviamente essere già memorizzata nel database
+
 
 ## FUNZIONALITA' PER TABELLA Dischi
 
@@ -46,7 +56,12 @@ Applicazione utilizzata per il catalogo di dischi musicali, inseriti in un datab
 - [x] MOSTRA ELENCO GENERI DURANTE INSERIMENTO IN ADD DISCO
 - [x] INSERIRE NOME ARTISTA ANZICHE ID (ma la tabella memorizza l'Id artista)
 - [x] STAMPA DISCHI IN TABELLA ORDINATA (calcola spazi vuoti necessari)
-- [ ] AGGIUNGERE CAMPO PER NUMERO DI COPIE DISPONIBILI PER DISCO
+- [ ] AGGIUNGERE CAMPO NUMERO DI COPIE DISPONIBILI PER CLASSE DISCO
+- [ ] AGGIUNGERE CAMPO DURATA PER CLASSE CANZONI
+- [ ] AGGIUNGERE FILTRI DI RICERCA 
+  - [ ] cerca disco per artista o genere
+  - [ ] cerca canzone per artista 
+  - [ ] visualizza tracklist di un disco
 
 ## PIANIFICAZIONE E DESIGN DELL'ARCHITETTURA
 
@@ -56,7 +71,7 @@ Applicazione utilizzata per il catalogo di dischi musicali, inseriti in un datab
 
 ```mermaid
 graph TD;
-    A[Catalogo] --> B[Database];
+    A[Catalogo] --> B[Model];
     A --> C[Views];
     A --> D[Controllers];
 
@@ -120,9 +135,7 @@ erDiagram
 
     e[playlist] {
         id int pk
-        titolo string
-        id_artista int fk
-        id_disco int fk
+        id_canzone int fk
     }
 
 
@@ -132,6 +145,8 @@ erDiagram
     a }|--|| c : " "
     d }|--|| a : " "
     e }|--|{ d : " "
+    d }|--|| b : " "
+    
 
 
 
@@ -168,3 +183,5 @@ erDiagram
   - [x] verificare inserimenti per Add, Modifica, Elimina e Mostra per tabella Generi
   - [x] verificare inserimenti per Add, Modifica, Elimina e Mostra per tabella Dischi
 - [x] Controllo inserimento dati rindondanti all'interno di una tabella
+
+

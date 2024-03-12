@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Dischi2.Migrations
 {
     [DbContext(typeof(Database))]
-    [Migration("20240311211513_InitialCreate")]
+    [Migration("20240312133947_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
@@ -54,6 +54,25 @@ namespace Dischi2.Migrations
                     b.HasIndex("DiscoId");
 
                     b.ToTable("Canzoni");
+                });
+
+            modelBuilder.Entity("CanzonePlaylist", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("CanzoneId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<string>("NomePlaylist")
+                        .HasColumnType("TEXT");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CanzoneId");
+
+                    b.ToTable("Playlist");
                 });
 
             modelBuilder.Entity("Disco", b =>
@@ -117,6 +136,17 @@ namespace Dischi2.Migrations
                     b.Navigation("Artista");
 
                     b.Navigation("Disco");
+                });
+
+            modelBuilder.Entity("CanzonePlaylist", b =>
+                {
+                    b.HasOne("Canzone", "Canzone")
+                        .WithMany()
+                        .HasForeignKey("CanzoneId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Canzone");
                 });
 
             modelBuilder.Entity("Disco", b =>

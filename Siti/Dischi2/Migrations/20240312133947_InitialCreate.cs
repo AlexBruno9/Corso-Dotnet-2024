@@ -92,6 +92,26 @@ namespace Dischi2.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Playlist",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    NomePlaylist = table.Column<string>(type: "TEXT", nullable: true),
+                    CanzoneId = table.Column<int>(type: "INTEGER", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Playlist", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Playlist_Canzoni_CanzoneId",
+                        column: x => x.CanzoneId,
+                        principalTable: "Canzoni",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Canzoni_ArtistaId",
                 table: "Canzoni",
@@ -111,11 +131,19 @@ namespace Dischi2.Migrations
                 name: "IX_Dischi_GenereId",
                 table: "Dischi",
                 column: "GenereId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Playlist_CanzoneId",
+                table: "Playlist",
+                column: "CanzoneId");
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropTable(
+                name: "Playlist");
+
             migrationBuilder.DropTable(
                 name: "Canzoni");
 
