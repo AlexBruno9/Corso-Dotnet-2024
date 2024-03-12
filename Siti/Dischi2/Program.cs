@@ -99,6 +99,21 @@ public class Database : DbContext
         return id;
     }
 
+
+    public int GetIdFromDisco(string nome)
+    {
+        int id = 0;
+
+        foreach (Disco d in Dischi)
+        {
+            if (d.Titolo == nome)
+            {
+                id = d.Id;
+            }
+        }
+        return id;
+    }
+
 }
 
 
@@ -125,6 +140,8 @@ public class View
         Console.WriteLine("11. Modifica disco");
         Console.WriteLine("12. Mostra dischi");
         Console.WriteLine("13. Aggiungi canzone");
+        Console.WriteLine("14. Elimina canzone");
+        Console.WriteLine("15. Modifica canzone");
         Console.WriteLine("e. Esci");
     }
 
@@ -259,6 +276,14 @@ public class Controller
             if (input == "13")
             {
                 _canzoneController.AddCanzone();
+            }
+            if (input == "14")
+            {
+                _canzoneController.EliminaCanzone();
+            }
+            if (input == "15")
+            {
+                _canzoneController.ModificaCanzone();
             }
 
 
@@ -854,13 +879,23 @@ public class CanzoneController
         }
         else
         {
+            Console.Write("Enter nome disco:");
+            input = _view.GetInput();
+
+            while (_db.GetIdFromDisco(input) == 0)
+            {
+                Console.Write("Disco non presente in catalogo, inseriscine uno presente: ");
+                input = _view.GetInput();
+            }
+            int idAlbum = _db.GetIdFromDisco(input);
+
+
+
             Canzone canzone = new Canzone();
-            Console.WriteLine("STEP 7");
 
             canzone.Titolo = name;
             canzone.ArtistaId = idArtist;
-
-            canzone.DiscoId = 1;
+            canzone.DiscoId = idAlbum;
             _db.Canzoni.Add(canzone);
             _db.SaveChanges();
 
@@ -869,79 +904,141 @@ public class CanzoneController
     }
 
 
-    public void EliminaGenere()
+    public void EliminaCanzone()
     {
-        Console.Write("Enter genere name:");
+        Console.Write("Enter titolo canzone da eliminare: ");
         var name = _view.GetInput();
 
+        Console.Write("Enter artista canzone da eliminare: ");
+        var temp = _view.GetInput();
+        var artist = _db.GetIdFromArtist(temp);
+
+
         bool presente = false;
-        foreach (Genere g in _db.Generi)
+        foreach (Canzone c in _db.Canzoni)
         {
 
-            if (g.Nome == name)
+            if (c.Titolo == name && c.ArtistaId == artist)
             {
-                _db.Remove(g);
+                _db.Remove(c);
                 _db.SaveChanges();
                 presente = true;
             }
         }
         if (presente == false)
         {
-            Console.WriteLine($"\n\nGenere '{name}' non trovato. Nessuna modifica effettuata.\n\n");
-            Thread.Sleep(3000);
+            Console.WriteLine($"\n\nCanzone non trovata, assicurati di aver digitato titolo e autore corretti;\n Nessuna modifica effettuata.\n\n");
+            Thread.Sleep(4000);
         }
     }
 
 
+    //  provare se funziona e passare a show canzoni
 
-    public void ModificaGenere()
+
+    public void ModificaCanzone()
     {
 
-        Console.Write("Enter nome genere da modificare: ");
+        Console.Write("Enter titolo canzone da modificare: ");
         var name = _view.GetInput();
 
+        Console.Write("Enter artista canzone da modificare: ");
+        var temp = _view.GetInput();
+        var artist = _db.GetIdFromArtist(temp);
 
 
-        Console.Write("Inserisci nome corretto: ");
-        string nuovo = Console.ReadLine()!;
-        bool trovato = false;
 
-        foreach (Genere g in _db.Generi)
+        foreach (Canzone c in _db.Canzoni)
         {
 
-            if (g.Nome == name)
+            bool trovato = false;
+            if (c.Titolo == name && c.ArtistaId == artist)
             {
-                g.Nome = nuovo;
-                _db.SaveChanges();
-                trovato = true;
+
+
+                Console.Write("Enter new song name:");
+                name = _view.GetInput();
+
+
+                Console.Write("Enter nome artista:");
+                string input = _view.GetInput();
+                while (_db.GetIdFromArtist(input) == 0)
+                {
+                    Console.Write("Artista non presente in catalogo, inseriscine uno presente: ");
+                    input = _view.GetInput();
+                }
+                int idArtist = _db.GetIdFromArtist(input);
+
+
+                bool trova = false;
+                foreach (Canzone ca in _db.Canzoni)
+                {
+                    if (ca.Titolo == name && ca.ArtistaId == idArtist)
+                    {
+                        trova = true;
+                    }
+                }
+
+                if (trova == true)
+                {
+                    Console.WriteLine("Canzone già presente in catalogo, nessuna modifica effettuata.");
+                    Thread.Sleep(3000);
+                    break;
+                }
+                else
+                {
+                    Console.Write("Enter nome disco:");
+                    input = _view.GetInput();
+
+                    while (_db.GetIdFromDisco(input) == 0)
+                    {
+                        Console.Write("Disco non presente in catalogo, inseriscine uno presente: ");
+                        input = _view.GetInput();
+                    }
+                    int idAlbum = _db.GetIdFromDisco(input);
+
+
+
+
+                    c.Titolo = name;
+                    c.ArtistaId = idArtist;
+                    c.DiscoId = idAlbum;
+
+                    _db.SaveChanges();
+
+                    trovato = true;
+                }
+            }
+            if (trovato == false)
+            {
+                Console.WriteLine($"\n\nCanzone non trovata, assicurati di aver digitato titolo e autore corretti;\n  Operazione annullata;\n\n");
+                Thread.Sleep(4000);
             }
         }
-        if (trovato == false)
-        {
-            Console.WriteLine($"\n\nGenere '{name}' non presente in catalogo. Operazione annullata;\n\n");
-            Thread.Sleep(3000);
-        }
     }
 
 
-    public List<string> GetGeneri()
-    {
-        var variabile = _db.Generi.ToList();
-        List<string> generi = new();
-        foreach (var v in variabile)
-        {
-            generi.Add($"{v.Id} - {v.Nome}");
-        }
-        return generi;
-    }
+    /*
 
-    public void ShowGeneri()
-    {
-        var users = GetGeneri();
-        _view.ShowGeneri(users);
-        Console.Write("\n\npremi un tasto per continuare");
-        Console.ReadKey();
-    }
+                public List<string> GetGeneri()
+                {
+                    var variabile = _db.Generi.ToList();
+                    List<string> generi = new();
+                    foreach (var v in variabile)
+                    {
+                        generi.Add($"{v.Id} - {v.Nome}");
+                    }
+                    return generi;
+                }
+
+                public void ShowGeneri()
+                {
+                    var users = GetGeneri();
+                    _view.ShowGeneri(users);
+                    Console.Write("\n\npremi un tasto per continuare");
+                    Console.ReadKey();
+                }
+            */
 
 
 }
