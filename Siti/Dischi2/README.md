@@ -19,17 +19,15 @@ Applicazione utilizzata per il catalogo di dischi musicali, inseriti in un datab
 - [x] classi (artista, album, genere)
 - [x] entity framework
 - [x] pattern MVC (database, view, controller)
-- [x] utilizzare un controller per ogni tabella, cosi lo creo per una tabella e lo copio per le altre 
-
+- [x] utilizzare un controller per ogni tabella, cosi lo creo per una tabella e lo copio per le altre
 
 # FUNZIONAMENTO APPLICAZIONE
 
 - l'applicazione memorizza artisti, generi, dischi, canzoni e la propria playlist
 - l'utente può inserire liberamenti artisti e generi musicali
-- prima di inserire un disco, artista e genere di quest'ultimo devono esser gia presenti nel database 
+- prima di inserire un disco, artista e genere di quest'ultimo devono esser gia presenti nel database
 - prima di inserire una canzone, l'album di provenienza deve essere gia presente nel database (che sia un singolo (EP) o un classico LP)
 - prima di inserire una canzone in playlist, dovrà ovviamente essere già memorizzata nel database
-
 
 ## FUNZIONALITA' PER TABELLA Dischi
 
@@ -58,9 +56,10 @@ Applicazione utilizzata per il catalogo di dischi musicali, inseriti in un datab
 - [x] STAMPA DISCHI IN TABELLA ORDINATA (calcola spazi vuoti necessari)
 - [ ] AGGIUNGERE CAMPO NUMERO DI COPIE DISPONIBILI PER CLASSE DISCO
 - [ ] AGGIUNGERE CAMPO DURATA PER CLASSE CANZONI
-- [ ] AGGIUNGERE FILTRI DI RICERCA 
+- [ ] (ADD ARTISTA SE INSERISCI UN PEZZO DI UN ARTISTA NON NEL DB)
+- [ ] AGGIUNGERE FILTRI DI RICERCA
   - [ ] cerca disco per artista o genere
-  - [ ] cerca canzone per artista 
+  - [ ] cerca canzone per artista
   - [ ] visualizza tracklist di un disco
 
 ## PIANIFICAZIONE E DESIGN DELL'ARCHITETTURA
@@ -146,7 +145,7 @@ erDiagram
     d }|--|| a : " "
     e }|--|{ d : " "
     d }|--|| b : " "
-    
+
 
 
 
@@ -183,5 +182,3 @@ erDiagram
   - [x] verificare inserimenti per Add, Modifica, Elimina e Mostra per tabella Generi
   - [x] verificare inserimenti per Add, Modifica, Elimina e Mostra per tabella Dischi
 - [x] Controllo inserimento dati rindondanti all'interno di una tabella
-
-

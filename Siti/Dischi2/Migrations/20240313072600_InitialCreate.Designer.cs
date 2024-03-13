@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Dischi2.Migrations
 {
     [DbContext(typeof(Database))]
-    [Migration("20240312133947_InitialCreate")]
+    [Migration("20240313072600_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />

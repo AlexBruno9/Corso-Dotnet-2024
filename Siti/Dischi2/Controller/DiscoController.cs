@@ -44,10 +44,40 @@ public class DiscoController
     }
 
 
-        //  NON  PERMETTERE INSERIMENTO SE NON ESISTONO ARTISTI O GENERI NEL DATABASE
+    //  NON  PERMETTERE INSERIMENTO SE NON ESISTONO ARTISTI O GENERI NEL DATABASE
 
     public void AddDisco()
     {
+
+        //  controllo ci siano artisti memorizzati
+
+        int counter = 0;
+        foreach (Artista a in _db.Artisti)
+        {
+            counter++;
+        }
+        if (counter == 0)
+        {
+            Console.WriteLine("\n\n\nNon ci sono artisti salvati nel database!\n");
+            Thread.Sleep(3000);
+            return;
+        }
+
+        //  controllo ci siano generi memorizzati
+
+        counter = 0;
+        foreach (Genere g in _db.Generi)
+        {
+            counter++;
+        }
+        if (counter == 0)
+        {
+            Console.WriteLine("\n\n\nNon ci sono generi salvati nel database!\n");
+            Thread.Sleep(3000);
+            return;
+        }
+
+
         Disco disco = new Disco();
 
         Console.Write("Enter titolo:");

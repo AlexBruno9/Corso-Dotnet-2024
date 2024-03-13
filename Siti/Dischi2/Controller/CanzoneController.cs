@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 
+
+//  MODIFICA CANZONE NON VA, DEVO MODIFICARE ALBUM , ma essendo titolo e artista lo stesso mi dice che è gia presente e mi caccia due frasi output a cazzo
 public class CanzoneController
 {
 
@@ -11,6 +13,20 @@ public class CanzoneController
     {
 
         //Canzone canzone = new Canzone();
+
+        //  controllo ci siano dischi memorizzati
+
+        int counter = 0;
+        foreach (Disco d in _db.Dischi)
+        {
+            counter++;
+        }
+        if (counter == 0)
+        {
+            Console.WriteLine("\n\n\nNon ci sono dischi salvati nel database!\nSalvane almeno uno.\n");
+            Thread.Sleep(3000);
+            return;
+        }
 
 
         Console.Write("Enter song name:");
@@ -120,7 +136,7 @@ public class CanzoneController
             if (c.Titolo == name && c.ArtistaId == artist)
             {
 
-
+                trovato = true;
                 Console.Write("\n\nEnter new song name:");
                 name = _view.GetInput();
 
@@ -135,51 +151,39 @@ public class CanzoneController
                 int idArtist = _db.GetIdFromArtist(input);
 
 
-                bool trova = false;
-                foreach (Canzone ca in _db.Canzoni)
-                {
-                    if (ca.Titolo == name && ca.ArtistaId == idArtist)
-                    {
-                        trova = true;
-                    }
-                }
 
-                if (trova == true)
+                Console.Write("Enter nome disco:");
+                input = _view.GetInput();
+
+                while (_db.GetIdFromDisco(input) == 0)
                 {
-                    Console.WriteLine("Canzone già presente in catalogo, nessuna modifica effettuata.");
-                    Thread.Sleep(3000);
-                    break;
-                }
-                else
-                {
-                    Console.Write("Enter nome disco:");
+                    Console.Write("Disco non presente in catalogo, inseriscine uno presente: ");
                     input = _view.GetInput();
-
-                    while (_db.GetIdFromDisco(input) == 0)
-                    {
-                        Console.Write("Disco non presente in catalogo, inseriscine uno presente: ");
-                        input = _view.GetInput();
-                    }
-                    int idAlbum = _db.GetIdFromDisco(input);
-
-
-
-
-                    c.Titolo = name;
-                    c.ArtistaId = idArtist;
-                    c.DiscoId = idAlbum;
-
-                    _db.SaveChanges();
-
-                    trovato = true;
                 }
-            }
+                int idAlbum = _db.GetIdFromDisco(input);
 
+
+
+
+                c.Titolo = name;
+                c.ArtistaId = idArtist;
+                c.DiscoId = idAlbum;
+
+                _db.SaveChanges();
+                break;
+            }
         }
+
+
         if (trovato == false)
         {
             Console.WriteLine($"\n\nCanzone non trovata, assicurati di aver digitato titolo e autore corretti;\nOperazione annullata;\n\n");
             Thread.Sleep(4000);
+        }
+        else
+        {
+            Console.WriteLine($"\n\nModifica effettuata con successo!\n\n");
+            Thread.Sleep(3000);
         }
     }
 

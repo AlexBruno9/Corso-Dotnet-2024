@@ -3,10 +3,12 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.ValueGeneration.Internal;
 
 
+//  risolto MODIFICA CANZONE SBAGLIATO
+//  risolto NON PERMETTERE INSERIMENTO DISCO SE NON ESISTONO ARTISTI O GENERI NEL DATABASE
+//  risolto NON PERMETTERE INSERIMENTO CANZONE SE NON CI SONO DISCHI PRESENTI
+//  +(cosa succede se per esempio elimino genere o artista di un disco salvato?)
+//  VISUALIZZA PLAYLIST PER GENERE
 
-
-//  NON  PERMETTERE INSERIMENTO SE NON ESISTONO ARTISTI O GENERI NEL DATABASE
-//  ADD ARTISTA SE INSERISCI UN PEZZO DI UN ARTISTA NON NEL DB
 
 
 
@@ -247,21 +249,21 @@ public class View
 
 
 
-    public void SelezionaPlaylist (List<CanzonePlaylist> playlist)
+    public void SelezionaPlaylist(List<CanzonePlaylist> playlist)
     {
         Console.Write("Digita nome playlist: ");
-        string select=Console.ReadLine();
+        string select = Console.ReadLine();
 
-        int counter=0;
-        foreach(CanzonePlaylist c in playlist)
+        int counter = 0;
+        foreach (CanzonePlaylist c in playlist)
         {
-            if(c.NomePlaylist==select)
-            {   
+            if (c.NomePlaylist == select)
+            {
                 counter++;
                 Console.WriteLine($"{counter} - {c.Canzone.Titolo} {_db.Spazio(25 - c.Canzone.Titolo.Length)} {c.Canzone.Artista.Nome} {_db.Spazio(15 - c.Canzone.Artista.Nome.Length)} {c.Canzone.Disco.Titolo} ");
             }
         }
-        
+
     }
 
 
