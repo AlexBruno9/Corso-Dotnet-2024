@@ -14,6 +14,7 @@ public class ProdottiModel : PageModel
     }
 
     public required IEnumerable<Prodotto> Prodotti { get; set; } //creo oggetto di tipo lista
+    public int numeroPagine{get;set;    }
     public void OnGet(decimal? minPrezzo, decimal? maxPrezzo, int? pageIndex)
     {
         Prodotti = new List<Prodotto>
@@ -29,7 +30,12 @@ public class ProdottiModel : PageModel
             new Prodotto {Nome = "Prodotto 9", Prezzo = 300, Dettaglio = "Descrizione prodotto 9"},
             new Prodotto {Nome = "Prodotto 10", Prezzo = 150, Dettaglio = "Descrizione prodotto 10"},
             new Prodotto {Nome = "Prodotto 11", Prezzo = 250, Dettaglio = "Descrizione prodotto 11"},
-            new Prodotto {Nome = "Prodotto 12", Prezzo = 350, Dettaglio = "Descrizione prodotto 12"}
+            new Prodotto {Nome = "Prodotto 12", Prezzo = 350, Dettaglio = "Descrizione prodotto 12"},
+            new Prodotto {Nome = "Prodotto 13", Prezzo = 200, Dettaglio = "Descrizione prodotto 13"},
+            new Prodotto {Nome = "Prodotto 14", Prezzo = 300, Dettaglio = "Descrizione prodotto 14"},
+            new Prodotto {Nome = "Prodotto 15", Prezzo = 150, Dettaglio = "Descrizione prodotto 15"},
+            new Prodotto {Nome = "Prodotto 16", Prezzo = 250, Dettaglio = "Descrizione prodotto 16"},
+            new Prodotto {Nome = "Prodotto 17", Prezzo = 350, Dettaglio = "Descrizione prodotto 17"}
         };
         if (minPrezzo.HasValue)
         {
@@ -44,7 +50,11 @@ public class ProdottiModel : PageModel
 
         _logger.LogInformation("Prodotti filtrati per prezzo");
 
+        numeroPagine=(int)Math.Ceiling(Prodotti.Count()/5.0);
         Prodotti = Prodotti.Skip(((pageIndex ?? 1) - 1) * 5).Take(5);
+        
+
+
         _logger.LogInformation("{pageIndex}", pageIndex);
     }
 }
