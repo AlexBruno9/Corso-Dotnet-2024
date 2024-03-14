@@ -1,10 +1,8 @@
 using Microsoft.EntityFrameworkCore;
 
-public class PlaylistController
+public class PlaylistController : Controller
 {
 
-    private Database _db = new();
-    private View _view = new();
 
 
 
@@ -13,15 +11,15 @@ public class PlaylistController
 
 
         Console.Write("Enter song name:");
-        var name = _view.GetInput();
+        var name = View.GetInput();
 
 
         Console.Write("Enter nome artista:");
-        string input = _view.GetInput();
+        string input = View.GetInput();
         while (_db.GetIdFromArtist(input) == 0)
         {
             Console.Write("Artista non presente in catalogo, inseriscine uno presente: ");
-            input = _view.GetInput();
+            input = View.GetInput();
         }
         int idArtist = _db.GetIdFromArtist(input);
 
@@ -33,11 +31,11 @@ public class PlaylistController
             {
                 trovato = true;
                 Console.Write("Nome playlist in cui inserire la canzone: ");
-                string NomePlay=Console.ReadLine();
+                string NomePlay = Console.ReadLine();
 
                 CanzonePlaylist canzonePlaylist = new CanzonePlaylist();
                 canzonePlaylist.CanzoneId = c.Id;
-                canzonePlaylist.NomePlaylist=NomePlay;
+                canzonePlaylist.NomePlaylist = NomePlay;
 
                 _db.Playlist.Add(canzonePlaylist);
                 _db.SaveChanges();
@@ -61,15 +59,15 @@ public class PlaylistController
 
 
         Console.Write("Enter song name:");
-        var name = _view.GetInput();
+        var name = View.GetInput();
 
 
         Console.Write("Enter nome artista:");
-        string input = _view.GetInput();
+        string input = View.GetInput();
         while (_db.GetIdFromArtist(input) == 0)
         {
             Console.Write("Artista non presente in catalogo, inseriscine uno presente: ");
-            input = _view.GetInput();
+            input = View.GetInput();
         }
         int idArtist = _db.GetIdFromArtist(input);
 
@@ -114,32 +112,33 @@ public class PlaylistController
         var playlist = _db.Playlist.Include(d => d.Canzone).Include(c => c.Canzone.Artista).Include(c => c.Canzone.Disco).ToList();
         List<string> users = new List<string>();
 
-        int counter=0;
+        int counter = 0;
         foreach (var p in playlist)
         {
             counter++;
             users.Add($"{counter} - {p.Canzone.Titolo} {_db.Spazio(25 - p.Canzone.Titolo.Length)} {p.Canzone.Artista.Nome} {_db.Spazio(15 - p.Canzone.Artista.Nome.Length)} {p.Canzone.Disco.Titolo} ");
         }
 
-        if(counter==0)
+        if (counter == 0)
         {
             Console.Clear();
             Console.WriteLine("\n\nLe tue playlist sono vuote!");
             Thread.Sleep(3000);
         }
-        else{
-        _view.ShowCanzoni(users);
+        else
+        {
+            View.ShowCanzoni(users);
         }
     }
 
-//------------------------------------------------------------------
-/*
-    public void ShowPlaylistSelezionata()
-    {
-        
-        _view.SelezionaPlaylist(_);
-    }
-*/
+    //------------------------------------------------------------------
+    /*
+        public void ShowPlaylistSelezionata()
+        {
+
+            _view.SelezionaPlaylist(_);
+        }
+    */
 
 
 }

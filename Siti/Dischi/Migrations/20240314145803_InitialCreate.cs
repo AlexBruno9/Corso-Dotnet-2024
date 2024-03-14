@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace Dischi2.Migrations
+namespace Dischi.Migrations
 {
     /// <inheritdoc />
     public partial class InitialCreate : Migration

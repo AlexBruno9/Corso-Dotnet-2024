@@ -2,16 +2,13 @@
 
 using Microsoft.EntityFrameworkCore;
 
-public class DiscoController
+public class DiscoController : Controller
 {
 
-    private Database _db = new();
-    private View _view = new();
-    private GenereController _genereController = new();
 
 
 
-    public int InsertEControlloInt()
+    public static int InsertEControlloInt()
     {
         int val;
     label1:
@@ -81,7 +78,7 @@ public class DiscoController
         Disco disco = new Disco();
 
         Console.Write("Enter titolo:");
-        var input = _view.GetInput();
+        var input = View.GetInput();
         disco.Titolo = input;
 
         Console.Write("Enter anno:");
@@ -103,19 +100,19 @@ public class DiscoController
         disco.Prezzo = prezzo;
 
         Console.Write("Enter nome artista:");
-        input = _view.GetInput();
+        input = View.GetInput();
 
         while (_db.GetIdFromArtist(input) == 0)
         {
             System.Console.Write("Artista non presente in catalogo, inseriscine uno presente: ");
-            input = _view.GetInput();
+            input = View.GetInput();
         }
 
         disco.ArtistaId = _db.GetIdFromArtist(input);
 
 
-        var users = _genereController.GetGeneri();
-        _view.ShowGeneri(users);
+        var users = GenereController.GetGeneri();
+        View.ShowGeneri(users);
 
         bool trovato = false;
         int id = 0;
@@ -136,7 +133,7 @@ public class DiscoController
             {
                 Console.WriteLine("\n\nID genere non trovato.");
                 Thread.Sleep(1000);
-                _view.ShowGeneri(users);
+                View.ShowGeneri(users);
             }
         }
 
@@ -155,7 +152,7 @@ public class DiscoController
     public void EliminaDisco()
     {
         Console.Write("Enter album name:");
-        var name = _view.GetInput();
+        var name = View.GetInput();
 
         bool presente = false;
         foreach (Disco d in _db.Dischi)
@@ -182,7 +179,7 @@ public class DiscoController
 
 
         Console.Write("Enter titolo disco da modificare: ");
-        var name = _view.GetInput();
+        var name = View.GetInput();
         Console.Write("Enter artista disco da modificare: ");
         string artista = Console.ReadLine();
 
@@ -200,7 +197,7 @@ public class DiscoController
                 trovato = true;
                 Console.WriteLine("\n\nMODIFICA:");
                 Console.Write("Enter titolo: ");
-                var input = _view.GetInput();
+                var input = View.GetInput();
                 d.Titolo = input;
                 int anno;
 
@@ -230,12 +227,12 @@ public class DiscoController
 
 
                 Console.Write("Enter nome artista: ");
-                string art = _view.GetInput();
+                string art = View.GetInput();
 
                 while (_db.GetIdFromArtist(art) == 0)
                 {
                     Console.Write("Artista non presente in catalogo, inseriscine uno presente: ");
-                    art = _view.GetInput();
+                    art = View.GetInput();
                 }
 
                 d.ArtistaId = _db.GetIdFromArtist(art);
@@ -243,8 +240,8 @@ public class DiscoController
 
 
 
-                var users = _genereController.GetGeneri();
-                _view.ShowGeneri(users);
+                var users = GenereController.GetGeneri();
+                View.ShowGeneri(users);
 
                 bool trovaGenere = false;
                 int id = 0;
@@ -265,7 +262,7 @@ public class DiscoController
                     {
                         Console.WriteLine("\n\nID genere non trovato.");
                         Thread.Sleep(1000);
-                        _view.ShowGeneri(users);
+                        View.ShowGeneri(users);
                     }
                 }
 
@@ -305,7 +302,7 @@ public class DiscoController
             users.Add($"{d.Titolo} {_db.Spazio(25 - d.Titolo.Length)} {d.Artista.Nome} {_db.Spazio(15 - d.Artista.Nome.Length)} ({d.Anno})");
         }
 
-        _view.ShowDischi(users);
+        View.ShowDischi(users);
     }
 
 
@@ -314,10 +311,10 @@ public class DiscoController
     {
 
         Console.Write("\n\nEnter titolo: ");
-        var name = _view.GetInput();
+        var name = View.GetInput();
 
         Console.Write("Enter artista: ");
-        var temp = _view.GetInput();
+        var temp = View.GetInput();
         int IdArtist = _db.GetIdFromArtist(temp);
 
         bool trovato = false;

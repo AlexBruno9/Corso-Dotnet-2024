@@ -2,13 +2,8 @@ using Microsoft.EntityFrameworkCore;
 
 
 //  MODIFICA CANZONE NON VA, DEVO MODIFICARE ALBUM , ma essendo titolo e artista lo stesso mi dice che è gia presente e mi caccia due frasi output a cazzo
-public class CanzoneController
+public class CanzoneController : Controller
 {
-
-    private Database _db = new();
-    private View _view = new();
-
-
     public void AddCanzone()
     {
 
@@ -30,15 +25,15 @@ public class CanzoneController
 
 
         Console.Write("Enter song name:");
-        var name = _view.GetInput();
+        var name = View.GetInput();
 
 
         Console.Write("Enter nome artista:");
-        string input = _view.GetInput();
+        string input = View.GetInput();
         while (_db.GetIdFromArtist(input) == 0)
         {
             Console.Write("Artista non presente in catalogo, inseriscine uno presente: ");
-            input = _view.GetInput();
+            input = View.GetInput();
         }
         int idArtist = _db.GetIdFromArtist(input);
         //canzone.ArtistaId = idArtist;
@@ -60,12 +55,12 @@ public class CanzoneController
         else
         {
             Console.Write("Enter nome disco:");
-            input = _view.GetInput();
+            input = View.GetInput();
 
             while (_db.GetIdFromDisco(input) == 0)
             {
                 Console.Write("Disco non presente in catalogo, inseriscine uno presente: ");
-                input = _view.GetInput();
+                input = View.GetInput();
             }
             int idAlbum = _db.GetIdFromDisco(input);
 
@@ -87,10 +82,10 @@ public class CanzoneController
     public void EliminaCanzone()
     {
         Console.Write("Enter titolo canzone da eliminare: ");
-        var name = _view.GetInput();
+        var name = View.GetInput();
 
         Console.Write("Enter artista canzone da eliminare: ");
-        var temp = _view.GetInput();
+        var temp = View.GetInput();
         var artist = _db.GetIdFromArtist(temp);
 
 
@@ -120,10 +115,10 @@ public class CanzoneController
     {
 
         Console.Write("Enter titolo canzone da modificare: ");
-        var name = _view.GetInput();
+        var name = View.GetInput();
 
         Console.Write("Enter artista canzone da modificare: ");
-        var temp = _view.GetInput();
+        var temp = View.GetInput();
         var artist = _db.GetIdFromArtist(temp);
 
 
@@ -138,27 +133,27 @@ public class CanzoneController
 
                 trovato = true;
                 Console.Write("\n\nEnter new song name:");
-                name = _view.GetInput();
+                name = View.GetInput();
 
 
                 Console.Write("Enter nome artista:");
-                string input = _view.GetInput();
+                string input = View.GetInput();
                 while (_db.GetIdFromArtist(input) == 0)
                 {
                     Console.Write("Artista non presente in catalogo, inseriscine uno presente: ");
-                    input = _view.GetInput();
+                    input = View.GetInput();
                 }
                 int idArtist = _db.GetIdFromArtist(input);
 
 
 
                 Console.Write("Enter nome disco:");
-                input = _view.GetInput();
+                input = View.GetInput();
 
                 while (_db.GetIdFromDisco(input) == 0)
                 {
                     Console.Write("Disco non presente in catalogo, inseriscine uno presente: ");
-                    input = _view.GetInput();
+                    input = View.GetInput();
                 }
                 int idAlbum = _db.GetIdFromDisco(input);
 
@@ -204,7 +199,7 @@ public class CanzoneController
             users.Add($"{c.Id} - {c.Titolo} {_db.Spazio(25 - c.Titolo.Length)} {c.Artista.Nome} {_db.Spazio(15 - c.Artista.Nome.Length)} {c.Disco.Titolo} ");
         }
 
-        _view.ShowCanzoni(users);
+        View.ShowCanzoni(users);
     }
 
 

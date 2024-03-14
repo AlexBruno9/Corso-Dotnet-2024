@@ -6,17 +6,17 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace Dischi2.Migrations
+namespace Dischi.Migrations
 {
     [DbContext(typeof(Database))]
-    [Migration("20240313072600_InitialCreate")]
+    [Migration("20240314145803_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "8.0.2");
+            modelBuilder.HasAnnotation("ProductVersion", "8.0.3");
 
             modelBuilder.Entity("Artista", b =>
                 {
