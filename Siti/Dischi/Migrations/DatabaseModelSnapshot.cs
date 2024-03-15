@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace Dischi2.Migrations
+namespace Dischi.Migrations
 {
     [DbContext(typeof(Database))]
     partial class DatabaseModelSnapshot : ModelSnapshot
@@ -13,7 +13,7 @@ namespace Dischi2.Migrations
         protected override void BuildModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
-            modelBuilder.HasAnnotation("ProductVersion", "8.0.2");
+            modelBuilder.HasAnnotation("ProductVersion", "8.0.3");
 
             modelBuilder.Entity("Artista", b =>
                 {

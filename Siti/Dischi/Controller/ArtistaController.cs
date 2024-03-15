@@ -1,21 +1,17 @@
-public class ArtistaController
+
+public class ArtistaController : Controller
 {
 
-    private Database _db = new();
-    private View _view = new();
-
-
-    public void AddArtista()
+    public static void AddArtista()
     {
         bool presente = true;
         while (presente)
         {
             presente = false;
             Console.Write("Enter artist name:");
-            var name = _view.GetInput();
+            var name = View.GetInput();
 
-
-            foreach (Artista a in _db.Artisti)
+            foreach (var a in _db.Artisti)
             {
                 if (a.Nome == name)
                 {
@@ -32,17 +28,21 @@ public class ArtistaController
                 Artista artista = new Artista();
                 artista.Nome = name;
                 _db.Artisti.Add(artista);
+
                 _db.SaveChanges();
             }
 
+
         }
+
+
 
     }
 
-    public void EliminaArtista()
+    public static void EliminaArtista()
     {
         Console.Write("Enter artist name:");
-        var name = _view.GetInput();
+        var name = View.GetInput();
 
         bool presente = false;
         foreach (Artista a in _db.Artisti)
@@ -64,11 +64,11 @@ public class ArtistaController
 
 
 
-    public void ModificaArtista()
+    public static void ModificaArtista()
     {
 
         Console.Write("Enter nome artista da modificare: ");
-        var name = _view.GetInput();
+        var name = View.GetInput();
 
 
 
@@ -94,7 +94,7 @@ public class ArtistaController
     }
 
 
-    public List<string> GetArtisti()
+    public static List<string> GetArtisti()
     {
         var variabile = _db.Artisti.ToList();
         List<string> artisti = new();
@@ -105,10 +105,10 @@ public class ArtistaController
         return artisti;
     }
 
-    public void ShowArtisti()
+    public static void ShowArtisti()
     {
         var users = GetArtisti();
-        _view.ShowArtisti(users);
+        View.ShowArtisti(users);
     }
 
 }

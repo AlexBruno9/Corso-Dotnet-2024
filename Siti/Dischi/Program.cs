@@ -1,6 +1,6 @@
-﻿using System.Reflection.Emit;
+﻿
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.ValueGeneration.Internal;
+
 
 
 //  risolto MODIFICA CANZONE SBAGLIATO
@@ -18,10 +18,7 @@ public class Program
 {
     static void Main(string[] args)
     {
-        var db = new Database();
-        var view = new View();
-        var controller = new Controller(db, view);
-        controller.MainMenu();
+        Controller.MainMenu();
     }
 }
 
@@ -30,13 +27,17 @@ public class Program
 //  -----   CLASS ARTISTA, ALBUM, GENERE, CANZONE, CANZONEPLAYLIST  -----
 public class Artista
 {
+
     public int Id { get; set; }
+
     public string Nome { get; set; }
+
 }
 
 public class Genere
 {
     public int Id { get; set; }
+
     public string Nome { get; set; }
 
 
@@ -44,14 +45,22 @@ public class Genere
 
 public class Disco
 {
+
     public int Id { get; set; }
+
     public string Titolo { get; set; }
+
     public int Anno { get; set; }
+
     public double Prezzo { get; set; }
+
     public int ArtistaId { get; set; }
 
+
     public Artista Artista { get; set; }
+
     public int GenereId { get; set; }
+
     public Genere Genere { get; set; }
 
 }
@@ -60,11 +69,17 @@ public class Disco
 
 public class Canzone
 {
+
     public int Id { get; set; }
+
     public string Titolo { get; set; }
+
     public int ArtistaId { get; set; }
+
     public Artista Artista { get; set; }
+
     public int DiscoId { get; set; }
+
     public Disco Disco { get; set; }
     //aggiungere durata
 }
@@ -75,7 +90,9 @@ public class CanzonePlaylist
 {
     public int Id { get; set; }
     public string NomePlaylist { get; set; }
+
     public int CanzoneId { get; set; }
+
     public Canzone Canzone { get; set; }
 }
 
@@ -87,6 +104,7 @@ public class CanzonePlaylist
 
 public class Database : DbContext
 {
+
 
     public DbSet<Artista> Artisti { get; set; }
     public DbSet<Genere> Generi { get; set; }
@@ -157,11 +175,7 @@ public class Database : DbContext
 public class View
 {
 
-    private Database _db;
-
-
-
-    public void ShowMainMenu()
+    public static void ShowMainMenu()
     {
         Console.Clear();
         Console.WriteLine(" ** MENU ** ");
@@ -196,12 +210,12 @@ public class View
     }
 
 
-    public string GetInput()
+    public static string GetInput()
     {
         return Console.ReadLine()!;
     }
 
-    public void ShowArtisti(List<string> artisti)
+    public static void ShowArtisti(List<string> artisti)
     {
         Console.Clear();
         Console.WriteLine("\nLista artisti:\n");
@@ -213,7 +227,7 @@ public class View
         Console.ReadKey();
     }
 
-    public void ShowGeneri(List<string> generi)
+    public static void ShowGeneri(List<string> generi)
     {
         Console.Clear();
         Console.WriteLine("\nLista generi:\n");
@@ -223,7 +237,7 @@ public class View
         }
     }
 
-    public void ShowDischi(List<string> dischi)
+    public static void ShowDischi(List<string> dischi)
     {
         Console.Clear();
         Console.WriteLine("\nLista dischi:\n");
@@ -235,7 +249,7 @@ public class View
         Console.ReadKey();
     }
 
-    public void ShowCanzoni(List<string> canzoni)
+    public static void ShowCanzoni(List<string> canzoni)
     {
         Console.Clear();
         Console.WriteLine("\nLista canzoni:\n");
@@ -249,22 +263,22 @@ public class View
 
 
 
-    public void SelezionaPlaylist(List<CanzonePlaylist> playlist)
-    {
-        Console.Write("Digita nome playlist: ");
-        string select = Console.ReadLine();
+    // public void SelezionaPlaylist(List<CanzonePlaylist> playlist)
+    // {
+    //     Console.Write("Digita nome playlist: ");
+    //     string select = Console.ReadLine();
 
-        int counter = 0;
-        foreach (CanzonePlaylist c in playlist)
-        {
-            if (c.NomePlaylist == select)
-            {
-                counter++;
-                Console.WriteLine($"{counter} - {c.Canzone.Titolo} {_db.Spazio(25 - c.Canzone.Titolo.Length)} {c.Canzone.Artista.Nome} {_db.Spazio(15 - c.Canzone.Artista.Nome.Length)} {c.Canzone.Disco.Titolo} ");
-            }
-        }
+    //     int counter = 0;
+    //     foreach (CanzonePlaylist c in playlist)
+    //     {
+    //         if (c.NomePlaylist == select)
+    //         {
+    //             counter++;
+    //             Console.WriteLine($"{counter} - {c.Canzone.Titolo} {_db.Spazio(25 - c.Canzone.Titolo.Length)} {c.Canzone.Artista.Nome} {_db.Spazio(15 - c.Canzone.Artista.Nome.Length)} {c.Canzone.Disco.Titolo} ");
+    //         }
+    //     }
 
-    }
+    // }
 
 
 
@@ -277,116 +291,101 @@ public class View
 
 public class Controller
 {
-    private Database _db;
-    private View _view;
+    protected static readonly Database _db = new Database();
 
-    private ArtistaController _artistaController = new();
-    private GenereController _genereController = new();
-    private DiscoController _discoController = new();
-    private CanzoneController _canzoneController = new();
-    private PlaylistController _playlistController = new();
-
-    public Controller(Database db, View view)
-    {
-        _db = db;                         //inizializzazione del riferimento al modello
-        _view = view;                     //iniz. del riferimento alla vista
-    }
-
-
-
-
-    public void MainMenu()
+    public static void MainMenu()
     {
 
         while (true)
         {
 
-            _view.ShowMainMenu();               //visualizzazione del menu principale
-            var input = _view.GetInput();       //lettura dell input dell utente
+            View.ShowMainMenu();               //visualizzazione del menu principale
+            var input = View.GetInput();       //lettura dell input dell utente
 
             if (input == "1")
             {
-                _artistaController.AddArtista();
+                ArtistaController.AddArtista();
             }
 
             if (input == "2")
             {
-                _artistaController.EliminaArtista();
+                ArtistaController.EliminaArtista();
             }
 
             if (input == "3")
             {
-                _artistaController.ModificaArtista();
+                ArtistaController.ModificaArtista();
             }
             if (input == "4")
             {
-                _artistaController.ShowArtisti();
+                ArtistaController.ShowArtisti();
             }
-
-            if (input == "5")
-            {
-                _genereController.AddGenere();
-            }
-            if (input == "6")
-            {
-                _genereController.EliminaGenere();
-            }
-            if (input == "7")
-            {
-                _genereController.ModificaGenere();
-            }
-            if (input == "8")
-            {
-                _genereController.ShowGeneri();
-            }
-            if (input == "9")
-            {
-                _discoController.AddDisco();
-            }
-            if (input == "10")
-            {
-                _discoController.EliminaDisco();
-            }
-            if (input == "11")
-            {
-                _discoController.ModificaDisco();
-            }
-            if (input == "12")
-            {
-                _discoController.ShowDischi();
-            }
-            if (input == "13")
-            {
-                _canzoneController.AddCanzone();
-            }
-            if (input == "14")
-            {
-                _canzoneController.EliminaCanzone();
-            }
-            if (input == "15")
-            {
-                _canzoneController.ModificaCanzone();
-            }
-            if (input == "16")
-            {
-                _canzoneController.ShowCanzoni();
-            }
-            if (input == "17")
-            {
-                _playlistController.AddCanzonePlaylist();
-            }
-            if (input == "18")
-            {
-                _playlistController.RemoveCanzonePlaylist();
-            }
-            if (input == "19")
-            {
-                _playlistController.ShowPlaylist();
-            }
-            if (input == "20")
-            {
-                _discoController.ShowSingoloDisco();
-            }
+            /*
+                        if (input == "5")
+                        {
+                            _genereController.AddGenere();
+                        }
+                        if (input == "6")
+                        {
+                            _genereController.EliminaGenere();
+                        }
+                        if (input == "7")
+                        {
+                            _genereController.ModificaGenere();
+                        }
+                        if (input == "8")
+                        {
+                            _genereController.ShowGeneri();
+                        }
+                        if (input == "9")
+                        {
+                            _discoController.AddDisco();
+                        }
+                        if (input == "10")
+                        {
+                            _discoController.EliminaDisco();
+                        }
+                        if (input == "11")
+                        {
+                            _discoController.ModificaDisco();
+                        }
+                        if (input == "12")
+                        {
+                            _discoController.ShowDischi();
+                        }
+                        if (input == "13")
+                        {
+                            _canzoneController.AddCanzone();
+                        }
+                        if (input == "14")
+                        {
+                            _canzoneController.EliminaCanzone();
+                        }
+                        if (input == "15")
+                        {
+                            _canzoneController.ModificaCanzone();
+                        }
+                        if (input == "16")
+                        {
+                            _canzoneController.ShowCanzoni();
+                        }
+                        if (input == "17")
+                        {
+                            _playlistController.AddCanzonePlaylist();
+                        }
+                        if (input == "18")
+                        {
+                            _playlistController.RemoveCanzonePlaylist();
+                        }
+                        if (input == "19")
+                        {
+                            _playlistController.ShowPlaylist();
+                        }
+                        if (input == "20")
+                        {
+                            _discoController.ShowSingoloDisco();
+                        }
+                    */
 
             else if (input == "e")
             {
