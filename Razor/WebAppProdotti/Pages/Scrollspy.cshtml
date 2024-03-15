@@ -1,0 +1,90 @@
+@page
+@model ScrollspyModel
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <style>
+  body {
+      position: relative; 
+  }
+  </style>
+</head>
+<body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="50">
+
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+  <div class="container-fluid">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="#section1">Section 1</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#section2">Section 2</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#section3">Section 3</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div id="section1" class="container-fluid bg-success text-white" style="padding:100px 20px;">
+  <h1>Section 1</h1>
+  <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+  <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+</div>
+
+<div id="section2" class="container-fluid bg-warning" style="padding:100px 20px;">
+  <h1>Section 2</h1>
+  <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+  <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+</div>
+
+<div id="section3" class="container-fluid bg-secondary text-white" style="padding:100px 20px;">
+  <h1>Section 3</h1>
+  <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+  <p>Try to scroll this section and look at the navigation bar while scrolling! Try to scroll this section and look at the navigation bar while scrolling!</p>
+</div>
+
+</body>
+</html>
+
+
+<!--
+  <nav id="navbar-example2" class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <ul class="nav nav-pills">
+      <li class="nav-item">
+        <a class="nav-link" href="#cap1">cap 1</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#cap2">cap 2</a>
+      </li>
+            <li class="nav-item">
+        <a class="nav-link" href="#cap3">cap 3</a>
+      </li>
+      
+    </ul>
+  </nav>
+  <div data-spy="scroll" data-target="#navbar-example2" data-offset="0">
+    <h4 id="cap1">cap1</h4>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad dolor, quisquam consequuntur, excepturi eveniet alias sit numquam magni fugit tempore totam molestias esse ullam omnis error? Molestias corrupti officiis mollitia culpa optio consectetur earum. Enim ipsam, quos sequi facere quisquam iusto nam iste dolor, laborum nulla porro odio ratione sapiente earum tempora fugit maiores obcaecati commodi et possimus eius rerum aspernatur! Corrupti quaerat doloribus alias, dolorum architecto vel nobis ratione at, eius eum maiores doloremque voluptatibus mollitia! Quia laborum temporibus omnis sint sed dolores, facilis quas iure in qui rerum. Corrupti, suscipit. Cum tempore placeat deserunt omnis. Veniam itaque adipisci cupiditate quisquam ducimus, accusamus quibusdam quia perspiciatis laboriosam ut minima id totam recusandae fugit saepe hic tempore? Vero magni ipsum quidem doloribus dicta possimus aliquid suscipit voluptatum reiciendis aut nisi, non ab ullam nostrum quasi! Incidunt quasi ex ad amet, esse quas hic, nostrum et consequatur ab quisquam vero quod explicabo architecto rerum natus magnam fuga veniam quis, autem doloremque! Impedit ipsam perferendis hic porro, nobis, est laboriosam fugiat repudiandae totam dolores debitis culpa? Voluptatem, corrupti obcaecati laborum asperiores facere vitae voluptatum, sed quisquam odit doloremque consequatur ab doloribus tenetur dignissimos totam quasi dolor quae ea rem, animi ipsum id.</p>
+   
+    <h4 id="cap2">cap2</h4>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad dolor, quisquam consequuntur, excepturi eveniet alias sit numquam magni fugit tempore totam molestias esse ullam omnis error? Molestias corrupti officiis mollitia culpa optio consectetur earum. Enim ipsam, quos sequi facere quisquam iusto nam iste dolor, laborum nulla porro odio ratione sapiente earum tempora fugit maiores obcaecati commodi et possimus eius rerum aspernatur! Corrupti quaerat doloribus alias, dolorum architecto vel nobis ratione at, eius eum maiores doloremque voluptatibus mollitia! Quia laborum temporibus omnis sint sed dolores, facilis quas iure in qui rerum. Corrupti, suscipit. Cum tempore placeat deserunt omnis. Veniam itaque adipisci cupiditate quisquam ducimus, accusamus quibusdam quia perspiciatis laboriosam ut minima id totam recusandae fugit saepe hic tempore? Vero magni ipsum quidem doloribus dicta possimus aliquid suscipit voluptatum reiciendis aut nisi, non ab ullam nostrum quasi! Incidunt quasi ex ad amet, esse quas hic, nostrum et consequatur ab quisquam vero quod explicabo architecto rerum natus magnam fuga veniam quis, autem doloremque! Impedit ipsam perferendis hic porro, nobis, est laboriosam fugiat repudiandae totam dolores debitis culpa? Voluptatem, corrupti obcaecati laborum asperiores facere vitae voluptatum, sed quisquam odit doloremque consequatur ab doloribus tenetur dignissimos totam quasi dolor quae ea rem, animi ipsum id.</p>
+   
+    <h4 id="cap3">cap3</h4>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad dolor, quisquam consequuntur, excepturi eveniet alias sit numquam magni fugit tempore totam molestias esse ullam omnis error? Molestias corrupti officiis mollitia culpa optio consectetur earum. Enim ipsam, quos sequi facere quisquam iusto nam iste dolor, laborum nulla porro odio ratione sapiente earum tempora fugit maiores obcaecati commodi et possimus eius rerum aspernatur! Corrupti quaerat doloribus alias, dolorum architecto vel nobis ratione at, eius eum maiores doloremque voluptatibus mollitia! Quia laborum temporibus omnis sint sed dolores, facilis quas iure in qui rerum. Corrupti, suscipit. Cum tempore placeat deserunt omnis. Veniam itaque adipisci cupiditate quisquam ducimus, accusamus quibusdam quia perspiciatis laboriosam ut minima id totam recusandae fugit saepe hic tempore? Vero magni ipsum quidem doloribus dicta possimus aliquid suscipit voluptatum reiciendis aut nisi, non ab ullam nostrum quasi! Incidunt quasi ex ad amet, esse quas hic, nostrum et consequatur ab quisquam vero quod explicabo architecto rerum natus magnam fuga veniam quis, autem doloremque! Impedit ipsam perferendis hic porro, nobis, est laboriosam fugiat repudiandae totam dolores debitis culpa? Voluptatem, corrupti obcaecati laborum asperiores facere vitae voluptatum, sed quisquam odit doloremque consequatur ab doloribus tenetur dignissimos totam quasi dolor quae ea rem, animi ipsum id.</p>
+   
+  </div>
+</div>
+
+-->
+
+
+

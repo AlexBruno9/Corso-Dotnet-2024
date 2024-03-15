@@ -1,0 +1,33 @@
+﻿@page
+@model PrivacyModel
+@{
+    ViewData["Title"] = "Privacy Policy";
+}
+<h1>@ViewData["Title"]</h1>
+
+<p>Use this page to detail your site's privacy policy.</p>
+
+
+<div class="container mt-5">
+    <h2 class="text-center">Accordion</h2>
+    <div class="accordion" id="accordionExample">
+        @foreach (var prodotto in Model.Prodotti)
+        {
+            <div class="accordion-item">
+                <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                        data-bs-target="#collapse@(prodotto.Nome.Replace(" ", ""))" aria-expanded="false"
+                        aria-controls="collapse@(prodotto.Nome.Replace(" ", ""))">
+                        @prodotto.Nome
+                    </button>
+                </h2>
+                <div id="collapse@(prodotto.Nome.Replace(" ", ""))" class="accordion-collapse collapse"
+                    data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <strong>@prodotto.Prezzo</strong> @prodotto.Dettaglio
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
