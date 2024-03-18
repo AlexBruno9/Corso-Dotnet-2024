@@ -1,0 +1,49 @@
+@page
+@model ClienteDettaglioModel
+@{
+    ViewData["Title"] = "Cliente Dettaglio";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Cliente!.Nome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cliente!.Cognome)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cliente!.Eta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cliente!.N_Acquisti)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cliente!.CF)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>
+                @Html.DisplayFor(model => model.Cliente!.Nome)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Cliente!.Cognome)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Cliente!.Eta)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Cliente!.N_Acquisti)
+            </td>
+            <td>
+                @Html.DisplayFor(model => model.Cliente!.CF)
+            </td>
+        </tr>
+        <a asp-page="Cliente">Torna a Clienti</a>
+    </tbody>
+</table>

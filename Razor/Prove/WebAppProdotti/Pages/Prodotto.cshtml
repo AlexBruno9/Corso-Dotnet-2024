@@ -11,8 +11,7 @@
         <tr>
             <th>Nome</th>
             <th>Prezzo</th>
-            <th>Disp.</th>
-            <th>Info</th>
+            <th>Dettagli</th>
 
         </tr>
     </thead>
@@ -23,8 +22,10 @@
             <tr>
                 <td>@prodotto.Nome</td>
                 <td>@prodotto.Prezzo</td>
-                <td>@prodotto.Disponibilità</td>
-                <td>@prodotto.Info</td>
+                <td>
+                    <a asp-page="ProdottoDettaglio" asp-route-nome="@prodotto.Nome" asp-route-prezzo="@prodotto.Prezzo" asp-route-disponibilita="@prodotto.Disponibilita" asp-route-info="@prodotto.Info" asp-route-dettaglio="@prodotto.Dettaglio">@Html.DisplayFor(modelItem => prodotto.Nome)</a>
+                </td>
+            
             </tr>
         }
     </tbody>

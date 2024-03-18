@@ -10,9 +10,7 @@
     <thead>
         <tr>
             <th>Nome</th>
-            <th>Età</th>
             <th>n°acquisti</th>
-            <th>Codice Fiscale</th>
 
         </tr>
     </thead>
@@ -21,11 +19,15 @@
 
         {
             <tr>
-                <td>@cliente.Nome</td>
-                <td>@cliente.Eta</td>
+                <td>
+                    <a asp-page="ClienteDettaglio" asp-route-nome="@cliente.Nome" asp-route-cognome="@cliente.Cognome"
+                        asp-route-eta="@cliente.Eta" asp-route-nacquisti="@cliente.N_Acquisti"
+                        asp-route-cf="@cliente.CF">@cliente.Nome</a>
+                </td>
                 <td>@cliente.N_Acquisti</td>
-                <td>@cliente.CF</td>
+
+
             </tr>
         }
     </tbody>
-    </table>
+</table>

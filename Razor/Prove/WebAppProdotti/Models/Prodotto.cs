@@ -4,7 +4,8 @@ namespace WebAppProdotti.Models
     {
         public string? Nome { get; set; }
         public decimal Prezzo { get; set; }
-        public int Disponibilità {get;set;}
+        public string? Dettaglio { get; set; }
+        public int Disponibilita {get;set;}
         public string? Info {get;set;}
     }
 }
