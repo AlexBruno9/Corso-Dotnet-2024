@@ -1,7 +1,7 @@
 [
   {
     "Nome": "Prodotto 1",
-    "Prezzo": 100.0,
+    "Prezzo": 2222.22,
     "Dettaglio": "Dettaglio 1",
     "Disponibilita": 3,
     "Info": "Modello classico",
@@ -9,10 +9,10 @@
   },
   {
     "Nome": "Prodotto 2",
-    "Prezzo": 200.0,
-    "Dettaglio": "Dettaglio 2",
-    "Disponibilita": 6,
-    "Info": "Modello nuovo",
+    "Prezzo": 888.0,
+    "Dettaglio": "88888",
+    "Disponibilita": 88,
+    "Info": "88888",
     "Immagine": "https://source.unsplash.com/random/300x200?sig=2&web"
   },
   {
@@ -72,27 +72,11 @@
     "Immagine": "https://source.unsplash.com/random/300x200?sig=9&web"
   },
   {
-    "Nome": "Prodotto 10",
-    "Prezzo": 1000.0,
-    "Dettaglio": "Dettaglio 10",
-    "Disponibilita": 10,
-    "Info": "colore: nero",
-    "Immagine": "https://source.unsplash.com/random/300x200?sig=10&web"
-  },
-  {
     "Nome": "Prodotto 11",
     "Prezzo": 1100.0,
     "Dettaglio": "Dettaglio 11",
     "Disponibilita": 21,
     "Info": "colori disponibili: bianco, blu, rosa",
-    "Immagine": "https://source.unsplash.com/random/300x200?sig=11&web"
-  },
-  {
-    "Nome": "Prodotto 12",
-    "Prezzo": 12.0,
-    "Dettaglio": "Aggiunta con foto",
-    "Disponibilita": 0,
-    "Info": null,
     "Immagine": "https://source.unsplash.com/random/300x200?sig=11&web"
   }
 ]

@@ -29,6 +29,7 @@
             <th>Nome</th>
             <th>Prezzo</th>
             <th>Dettagli</th>
+            <th>Elimina</th>
 
         </tr>
     </thead>
@@ -40,20 +41,23 @@
                 <td>@prodotto.Nome</td>
                 @if (@prodotto.Prezzo <= 300)
                 {
-                    <td class="text-success fw-bold">@prodotto.Prezzo</td>
+                    <td class="text-success fw-bold">@Html.DisplayFor(model => prodotto.Prezzo)</td>
                 }
                 else if (@prodotto.Prezzo >= 900)
                 {
-                    <td class="text-danger fw-bold">@prodotto.Prezzo</td>
+                    <td class="text-danger fw-bold">@Html.DisplayFor(model => prodotto.Prezzo)</td>
                 }
                 else
                 {
-                    <td>@prodotto.Prezzo</td>
+                    <td>@Html.DisplayFor(model => prodotto.Prezzo)</td>
                 }
                 <td>
                     <a asp-page="ProdottoDettaglio" asp-route-nome="@prodotto.Nome" asp-route-prezzo="@prodotto.Prezzo"
                         asp-route-disponibilita="@prodotto.Disponibilita" asp-route-info="@prodotto.Info"
                         asp-route-dettaglio="@prodotto.Dettaglio">@Html.DisplayFor(modelItem => prodotto.Nome)</a>
+                </td>
+                <td>
+                    <a asp-page="CancellaProdotto" asp-route-nome="@prodotto.Nome" class="btn btn-success">Elimina</a>
                 </td>
 
             </tr>
@@ -89,19 +93,19 @@
 
                     @if (@prodotto.Prezzo <= 300)
                     {
-                        <p class="card-text text-success fw-bold">@prodotto.Prezzo $</p>
+                        <p class="card-text text-success fw-bold">@Html.DisplayFor(model => prodotto.Prezzo)$</p>
                         <a asp-page="ProdottoDettaglio" asp-route-nome="@prodotto.Nome" asp-route-prezzo="@prodotto.Prezzo"
                             asp-route-Dettaglio="@prodotto.Dettaglio" class="btn btn-success">Dettaglio</a>
                     }
                     else if (@prodotto.Prezzo >= 900)
                     {
-                        <p class="card-text text-danger fw-bold">@prodotto.Prezzo $</p>
+                        <p class="card-text text-danger fw-bold">@Html.DisplayFor(model => prodotto.Prezzo)$</p>
                         <a asp-page="ProdottoDettaglio" asp-route-nome="@prodotto.Nome" asp-route-prezzo="@prodotto.Prezzo"
                             asp-route-Dettaglio="@prodotto.Dettaglio" class="btn btn-danger">Dettaglio</a>
                     }
                     else
                     {
-                        <p class="card-text">@prodotto.Prezzo $</p>
+                        <p class="card-text">@Html.DisplayFor(model => prodotto.Prezzo)$</p>
                         <a asp-page="ProdottoDettaglio" asp-route-nome="@prodotto.Nome" asp-route-prezzo="@prodotto.Prezzo"
                             asp-route-Dettaglio="@prodotto.Dettaglio" class="btn btn-primary">Dettaglio</a>
                     }
