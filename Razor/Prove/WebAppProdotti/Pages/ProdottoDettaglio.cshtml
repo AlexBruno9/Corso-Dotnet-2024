@@ -6,44 +6,61 @@
 
 <h1>@ViewData["Title"]</h1>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Prodotto!.Nome)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Prodotto!.Prezzo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Prodotto!.Disponibilita)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Prodotto!.Info)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Prodotto!.Dettaglio)
-            </th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>
-                @Html.DisplayFor(model => model.Prodotto!.Nome)
-            </td>
-            <td>
-                @Html.DisplayFor(model => model.Prodotto!.Prezzo)
-            </td>
-            <td>
-                @Html.DisplayFor(model => model.Prodotto!.Disponibilita)
-            </td>
-            <td>
-                @Html.DisplayFor(model => model.Prodotto!.Info)
-            </td>
-            <td>
-                @Html.DisplayFor(model => model.Prodotto!.Dettaglio)
-            </td>
-        </tr>
-        <a asp-page="Prodotto">Torna a Prodotti</a>
-    </tbody>
-</table>
+<!--
+    <br>
+    <div class="row g-0">
+        <div class="col-md-4">
+        <img src="@Model.Prodotto!.Immagine" class="img-fluid rounded-start" alt="...">
+        </div>
+        <div class="col-md-8">
+        <div class="card-body">
+            <h5 class="card-title">@Model.Prodotto.Nome</h5>
+            <p class="card-text">@Model.Prodotto.Prezzo</p>
+            <p class="card-text">@Model.Prodotto.Dettaglio</p>
+        </div>
+        </div>
+    </div>
+-->
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Prodotto!.Nome)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Prodotto!.Prezzo)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Prodotto!.Disponibilita)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Prodotto!.Info)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Prodotto!.Dettaglio)
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>
+                    @Html.DisplayFor(model => model.Prodotto!.Nome)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Prodotto!.Prezzo)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Prodotto!.Disponibilita)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Prodotto!.Info)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => model.Prodotto!.Dettaglio)
+                </td>
+            </tr>
+            <a asp-page="Prodotto">Torna a Prodotti</a>
+        </tbody>
+    </table>

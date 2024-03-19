@@ -1,5 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Newtonsoft.Json;
+using System.Collections.Generic;
+using System.IO;
 using WebAppProdotti.Models;
 
 namespace WebAppProdotti.Pages
@@ -16,8 +19,12 @@ namespace WebAppProdotti.Pages
 
         public required IEnumerable<Prodotto> Prodotti { get; set; }
         public int numeroPagine { get; set; }
-        public void OnGet(decimal? minPrezzo, decimal? maxPrezzo, int? pageIndex)
+        public void OnGet(decimal? minPrezzo, decimal? maxPrezzo, int? pageIndex, int? pageIndexCards)
         {
+            var json = System.IO.File.ReadAllText("wwwroot/json/prodotti.json");
+            Prodotti = JsonConvert.DeserializeObject<List<Prodotto>>(json)!;
+
+            /*
             Prodotti = new List<Prodotto>
             {
                 new Prodotto { Nome = "Prodotto 1", Prezzo = 100, Disponibilita = 3, Info= " Colore: giallo", Dettaglio="Dettaglio 1" },
@@ -32,8 +39,9 @@ namespace WebAppProdotti.Pages
                   new Prodotto { Nome = "Prodotto 10", Prezzo = 100, Disponibilita = 13, Info= " Colore: verde", Dettaglio="Dettaglio 10" },
                 new Prodotto { Nome = "Prodotto 11", Prezzo = 200, Disponibilita = 8, Info= "Nuovo", Dettaglio="Dettaglio 11"  },
                 new Prodotto { Nome = "Prodotto 12", Prezzo = 300, Disponibilita = 30,  Info= "Modello classico", Dettaglio="Dettaglio 12"}
-
             };
+            */
+
             if (minPrezzo.HasValue)
             {
                 Prodotti = Prodotti.Where(p => p.Prezzo >= minPrezzo);
@@ -50,24 +58,12 @@ namespace WebAppProdotti.Pages
             }
 
 
-            // AGGIUNTA IMPAGINAZIONE
+            //  AGGIUNTA IMPAGINAZIONE
 
             numeroPagine = (int)Math.Ceiling(Prodotti.Count() / 3.0);
             Prodotti = Prodotti.Skip(((pageIndex ?? 1) - 1) * 3).Take(3);
-            
-            // Prodotti = Prodotti.Skip(((pageIndex ?? 1) - 1) * 5).Take(5);
-            // numeroPagine = (int)Math.Ceiling(Prodotti.Count() / 2.0);
 
-            /*
-            Prodotti = Prodotti.Skip(((pageIndex ?? 1) - 1) * 4).Take(4);
-            // Skip() e Take() sono metodi di estensione definiti in System.Collections.Generic e consentono di eseguire la paginazione
-            // Skip() consente di ignorare un numero specificato di elementi
-            // Take() consente di restituire un numero specificato di elementi
-            // ?? è l'operatore di coalescenza null che restituisce il valore sinistro se non è null, altrimenti restituisce il valore destro
-            // in questo caso, se pageIndex ha un valore, viene utilizzato per calcolare l'indice della pagina, altrimenti viene utilizzato il valore 1
-            // aggiungi un log
-            _logger.LogInformation("pageIndex: {pageIndex}", pageIndex);
-            */
+ 
         }
     }
 }

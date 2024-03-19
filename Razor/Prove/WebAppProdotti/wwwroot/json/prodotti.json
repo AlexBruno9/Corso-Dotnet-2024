@@ -1,0 +1,98 @@
+[
+  {
+    "Nome": "Prodotto 1",
+    "Prezzo": 100.0,
+    "Dettaglio": "Dettaglio 1",
+    "Disponibilita": 3,
+    "Info": "Modello classico",
+    "Immagine": "https://source.unsplash.com/random/300x200?sig=1&web"
+  },
+  {
+    "Nome": "Prodotto 2",
+    "Prezzo": 200.0,
+    "Dettaglio": "Dettaglio 2",
+    "Disponibilita": 6,
+    "Info": "Modello nuovo",
+    "Immagine": "https://source.unsplash.com/random/300x200?sig=2&web"
+  },
+  {
+    "Nome": "Prodotto 3",
+    "Prezzo": 300.0,
+    "Dettaglio": "Dettaglio 3",
+    "Disponibilita": 31,
+    "Info": "colore: giallo",
+    "Immagine": "https://source.unsplash.com/random/300x200?sig=3&web"
+  },
+  {
+    "Nome": "Prodotto 4",
+    "Prezzo": 400.0,
+    "Dettaglio": "Dettaglio 4",
+    "Disponibilita": 21,
+    "Info": "colori disponibili: blu, rosa",
+    "Immagine": "https://source.unsplash.com/random/300x200?sig=4&web"
+  },
+  {
+    "Nome": "Prodotto 5",
+    "Prezzo": 500.0,
+    "Dettaglio": "Dettaglio 5",
+    "Disponibilita": 23,
+    "Info": "Modello classico",
+    "Immagine": "https://source.unsplash.com/random/300x200?sig=5&web"
+  },
+  {
+    "Nome": "Prodotto 6",
+    "Prezzo": 600.0,
+    "Dettaglio": "Dettaglio 6",
+    "Disponibilita": 16,
+    "Info": "Ultimo modello",
+    "Immagine": "https://source.unsplash.com/random/300x200?sig=6&web"
+  },
+  {
+    "Nome": "Prodotto 7",
+    "Prezzo": 700.0,
+    "Dettaglio": "Dettaglio 7",
+    "Disponibilita": 8,
+    "Info": "Modello classico",
+    "Immagine": "https://source.unsplash.com/random/300x200?sig=7&web"
+  },
+  {
+    "Nome": "Prodotto 8",
+    "Prezzo": 800.0,
+    "Dettaglio": "Dettaglio 8",
+    "Disponibilita": 81,
+    "Info": "colori diponibili: verde, rosso",
+    "Immagine": "https://source.unsplash.com/random/300x200?sig=8&web"
+  },
+  {
+    "Nome": "Prodotto 9",
+    "Prezzo": 900.0,
+    "Dettaglio": "Dettaglio 9",
+    "Disponibilita": 30,
+    "Info": "Modello nuovo",
+    "Immagine": "https://source.unsplash.com/random/300x200?sig=9&web"
+  },
+  {
+    "Nome": "Prodotto 10",
+    "Prezzo": 1000.0,
+    "Dettaglio": "Dettaglio 10",
+    "Disponibilita": 10,
+    "Info": "colore: nero",
+    "Immagine": "https://source.unsplash.com/random/300x200?sig=10&web"
+  },
+  {
+    "Nome": "Prodotto 11",
+    "Prezzo": 1100.0,
+    "Dettaglio": "Dettaglio 11",
+    "Disponibilita": 21,
+    "Info": "colori disponibili: bianco, blu, rosa",
+    "Immagine": "https://source.unsplash.com/random/300x200?sig=11&web"
+  },
+  {
+    "Nome": "Prodotto 12",
+    "Prezzo": 12.0,
+    "Dettaglio": "Aggiunta con foto",
+    "Disponibilita": 0,
+    "Info": null,
+    "Immagine": "https://source.unsplash.com/random/300x200?sig=11&web"
+  }
+]
