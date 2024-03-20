@@ -1,0 +1,171 @@
+@page
+@model BranoModel
+@{
+    ViewData["Title"] = "Brani";
+}
+
+
+<style>
+    .colonneBottone {
+        width: 150px;
+    }
+
+    .colonnePiccole {
+        width: 70px;
+    }
+
+    .colonnePiuPiccole {
+        width: 40px;
+    }
+
+
+
+    .table {}
+
+    .table td {
+        /*
+        padding-top: 5px;
+        padding-bottom: 5px;
+        */
+        font-size: 20px;
+    }
+
+    body {
+        font-family: Montserrat;
+    }
+
+    .btn {
+        font-size: x-small;
+    }
+
+    .bottonebrano {
+ 
+    }
+</style>
+
+
+
+
+
+<div class="container-sm">
+
+    <div class="d-flex justify-content-between align-items-center ">
+        <h1 class="display-6 p-3 text-muted">Brani</h1>
+        <a asp-page="AggiungiBrano" class="bottonebrano btn btn-success me-4 ">Aggiungi brano  <i
+                class="fa fa-plus"></i></a>
+    </div>
+
+    <table class="table table-striped table-bordered align-middle mt-3">
+        <thead>
+            <tr>
+
+                <th scope="col" class="colonnePiuPiccole">#</th>
+                <th scope="col" class="colonnePiccole ps-4">IMG</th>
+                <th scope="col" class="ps-4">Titolo</th>
+                <th scope="col" class="colonneBottone"></th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var brano in Model.Brani)
+            {
+                <tr>
+                    <th scope="row">@brano.Id</th>
+                    <td>
+                        <div class="h-25 d-inline-block" style="width: 80px">
+                            <img src=@brano.Immagine class="img-fluid" alt="image">
+                        </div>
+                    </td>
+                    <td class="ps-4">@brano.Titolo</td>
+                    <td>
+                        <a asp-page="Playlist" asp-route-titolo="@brano.Titolo" class="btn btn-dark">Aggiungi a playlist
+                            <i class="fa fa-plus"></i></a>
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
+
+
+
+
+@* <table class="table">
+<thead>
+<tr>
+<th>Id</th>
+<th>img</th>
+<th>Titolo</th>
+
+
+</tr>
+</thead>
+<tbody>
+@foreach (var brano in Model.Brani)
+
+{
+<tr>
+<td>@brano.Id</td>
+<td><img src=@brano.Immagine></td>
+<td>@brano.Titolo</td>
+
+
+
+</tr>
+}
+</tbody>
+</table> *@
+
+
+@* <br>
+<div style="height: 100px;">
+<form method="get">
+@for (int i = 1; i <= Model.numeroPagine; i++)
+{
+<button type="submit" class="btn btn-primary" name="pageIndex" value="@i">@i</button>
+}
+</form>
+</div> *@
+
+
+
+
+@* <div class="row">
+@foreach (var brano in Model.Prodotti)
+{
+<div class="col-md-4">
+<div class="card">
+<img src="@brano.Immagine" class="card-img-top" alt="...">
+<div class="card-body">
+<h5 class="card-title">@brano.Nome</h5>
+
+
+@if (@brano.Prezzo <= 300)
+{
+<p class="card-text text-success fw-bold">@Html.DisplayFor(model => brano.Prezzo)$</p>
+<a asp-page="branoDettaglio" asp-route-nome="@brano.Nome" asp-route-prezzo="@brano.Prezzo"
+asp-route-Dettaglio="@brano.Dettaglio" class="btn btn-success">Dettaglio</a>
+}
+else if (@brano.Prezzo >= 900)
+{
+<p class="card-text text-danger fw-bold">@Html.DisplayFor(model => brano.Prezzo)$</p>
+<a asp-page="branoDettaglio" asp-route-nome="@brano.Nome" asp-route-prezzo="@brano.Prezzo"
+asp-route-Dettaglio="@brano.Dettaglio" class="btn btn-danger">Dettaglio</a>
+}
+else
+{
+<p class="card-text">@Html.DisplayFor(model => brano.Prezzo)$</p>
+<a asp-page="branoDettaglio" asp-route-nome="@brano.Nome" asp-route-prezzo="@brano.Prezzo"
+asp-route-Dettaglio="@brano.Dettaglio" class="btn btn-primary">Dettaglio</a>
+}
+
+
+
+</div>
+</div>
+<br>
+</div>
+}
+</div> *@

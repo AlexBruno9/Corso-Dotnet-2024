@@ -1,0 +1,44 @@
+[
+  {
+    "Id": 1,
+    "Titolo": "Titolo 1",
+    "Artista": "Artista 1",
+    "Anno": 2000,
+    "Immagine": "https://source.unsplash.com/random/300x200?sig=1&song"
+  },
+  {
+    "Id": 2,
+    "Titolo": "Titolo 2",
+    "Artista": "Artista 2",
+    "Anno": 2020,
+    "Immagine": "https://source.unsplash.com/random/300x200?sig=2&song"
+  },
+  {
+    "Id": 3,
+    "Titolo": "Titolo 1",
+    "Artista": "Artista 1",
+    "Anno": 2000,
+    "Immagine": "https://source.unsplash.com/random/300x200?sig=3&song"
+  },
+  {
+    "Id": 4,
+    "Titolo": "Titolo 1",
+    "Artista": "Artista 1",
+    "Anno": 2000,
+    "Immagine": "https://source.unsplash.com/random/300x200?sig=4&song"
+  },
+  {
+    "Id": 5,
+    "Titolo": "Titolo 1",
+    "Artista": "Artista 1",
+    "Anno": 2000,
+    "Immagine": "https://source.unsplash.com/random/300x200?sig=5&song"
+  },
+  {
+    "Id": 6,
+    "Titolo": "Titolo 1",
+    "Artista": "Artista 1",
+    "Anno": 2000,
+    "Immagine": "https://source.unsplash.com/random/300x200?sig=6&song"
+  }
+]

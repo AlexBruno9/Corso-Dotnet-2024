@@ -1,0 +1,33 @@
+@page
+@model AggiungiBranoModel
+@{
+    ViewData["Title"] = "Aggiungi Brani";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form method="post">
+        <div class="form-group">
+        <label for="id">Id</label>
+        <input type="text" class="form-control" name="id" required />
+    </div>
+    <div class="form-group">
+        <label for="titolo">Titolo</label>
+        <input type="text" class="form-control" name="titolo" required />
+    </div>
+    <div class="form-group">
+        <label for="artista">Artista</label>
+        <input type="text" class="form-control" name="artista" />
+    </div>
+    <div class="form-group">
+        <label for="anno">Anno</label>
+        <input type="text" class="form-control" name="anno" />
+    </div>
+        <div class="form-group">
+        <label for="immagine">Link Immagine</label>
+        <input type="text" class="form-control" name="immagine" />
+    </div>
+    
+    <button type="submit" class="btn btn-dark mt-4">Aggiungi</button>
+
+</form>
