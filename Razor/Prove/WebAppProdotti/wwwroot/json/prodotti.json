@@ -8,22 +8,6 @@
     "Immagine": "https://source.unsplash.com/random/300x200?sig=1&web"
   },
   {
-    "Nome": "Prodotto 2",
-    "Prezzo": 888.0,
-    "Dettaglio": "88888",
-    "Disponibilita": 88,
-    "Info": "88888",
-    "Immagine": "https://source.unsplash.com/random/300x200?sig=2&web"
-  },
-  {
-    "Nome": "Prodotto 3",
-    "Prezzo": 300.0,
-    "Dettaglio": "Dettaglio 3",
-    "Disponibilita": 31,
-    "Info": "colore: giallo",
-    "Immagine": "https://source.unsplash.com/random/300x200?sig=3&web"
-  },
-  {
     "Nome": "Prodotto 4",
     "Prezzo": 400.0,
     "Dettaglio": "Dettaglio 4",
@@ -49,7 +33,7 @@
   },
   {
     "Nome": "Prodotto 7",
-    "Prezzo": 700.0,
+    "Prezzo": 70.0,
     "Dettaglio": "Dettaglio 7",
     "Disponibilita": 8,
     "Info": "Modello classico",
@@ -77,6 +61,14 @@
     "Dettaglio": "Dettaglio 11",
     "Disponibilita": 21,
     "Info": "colori disponibili: bianco, blu, rosa",
+    "Immagine": "https://source.unsplash.com/random/300x200?sig=11&web"
+  },
+  {
+    "Nome": "Prodotto 14",
+    "Prezzo": 1200.50,
+    "Dettaglio": "Aggiunta 20/03",
+    "Disponibilita": 0,
+    "Info": null,
     "Immagine": "https://source.unsplash.com/random/300x200?sig=11&web"
   }
 ]
