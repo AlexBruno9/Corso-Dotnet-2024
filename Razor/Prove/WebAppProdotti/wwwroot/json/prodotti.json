@@ -16,14 +16,6 @@
     "Immagine": "https://source.unsplash.com/random/300x200?sig=4&web"
   },
   {
-    "Nome": "Prodotto 5",
-    "Prezzo": 500.0,
-    "Dettaglio": "Dettaglio 5",
-    "Disponibilita": 23,
-    "Info": "Modello classico",
-    "Immagine": "https://source.unsplash.com/random/300x200?sig=5&web"
-  },
-  {
     "Nome": "Prodotto 6",
     "Prezzo": 600.0,
     "Dettaglio": "Dettaglio 6",
@@ -69,6 +61,14 @@
     "Dettaglio": "Aggiunta 20/03",
     "Disponibilita": 0,
     "Info": null,
+    "Immagine": "https://source.unsplash.com/random/300x200?sig=11&web"
+  },
+  {
+    "Nome": "ProdottoNuovo1",
+    "Prezzo": 1111.15,
+    "Dettaglio": "nessuno15",
+    "Disponibilita": 15,
+    "Info": "15",
     "Immagine": "https://source.unsplash.com/random/300x200?sig=11&web"
   }
 ]
