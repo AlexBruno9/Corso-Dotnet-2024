@@ -5,6 +5,7 @@ html {
 @media (min-width: 768px) {
   html {
     font-size: 16px;
+    font-family: Montserrat;
   }
 }
 
@@ -19,4 +20,5 @@ html {
 
 body {
   margin-bottom: 60px;
+    font-family: Montserrat;
 }

@@ -6,6 +6,8 @@
         public string? Artista { get; set; }
         public int Anno {get;set;}
         public string? Immagine {get;set;}
+        public string? Genere {get;set;}
+        public string? Durata {get;set;}
 
     }
 

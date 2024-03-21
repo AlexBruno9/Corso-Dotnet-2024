@@ -4,67 +4,127 @@
     ViewData["Title"] = "Dettaglio Brano";
 }
 
-<h1>@ViewData["Title"]</h1>
 
 
-    <br>
-    <div class="row g-0">
-        <div class="col-md-4">
-        <img src="@Model.Brano!.Immagine" class="img-fluid rounded-start" alt="...">
+<style>
+    .imginfo {
+        border-radius: 20px;
+    }
+
+    .card-body {
+        font-size: larger;
+        font-family: "Roboto";
+    }
+
+    a {
+        color: rgb(0, 0, 0);
+    }
+    .card{
+               background-color: rgb(255, 255, 255);
+    }
+
+</style>
+
+<h1 class="display-6 p-3 text-muted">Info - @Model.Brano!.Titolo</h1>
+
+
+<div class="card mb-3">
+    <div class="row g-0 p-5">
+        <div class="col-md-5">
+            <img src="@Model.Brano!.Immagine" class="imginfo" alt="..." width="400" height="400">
         </div>
-        <div class="col-md-8">
-        <div class="card-body">
-            <h5 class="card-title">@Model.Brano.Titolo</h5>
-            <p class="card-text">@Model.Brano.Artista</p>
-            <p class="card-text">@Model.Brano.Anno</p>
-        </div>
+
+        <div class="col-md-7">
+            <div class="card-body mt-4">
+                <h5 class="card-title"> @Model.Brano!.Titolo</h5>
+                <p class="card-text mt-4 ">Artista: @Model.Brano!.Artista</p>
+                <p class="card-text ">Anno: @Model.Brano!.Anno</p>
+                <p class="card-text">Genere: @Model.Brano!.Genere</p>
+                <p class="card-text">Durata: @Model.Brano!.Durata</p>
+
+                <div class="btn-group mt-4" role="group" aria-label="Basic outlined example">
+                    <button type="button" class="btn btn-outline-secondary">
+                        <i class="bi bi-play"></i>
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary">
+                        <i class="bi bi-pause"></i>
+                    </button>
+                    <button type="button" class="btn btn-outline-secondary">
+                        <i class="bi bi-stop"></i>
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
+    <br><br>
+</div>
+<a asp-page="Brano"> <i class="bi bi-arrow-return-left"></i> Torna ai Brani</a>
+</div>
+<br><br><br>
+
+</div>
+</div>
 
 
-@* 
+@* <br>
+<div class="row g-0">
+<div class="col-md-4">
+<img src="@Model.Brano!.Immagine" class="img-fluid rounded-start" alt="...">
+</div>
+<div class="col-md-8">
+<div class="card-body">
+<h5 class="card-title">@Model.Brano.Titolo</h5>
+<p class="card-text">@Model.Brano.Artista</p>
+<p class="card-text">@Model.Brano.Anno</p>
+</div>
+<a asp-page="Brano">Torna ai Brani</a>
+</div>
+</div> *@
+
+
+@*
 <table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Brano!.Nome)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Brano!.Prezzo)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Brano!.Disponibilita)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Brano!.Info)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Brano!.Dettaglio)
-            </th>
-            <th>Modifica</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>
-                @Html.DisplayFor(model => model.Brano!.Nome)
-            </td>
-            <td>
-                @Html.DisplayFor(model => model.Brano!.Prezzo)
-            </td>
-            <td>
-                @Html.DisplayFor(model => model.Brano!.Disponibilita)
-            </td>
-            <td>
-                @Html.DisplayFor(model => model.Brano!.Info)
-            </td>
-            <td>
-                @Html.DisplayFor(model => model.Brano!.Dettaglio)
-            </td>
-            <td>
-                <a asp-page="ModificaBrano" asp-route-nome="@Model.Brano.Nome" class="btn btn-success">Modifica</a>
-            </td>
-        </tr>
-        <a asp-page="Brano">Torna a Prodotti</a>
-    </tbody>
+<thead>
+<tr>
+<th>
+@Html.DisplayNameFor(model => model.Brano!.Nome)
+</th>
+<th>
+@Html.DisplayNameFor(model => model.Brano!.Prezzo)
+</th>
+<th>
+@Html.DisplayNameFor(model => model.Brano!.Disponibilita)
+</th>
+<th>
+@Html.DisplayNameFor(model => model.Brano!.Info)
+</th>
+<th>
+@Html.DisplayNameFor(model => model.Brano!.Dettaglio)
+</th>
+<th>Modifica</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>
+@Html.DisplayFor(model => model.Brano!.Nome)
+</td>
+<td>
+@Html.DisplayFor(model => model.Brano!.Prezzo)
+</td>
+<td>
+@Html.DisplayFor(model => model.Brano!.Disponibilita)
+</td>
+<td>
+@Html.DisplayFor(model => model.Brano!.Info)
+</td>
+<td>
+@Html.DisplayFor(model => model.Brano!.Dettaglio)
+</td>
+<td>
+<a asp-page="ModificaBrano" asp-route-nome="@Model.Brano.Nome" class="btn btn-success">Modifica</a>
+</td>
+</tr>
+<a asp-page="Brano">Torna a Prodotti</a>
+</tbody>
 </table> *@

@@ -40,6 +40,10 @@
 
     .bottonebrano {}
 
+       a {
+        color: rgb(0, 0, 0);
+    }
+
     /*
     img{
         width:500;
@@ -56,7 +60,7 @@
 
     <div class="d-flex justify-content-between align-items-center ">
         <h1 class="display-6 p-3 text-muted">Brani</h1>
-        <a asp-page="AggiungiBrano" class="bottonebrano btn btn-success me-4 ">Aggiungi brano <i
+        <a asp-page="AggiungiBrano" class="bottonebrano btn me-4 border-black  " style="background-color: rgb(216, 228, 255);">Aggiungi brano <i
                 class="fa fa-plus"></i></a>
     </div>
 
@@ -67,6 +71,7 @@
                 <th scope="col" class="colonnePiuPiccole">#</th>
                 <th scope="col" class="colonnePiccole ps-4">IMG</th>
                 <th scope="col" class="ps-4">Titolo</th>
+                <th scope="col" class="ps-4"></th>
                 <th scope="col" class="colonneBottone"></th>
 
             </tr>
@@ -79,8 +84,8 @@
                     <th scope="row">@brano.Id</th>
                     <td>
                         <div class="h-25 d-inline-block" style="width: 80px">
-                              <a asp-page="BranoDettaglio" asp-route-id="@brano.Id">
-                            <img src=@brano.Immagine width="70" height="70" class="img rounded" alt="image">
+                            <a asp-page="BranoDettaglio" asp-route-id="@brano.Id">
+                                <img src=@brano.Immagine width="70" height="70" class="img rounded" alt="image">
                             </a>
                         </div>
 
@@ -89,6 +94,13 @@
 
                     </td>
                     <td class="ps-4">@brano.Titolo</td>
+
+
+                    <td class="colonnePiccole fs-6 ps-3">
+                        <a asp-page="BranoDettaglio" asp-route-id="@brano.Id">Info</a>
+                    </td>
+
+
                     <td>
                         <a asp-page="AggiungiAPlaylist" asp-route-id="@brano.Id" class="btn btn-dark">Aggiungi a playlist
                             <i class="fa fa-plus"></i></a>
@@ -99,6 +111,8 @@
         </tbody>
     </table>
 </div>
+
+<br><br><br><br><br>
 
 
 
