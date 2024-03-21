@@ -17,5 +17,15 @@ namespace WebAppBrani.Pages
         {
             _logger = logger;
         }
+
+
+
+        public required IEnumerable<Brano> Playlists { get; set; }
+        public void OnGet()
+        {
+            var json = System.IO.File.ReadAllText("wwwroot/json/Playlist.json");
+            Playlists = JsonConvert.DeserializeObject<List<Brano>>(json)!;
+
+        }
     }
 }

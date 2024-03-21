@@ -19,10 +19,27 @@ namespace WebAppBrani.Pages
             // non fa nulla
         }
 
+        public int calcolaId(){
+             var json = System.IO.File.ReadAllText("wwwroot/json/Brani.json");
+            var brani = JsonConvert.DeserializeObject<List<Brano>>(json)!;
+
+            int id=1;
+            foreach(Brano b in brani)
+            {
+                if(b.Id>=id)
+                {
+                    id=b.Id+1;
+                }
+            }
+            return id;
+        }
+
         public IActionResult OnPost(int id, string titolo, string artista, int anno, string immagine)
         {
             var json = System.IO.File.ReadAllText("wwwroot/json/Brani.json");
             var brani = JsonConvert.DeserializeObject<List<Brano>>(json)!;
+
+            id=calcolaId();
 
             brani.Add(new Brano { Titolo = titolo, Artista = artista, Anno = anno, Immagine = immagine, Id = id });
             // salva il file json formattato

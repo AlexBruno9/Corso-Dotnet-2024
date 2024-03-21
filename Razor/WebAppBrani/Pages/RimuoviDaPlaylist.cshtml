@@ -1,0 +1,22 @@
+@page
+@model RimuoviDaPlaylistModel
+@{
+    ViewData["Title"] = "Elimina brano dalla tua playlist";
+}
+
+
+<h1>@ViewData["Title"]</h1>
+
+<form method="post">
+    @* <div class="form-group">
+       <b><p>@ViewData["Titolo"]</p></b>
+       <p>@ViewData["Artista"]</p>
+       <p>@ViewData["Anno"]</p>
+    </div> *@
+    <br>
+    <h4> Confermi di voler eliminare questo brano?</h4>
+    <br>
+    <button type="submit" class="btn btn-dark mt-4">Elimina</button>
+    <a asp-asp-page="Index" class="btn btn-dark mt-4">Annulla</a> 
+
+</form>

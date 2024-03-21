@@ -38,9 +38,14 @@
         font-size: x-small;
     }
 
-    .bottonebrano {
- 
+    .bottonebrano {}
+
+    /*
+    img{
+        width:500;
+        height:1600;
     }
+    */
 </style>
 
 
@@ -51,7 +56,7 @@
 
     <div class="d-flex justify-content-between align-items-center ">
         <h1 class="display-6 p-3 text-muted">Brani</h1>
-        <a asp-page="AggiungiBrano" class="bottonebrano btn btn-success me-4 ">Aggiungi brano  <i
+        <a asp-page="AggiungiBrano" class="bottonebrano btn btn-success me-4 ">Aggiungi brano <i
                 class="fa fa-plus"></i></a>
     </div>
 
@@ -74,12 +79,18 @@
                     <th scope="row">@brano.Id</th>
                     <td>
                         <div class="h-25 d-inline-block" style="width: 80px">
-                            <img src=@brano.Immagine class="img-fluid" alt="image">
+                              <a asp-page="BranoDettaglio" asp-route-id="@brano.Id">
+                            <img src=@brano.Immagine width="70" height="70" class="img rounded" alt="image">
+                            </a>
                         </div>
+
+
+
+
                     </td>
                     <td class="ps-4">@brano.Titolo</td>
                     <td>
-                        <a asp-page="Playlist" asp-route-titolo="@brano.Titolo" class="btn btn-dark">Aggiungi a playlist
+                        <a asp-page="AggiungiAPlaylist" asp-route-id="@brano.Id" class="btn btn-dark">Aggiungi a playlist
                             <i class="fa fa-plus"></i></a>
                     </td>
                 </tr>

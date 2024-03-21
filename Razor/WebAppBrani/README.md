@@ -29,7 +29,12 @@ L'app disponde di due funzioni:
 
 ### - MIGLIORAMENTI:
 
-- [ ] possibilità di aggiungere pagina DettaglioBrano
+- [x] fare pagina playlist 
+
+- [ ] aggiungere pagina DettaglioBrano, conterra immagine grande + titolo artista anno e magari durata  
+  -     + bottoni modifica / elimina
+
+- [ ] aggiungere filtri di ricerca nella pagina Brani
 
 ## PIANIFICAZIONE E DESIGN DELL'ARCHITETTURA
 

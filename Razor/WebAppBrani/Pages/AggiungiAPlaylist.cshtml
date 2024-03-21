@@ -1,0 +1,18 @@
+@page
+@model AggiungiAPlaylistModel
+@{
+    ViewData["Title"] = "Aggiungi alla playlist";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form method="post">
+    @* <div class="form-group">
+       <b><p>@ViewData["Titolo"]</p></b>
+    </div> *@
+
+    
+    <button type="submit" class="btn btn-dark mt-4">Aggiungi</button>
+    <a asp-asp-page="Index" class="btn btn-dark mt-4">Annulla</a> 
+
+</form>

@@ -3,5 +3,68 @@
 @{
     ViewData["Title"] = "Playlist";
 }
-<h1 class="display-5">@ViewData["Title"]</h1>
+<style>
+    .colonneBottone {
+        width: 150px;
+    }
 
+    .colonnePiccole {
+        width: 70px;
+    }
+
+    .colonnePiuPiccole {
+        width: 40px;
+    }
+
+    .btn {
+        font-size: x-small;
+    }
+</style>
+
+<div class="container-sm">
+
+    <div class="d-flex justify-content-between align-items-center ">
+        <h1 class="display-6 p-3 text-muted">La tua Playlist</h1>
+    </div>
+
+    <table class="table table-striped table-bordered align-middle mt-3">
+        <thead>
+            <tr>
+
+                <th scope="col" class="colonnePiuPiccole">#</th>
+                <th scope="col" class="colonnePiccole ps-4">IMG</th>
+                <th scope="col" class="ps-4">Titolo</th>
+                <th scope="col" class="colonneBottone"></th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+            @if (Model.Playlists != null)
+            {
+                @foreach (var brano in Model.Playlists)
+                {
+                    <tr>
+                        <th scope="row">@brano.Id</th>
+                        <td>
+                            <div class="h-25 d-inline-block" style="width: 80px">
+                                <img src=@brano.Immagine width="70" height="70" class="img rounded" alt="image">
+                            </div>
+
+
+
+
+                        </td>
+                        <td class="ps-4">@brano.Titolo</td>
+                        <td>
+                            <a asp-page="RimuoviDaPlaylist" asp-route-id="@brano.Id" class="btn btn-dark">Rimuovi dalla playlist
+                                <i class="fa fa-minus"></i></a>
+                        </td>
+                    </tr>
+                }
+            }
+
+
+        </tbody>
+    </table>
+</div>

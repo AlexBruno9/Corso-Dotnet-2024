@@ -40,5 +40,33 @@
     "Artista": "Artista 1",
     "Anno": 2000,
     "Immagine": "https://source.unsplash.com/random/300x200?sig=6&song"
+  },
+  {
+    "Id": 7,
+    "Titolo": "Titolo 7",
+    "Artista": "Cristian",
+    "Anno": 2024,
+    "Immagine": "https://source.unsplash.com/random/300x200?sig=67&song"
+  },
+  {
+    "Id": 8,
+    "Titolo": "8",
+    "Artista": "jub",
+    "Anno": 0,
+    "Immagine": "https://source.unsplash.com/random/300x200?sig=68&song"
+  },
+  {
+    "Id": 9,
+    "Titolo": "provaMiao",
+    "Artista": null,
+    "Anno": 0,
+    "Immagine": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Ginger_european_cat.jpg/220px-Ginger_european_cat.jpg"
+  },
+  {
+    "Id": 10,
+    "Titolo": "cane",
+    "Artista": null,
+    "Anno": 0,
+    "Immagine": "https://www.zooplus.it/magazine/wp-content/uploads/2023/09/cane-con-impermeabile.jpeg"
   }
 ]
