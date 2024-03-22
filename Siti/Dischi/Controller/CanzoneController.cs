@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 //  MODIFICA CANZONE NON VA, DEVO MODIFICARE ALBUM , ma essendo titolo e artista lo stesso mi dice che è gia presente e mi caccia due frasi output a cazzo
 public class CanzoneController : Controller
 {
-    public void AddCanzone()
+    public static void AddCanzone()
     {
 
         //Canzone canzone = new Canzone();
@@ -24,11 +24,11 @@ public class CanzoneController : Controller
         }
 
 
-        Console.Write("Enter song name:");
+        Console.Write("Enter song name: ");
         var name = View.GetInput();
 
 
-        Console.Write("Enter nome artista:");
+        Console.Write("Enter nome artista: ");
         string input = View.GetInput();
         while (_db.GetIdFromArtist(input) == 0)
         {
@@ -54,7 +54,7 @@ public class CanzoneController : Controller
         }
         else
         {
-            Console.Write("Enter nome disco:");
+            Console.Write("Enter nome disco: ");
             input = View.GetInput();
 
             while (_db.GetIdFromDisco(input) == 0)
@@ -79,7 +79,7 @@ public class CanzoneController : Controller
     }
 
 
-    public void EliminaCanzone()
+    public static void EliminaCanzone()
     {
         Console.Write("Enter titolo canzone da eliminare: ");
         var name = View.GetInput();
@@ -111,7 +111,7 @@ public class CanzoneController : Controller
     //  provare se funziona e passare a show canzoni
 
 
-    public void ModificaCanzone()
+    public static void ModificaCanzone()
     {
 
         Console.Write("Enter titolo canzone da modificare: ");
@@ -147,7 +147,7 @@ public class CanzoneController : Controller
 
 
 
-                Console.Write("Enter nome disco:");
+                Console.Write("Enter nome disco: ");
                 input = View.GetInput();
 
                 while (_db.GetIdFromDisco(input) == 0)
@@ -185,7 +185,7 @@ public class CanzoneController : Controller
 
 
 
-    public void ShowCanzoni()
+    public static void ShowCanzoni()
     {
 
         var canzone = _db.Canzoni.Include(d => d.Artista).Include(d => d.Disco).ToList();

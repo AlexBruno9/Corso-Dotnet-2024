@@ -8,6 +8,14 @@ using Microsoft.EntityFrameworkCore;
 //  risolto NON PERMETTERE INSERIMENTO CANZONE SE NON CI SONO DISCHI PRESENTI
 //  +(cosa succede se per esempio elimino genere o artista di un disco salvato?)
 //  VISUALIZZA PLAYLIST PER GENERE
+// gestire inserimento prezzo decimale con il punto anziche la virgola
+// gestire inserimento prezzo decimale con gli zeri finali (non si vedono)
+// controller playlist
+// - visualizza playlist non ha senso
+// - elimina da playlist è da modificare (elimina da quale playlist?)
+// - seleziona e mostra playlist non funziona
+// in inserimento canzoni anziche inserire ome disco verranno mostrati id di quelli presenti per quell artista (gestirne il corretto inserimento)
+
 
 
 
@@ -320,72 +328,75 @@ public class Controller
             {
                 ArtistaController.ShowArtisti();
             }
-            /*
-                        if (input == "5")
-                        {
-                            _genereController.AddGenere();
-                        }
-                        if (input == "6")
-                        {
-                            _genereController.EliminaGenere();
-                        }
-                        if (input == "7")
-                        {
-                            _genereController.ModificaGenere();
-                        }
-                        if (input == "8")
-                        {
-                            _genereController.ShowGeneri();
-                        }
-                        if (input == "9")
-                        {
-                            _discoController.AddDisco();
-                        }
-                        if (input == "10")
-                        {
-                            _discoController.EliminaDisco();
-                        }
-                        if (input == "11")
-                        {
-                            _discoController.ModificaDisco();
-                        }
-                        if (input == "12")
-                        {
-                            _discoController.ShowDischi();
-                        }
-                        if (input == "13")
-                        {
-                            _canzoneController.AddCanzone();
-                        }
-                        if (input == "14")
-                        {
-                            _canzoneController.EliminaCanzone();
-                        }
-                        if (input == "15")
-                        {
-                            _canzoneController.ModificaCanzone();
-                        }
-                        if (input == "16")
-                        {
-                            _canzoneController.ShowCanzoni();
-                        }
-                        if (input == "17")
-                        {
-                            _playlistController.AddCanzonePlaylist();
-                        }
-                        if (input == "18")
-                        {
-                            _playlistController.RemoveCanzonePlaylist();
-                        }
-                        if (input == "19")
-                        {
-                            _playlistController.ShowPlaylist();
-                        }
-                        if (input == "20")
-                        {
-                            _discoController.ShowSingoloDisco();
-                        }
-                    */
+
+            if (input == "5")
+            {
+                GenereController.AddGenere();
+            }
+            if (input == "6")
+            {
+                GenereController.EliminaGenere();
+            }
+            if (input == "7")
+            {
+                GenereController.ModificaGenere();
+            }
+            if (input == "8")
+            {
+                GenereController.ShowGeneri();
+            }
+
+            if (input == "9")
+            {
+                DiscoController.AddDisco();
+            }
+
+            if (input == "10")
+            {
+                DiscoController.EliminaDisco();
+            }
+            if (input == "11")
+            {
+                DiscoController.ModificaDisco();
+            }
+            if (input == "12")
+            {
+                DiscoController.ShowDischi();
+            }
+
+            if (input == "13")
+            {
+                CanzoneController.AddCanzone();
+            }
+            if (input == "14")
+            {
+                CanzoneController.EliminaCanzone();
+            }
+            if (input == "15")
+            {
+                CanzoneController.ModificaCanzone();
+            }
+            if (input == "16")
+            {
+                CanzoneController.ShowCanzoni();
+            }
+            if (input == "17")
+            {
+                PlaylistController.AddCanzonePlaylist();
+            }
+            if (input == "18")
+            {
+                PlaylistController.RemoveCanzonePlaylist();
+            }
+            if (input == "19")
+            {
+                PlaylistController.ShowPlaylist();
+            }
+            if (input == "20")
+            {
+                DiscoController.ShowSingoloDisco();
+            }
+
 
             else if (input == "e")
             {

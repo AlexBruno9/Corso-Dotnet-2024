@@ -6,7 +6,7 @@ public class PlaylistController : Controller
 
 
 
-    public void AddCanzonePlaylist()
+    public static void AddCanzonePlaylist()
     {
 
 
@@ -54,7 +54,7 @@ public class PlaylistController : Controller
 
 
 
-    public void RemoveCanzonePlaylist()
+    public static void RemoveCanzonePlaylist()
     {
 
 
@@ -106,7 +106,7 @@ public class PlaylistController : Controller
 
 
 
-    public void ShowPlaylist()
+    public static void ShowPlaylist()
     {
 
         var playlist = _db.Playlist.Include(d => d.Canzone).Include(c => c.Canzone.Artista).Include(c => c.Canzone.Disco).ToList();

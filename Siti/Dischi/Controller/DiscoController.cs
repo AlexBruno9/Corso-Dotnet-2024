@@ -1,12 +1,7 @@
-
-
 using Microsoft.EntityFrameworkCore;
 
 public class DiscoController : Controller
 {
-
-
-
 
     public static int InsertEControlloInt()
     {
@@ -24,7 +19,7 @@ public class DiscoController : Controller
         return val;
     }
 
-    public double InsertEControlloDouble()
+    public static double InsertEControlloDouble()
     {
         double val;
     label1:
@@ -43,7 +38,7 @@ public class DiscoController : Controller
 
     //  NON  PERMETTERE INSERIMENTO SE NON ESISTONO ARTISTI O GENERI NEL DATABASE
 
-    public void AddDisco()
+    public static void AddDisco()
     {
 
         //  controllo ci siano artisti memorizzati
@@ -77,11 +72,11 @@ public class DiscoController : Controller
 
         Disco disco = new Disco();
 
-        Console.Write("Enter titolo:");
+        Console.Write("Enter titolo: ");
         var input = View.GetInput();
         disco.Titolo = input;
 
-        Console.Write("Enter anno:");
+        Console.Write("Enter anno: ");
         int anno = InsertEControlloInt();
         while (anno < 1600)
         {
@@ -90,7 +85,7 @@ public class DiscoController : Controller
         }
         disco.Anno = anno;
 
-        Console.Write("Enter prezzo:");                 //inserire il decimale con la virgola (non il punto)
+        Console.Write("Enter prezzo: ");                 //inserire il decimale con la virgola (non il punto)
         double prezzo = InsertEControlloDouble();
         while (prezzo <= 0)
         {
@@ -99,7 +94,7 @@ public class DiscoController : Controller
         }
         disco.Prezzo = prezzo;
 
-        Console.Write("Enter nome artista:");
+        Console.Write("Enter nome artista: ");
         input = View.GetInput();
 
         while (_db.GetIdFromArtist(input) == 0)
@@ -119,7 +114,7 @@ public class DiscoController : Controller
 
         while (trovato == false)
         {
-            Console.Write("\nSeleziona genere:");
+            Console.Write("\nSeleziona genere: ");
             id = InsertEControlloInt();
 
             foreach (Genere g in _db.Generi)
@@ -149,7 +144,7 @@ public class DiscoController : Controller
 
 
 
-    public void EliminaDisco()
+    public static void EliminaDisco()
     {
         Console.Write("Enter album name:");
         var name = View.GetInput();
@@ -174,7 +169,7 @@ public class DiscoController : Controller
 
 
 
-    public void ModificaDisco()
+    public static void ModificaDisco()
     {
 
 
@@ -288,7 +283,7 @@ public class DiscoController : Controller
 
 
 
-    public void ShowDischi()
+    public static void ShowDischi()
     {
 
         var disco = _db.Dischi.Include(d => d.Artista).Include(d => d.Genere).ToList();
@@ -307,7 +302,7 @@ public class DiscoController : Controller
 
 
 
-    public void ShowSingoloDisco()
+    public static void ShowSingoloDisco()
     {
 
         Console.Write("\n\nEnter titolo: ");
