@@ -1,0 +1,20 @@
+@page
+@model CancellaProdottoModel
+@{
+    ViewData["Title"] = "Cancella Prodotti";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form method="post">
+    <div class="form-group">
+       <b><p>@ViewData["Nome"]</p></b>
+       <p>@ViewData["Prezzo"]</p>
+       <p>@ViewData["Dettaglio"]</p>
+    </div>
+
+    
+    <button type="submit" class="btn btn-dark mt-4">Cancella</button>
+    <a asp-asp-page="Index" class="btn btn-dark mt-4">Annulla</a> 
+
+</form>

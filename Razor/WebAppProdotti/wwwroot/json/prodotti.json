@@ -1,0 +1,74 @@
+[
+  {
+    "Nome": "Prodotto 1",
+    "Prezzo": 2222.22,
+    "Dettaglio": "Dettaglio 1",
+    "Disponibilita": 3,
+    "Info": "Modello classico",
+    "Immagine": "https://source.unsplash.com/random/300x200?sig=1&web"
+  },
+  {
+    "Nome": "Prodotto 4",
+    "Prezzo": 400.0,
+    "Dettaglio": "Dettaglio 4",
+    "Disponibilita": 21,
+    "Info": "colori disponibili: blu, rosa",
+    "Immagine": "https://source.unsplash.com/random/300x200?sig=4&web"
+  },
+  {
+    "Nome": "Prodotto 7",
+    "Prezzo": 70.0,
+    "Dettaglio": "Dettaglio 7",
+    "Disponibilita": 8,
+    "Info": "Modello classico",
+    "Immagine": "https://source.unsplash.com/random/300x200?sig=7&web"
+  },
+  {
+    "Nome": "Prodotto 8",
+    "Prezzo": 800.0,
+    "Dettaglio": "Dettaglio 8",
+    "Disponibilita": 81,
+    "Info": "colori diponibili: verde, rosso",
+    "Immagine": "https://source.unsplash.com/random/300x200?sig=8&web"
+  },
+  {
+    "Nome": "Prodotto 9",
+    "Prezzo": 900.0,
+    "Dettaglio": "Dettaglio 9",
+    "Disponibilita": 30,
+    "Info": "Modello nuovo",
+    "Immagine": "https://source.unsplash.com/random/300x200?sig=9&web"
+  },
+  {
+    "Nome": "Prodotto 11",
+    "Prezzo": 1100.0,
+    "Dettaglio": "Dettaglio 11",
+    "Disponibilita": 21,
+    "Info": "colori disponibili: bianco, blu, rosa",
+    "Immagine": "https://source.unsplash.com/random/300x200?sig=11&web"
+  },
+  {
+    "Nome": "Prodotto 14",
+    "Prezzo": 1200.50,
+    "Dettaglio": "Aggiunta 20/03",
+    "Disponibilita": 0,
+    "Info": null,
+    "Immagine": "https://source.unsplash.com/random/300x200?sig=11&web"
+  },
+  {
+    "Nome": "ProdottoNuovo1",
+    "Prezzo": 1111.15,
+    "Dettaglio": "nessuno15",
+    "Disponibilita": 15,
+    "Info": "15",
+    "Immagine": "https://source.unsplash.com/random/300x200?sig=11&web"
+  },
+  {
+    "Nome": "nuovo2103",
+    "Prezzo": 10.0,
+    "Dettaglio": "rgfqerwf",
+    "Disponibilita": 12,
+    "Info": "efwwwrf",
+    "Immagine": "https://source.unsplash.com/random/300x200?sig=11&web"
+  }
+]
