@@ -19,6 +19,15 @@
     .btn {
         font-size: x-small;
     }
+
+    body {
+        font-family: Montserrat;
+    }
+
+        a {
+        color: rgb(0, 0, 0);
+    }
+</style>
 </style>
 
 <div class="container-sm">
@@ -34,6 +43,7 @@
                 <th scope="col" class="colonnePiuPiccole">#</th>
                 <th scope="col" class="colonnePiccole ps-4">IMG</th>
                 <th scope="col" class="ps-4">Titolo</th>
+                <th scope="col" class="ps-4"></th>
                 <th scope="col" class="colonneBottone"></th>
 
             </tr>
@@ -56,6 +66,9 @@
 
                         </td>
                         <td class="ps-4">@brano.Titolo</td>
+                           <td class="colonnePiccole fs-6 ps-3">
+                        <a asp-page="BranoDettaglioPlaylist" asp-route-id="@brano.Id">Info</a>
+                    </td>
                         <td>
                             <a asp-page="RimuoviDaPlaylist" asp-route-id="@brano.Id" class="btn btn-dark">Rimuovi dalla playlist
                                 <i class="fa fa-minus"></i></a>

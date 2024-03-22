@@ -4,6 +4,12 @@
     ViewData["Title"] = "Aggiungi Brani";
 }
 
+<style>
+    body {
+        font-family: Montserrat;
+    }
+</style>
+
 <h1>@ViewData["Title"]</h1>
 
 <form method="post">
@@ -21,8 +27,13 @@
         <input type="text" class="form-control" name="anno" />
     </div>
     <div class="form-group">
-        <label for="genere">Genere</label>
-        <input type="text" class="form-control" name="genere" />
+        <label for="genere"> Genere  </label>
+            <select class="form-select" aria-label="Default select example">
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+            </select>
+       
     </div>
     <div class="form-group">
         <label for="durata">Durata</label>

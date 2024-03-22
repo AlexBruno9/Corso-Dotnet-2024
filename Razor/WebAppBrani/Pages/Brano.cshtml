@@ -11,13 +11,16 @@
     }
 
     .colonnePiccole {
-        width: 70px;
+        width: 90px;
     }
 
     .colonnePiuPiccole {
         width: 40px;
     }
 
+    body {
+        font-family: Montserrat;
+    }
 
 
     .table {}
@@ -30,46 +33,83 @@
         font-size: 20px;
     }
 
-    body {
-        font-family: Montserrat;
-    }
-
     .btn {
         font-size: x-small;
     }
 
-    .bottonebrano {}
+    .bottonebrano {
+        width: 120px;
+    }
 
-       a {
+    a {
         color: rgb(0, 0, 0);
     }
 
-    /*
-    img{
-        width:500;
-        height:1600;
+    .btnFiltra {
+        margin-left: 70px;
     }
-    */
+
+    .bottonebrano {
+        margin-left: 53px;
+    }
 </style>
 
+@*
 
+
+
+</div>
+
+<br>
+<button type="submit" class="btn btn-primary">Filtra</button>
+</form>
+<br> *@
 
 
 
 <div class="container-sm">
 
-    <div class="d-flex justify-content-between align-items-center ">
-        <h1 class="display-6 p-3 text-muted">Brani</h1>
-        <a asp-page="AggiungiBrano" class="bottonebrano btn me-4 border-black  " style="background-color: rgb(216, 228, 255);">Aggiungi brano <i
-                class="fa fa-plus"></i></a>
-    </div>
+    <div class="row d-flex align-items-center  ">
+        <div class="col-md-9">
+            <h1 class="display-6 p-3 text-muted">Brani</h1>
+        </div>
+        <div class="dropdown col-md-1">
+            <form method="get">
+                <div class="form-group">
+                    <button class="btnFiltra btn me-4 border-black dropdown-toggle"
+                        style="background-color: rgb(216, 228, 255); " type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        Filtra
+                    </button>
+                    <ul class="dropdown-menu  p-2">
+                        <li> <label for="cercaArtista">Nome artista</label>
+                            <input type="text" class="form-control" name="cercaArtista" />
+                        </li>
+                        <li> <label for="cercaTitolo">Titolo brano</label>
+                            <input type="text" class="form-control" name="cercaTitolo" />
+                        </li>
+                        <br>
+                        <button type="submit" class="btn me-4 border-black  "
+                            style="background-color: rgb(216, 228, 255);">Filtra</button>
 
+                    </ul>
+
+                </div>
+
+            </form>
+        </div>
+        <div class="col-md-2">
+            <a asp-page="AggiungiBrano" class="bottonebrano btn border-black"
+                style="background-color: rgb(216, 228, 255);">Aggiungi brano <i class="fa fa-plus"></i></a>
+        </div>
+
+    </div>
     <table class="table table-striped table-bordered align-middle mt-3">
         <thead>
             <tr>
 
                 <th scope="col" class="colonnePiuPiccole">#</th>
-                <th scope="col" class="colonnePiccole ps-4">IMG</th>
+                <th scope="col" class="colonnePiccole">IMG</th>
                 <th scope="col" class="ps-4">Titolo</th>
                 <th scope="col" class="ps-4"></th>
                 <th scope="col" class="colonneBottone"></th>
@@ -83,9 +123,9 @@
                 <tr>
                     <th scope="row">@brano.Id</th>
                     <td>
-                        <div class="h-25 d-inline-block" style="width: 80px">
+                        <div class=" h-25 d-inline-block " style="width: 80px">
                             <a asp-page="BranoDettaglio" asp-route-id="@brano.Id">
-                                <img src=@brano.Immagine width="70" height="70" class="img rounded" alt="image">
+                                <img src=@brano.Immagine width="70" height="70" class="img rounded ms-1" alt="image">
                             </a>
                         </div>
 
@@ -97,12 +137,13 @@
 
 
                     <td class="colonnePiccole fs-6 ps-3">
-                        <a asp-page="BranoDettaglio" asp-route-id="@brano.Id">Info</a>
+                        <a asp-page="BranoDettaglio" class="ms-2" asp-route-id="@brano.Id">Info</a>
                     </td>
 
 
                     <td>
-                        <a asp-page="AggiungiAPlaylist" asp-route-id="@brano.Id" class="btn btn-dark">Aggiungi a playlist
+                        <a asp-page="AggiungiAPlaylist" asp-route-id="@brano.Id" class="btn btn-dark">Aggiungi a
+                            playlist
                             <i class="fa fa-plus"></i></a>
                     </td>
                 </tr>
@@ -110,87 +151,13 @@
 
         </tbody>
     </table>
-</div>
-
-<br><br><br><br><br>
 
 
+    <br><br><br><br><br>
 
-
-@* <table class="table">
-<thead>
-<tr>
-<th>Id</th>
-<th>img</th>
-<th>Titolo</th>
-
-
-</tr>
-</thead>
-<tbody>
-@foreach (var brano in Model.Brani)
-
-{
-<tr>
-<td>@brano.Id</td>
-<td><img src=@brano.Immagine></td>
-<td>@brano.Titolo</td>
-
-
-
-</tr>
-}
-</tbody>
-</table> *@
-
-
-@* <br>
-<div style="height: 100px;">
-<form method="get">
-@for (int i = 1; i <= Model.numeroPagine; i++)
-{
-<button type="submit" class="btn btn-primary" name="pageIndex" value="@i">@i</button>
-}
-</form>
-</div> *@
-
-
-
-
-@* <div class="row">
-@foreach (var brano in Model.Prodotti)
-{
-<div class="col-md-4">
-<div class="card">
-<img src="@brano.Immagine" class="card-img-top" alt="...">
-<div class="card-body">
-<h5 class="card-title">@brano.Nome</h5>
-
-
-@if (@brano.Prezzo <= 300)
-{
-<p class="card-text text-success fw-bold">@Html.DisplayFor(model => brano.Prezzo)$</p>
-<a asp-page="branoDettaglio" asp-route-nome="@brano.Nome" asp-route-prezzo="@brano.Prezzo"
-asp-route-Dettaglio="@brano.Dettaglio" class="btn btn-success">Dettaglio</a>
-}
-else if (@brano.Prezzo >= 900)
-{
-<p class="card-text text-danger fw-bold">@Html.DisplayFor(model => brano.Prezzo)$</p>
-<a asp-page="branoDettaglio" asp-route-nome="@brano.Nome" asp-route-prezzo="@brano.Prezzo"
-asp-route-Dettaglio="@brano.Dettaglio" class="btn btn-danger">Dettaglio</a>
-}
-else
-{
-<p class="card-text">@Html.DisplayFor(model => brano.Prezzo)$</p>
-<a asp-page="branoDettaglio" asp-route-nome="@brano.Nome" asp-route-prezzo="@brano.Prezzo"
-asp-route-Dettaglio="@brano.Dettaglio" class="btn btn-primary">Dettaglio</a>
-}
-
-
-
-</div>
-</div>
-<br>
-</div>
-}
-</div> *@
+    <div style="height: 100px;">
+        <form method="get">
+            <input type="hidden" name="cercaArtista" value="@Request.Query["cercaArtista"]" />
+            <input type="hidden" name="cercaTitolo" value="@Request.Query["cercaTitolo"]" />
+        </form>
+    </div>

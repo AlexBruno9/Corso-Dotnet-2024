@@ -4,69 +4,80 @@
     "Titolo": "Titolo 1",
     "Artista": "Artista 1",
     "Anno": 2000,
-    "Immagine": "https://source.unsplash.com/random/300x200?sig=1&song"
-  },
-  {
-    "Id": 2,
-    "Titolo": "Titolo 2",
-    "Artista": "Artista 2",
-    "Anno": 2020,
-    "Immagine": "https://source.unsplash.com/random/300x200?sig=2&song"
+    "Immagine": "https://source.unsplash.com/random/300x200?sig=1&song",
+    "Genere": null,
+    "Durata": null
   },
   {
     "Id": 3,
-    "Titolo": "Titolo 1",
-    "Artista": "Artista 1",
-    "Anno": 2000,
-    "Immagine": "https://source.unsplash.com/random/300x200?sig=3&song"
+    "Titolo": "Titolo 2",
+    "Artista": "Artista 2",
+    "Anno": 2002,
+    "Immagine": "https://source.unsplash.com/random/300x200?sig=3&song",
+    "Genere": null,
+    "Durata": null
   },
   {
     "Id": 4,
-    "Titolo": "Titolo 1",
-    "Artista": "Artista 1",
-    "Anno": 2000,
-    "Immagine": "https://source.unsplash.com/random/300x200?sig=4&song"
+    "Titolo": "Titolo 3",
+    "Artista": "Artista 3",
+    "Anno": 2003,
+    "Immagine": "https://source.unsplash.com/random/300x200?sig=4&song",
+    "Genere": null,
+    "Durata": null
   },
   {
     "Id": 5,
-    "Titolo": "Titolo 1",
-    "Artista": "Artista 1",
-    "Anno": 2000,
-    "Immagine": "https://source.unsplash.com/random/300x200?sig=5&song"
+    "Titolo": "Titolo 4",
+    "Artista": "Artista 4",
+    "Anno": 2004,
+    "Immagine": "https://source.unsplash.com/random/300x200?sig=5&song",
+    "Genere": "iyck",
+    "Durata": "2:00"
   },
   {
     "Id": 6,
-    "Titolo": "Titolo 1",
-    "Artista": "Artista 1",
-    "Anno": 2000,
-    "Immagine": "https://source.unsplash.com/random/300x200?sig=6&song"
+    "Titolo": "Titolo 5",
+    "Artista": "Artista 5",
+    "Anno": 2005,
+    "Immagine": "https://source.unsplash.com/random/300x200?sig=6&song",
+    "Genere": null,
+    "Durata": null
   },
   {
     "Id": 7,
     "Titolo": "Titolo 7",
     "Artista": "Cristian",
     "Anno": 2024,
-    "Immagine": "https://source.unsplash.com/random/300x200?sig=67&song"
-  },
-  {
-    "Id": 8,
-    "Titolo": "8",
-    "Artista": "jub",
-    "Anno": 0,
-    "Immagine": "https://source.unsplash.com/random/300x200?sig=68&song"
+    "Immagine": "https://source.unsplash.com/random/300x200?sig=67&song",
+    "Genere": null,
+    "Durata": null
   },
   {
     "Id": 9,
     "Titolo": "provaMiao",
     "Artista": null,
     "Anno": 0,
-    "Immagine": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Ginger_european_cat.jpg/220px-Ginger_european_cat.jpg"
+    "Immagine": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Ginger_european_cat.jpg/220px-Ginger_european_cat.jpg",
+    "Genere": null,
+    "Durata": null
   },
   {
     "Id": 10,
     "Titolo": "cane",
     "Artista": null,
     "Anno": 0,
-    "Immagine": "https://www.zooplus.it/magazine/wp-content/uploads/2023/09/cane-con-impermeabile.jpeg"
+    "Immagine": "https://www.zooplus.it/magazine/wp-content/uploads/2023/09/cane-con-impermeabile.jpeg",
+    "Genere": null,
+    "Durata": null
+  },
+  {
+    "Id": 11,
+    "Titolo": "topo",
+    "Artista": "gigio",
+    "Anno": 1985,
+    "Immagine": "https://th.bing.com/th/id/R.d73d3394beb750ee2390cf9772f1832a?rik=tggu6duc%2bZ566w&pid=ImgRaw&r=0",
+    "Genere": null,
+    "Durata": null
   }
 ]

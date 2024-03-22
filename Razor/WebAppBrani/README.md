@@ -32,10 +32,13 @@ L'app disponde di due funzioni:
 - [x] fare pagina playlist 
 - [x] finire pagina DettaglioBrano, conterra immagine grande + titolo artista anno e magari durata  
 
-- [ ] inserire font ovunque
-- [ ] bottoni modifica / elimina
-- [ ] aggiungere filtri di ricerca nella pagina Brani
-- [ ] checkbox per possibilità scelta multipla per aggiungere brani
+- [x] inserire font ovunque
+- [x] bottoni modifica / elimina
+- [x] aggiungere filtri di ricerca nella pagina Brani
+- [ ] checkbox per possibilità scelta multipla per aggiungere brani !!!!
+- [ ] scelta genere tramite tendina (accordion)
+- [ ] durata totale playlist 
+- [ ] possibilità di creare più playlist
 
 
 ## PIANIFICAZIONE E DESIGN DELL'ARCHITETTURA

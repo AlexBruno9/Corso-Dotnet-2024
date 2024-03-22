@@ -20,12 +20,21 @@ namespace WebAppBrani.Pages
 
         public required IEnumerable<Brano> Brani { get; set; }
         public int numeroPagine { get; set; }
-        public void OnGet(int? pageIndex)
+        public void OnGet(string cercaArtista, string cercaTitolo, int? pageIndex)
         {
             var json = System.IO.File.ReadAllText("wwwroot/json/Brani.json");
             Brani = JsonConvert.DeserializeObject<List<Brano>>(json)!;
 
 
+
+            if (!string.IsNullOrEmpty(cercaArtista))
+            {
+                Brani = Brani.Where(p => p.Artista == cercaArtista);
+            }
+               if (!string.IsNullOrEmpty(cercaTitolo))
+            {
+                Brani = Brani.Where(p => p.Titolo == cercaTitolo);
+            }
 
 /*
             //  AGGIUNTA IMPAGINAZIONE
