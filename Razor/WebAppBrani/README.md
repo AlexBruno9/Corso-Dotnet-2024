@@ -35,8 +35,9 @@ L'app disponde di due funzioni:
 - [x] inserire font ovunque
 - [x] bottoni modifica / elimina
 - [x] aggiungere filtri di ricerca nella pagina Brani
-- [ ] checkbox per possibilità scelta multipla per aggiungere brani !!!!
-- [ ] scelta genere tramite tendina (accordion)
+- [x] checkbox per possibilità scelta multipla per aggiungere brani !!!!
+- [x] scelta genere tramite tendina (accordion)
+- [ ] ingrandire checkbox in playlist
 - [ ] durata totale playlist 
 - [ ] possibilità di creare più playlist
 

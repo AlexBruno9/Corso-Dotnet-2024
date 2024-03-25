@@ -17,7 +17,15 @@
         <label for="immagine">Link Immagine</label>
         <input type="text" class="form-control" name="immagine" value="@Model.Brano!.Immagine" />
         <label for="genere">Genere</label>
-        <input type="text" class="form-control" name="genere" value="@Model.Brano!.Genere" />
+        <select class="form-select form-select-lm mb-3" aria-label="Large select example" name="Genere" >
+          
+            @foreach (var genere in Model.Genere)
+            {
+                <option value="@genere">@genere</option>
+            
+            }
+            
+        </select>
         <label for="durata">Durata Canzone</label>
         <input type="text" class="form-control" name="durata" value="@Model.Brano!.Durata" />
     </div>
