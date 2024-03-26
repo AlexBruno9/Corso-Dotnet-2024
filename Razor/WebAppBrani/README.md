@@ -37,9 +37,9 @@ L'app disponde di due funzioni:
 - [x] aggiungere filtri di ricerca nella pagina Brani
 - [x] checkbox per possibilità scelta multipla per aggiungere brani !!!!
 - [x] scelta genere tramite tendina (accordion)
-- [ ] ingrandire checkbox in playlist
-- [ ] durata totale playlist 
-- [ ] possibilità di creare più playlist
+- [x] sistemare footer in basso alla pagina
+- [x] colore navbar
+- [x] ingrandire checkbox in playlist
 
 
 ## PIANIFICAZIONE E DESIGN DELL'ARCHITETTURA

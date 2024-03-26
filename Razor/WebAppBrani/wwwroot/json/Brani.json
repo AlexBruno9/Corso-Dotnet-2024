@@ -1,60 +1,87 @@
 [
+    {
+      "Id": 1,
+      "Titolo": "Time",
+      "Artista": "Pink Floyd",
+      "Anno": 1973,
+      "Immagine": "https://upload.wikimedia.org/wikipedia/en/3/3b/Dark_Side_of_the_Moon.png",
+      "Genere": "Rock",
+      "Durata": "04:20"
+    },
+    {
+      "Id": 2,
+      "Titolo": "The Great Gig in the Sky",
+      "Artista": "Pink Floyd",
+      "Anno": 1973,
+      "Immagine": "https://upload.wikimedia.org/wikipedia/en/3/3b/Dark_Side_of_the_Moon.png",
+      "Genere": "Rock",
+      "Durata": "03:10"
+    },
+    {
+      "Id": 3,
+      "Titolo": "Money",
+      "Artista": "Pink Floyd",
+      "Anno": 1973,
+      "Immagine": "https://upload.wikimedia.org/wikipedia/en/3/3b/Dark_Side_of_the_Moon.png",
+      "Genere": "Rock",
+      "Durata": "04:55"
+    },
+    {
+      "Id": 4,
+      "Titolo": "Come Together",
+      "Artista": "The Beatles",
+      "Anno": 1969,
+      "Immagine": "https://upload.wikimedia.org/wikipedia/en/4/42/Beatles_-_Abbey_Road.jpg",
+      "Genere": "Rock",
+      "Durata": "04:19"
+    },
+    {
+      "Id": 5,
+      "Titolo": "Here comes the Sun",
+      "Artista": "The Beatles",
+      "Anno": 1969,
+      "Immagine": "https://upload.wikimedia.org/wikipedia/en/4/42/Beatles_-_Abbey_Road.jpg",
+      "Genere": "Rock",
+      "Durata": "03:05"
+    },
+    {
+      "Id": 7,
+      "Titolo": "Riders on the Storm",
+      "Artista": "The Doors",
+      "Anno": 1970,
+      "Immagine": "https://upload.wikimedia.org/wikipedia/en/4/41/The_Doors_-_L.A._Woman.jpg",
+      "Genere": "Rock",
+      "Durata": "05:05"
+    },
+    {
+      "Id": 8,
+      "Titolo": "Roadhouse Blues",
+      "Artista": "The Doors",
+      "Anno": 1968,
+      "Immagine": "https://upload.wikimedia.org/wikipedia/en/thumb/c/cd/The_Doors_-_Morrison_Hotel.jpg/220px-The_Doors_-_Morrison_Hotel.jpg",
+      "Genere": "Rock",
+      "Durata": "03:52"
+    },
+    {
+      "Id": 9,
+      "Titolo": "You Shook Me",
+      "Artista": "Led Zeppelin",
+      "Anno": 1969,
+      "Immagine": "https://upload.wikimedia.org/wikipedia/en/e/ef/Led_Zeppelin_-_Led_Zeppelin_%281969%29_front_cover.png",
+      "Genere": "Blues",
+      "Durata": "06:15"
+    },
+    {
+      "Id": 10,
+      "Titolo": "Communication Breakdown",
+      "Artista": null,
+      "Anno": 0,
+      "Immagine": "https://upload.wikimedia.org/wikipedia/en/e/ef/Led_Zeppelin_-_Led_Zeppelin_%281969%29_front_cover.png",
+      "Genere": "Rock",
+      "Durata": "02:27"
+    },
   {
-    "Id": 1,
-    "Titolo": "Titolo 1",
-    "Artista": "Artista 1",
-    "Anno": 2000,
-    "Immagine": "https://source.unsplash.com/random/300x200?sig=1&song",
-    "Genere": null,
-    "Durata": null
-  },
-  {
-    "Id": 3,
-    "Titolo": "Titolo 2",
-    "Artista": "Artista 2",
-    "Anno": 2002,
-    "Immagine": "https://source.unsplash.com/random/300x200?sig=3&song",
-    "Genere": null,
-    "Durata": null
-  },
-  {
-    "Id": 4,
-    "Titolo": "Titolo 3",
-    "Artista": "Artista 3",
-    "Anno": 2003,
-    "Immagine": "https://source.unsplash.com/random/300x200?sig=4&song",
-    "Genere": null,
-    "Durata": null
-  },
-  {
-    "Id": 5,
-    "Titolo": "Titolo 4",
-    "Artista": "Artista 4",
-    "Anno": 2004,
-    "Immagine": "https://source.unsplash.com/random/300x200?sig=5&song",
-    "Genere": "iyck",
-    "Durata": "2:00"
-  },
-  {
-    "Id": 6,
-    "Titolo": "Titolo 5",
-    "Artista": "Artista 5",
-    "Anno": 2005,
-    "Immagine": "https://source.unsplash.com/random/300x200?sig=6&song",
-    "Genere": null,
-    "Durata": null
-  },
-  {
-    "Id": 7,
-    "Titolo": "Titolo 7",
-    "Artista": "Cristian",
-    "Anno": 2024,
-    "Immagine": "https://source.unsplash.com/random/300x200?sig=67&song",
-    "Genere": null,
-    "Durata": null
-  },
-  {
-    "Id": 9,
+    "Id": 11,
     "Titolo": "provaMiao",
     "Artista": null,
     "Anno": 0,
@@ -63,7 +90,7 @@
     "Durata": null
   },
   {
-    "Id": 10,
+    "Id": 12,
     "Titolo": "cane",
     "Artista": null,
     "Anno": 0,
@@ -72,12 +99,21 @@
     "Durata": null
   },
   {
-    "Id": 11,
+    "Id": 13,
     "Titolo": "topo",
     "Artista": "gigio",
     "Anno": 1985,
     "Immagine": "https://th.bing.com/th/id/R.d73d3394beb750ee2390cf9772f1832a?rik=tggu6duc%2bZ566w&pid=ImgRaw&r=0",
     "Genere": null,
     "Durata": null
+  },
+  {
+    "Id": 14,
+    "Titolo": "bi bi boombox",
+    "Artista": null,
+    "Anno": 0,
+    "Immagine": "https://as1.ftcdn.net/v2/jpg/03/73/14/58/1000_F_373145820_FKJszBzaZCe9zc0IFyZ9q4TeYBISKiWP.jpg",
+    "Genere": "Pop",
+    "Durata": "2:00"
   }
 ]
