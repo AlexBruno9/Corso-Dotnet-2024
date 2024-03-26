@@ -113,37 +113,45 @@
             </thead>
             <tbody>
 
-                @foreach (var brano in Model.Brani)
+                @if (Model.Brani != null)
                 {
-                    <tr>
-                        <th scope="row">@brano.Id</th>
-                        <td>
-                            <div class=" h-25 d-inline-block " style="width: 80px">
-                                <a asp-page="BranoDettaglio" asp-route-id="@brano.Id">
-                                    <img src=@brano.Immagine width="70" height="70" class="img rounded ms-1" alt="image">
-                                </a>
-                            </div>
-                        </td>
-                        <td class="ps-4">@brano.Titolo</td>
 
-                        <td class="colonnePiccole fs-6 ps-3">
-                            <a asp-page="BranoDettaglio" class="ms-2" asp-route-id="@brano.Id">Info</a>
-                        </td>
-
-                        <td>
-                            <div class="d-flex justify-content-center ms-2 ">
-                                <div class="form-check ">
-
-                                    <input class="form-check-input" type="checkbox" name="selezionatiBrani"
-                                        value="@brano.Id">
-
-                                    <label class="form-check-label" for="flexCheckDefault">
-                                    </label>
-
+                    @foreach (var brano in Model.Brani)
+                    {
+                        <tr>
+                            <th scope="row">@brano.Id</th>
+                            <td>
+                                <div class=" h-25 d-inline-block " style="width: 80px">
+                                    <a asp-page="BranoDettaglio" asp-route-id="@brano.Id">
+                                        <img src=@brano.Immagine width="70" height="70" class="img rounded ms-1" alt="image">
+                                    </a>
                                 </div>
-                            </div>
-                        </td>
-                    </tr>
+                            </td>
+                            <td class="ps-4">@brano.Titolo</td>
+                            <td class="ps-4">
+                                <audio controls>
+                                    <source src="@brano.Audio" />
+                                </audio>
+                            </td>
+                            <td class="colonnePiccole fs-6 ps-3">
+                                <a asp-page="BranoDettaglio" class="ms-2" asp-route-id="@brano.Id">Info</a>
+                            </td>
+
+                            <td>
+                                <div class="d-flex justify-content-center ms-2 ">
+                                    <div class="form-check ">
+
+                                        <input class="form-check-input" type="checkbox" name="selezionatiBrani"
+                                            value="@brano.Id">
+
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                        </label>
+
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    }
                 }
             </tbody>
         </table>

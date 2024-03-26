@@ -50,14 +50,14 @@ namespace WebAppBrani.Pages
             return id;
         }
 
-        public IActionResult OnPost(int id, string titolo, string artista, int anno, string genere, string durata, string immagine)
+        public IActionResult OnPost(int id, string titolo, string artista, int anno, string genere, string durata, string immagine, string audio)
         {
             var json = System.IO.File.ReadAllText("wwwroot/json/Brani.json");
             var brani = JsonConvert.DeserializeObject<List<Brano>>(json)!;
 
             id = calcolaId();
 
-            brani.Add(new Brano { Titolo = titolo, Artista = artista, Anno = anno, Immagine = immagine, Id = id, Genere = genere, Durata = durata });
+            brani.Add(new Brano { Titolo = titolo, Artista = artista, Anno = anno, Immagine = immagine, Id = id, Genere = genere, Audio=audio, Durata = durata });
             // salva il file json formattato
             System.IO.File.WriteAllText("wwwroot/json/Brani.json", JsonConvert.SerializeObject(brani, Formatting.Indented));
             return RedirectToPage("Brano");

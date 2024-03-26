@@ -40,6 +40,9 @@ L'app disponde di due funzioni:
 - [x] sistemare footer in basso alla pagina
 - [x] colore navbar
 - [x] ingrandire checkbox in playlist
+- [x] controllo lista brani vuota
+- [x] traccia audio in inserimento brano 
+- [ ] bottoni next - previous
 
 
 ## PIANIFICAZIONE E DESIGN DELL'ARCHITETTURA

@@ -15,25 +15,25 @@
 <form method="post">
 
     <div class="form-group">
-        <label for="titolo">Titolo</label>
+        <label for="titolo"> Titolo</label>
         <input type="text" class="form-control" name="titolo" required />
     </div>
     <div class="form-group">
-        <label for="artista">Artista</label>
+        <label for="artista"> Artista</label>
         <input type="text" class="form-control" name="artista" />
     </div>
     <div class="form-group">
-        <label for="anno">Anno</label>
+        <label for="anno"> Anno</label>
         <input type="text" class="form-control" name="anno" />
     </div>
     <div class="form-group">
         <label for="genere"> Genere </label>
-<select class="form-select form-select-lm mb-3" aria-label="Large select example" name="Genere" >
-          
+        <select class="form-select form-select-lm mb-3" aria-label="Large select example" name="Genere">
+
             @foreach (var genere in Model.Genere)
             {
                 <option value="@genere">@genere</option>
-            
+
             }
         </select>
         @* <select class="form-select" aria-label="Default select example" asp-for="Genere"
@@ -41,16 +41,20 @@
         </select> *@
     </div>
     <div class="form-group">
-        <label for="durata">Durata</label>
-        <input type="text" class="form-control" name="durata" required/>
+        <label for="durata"> Durata</label>
+        <input type="text" class="form-control" name="durata" required />
     </div>
 
+    <div class="form-group">
+        <label for="audio"> Link Audio .Mp3</label>
+        <input type="text" class="form-control" name="audio" required/>
+    </div>
 
     <div class="form-group">
-        <label for="immagine">Link Immagine</label>
+        <label for="immagine"> Link Immagine</label>
         <input type="text" class="form-control" name="immagine" />
     </div>
 
-    <button type="submit" class="btn btn-dark mt-4">Aggiungi</button>
+    <button type="submit" class="btn btn-dark mt-4"> Aggiungi</button>
 
 </form>

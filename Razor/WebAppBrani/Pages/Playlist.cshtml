@@ -2,7 +2,12 @@
 @model PlaylistModel
 @{
     ViewData["Title"] = "Playlist";
+    var playlist = Model.arrayAudio;
+
+@* "https://guitarbackingtrack.org/wp-content/uploads/2023/05/Deep-Purple-Smoke-On-The-Water-v7.mp3",
+"https://guitarbackingtrack.org/wp-content/uploads/2023/05/The-Doors-Roadhouse-Blues.mp3" *@
 }
+
 <style>
     .colonneBottone {
         width: 150px;
@@ -28,18 +33,83 @@
         color: rgb(0, 0, 0);
     }
 
-    .form-check-input{
+    .form-check-input {
         width: 20px;
         height: 20px;
     }
 </style>
-</style>
+
 <form method="post" asp-page="RimuoviDaPlaylist">
     <div class="container-sm">
 
         <div class="d-flex justify-content-between align-items-center ">
             <h1 class="display-6 p-3 text-muted">La tua Playlist</h1>
         </div>
+
+
+
+
+
+
+        @* <button type="button" class="btn btn-outline-secondary ">
+
+        <audio controls>
+
+        @foreach(var brano in Model.Playlists)
+        {
+        <source src="@brano.Audio" />
+        }
+
+        </audio>
+        </button> *@
+
+
+        @if(Model.lunghezzaArray!=0)
+        {
+        <audio id="audioPlayer" controls>
+
+            <source id="audioSource" src="@playlist![0]" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        }   
+
+        <button id="prevTrack">Previous Track</button>
+        <button id="nextTrack">Next Track</button>
+
+        <script>
+            var playlist = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(playlist));
+
+            var currentIndex = 0;
+
+            var audioPlayer = document.getElementById('audioPlayer');
+            var audioSource = document.getElementById('audioSource');
+
+            // Imposta il brano corrente sulla sorgente audio e riproduce il brano.
+            function setTrack(index) {
+                currentIndex = index;
+                audioSource.src = playlist[currentIndex];
+                audioPlayer.load();
+                audioPlayer.play();
+            }
+
+            // Vai al brano successivo nella playlist.
+            document.getElementById('nextTrack').addEventListener('click', function () {
+                currentIndex = (currentIndex + 1) % playlist.length;
+                setTrack(currentIndex);
+            });
+
+            // Vai al brano precedente nella playlist.
+            document.getElementById('prevTrack').addEventListener('click', function () {
+                currentIndex = (currentIndex - 1 + playlist.length) % playlist.length;
+                setTrack(currentIndex);
+            });
+
+            // Gestisci la fine di un brano per passare automaticamente al successivo.
+            audioPlayer.addEventListener('ended', function () {
+                currentIndex = (currentIndex + 1) % playlist.length;
+                setTrack(currentIndex);
+            });
+        </script>
 
         <table class="table table-striped table-bordered align-middle mt-3">
             <thead>
@@ -48,6 +118,7 @@
                     <th scope="col" class="colonnePiuPiccole">#</th>
                     <th scope="col" class="colonnePiccole ps-4">IMG</th>
                     <th scope="col" class="ps-4">Titolo</th>
+                    <th scope="col" class="colonnePiuPiccole fw-medium "></th>
                     <th scope="col" class="ps-4"></th>
                     <th scope="col" class="colonnePiuPiccole fw-medium ">Seleziona</th>
 
@@ -57,7 +128,6 @@
 
                 @if (Model.Playlists != null)
                 {
-                   
 
                     @foreach (var brano in Model.Playlists)
                     {
@@ -75,10 +145,16 @@
 
                             </td>
                             <td class="ps-4">@brano.Titolo</td>
+                            <td class="ps-4">
+
+                                <audio controls>
+                                    <source src="@brano.Audio" />
+                                </audio>
+                            </td>
                             <td class="colonnePiccole fs-6 ps-3">
                                 <a asp-page="BranoDettaglioPlaylist" asp-route-id="@brano.Id">Info</a>
                             </td>
-                            
+
                             <td>
                                 <div class="d-flex justify-content-center  ">
                                     <div class="form-check">
@@ -98,8 +174,7 @@
                         </tr>
                     }
                 }
-
-
+             
             </tbody>
         </table>
     </div>

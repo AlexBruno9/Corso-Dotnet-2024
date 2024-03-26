@@ -36,7 +36,7 @@
 
     <h1 class="display-6 p-3 text-muted">Info - @Model.Brano!.Titolo</h1>
 
-
+<div>
     <div class="card mb-3">
         <div class="row g-0 p-5">
             <div class="col-md-5">
@@ -49,18 +49,9 @@
                     <p class="card-text mt-4 ">Artista: @Model.Brano!.Artista</p>
                     <p class="card-text ">Anno: @Model.Brano!.Anno</p>
                     <p class="card-text">Genere: @Model.Brano!.Genere</p>
-                    <p class="card-text">Durata: @Model.Brano!.Durata</p>
-
-                    <div class="btn-group mt-4" role="group" aria-label="Basic outlined example">
-                        <button type="button" class="btn btn-outline-secondary">
-                            <i class="bi bi-play"></i>
-                        </button>
-                        <button type="button" class="btn btn-outline-secondary">
-                            <i class="bi bi-pause"></i>
-                        </button>
-                        <button type="button" class="btn btn-outline-secondary">
-                            <i class="bi bi-stop"></i>
-                        </button>
+                     <audio controls>
+                        <source src="@Model.Brano.Audio" />
+                    </audio>
                     </div>
                 </div>
             </div>
@@ -69,7 +60,7 @@
     </div>
     <br>
     <a asp-page="Playlist"> <i class="bi bi-arrow-return-left"></i> Torna alla Playlist</a>
-
+</div>
 </body>
 <br><br><br>
 
