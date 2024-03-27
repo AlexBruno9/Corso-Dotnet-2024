@@ -14,27 +14,17 @@ namespace WebAppBrani.Pages
             _logger = logger;
         }
         public required IEnumerable<string> Genere { get; set; }
-        //            public Prenotazione Prenotazione { get; set; }
-
-        // public IEnumerable<Prenotazione> Prenotazioni { get; set; }
 
 
-        public void OnGet()
+        public void OnGet() // LEGGE I GENERI PER LA SELEZIONE NEL FORM
         {
-
-
-
-            //TODO leggo JSON
             string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/json/Generi.json");
             string jsonText = System.IO.File.ReadAllText(path);
-            var prenotazioniList = JsonConvert.DeserializeObject<List<string>>(jsonText);
-            Genere = prenotazioniList!;
-
-
-
+            var generiList = JsonConvert.DeserializeObject<List<string>>(jsonText);
+            Genere = generiList!;
         }
 
-        public int calcolaId()
+        public int calcolaId() // AUTOINCREMENTA L'ID AD OGNI BRANO AGGIUNTO
         {
             var json = System.IO.File.ReadAllText("wwwroot/json/Brani.json");
             var brani = JsonConvert.DeserializeObject<List<Brano>>(json)!;
@@ -50,6 +40,7 @@ namespace WebAppBrani.Pages
             return id;
         }
 
+        // AGGIUNTA DEL NUOVO BRANO ALLA PLAYLIST
         public IActionResult OnPost(int id, string titolo, string artista, int anno, string genere, string durata, string immagine, string audio)
         {
             var json = System.IO.File.ReadAllText("wwwroot/json/Brani.json");
@@ -57,7 +48,7 @@ namespace WebAppBrani.Pages
 
             id = calcolaId();
 
-            brani.Add(new Brano { Titolo = titolo, Artista = artista, Anno = anno, Immagine = immagine, Id = id, Genere = genere, Audio=audio, Durata = durata });
+            brani.Add(new Brano { Titolo = titolo, Artista = artista, Anno = anno, Immagine = immagine, Id = id, Genere = genere, Audio = audio, Durata = durata });
             // salva il file json formattato
             System.IO.File.WriteAllText("wwwroot/json/Brani.json", JsonConvert.SerializeObject(brani, Formatting.Indented));
             return RedirectToPage("Brano");

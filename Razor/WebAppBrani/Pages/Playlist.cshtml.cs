@@ -11,30 +11,14 @@ namespace WebAppBrani.Pages
     public class PlaylistModel : PageModel
     {
 
-        // private readonly ILogger<PlaylistModel> _logger;
-
-        //  public PlaylistModel(ILogger<PlaylistModel> logger)
-        //  {
-        //      _logger = logger;
-        // }
-
-
-
         public required IEnumerable<Brano> Playlists { get; set; }
         public string[]? arrayAudio { get; set; }
         public int lunghezzaArray{get;set;}
 
 
-
-
         private static readonly List<string> Tracks = new List<string>
         {
-            // "https://guitarbackingtrack.org/wp-content/uploads/2023/05/Motley-Crue-Without-You-v3.mp3",
-            // "https://guitarbackingtrack.org/wp-content/uploads/2023/05/Quo-Vadis-Silence-Calls-The-Storm.mp3",
-
-
-            "https://guitarbackingtrack.org/wp-content/uploads/2023/05/Bon-Jovi-You-Give-Love-A-Bad-Name-v4.mp3",
-            "https://guitarbackingtrack.org/wp-content/uploads/2023/05/Cheap-Trick-Surrender.mp3"
+          
         };
 
         private static int CurrentTrackIndex = 0;
@@ -43,7 +27,7 @@ namespace WebAppBrani.Pages
 
 
 
-        public void OnGet()
+        public void OnGet() // LEGGE DA PLAYLIST E CREA UN ARRAY DI STRINGHE CHE PASSA I LINK AUDIO AL BOTTONE PER LA RIPRODUZIONE TOTALE
         {
             var json = System.IO.File.ReadAllText("wwwroot/json/Playlist.json");
             Playlists = JsonConvert.DeserializeObject<List<Brano>>(json)!;
@@ -67,7 +51,7 @@ namespace WebAppBrani.Pages
             }
         }
 
-        public IActionResult OnPost(string action)
+        public IActionResult OnPost(string action) // FUNZIONE TRACCIA SUCCESSIVA - TRACCIA PRECEDENTE
         {
             switch (action)
             {

@@ -17,24 +17,16 @@ namespace WebAppBrani.Pages
             var json = System.IO.File.ReadAllText("wwwroot/json/Playlist.json");
             var brani = JsonConvert.DeserializeObject<List<Brano>>(json)!;
             Brano=brani.FirstOrDefault(p=>p.Id==id);
-            //se vogliamo trasmettere alla post il prezzo e il dettaglio per poi essere mandati alla view
-
-            // ViewData["Titolo"]=Brano!.Titolo;
-            // ViewData["Artista"]=Brano.Artista;
-            // ViewData["Anno"]=Brano.Anno;
-            //nella post possiamo usare ViewData["Prezzo"] e ViewData["Dettaglio"]
+   
         }
 
-        public IActionResult OnPost(int[] selezionatiBrani)
+        public IActionResult OnPost(int[] selezionatiBrani) // RIMUOVE I BRANI SELEZIONATI DALLA PLAYLIST
         {
             
             var jsonBrani = System.IO.File.ReadAllText("wwwroot/json/Playlist.json");
             var tuttiBrani = JsonConvert.DeserializeObject<List<Brano>>(jsonBrani) ?? new List<Brano>();
 
             var braniDaEliminare = tuttiBrani.Where(brano => selezionatiBrani.Contains(brano.Id)).ToList();
-        
-            // var jsonPlaylist = System.IO.File.ReadAllText("wwwroot/json/Playlist.json");
-            // var playlist = string.IsNullOrWhiteSpace(jsonPlaylist) ? new List<Brano>() : JsonConvert.DeserializeObject<List<Brano>>(jsonPlaylist) ?? new List<Brano>();
 
             foreach(var brano in braniDaEliminare)
             {
@@ -44,16 +36,6 @@ namespace WebAppBrani.Pages
             System.IO.File.WriteAllText("wwwroot/json/Playlist.json", JsonConvert.SerializeObject(tuttiBrani, Formatting.Indented));
 
             return RedirectToPage("Playlist");
-
-            // var json = System.IO.File.ReadAllText("wwwroot/json/Playlist.json");
-            // var brani = JsonConvert.DeserializeObject<List<Brano>>(json)!;
-            // var playlist = brani.FirstOrDefault(p=>p.Id==id);
-            // brani.Remove(playlist!);
-            // //salva il file json formattato
-
-            // System.IO.File.WriteAllText("wwwroot/json/Playlist.json", JsonConvert.SerializeObject(brani, Formatting.Indented));
-
-            // return RedirectToPage("Playlist");
         }
 
     }

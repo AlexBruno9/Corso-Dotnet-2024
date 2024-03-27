@@ -4,7 +4,7 @@
     ViewData["Title"] = "Playlist";
     var playlist = Model.arrayAudio;
 
-@* "https://guitarbackingtrack.org/wp-content/uploads/2023/05/Deep-Purple-Smoke-On-The-Water-v7.mp3",
+    @* "https://guitarbackingtrack.org/wp-content/uploads/2023/05/Deep-Purple-Smoke-On-The-Water-v7.mp3",
 "https://guitarbackingtrack.org/wp-content/uploads/2023/05/The-Doors-Roadhouse-Blues.mp3" *@
 }
 
@@ -37,44 +37,31 @@
         width: 20px;
         height: 20px;
     }
+    
 </style>
+
+<div class="d-flex justify-content-between align-items-center ">
+    <h1 class="display-6 p-3 text-muted">La tua Playlist</h1>
+</div>
+
+<div class=" p-3 ms-4  ">
+<button class="rounded-2" id="prevTrack"><i class="bi bi-caret-left"></i></button>
+<button class="rounded-2" id="nextTrack"><i class="bi bi-caret-right"></i></button>
+</div>
 
 <form method="post" asp-page="RimuoviDaPlaylist">
     <div class="container-sm">
 
-        <div class="d-flex justify-content-between align-items-center ">
-            <h1 class="display-6 p-3 text-muted">La tua Playlist</h1>
-        </div>
 
 
-
-
-
-
-        @* <button type="button" class="btn btn-outline-secondary ">
-
-        <audio controls>
-
-        @foreach(var brano in Model.Playlists)
+        @if (Model.lunghezzaArray != 0)
         {
-        <source src="@brano.Audio" />
+            <audio id="audioPlayer" controls>
+
+                <source id="audioSource" src="@playlist![0]" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
         }
-
-        </audio>
-        </button> *@
-
-
-        @if(Model.lunghezzaArray!=0)
-        {
-        <audio id="audioPlayer" controls>
-
-            <source id="audioSource" src="@playlist![0]" type="audio/mpeg">
-            Your browser does not support the audio element.
-        </audio>
-        }   
-
-        <button id="prevTrack">Previous Track</button>
-        <button id="nextTrack">Next Track</button>
 
         <script>
             var playlist = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(playlist));
@@ -131,17 +118,12 @@
 
                     @foreach (var brano in Model.Playlists)
                     {
-
-
                         <tr>
                             <th scope="row">@brano.Id</th>
                             <td>
                                 <div class="h-25 d-inline-block" style="width: 80px">
                                     <img src=@brano.Immagine width="70" height="70" class="img rounded" alt="image">
                                 </div>
-
-
-
 
                             </td>
                             <td class="ps-4">@brano.Titolo</td>
@@ -167,14 +149,11 @@
 
                                     </div>
                                 </div>
-                                @* <a asp-page="RimuoviDaPlaylist" asp-route-id="@brano.Id" class="btn btn-dark">Rimuovi da
-                        playlist
-                        <i class="fa fa-minus"></i></a> *@
                             </td>
                         </tr>
                     }
                 }
-             
+
             </tbody>
         </table>
     </div>

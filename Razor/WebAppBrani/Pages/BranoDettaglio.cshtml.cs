@@ -7,7 +7,7 @@ namespace WebAppBrani.Pages
     public class BranoDettaglioModel : PageModel
     {
         public Brano? Brano { get; set; }
-        public void OnGet(int id)
+        public void OnGet(int id) // LEGGE I BRANI PRESENTI NEL CATALOGO
         {
             var json = System.IO.File.ReadAllText("wwwroot/json/Brani.json");
             var brani = JsonConvert.DeserializeObject<List<Brano>>(json);

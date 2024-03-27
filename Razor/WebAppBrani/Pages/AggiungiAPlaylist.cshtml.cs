@@ -16,20 +16,9 @@ namespace WebAppBrani.Pages
 
         }
 
-        public IActionResult OnPost(int[] selezionatiBrani, string titolo)
+        public IActionResult OnPost(int[] selezionatiBrani, string titolo)  // AGGIUNGE I BRANI SELEZIONATI ALLA PLAYLIST
         {
-            // var json = System.IO.File.ReadAllText("wwwroot/json/Brani.json");
-            // var brani = JsonConvert.DeserializeObject<List<Brano>>(json)!;
-            // Brano = brani.First(p => p.Id == id);
-
-            // var json2 = System.IO.File.ReadAllText("wwwroot/json/Playlist.json");
-            // List<Brano> playlist = new List<Brano>();
-            // if (json2 != "")
-            // {
-            //     playlist = JsonConvert.DeserializeObject<List<Brano>>(json2)!;
-            // }
-
-            // playlist.Add(Brano!);
+    
 
             var jsonBrani = System.IO.File.ReadAllText("wwwroot/json/Brani.json");
             var tuttiBrani = JsonConvert.DeserializeObject<List<Brano>>(jsonBrani) ?? new List<Brano>();
@@ -45,7 +34,6 @@ namespace WebAppBrani.Pages
             System.IO.File.WriteAllText("wwwroot/json/Playlist.json", JsonConvert.SerializeObject(playlist, Formatting.Indented));
 
 
-
             var json = System.IO.File.ReadAllText("wwwroot/json/Playlist.json");
             var brani = JsonConvert.DeserializeObject<List<Brano>>(json)!;
 
@@ -57,17 +45,16 @@ namespace WebAppBrani.Pages
             brano!.Id=counter;
             counter++;
             }
-           
-        
+
             //salva il file json formattato
 
             System.IO.File.WriteAllText("wwwroot/json/Playlist.json", JsonConvert.SerializeObject(brani, Formatting.Indented));
         
-
-
             return RedirectToPage("Playlist");
         }
 
+
+        // CODICE AGGIUNTO IN AUTOMATICO UNA VOLTA ESEGUITO IL RUN
         private object List<T>()
         {
             throw new NotImplementedException();
