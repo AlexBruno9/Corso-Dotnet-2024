@@ -19,9 +19,10 @@ namespace WebAppBrani.Pages
         }
 
         public required IEnumerable<Brano> Brani { get; set; }
+        public int numeroPagine { get; set; }
         public string? FiltroArtista { get; set; }
         public string? FiltroTitolo { get; set; }
-        public void OnGet(string cercaArtista, string cercaTitolo) // FILTRA BRANI PER NOME ARTISTA E TITOLO BRANO
+        public void OnGet(string cercaArtista, string cercaTitolo, int? pageIndex) // FILTRA BRANI PER NOME ARTISTA E TITOLO BRANO
         {
             var json = System.IO.File.ReadAllText("wwwroot/json/Brani.json");
             Brani = JsonConvert.DeserializeObject<List<Brano>>(json)!;
@@ -34,8 +35,11 @@ namespace WebAppBrani.Pages
             if (!string.IsNullOrEmpty(cercaTitolo))
             {
                 Brani = Brani.Where(p => p.Titolo == cercaTitolo);
-                FiltroTitolo= $"Filtro attivo - ricerca per titolo brano: '{cercaTitolo}'";
+                FiltroTitolo = $"Filtro attivo - ricerca per titolo brano: '{cercaTitolo}'";
             }
+
+            numeroPagine = (int)Math.Ceiling(Brani.Count() / 10.0);
+            Brani = Brani.Skip(((pageIndex ?? 1) - 1) * 10).Take(10);
         }
     }
 }

@@ -13,12 +13,12 @@ namespace WebAppBrani.Pages
 
         public required IEnumerable<Brano> Playlists { get; set; }
         public string[]? arrayAudio { get; set; }
-        public int lunghezzaArray{get;set;}
+        public int lunghezzaArray { get; set; }
 
 
         private static readonly List<string> Tracks = new List<string>
         {
-          
+
         };
 
         private static int CurrentTrackIndex = 0;

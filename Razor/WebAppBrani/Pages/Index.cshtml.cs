@@ -1,19 +1,16 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Newtonsoft.Json;
 
 namespace WebAppBrani.Pages;
 
 public class IndexModel : PageModel
 {
-    private readonly ILogger<IndexModel> _logger;
-
-    public IndexModel(ILogger<IndexModel> logger)
-    {
-        _logger = logger;
-    }
-
+public required IEnumerable<Brano> Brani { get; set; }
     public void OnGet()
     {
-
+        var json = System.IO.File.ReadAllText("wwwroot/json/Brani.json");
+        Brani = JsonConvert.DeserializeObject<List<Brano>>(json)!;
+        
     }
 }

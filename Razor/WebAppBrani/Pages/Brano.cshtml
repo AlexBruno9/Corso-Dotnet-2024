@@ -22,9 +22,6 @@
         font-family: Montserrat;
     }
 
-
-    .table {}
-
     .table td {
         font-size: 20px;
     }
@@ -35,6 +32,7 @@
 
     .bottonebrano {
         width: 120px;
+        margin-left: 53px;
     }
 
     a {
@@ -43,10 +41,6 @@
 
     .btnFiltra {
         margin-left: 70px;
-    }
-
-    .bottonebrano {
-        margin-left: 53px;
     }
 </style>
 
@@ -151,17 +145,34 @@
                 }
             </tbody>
         </table>
-        <br>
-        <div class="d-flex justify-content-end   ">
+    </form>
+    <br>
+
+    <form method="get">
+        <div class="d-flex justify-content-between  ">
+            <div>
+                @for (int i = 1; i <= Model.numeroPagine; i++)
+                {
+                    <button type="submit" class="btn btn-dark" name="pageIndex" value="@i">@i</button>
+                }
+            </div>
             <button type="submit" class="btn btn-dark" asp-asp-page="Playlist">Aggiungi alla Playlist <i
                     class="fa fa-plus"></i></button>
         </div>
-        <br><br>
     </form>
+
+    <br><br>
+
 
     <div style="height: 100px;">
         <form method="get">
             <input type="hidden" name="cercaArtista" value="@Request.Query["cercaArtista"]" />
             <input type="hidden" name="cercaTitolo" value="@Request.Query["cercaTitolo"]" />
+        </form>
+    </div>
+
+    <div style="height: 100px;">
+        <form method="get">
+
         </form>
     </div>
