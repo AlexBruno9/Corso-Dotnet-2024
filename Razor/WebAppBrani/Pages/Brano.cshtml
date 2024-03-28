@@ -78,7 +78,7 @@
                             </td>
                             <td class="ps-4">@brano.Titolo</td>
                             <td class="ps-4">
-                                <audio controls>
+                                <audio controls onplay="stopAllOtherAudios(this)">
                                     <source src="@brano.Audio" />
                                 </audio>
                                
@@ -137,5 +137,17 @@
         </form>
     </div>
 
+<script>
+    function stopAllOtherAudios(currentAudio) {
+    var allAudios = document.querySelectorAll('audio');
+
+    allAudios.forEach(function(audio) {
+        if (audio !== currentAudio) {
+            audio.pause();
+            audio.currentTime = 0;
+        }
+    });
+}
+</script>
 
 
