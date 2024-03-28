@@ -41,5 +41,7 @@ namespace WebAppBrani.Pages
             numeroPagine = (int)Math.Ceiling(Brani.Count() / 10.0);
             Brani = Brani.Skip(((pageIndex ?? 1) - 1) * 10).Take(10);
         }
+
+ 
     }
 }

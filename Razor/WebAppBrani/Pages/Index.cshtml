@@ -1,20 +1,165 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Home page";
+  ViewData["Title"] = "Home page";
+  Random rnd = new Random();
 }
-
-<style>
-    body {
-        font-family: Montserrat;
-    }
-
-    #carouselExampleAutoplaying {
-        width: 800px;
-    }
-</style>
 
 
 <div class="text-center">
-    <h1 class="display-4"></h1>
+  <h1 class="display-4"></h1>
+</div>
+
+<br>
+
+<div class="containerHome border border-3">
+  <div class="containerCarosello my-5">
+    <div class="d-flex  w-25">
+      <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active" data-bs-interval="2000">
+            <img src=@Model.ArrayFoto![rnd.Next(0, Model.ArrayFoto.Length )] class="imgHome d-block " width="300"
+              height="300" alt="...">
+          </div>
+          <div class="carousel-item" data-bs-interval="2000">
+            <img src=@Model.ArrayFoto![rnd.Next(0, Model.ArrayFoto.Length )] class="imgHome d-block " width="300"
+              height="300" alt="...">
+          </div>
+          <div class="carousel-item" data-bs-interval="2000">
+            <img src=@Model.ArrayFoto![rnd.Next(0, Model.ArrayFoto.Length )] class="imgHome d-block " width="300"
+              height="300" alt="...">
+          </div>
+        </div>
+      </div>
+
+      <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active" data-bs-interval="2000">
+            <img src=@Model.ArrayFoto![rnd.Next(0, Model.ArrayFoto.Length )] class="imgHome d-block " width="300"
+              height="300" alt="...">
+          </div>
+          <div class="carousel-item" data-bs-interval="2000">
+            <img src=@Model.ArrayFoto![rnd.Next(0, Model.ArrayFoto.Length )] class="imgHome d-block " width="300"
+              height="300" alt="...">
+          </div>
+          <div class="carousel-item" data-bs-interval="2000">
+            <img src=@Model.ArrayFoto![rnd.Next(0, Model.ArrayFoto.Length )] class="imgHome d-block " width="300"
+              height="300" alt="...">
+          </div>
+        </div>
+      </div>
+
+
+      <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active" data-bs-interval="2000">
+            <img src=@Model.ArrayFoto![rnd.Next(0, Model.ArrayFoto.Length )] class="imgHome d-block " width="300"
+              height="300" alt="...">
+          </div>
+          <div class="carousel-item" data-bs-interval="2000">
+            <img src=@Model.ArrayFoto![rnd.Next(0, Model.ArrayFoto.Length )] class="imgHome d-block " width="300"
+              height="300" alt="...">
+          </div>
+          <div class="carousel-item" data-bs-interval="2000">
+            <img src=@Model.ArrayFoto![rnd.Next(0, Model.ArrayFoto.Length )] class="imgHome d-block " width="300"
+              height="300" alt="...">
+          </div>
+
+        </div>
+      </div>
+
+      <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active" data-bs-interval="2000">
+            <img src=@Model.ArrayFoto![rnd.Next(0, Model.ArrayFoto.Length )] class="imgHome d-block " width="300"
+              height="300" alt="...">
+          </div>
+          <div class="carousel-item" data-bs-interval="2000">
+            <img src=@Model.ArrayFoto![rnd.Next(0, Model.ArrayFoto.Length )] class="imgHome d-block " width="300"
+              height="300" alt="...">
+          </div>
+          <div class="carousel-item" data-bs-interval="2000">
+            <img src=@Model.ArrayFoto![rnd.Next(0, Model.ArrayFoto.Length )] class="imgHome d-block " width="300"
+              height="300" alt="...">
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+    <div class="d-flex  w-25 ">
+      <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active" data-bs-interval="2000">
+            <img src=@Model.ArrayFoto![rnd.Next(0, Model.ArrayFoto.Length )] class="imgHome d-block " width="300"
+              height="300" alt="...">
+          </div>
+          <div class="carousel-item" data-bs-interval="2000">
+            <img src=@Model.ArrayFoto![rnd.Next(0, Model.ArrayFoto.Length )] class="imgHome d-block " width="300"
+              height="300" alt="...">
+          </div>
+          <div class="carousel-item" data-bs-interval="2000">
+            <img src=@Model.ArrayFoto![rnd.Next(0, Model.ArrayFoto.Length )] class="imgHome d-block " width="300"
+              height="300" alt="...">
+          </div>
+        </div>
+      </div>
+
+      <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active" data-bs-interval="2000">
+            <img src=@Model.ArrayFoto![rnd.Next(0, Model.ArrayFoto.Length )] class="imgHome d-block " width="300"
+              height="300" alt="...">
+          </div>
+          <div class="carousel-item" data-bs-interval="2000">
+            <img src=@Model.ArrayFoto![rnd.Next(0, Model.ArrayFoto.Length )] class="imgHome d-block " width="300"
+              height="300" alt="...">
+          </div>
+          <div class="carousel-item" data-bs-interval="2000">
+            <img src=@Model.ArrayFoto![rnd.Next(0, Model.ArrayFoto.Length )] class="imgHome d-block " width="300"
+              height="300" alt="...">
+          </div>
+        </div>
+      </div>
+
+
+      <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active" data-bs-interval="2000">
+            <img src=@Model.ArrayFoto![rnd.Next(0, Model.ArrayFoto.Length )] class="imgHome d-block " width="300"
+              height="300" alt="...">
+          </div>
+          <div class="carousel-item" data-bs-interval="2000">
+            <img src=@Model.ArrayFoto![rnd.Next(0, Model.ArrayFoto.Length )] class="imgHome d-block " width="300"
+              height="300" alt="...">
+          </div>
+          <div class="carousel-item" data-bs-interval="2000">
+            <img src=@Model.ArrayFoto![rnd.Next(0, Model.ArrayFoto.Length )] class="imgHome d-block " width="300"
+              height="300" alt="...">
+          </div>
+
+        </div>
+      </div>
+
+      <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active" data-bs-interval="2000">
+            <img src=@Model.ArrayFoto![rnd.Next(0, Model.ArrayFoto.Length )] class="imgHome d-block " width="300"
+              height="300" alt="...">
+          </div>
+          <div class="carousel-item" data-bs-interval="2000">
+            <img src=@Model.ArrayFoto![rnd.Next(0, Model.ArrayFoto.Length )] class="imgHome d-block " width="300"
+              height="300" alt="...">
+          </div>
+          <div class="carousel-item" data-bs-interval="2000">
+            <img src=@Model.ArrayFoto![rnd.Next(0, Model.ArrayFoto.Length )] class="imgHome d-block " width="300"
+              height="300" alt="...">
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
 </div>

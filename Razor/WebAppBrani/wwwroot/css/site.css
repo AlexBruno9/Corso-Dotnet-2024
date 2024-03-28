@@ -1,5 +1,4 @@
 
-
 html {
   font-size: 14px;
 }
@@ -7,7 +6,6 @@ html {
 @media (min-width: 768px) {
   html {
     font-size: 16px;
-    font-family: Montserrat;
   }
 }
 
@@ -18,4 +16,72 @@ html {
 html {
   position: relative;
   min-height: 100%;
+}
+
+/* body {
+  background-color: red !important;
+} */
+
+*{
+  font-family: Montserrat;
+}
+
+.colonneBottone {
+  width: 150px;
+}
+
+.colonnePiccole {
+  width: 90px;
+}
+
+.colonnePiuPiccole {
+  width: 40px;
+}
+
+.table td {
+  font-size: 20px;
+}
+
+.btn {
+  font-size: x-small;
+}
+
+.bottonebrano {
+  width: 120px;
+  margin-left: 53px;
+}
+
+.form-check-input {
+  width: 20px;
+  height: 20px;
+}
+
+a {
+  color: rgb(0, 0, 0) !important;
+}
+
+.btnFiltra {
+  margin-left: 70px;
+}
+
+.card {
+  background-color: rgb(255, 255, 255);
+}
+
+.imginfo {
+  border-radius: 20px;
+}
+
+.card-body {
+  font-size: larger;
+}
+
+.imgHome{
+  border-radius: 10px;
+ 
+}
+
+.containerCarosello
+{ 
+  margin-left: 44px; 
 }

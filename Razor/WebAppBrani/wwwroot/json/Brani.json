@@ -1,15 +1,5 @@
 [
   {
-    "Id": 1,
-    "Titolo": "Time",
-    "Artista": "Pink Floyd",
-    "Anno": 1973,
-    "Immagine": "https://upload.wikimedia.org/wikipedia/en/3/3b/Dark_Side_of_the_Moon.png",
-    "Genere": "Rock",
-    "Durata": "06:56",
-    "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2023/05/Pink-Floyd-Time-1.mp3"
-  },
-  {
     "Id": 2,
     "Titolo": "The Great Gig in the Sky",
     "Artista": "Pink Floyd",
@@ -74,9 +64,9 @@
     "Titolo": "provaMiao",
     "Artista": null,
     "Anno": 0,
-    "Immagine": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Ginger_european_cat.jpg/220px-Ginger_european_cat.jpg",
-    "Genere": null,
-    "Durata": null,
+    "Immagine": "https://i.pinimg.com/736x/4f/96/e1/4f96e159f2021d096fcbc09b4235f201.jpg",
+    "Genere": "Rock",
+    "Durata": "1:22",
     "Audio": "https://quicksounds.com/library/sounds/cat"
   },
   {
@@ -84,9 +74,9 @@
     "Titolo": "cane",
     "Artista": null,
     "Anno": 0,
-    "Immagine": "https://www.zooplus.it/magazine/wp-content/uploads/2023/09/cane-con-impermeabile.jpeg",
-    "Genere": null,
-    "Durata": null,
+    "Immagine": "https://e.snmc.io/i/1200/s/d73d990d0fdb66ee2f660d69648f358f/3546754",
+    "Genere": "Rock",
+    "Durata": "04:12",
     "Audio": ""
   },
   {
@@ -94,18 +84,18 @@
     "Titolo": "topo",
     "Artista": "gigio",
     "Anno": 1985,
-    "Immagine": "https://th.bing.com/th/id/R.d73d3394beb750ee2390cf9772f1832a?rik=tggu6duc%2bZ566w&pid=ImgRaw&r=0",
-    "Genere": null,
-    "Durata": null,
+    "Immagine": "https://f4.bcbits.com/img/a2846579031_65",
+    "Genere": "Rock",
+    "Durata": "02:00",
     "Audio": ""
   },
   {
     "Id": 14,
-    "Titolo": "bi bi boombox",
-    "Artista": null,
-    "Anno": 0,
-    "Immagine": "https://as1.ftcdn.net/v2/jpg/03/73/14/58/1000_F_373145820_FKJszBzaZCe9zc0IFyZ9q4TeYBISKiWP.jpg",
-    "Genere": "Pop",
+    "Titolo": "Smoke on the Water ",
+    "Artista": "Bi Bi BoomBox",
+    "Anno": 1972,
+    "Immagine": "https://m.media-amazon.com/images/I/613ReiIy03L._AC_SX679_.jpg",
+    "Genere": "Rock",
     "Durata": "2:00",
     "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2023/05/Deep-Purple-Smoke-On-The-Water-v7.mp3"
   },
@@ -118,5 +108,105 @@
     "Genere": "Rock",
     "Durata": "2:50",
     "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2023/05/Eric-Clapton-Sunshine-Of-Your-Love.mp3"
+  },
+  {
+    "Id": 17,
+    "Titolo": "Jumpin' Jack Flash",
+    "Artista": "Rolling Stones",
+    "Anno": 1967,
+    "Immagine": "https://th.bing.com/th/id/OIP.CCa9qoEd4g2w9AC9JFcjwwHaHW?w=186&h=184&c=7&r=0&o=5&pid=1.7",
+    "Genere": "Rock",
+    "Durata": "04:00",
+    "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2022/04/The-Rolling-Stones-Jumpin-Jack-Flash.mp3"
+  },
+  {
+    "Id": 18,
+    "Titolo": "No Woman, No Cry",
+    "Artista": "Bob Marley",
+    "Anno": 1976,
+    "Immagine": "https://upload.wikimedia.org/wikipedia/en/thumb/c/c2/BobMarley-Legend.jpg/220px-BobMarley-Legend.jpg",
+    "Genere": "Reggae",
+    "Durata": "07:07",
+    "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2023/05/Bob-Marley-No-Woman-No-Cry.mp3"
+  },
+  {
+    "Id": 19,
+    "Titolo": "Baby One More Time",
+    "Artista": "Britney Spears",
+    "Anno": 2000,
+    "Immagine": "https://metalshock.files.wordpress.com/2019/01/britney_spears-_baby_one_more_time_usa_edition-frontal.jpg",
+    "Genere": "Pop",
+    "Durata": "04:30",
+    "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2023/05/Britney-Spears-Baby-One-More-Time.mp3"
+  },
+  {
+    "Id": 20,
+    "Titolo": "The Thrill is Gone",
+    "Artista": "BB King",
+    "Anno": 1975,
+    "Immagine": "https://m.media-amazon.com/images/I/51enUo6rwSL._UXNaN_FMjpg_QL85_.jpg",
+    "Genere": "Blues",
+    "Durata": "05:23",
+    "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2023/05/BB-King-The-Thrill-Is-Gone-v4.mp3"
+  },
+  {
+    "Id": 21,
+    "Titolo": "Heard it through the Grapevine",
+    "Artista": "Marvin Gaye",
+    "Anno": 1960,
+    "Immagine": "https://www.udiscovermusic.com/wp-content/uploads/2017/11/Marvin-Gaye-I-heard-It-Through-The-Grapevine-Single-cover-web-optimised-820.jpg",
+    "Genere": "Soul",
+    "Durata": "2:50",
+    "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2023/06/Marvin-Gaye-Heard-It-Through-The-Grapevine.mp3"
+  },
+  {
+    "Id": 22,
+    "Titolo": "Lust for Life",
+    "Artista": "Iggy Pop",
+    "Anno": 1976,
+    "Immagine": "https://upload.wikimedia.org/wikipedia/en/thumb/7/72/IggyPopLustForLife.jpg/220px-IggyPopLustForLife.jpg",
+    "Genere": "Punk",
+    "Durata": "05:12",
+    "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2022/05/Iggy-Pop-Lust-For-Life.mp3"
+  },
+  {
+    "Id": 23,
+    "Titolo": "Wake me up when September Ends",
+    "Artista": "Green Day",
+    "Anno": 2005,
+    "Immagine": "https://upload.wikimedia.org/wikipedia/en/thumb/c/c8/Green_Day_-_21st_Century_Breakdown_cover.jpg/220px-Green_Day_-_21st_Century_Breakdown_cover.jpg",
+    "Genere": "Rock",
+    "Durata": "04:23",
+    "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2023/05/Green-Day-Wake-Me-Up-When-September-Ends.mp3"
+  },
+  {
+    "Id": 24,
+    "Titolo": "September",
+    "Artista": "Earth, Wind and Fire",
+    "Anno": 1980,
+    "Immagine": "https://upload.wikimedia.org/wikipedia/en/thumb/1/18/EarthWindAndFireSeptember7InchSingleCover.jpg/220px-EarthWindAndFireSeptember7InchSingleCover.jpg",
+    "Genere": "Funk",
+    "Durata": "12:12",
+    "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2022/05/Earth-Wind-and-Fire-September.mp3"
+  },
+  {
+    "Id": 25,
+    "Titolo": "Purple Haze",
+    "Artista": "Jimi Hendrix",
+    "Anno": 1966,
+    "Immagine": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Are_You_Experienced_-_US_cover-edit.jpg/220px-Are_You_Experienced_-_US_cover-edit.jpg",
+    "Genere": "Rock",
+    "Durata": "05:05",
+    "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2023/05/Jimi-Hendrix-Purple-Hazewith-vocals.mp3"
+  },
+  {
+    "Id": 26,
+    "Titolo": "No Sleep Till Brooklyn",
+    "Artista": "Beastie Boys",
+    "Anno": 1986,
+    "Immagine": "https://upload.wikimedia.org/wikipedia/en/6/67/Beastie_Boys_-_Licensed_to_Ill.png",
+    "Genere": "Rap",
+    "Durata": "03:30",
+    "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2023/05/Beastie-Boys-No-Sleep-Till-Brooklyn.mp3"
   }
 ]

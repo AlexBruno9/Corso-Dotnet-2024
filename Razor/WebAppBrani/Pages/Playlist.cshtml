@@ -3,40 +3,10 @@
 @{
     ViewData["Title"] = "Playlist";
     var playlist = Model.arrayAudio;
-
-    @* "https://guitarbackingtrack.org/wp-content/uploads/2023/05/Deep-Purple-Smoke-On-The-Water-v7.mp3",
-"https://guitarbackingtrack.org/wp-content/uploads/2023/05/The-Doors-Roadhouse-Blues.mp3" *@
 }
 
 <style>
-    .colonneBottone {
-        width: 150px;
-    }
 
-    .colonnePiccole {
-        width: 70px;
-    }
-
-    .colonnePiuPiccole {
-        width: 40px;
-    }
-
-    .btn {
-        font-size: x-small;
-    }
-
-    body {
-        font-family: Montserrat;
-    }
-
-    a {
-        color: rgb(0, 0, 0);
-    }
-
-    .form-check-input {
-        width: 20px;
-        height: 20px;
-    }
     
 </style>
 
@@ -159,7 +129,7 @@
     </div>
     <br>
     <div class="d-flex justify-content-end me-2   ">
-        <button type="submit" class="btn btn-dark" asp-asp-page="Playlist">Rimuovi dalla Playlist <i
+        <button type="submit" class="btn btn-dark" asp-asp-page="Playlist">Playlist <i
                 class="fa fa-minus"></i></button>
     </div>
 </form>

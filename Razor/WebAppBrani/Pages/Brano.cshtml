@@ -5,47 +5,6 @@
 }
 
 
-<style>
-    .colonneBottone {
-        width: 150px;
-    }
-
-    .colonnePiccole {
-        width: 90px;
-    }
-
-    .colonnePiuPiccole {
-        width: 40px;
-    }
-
-    body {
-        font-family: Montserrat;
-    }
-
-    .table td {
-        font-size: 20px;
-    }
-
-    .btn {
-        font-size: x-small;
-    }
-
-    .bottonebrano {
-        width: 120px;
-        margin-left: 53px;
-    }
-
-    a {
-        color: rgb(0, 0, 0);
-    }
-
-    .btnFiltra {
-        margin-left: 70px;
-    }
-</style>
-
-
-
 
 <div class="container-sm">
 
@@ -79,8 +38,8 @@
             </form>
         </div>
         <div class="col-md-2">
-            <a asp-page="AggiungiBrano" class="bottonebrano btn border-black"
-                style="background-color: rgb(216, 228, 255);">Aggiungi brano <i class="fa fa-plus"></i></a>
+            <a asp-page="AggiungiBrano" class="bottonebrano btn border-black "
+                style="background-color: rgb(216, 228, 255);">Brano <i class="fa fa-plus"></i></a>
         </div>
 
         <div>@Model.FiltroArtista</div>
@@ -122,6 +81,7 @@
                                 <audio controls>
                                     <source src="@brano.Audio" />
                                 </audio>
+                               
                             </td>
                             <td class="colonnePiccole fs-6 ps-3">
                                 <a asp-page="BranoDettaglio" class="ms-2" asp-route-id="@brano.Id">Info</a>
@@ -145,19 +105,19 @@
                 }
             </tbody>
         </table>
+        <div class=" d-flex justify-content-end ">
+            <button type="submit" class="btn btn-dark">Playlist <i class="fa fa-plus"></i></button>
+        </div>
     </form>
     <br>
 
+
     <form method="get">
-        <div class="d-flex justify-content-between  ">
-            <div>
-                @for (int i = 1; i <= Model.numeroPagine; i++)
-                {
-                    <button type="submit" class="btn btn-dark" name="pageIndex" value="@i">@i</button>
-                }
-            </div>
-            <button type="submit" class="btn btn-dark" asp-asp-page="Playlist">Aggiungi alla Playlist <i
-                    class="fa fa-plus"></i></button>
+        <div>
+            @for (int i = 1; i <= Model.numeroPagine; i++)
+            {
+                <button type="submit" class="btn btn-dark" name="pageIndex" value="@i">@i</button>
+            }
         </div>
     </form>
 
@@ -176,3 +136,6 @@
 
         </form>
     </div>
+
+
+

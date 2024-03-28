@@ -1,36 +1,6 @@
 [
   {
     "Id": 1,
-    "Titolo": "Come Together",
-    "Artista": "The Beatles",
-    "Anno": 1969,
-    "Immagine": "https://upload.wikimedia.org/wikipedia/en/4/42/Beatles_-_Abbey_Road.jpg",
-    "Genere": "Rock",
-    "Durata": "04:19",
-    "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2023/05/The-Beatles-Come-Together-v3.mp3"
-  },
-  {
-    "Id": 2,
-    "Titolo": "bi bi boombox",
-    "Artista": null,
-    "Anno": 0,
-    "Immagine": "https://as1.ftcdn.net/v2/jpg/03/73/14/58/1000_F_373145820_FKJszBzaZCe9zc0IFyZ9q4TeYBISKiWP.jpg",
-    "Genere": "Pop",
-    "Durata": "2:00",
-    "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2023/05/Deep-Purple-Smoke-On-The-Water-v7.mp3"
-  },
-  {
-    "Id": 3,
-    "Titolo": "Sunshine Of Your Love",
-    "Artista": "Eric Clapton",
-    "Anno": 1967,
-    "Immagine": "https://www.londondrugs.com/on/demandware.static/-/Sites-londondrugs-master/default/dwc853053d/products/L8833204/large/L8833204.JPG",
-    "Genere": "Rock",
-    "Durata": "2:50",
-    "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2023/05/Eric-Clapton-Sunshine-Of-Your-Love.mp3"
-  },
-  {
-    "Id": 4,
     "Titolo": "The Great Gig in the Sky",
     "Artista": "Pink Floyd",
     "Anno": 1973,
@@ -40,7 +10,27 @@
     "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2023/05/Pink-Floyd-The-Great-Gig-In-The-Sky.mp3"
   },
   {
-    "Id": 5,
+    "Id": 2,
+    "Titolo": "Come Together",
+    "Artista": "The Beatles",
+    "Anno": 1969,
+    "Immagine": "https://upload.wikimedia.org/wikipedia/en/4/42/Beatles_-_Abbey_Road.jpg",
+    "Genere": "Rock",
+    "Durata": "04:19",
+    "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2023/05/The-Beatles-Come-Together-v3.mp3"
+  },
+  {
+    "Id": 3,
+    "Titolo": "Riders on the Storm",
+    "Artista": "The Doors",
+    "Anno": 1970,
+    "Immagine": "https://upload.wikimedia.org/wikipedia/en/4/41/The_Doors_-_L.A._Woman.jpg",
+    "Genere": "Rock",
+    "Durata": "05:05",
+    "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2023/05/The-Doors-Riders-On-The-Storm.mp3"
+  },
+  {
+    "Id": 4,
     "Titolo": "Roadhouse Blues",
     "Artista": "The Doors",
     "Anno": 1968,
