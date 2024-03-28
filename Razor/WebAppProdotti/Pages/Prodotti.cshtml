@@ -1,0 +1,125 @@
+
+@page
+@model ProdottiModel
+@{
+    ViewData["Title"] = "Prodotti";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<!-- <form method="get">
+    <div class="form-group">
+        <label for="minPrezzo">Min Prezzo</label>
+        <input type="text" class="form-control" name="minPrezzo" />
+    </div>
+    <div class="form-group">
+        <label for="maxPrezzo">Max Prezzo</label>
+        <input type="text" class="form-control" name="maxPrezzo" />
+    </div>
+    
+    <br>
+    <button type="submit" class="btn btn-primary">Filtra</button>
+</form>
+<br> -->
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Prezzo</th>
+            <!-- <th>Dettaglio</th> -->
+            <th>Categoria</th>
+            <th>Quantita</th>
+            <!-- <th>Immagine</th> -->
+            <th>Dettaglio</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var prodotto in Model.Prodotti)
+
+        {
+            <tr>
+                <td>@prodotto.Nome</td>
+                <td>@prodotto.Prezzo</td>
+                <td>@prodotto.Categoria</td>
+                <!-- <td>@prodotto.Quantita</td> -->
+                
+                <td>
+                    <div class="progress">
+                       <div class="progress-bar bg-dark" role="progressbar" style="width: @{@(prodotto.Quantita * 2)}%;" aria-valuenow="@prodotto.Quantita" aria-valuemin="0" aria-valuemax="100">@prodotto.Quantita</div>
+                    </div>
+                <!-- <td><img src="@prodotto.Immagine" alt="@prodotto.Nome" width="300" height="200" /></td> -->
+                <td><a asp-page="ProdottoDettaglio" asp-route-id="@prodotto.Id">@if (prodotto.Dettaglio.Length > 25)
+                    {
+                        <p class="card-text text-dark">@prodotto.Dettaglio.Substring(0, 25) ...</p>
+                    }
+                    else
+                    {
+                        <p class="card-text text-dark">@prodotto.Dettaglio</p>
+                    }</a></td>
+            </tr>
+        }
+    </tbody>
+    </table>
+
+<!-- <form method="get">
+    <input type="hidden" name="minPrezzo" value="@Request.Query["minPrezzo"]" />
+    <input type="hidden" name="maxPrezzo" value="@Request.Query["maxPrezzo"]" />
+    @for (int i = 1; i <= Model.numeroPagine; i++)
+    {
+        <button type="submit" class="btn btn-dark" name="pageIndex" value="@i">@i</button>
+    }
+</form> -->
+<br>
+
+<div class="row">
+    @foreach (var item in Model.Prodotti)
+    {
+        <div class="col-md-4">
+            <div class="card my-card">
+                <img src="@item.Immagine" class="card-img-top img-fluid" alt="@item.Nome">
+                <div class="card-body">
+                    <h5 class="card-title">@item.Nome</h5>
+                    @switch (item.Prezzo)
+                    {
+                        case var expression when expression < 300:
+                            <p class="card-text text-success">€ @item.Prezzo</p>
+                            break;
+                        case var expression when expression < 600:
+                            <p class="card-text text-warning">€ @item.Prezzo</p>
+                            break;
+                        default:
+                            <p class="card-text text-danger">€ @item.Prezzo</p>
+                            break;
+                    }
+                    <p class="card-text"><strong>Quantità:</strong> @item.Quantita</p>
+                    <p class="card-text"><strong>Categoria:</strong> @item.Categoria</p>
+                    <p class="card-text"><strong>Dettagli:</strong> @if (item.Dettaglio.Length > 25)
+                    {
+                        <p class="card-text text-dark">@item.Dettaglio.Substring(0, 25) ...</p>
+                    }
+                    else
+                    {
+                        <p class="card-text text-dark">@item.Dettaglio</p>
+                    }</p>
+                    <div class="card-actions">
+                        <a asp-page="ProdottoDettaglio" asp-route-id="@item.Id" class="btn btn-sm btn-outline-secondary">Dettaglio</a>
+                        <a asp-page="ModificaProdotto" asp-route-id="@item.Id" class="btn btn-sm btn-outline-secondary">Modifica</a>
+                        <a asp-page="CancellaProdotto" asp-route-id="@item.Id" class="btn btn-sm btn-outline-secondary">Cancella</a>
+                    </div>
+                </div>
+            </div>
+            <br>
+        </div>
+    }
+</div>
+
+    <form method="get">
+    <input type="hidden" name="minPrezzo" value="@Request.Query["minPrezzo"]" /> <!-- per mantenere il valore del filtro -->
+    <input type="hidden" name="maxPrezzo" value="@Request.Query["maxPrezzo"]" /> <!-- per mantenere il valore del filtro -->
+    @for (int i = 1; i <= Model.numeroPagine; i++)
+    {
+        <button type="submit" class="btn btn-dark" name="pageIndex" value="@i">@i</button>
+    }
+</form>
+<br>

@@ -1,19 +1,13 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-
-namespace WebAppProdotti.Pages;
+using Newtonsoft.Json;
 
 public class IndexModel : PageModel
 {
-    private readonly ILogger<IndexModel> _logger;
-
-    public IndexModel(ILogger<IndexModel> logger)
-    {
-        _logger = logger;
-    }
-
+    public List<Prodotto> Prodotti { get; set; }
     public void OnGet()
     {
-
+        var json = System.IO.File.ReadAllText("wwwroot/json/prodotti.json");
+        Prodotti = JsonConvert.DeserializeObject<List<Prodotto>>(json);
     }
 }

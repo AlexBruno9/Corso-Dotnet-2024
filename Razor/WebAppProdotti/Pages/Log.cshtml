@@ -1,0 +1,43 @@
+
+@page
+@model LogModel
+@{
+    ViewData["Title"] = "Log";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Data</th>
+            <th>Ora</th>
+            <th>Operazione</th>
+            <th>Errore</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var log in Model.Logs)
+        {
+            <tr>
+                <td>@log.Data</td>
+                <td>@log.Ora</td>
+                <td>@log.Operazione</td>
+                @if (log.Errore == "")
+                {
+                    <td>@log.Errore</td>
+                }
+                else
+                {
+                    <td class="text-danger">@log.Errore</td>
+                }
+            </tr>
+        }
+    </tbody>
+</table>
+<form method="get">
+    @for (int i = 1; i <= Model.numeroPagine; i++)
+    {
+        <button type="submit" class="btn btn-dark" name="pageIndex" value="@i">@i</button>
+    }
+</form>
