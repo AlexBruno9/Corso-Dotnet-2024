@@ -7,6 +7,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Razor", "Razor", "{FB84E4EF
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAppBrani", "Razor\WebAppBrani\WebAppBrani.csproj", "{BFDB5790-134D-4B93-ABFA-2AFED5438418}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IdentityFramework", "IdentityFramework", "{E4CBD0D5-D882-45CD-AAA0-811AE52EB6DC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcAuthApp", "IdentityFramework\MvcAuthApp\MvcAuthApp.csproj", "{E6E897F9-9A5A-400A-8FA0-F46E4D21F09B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -20,8 +24,13 @@ Global
 		{BFDB5790-134D-4B93-ABFA-2AFED5438418}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BFDB5790-134D-4B93-ABFA-2AFED5438418}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BFDB5790-134D-4B93-ABFA-2AFED5438418}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E6E897F9-9A5A-400A-8FA0-F46E4D21F09B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E6E897F9-9A5A-400A-8FA0-F46E4D21F09B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E6E897F9-9A5A-400A-8FA0-F46E4D21F09B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E6E897F9-9A5A-400A-8FA0-F46E4D21F09B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{BFDB5790-134D-4B93-ABFA-2AFED5438418} = {FB84E4EF-C636-440F-A667-4E2DC218F419}
+		{E6E897F9-9A5A-400A-8FA0-F46E4D21F09B} = {E4CBD0D5-D882-45CD-AAA0-811AE52EB6DC}
 	EndGlobalSection
 EndGlobal
