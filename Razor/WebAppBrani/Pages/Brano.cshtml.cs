@@ -22,8 +22,10 @@ namespace WebAppBrani.Pages
         public int numeroPagine { get; set; }
         public string? FiltroArtista { get; set; }
         public string? FiltroTitolo { get; set; }
+        public int? PageIndex { get; set; }
         public void OnGet(string cercaArtista, string cercaTitolo, int? pageIndex) // FILTRA BRANI PER NOME ARTISTA E TITOLO BRANO
         {
+            PageIndex = pageIndex;
             var json = System.IO.File.ReadAllText("wwwroot/json/Brani.json");
             Brani = JsonConvert.DeserializeObject<List<Brano>>(json)!;
 
@@ -42,6 +44,6 @@ namespace WebAppBrani.Pages
             Brani = Brani.Skip(((pageIndex ?? 1) - 1) * 10).Take(10);
         }
 
- 
+
     }
 }

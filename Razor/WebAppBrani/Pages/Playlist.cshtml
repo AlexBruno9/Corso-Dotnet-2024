@@ -5,30 +5,24 @@
     var playlist = Model.arrayAudio;
 }
 
-<style>
-
-    
-</style>
-
 <div class="d-flex justify-content-between align-items-center ">
     <h1 class="display-6 p-3 text-muted">La tua Playlist</h1>
 </div>
 
-<div class=" p-3 ms-4  ">
-<button class="rounded-2" id="prevTrack"><i class="bi bi-caret-left"></i></button>
-<button class="rounded-2"  id="nextTrack"><i class="bi bi-caret-right"></i></button>
-</div>
+
 
 <form method="post" asp-page="RimuoviDaPlaylist">
     <div class="container-sm">
 
-
-
         @if (Model.lunghezzaArray != 0)
+
         {
-            <audio id="audioPlayer" controls
-            
-            >
+
+            <div class=" p-3 ms-4  ">
+                <button class="rounded-2" id="prevTrack"><i class="bi bi-caret-left"></i></button>
+                <button class="rounded-2" id="nextTrack"><i class="bi bi-caret-right"></i></button>
+            </div>
+            <audio id="audioPlayer" controls onplay="stopAllOtherAudios(this)">
 
                 <source id="audioSource" src="@playlist![0]" type="audio/mpeg">
                 Your browser does not support the audio element.
@@ -69,7 +63,7 @@
                 setTrack(currentIndex);
             });
 
-            
+
         </script>
 
         <table class="table table-striped table-bordered align-middle mt-3">
@@ -88,7 +82,7 @@
             <tbody>
 
                 @if (Model.Playlists != null)
-                {
+{
 
                     @foreach (var brano in Model.Playlists)
                     {
@@ -103,7 +97,7 @@
                             <td class="ps-4">@brano.Titolo</td>
                             <td class="ps-4">
 
-                                <audio controls onplay="stopAllOtherAudios(this)" >
+                                <audio controls onplay="stopAllOtherAudios(this)">
                                     <source src="@brano.Audio" />
                                 </audio>
                             </td>
@@ -133,8 +127,7 @@
     </div>
     <br>
     <div class="d-flex justify-content-end me-2   ">
-        <button type="submit" class="btn btn-dark" asp-asp-page="Playlist">Playlist <i
-                class="fa fa-minus"></i></button>
+        <button type="submit" class="btn btn-dark" asp-asp-page="Playlist">Playlist <i class="fa fa-minus"></i></button>
     </div>
 </form>
 <br><br><br><br>
@@ -142,13 +135,13 @@
 
 <script>
     function stopAllOtherAudios(currentAudio) {
-    var allAudios = document.querySelectorAll('audio');
+        var allAudios = document.querySelectorAll('audio');
 
-    allAudios.forEach(function(audio) {
-        if (audio !== currentAudio) {
-            audio.pause();
-            audio.currentTime = 0;
-        }
-    });
-}
+        allAudios.forEach(function (audio) {
+            if (audio !== currentAudio) {
+                audio.pause();
+                audio.currentTime = 0;
+            }
+        });
+    }
 </script>

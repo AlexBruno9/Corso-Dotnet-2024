@@ -11,16 +11,6 @@
   },
   {
     "Id": 2,
-    "Titolo": "Come Together",
-    "Artista": "The Beatles",
-    "Anno": 1969,
-    "Immagine": "https://upload.wikimedia.org/wikipedia/en/4/42/Beatles_-_Abbey_Road.jpg",
-    "Genere": "Rock",
-    "Durata": "04:19",
-    "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2023/05/The-Beatles-Come-Together-v3.mp3"
-  },
-  {
-    "Id": 3,
     "Titolo": "Riders on the Storm",
     "Artista": "The Doors",
     "Anno": 1970,
@@ -30,7 +20,7 @@
     "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2023/05/The-Doors-Riders-On-The-Storm.mp3"
   },
   {
-    "Id": 4,
+    "Id": 3,
     "Titolo": "Roadhouse Blues",
     "Artista": "The Doors",
     "Anno": 1968,
@@ -38,5 +28,45 @@
     "Genere": "Rock",
     "Durata": "03:52",
     "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2023/05/The-Doors-Roadhouse-Blues.mp3"
+  },
+  {
+    "Id": 4,
+    "Titolo": "Riders on the Storm",
+    "Artista": "The Doors",
+    "Anno": 1970,
+    "Immagine": "https://upload.wikimedia.org/wikipedia/en/4/41/The_Doors_-_L.A._Woman.jpg",
+    "Genere": "Rock",
+    "Durata": "05:05",
+    "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2023/05/The-Doors-Riders-On-The-Storm.mp3"
+  },
+  {
+    "Id": 5,
+    "Titolo": "Roadhouse Blues",
+    "Artista": "The Doors",
+    "Anno": 1968,
+    "Immagine": "https://upload.wikimedia.org/wikipedia/en/thumb/c/cd/The_Doors_-_Morrison_Hotel.jpg/220px-The_Doors_-_Morrison_Hotel.jpg",
+    "Genere": "Rock",
+    "Durata": "03:52",
+    "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2023/05/The-Doors-Roadhouse-Blues.mp3"
+  },
+  {
+    "Id": 6,
+    "Titolo": "Heard it through the Grapevine",
+    "Artista": "Marvin Gaye",
+    "Anno": 1960,
+    "Immagine": "https://www.udiscovermusic.com/wp-content/uploads/2017/11/Marvin-Gaye-I-heard-It-Through-The-Grapevine-Single-cover-web-optimised-820.jpg",
+    "Genere": "Soul",
+    "Durata": "2:50",
+    "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2023/06/Marvin-Gaye-Heard-It-Through-The-Grapevine.mp3"
+  },
+  {
+    "Id": 7,
+    "Titolo": "Lust for Life",
+    "Artista": "Iggy Pop",
+    "Anno": 1976,
+    "Immagine": "https://upload.wikimedia.org/wikipedia/en/thumb/7/72/IggyPopLustForLife.jpg/220px-IggyPopLustForLife.jpg",
+    "Genere": "Punk",
+    "Durata": "05:12",
+    "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2022/05/Iggy-Pop-Lust-For-Life.mp3"
   }
 ]

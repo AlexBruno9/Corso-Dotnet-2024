@@ -24,29 +24,14 @@ namespace WebAppBrani.Pages
             Genere = generiList!;
         }
 
-        public int calcolaId() // AUTOINCREMENTA L'ID AD OGNI BRANO AGGIUNTO
-        {
-            var json = System.IO.File.ReadAllText("wwwroot/json/Brani.json");
-            var brani = JsonConvert.DeserializeObject<List<Brano>>(json)!;
-
-            int id = 1;
-            foreach (Brano b in brani)
-            {
-                if (b.Id >= id)
-                {
-                    id = b.Id + 1;
-                }
-            }
-            return id;
-        }
-
         // AGGIUNTA DEL NUOVO BRANO ALLA PLAYLIST
-        public IActionResult OnPost(int id, string titolo, string artista, int anno, string genere, string durata, string immagine, string audio)
+        public IActionResult OnPost(string titolo, string artista, int anno, string genere, string durata, string immagine, string audio)
         {
             var json = System.IO.File.ReadAllText("wwwroot/json/Brani.json");
             var brani = JsonConvert.DeserializeObject<List<Brano>>(json)!;
 
-            id = calcolaId();
+            int id = brani.Max(b => b.Id);
+            id++;
 
             brani.Add(new Brano { Titolo = titolo, Artista = artista, Anno = anno, Immagine = immagine, Id = id, Genere = genere, Audio = audio, Durata = durata });
             // salva il file json formattato

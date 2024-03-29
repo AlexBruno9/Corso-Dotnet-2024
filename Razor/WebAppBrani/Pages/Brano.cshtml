@@ -63,6 +63,13 @@
             <tbody>
 
                 @if (Model.Brani != null)
+
+
+
+
+
+
+
                 {
 
                     @foreach (var brano in Model.Brani)
@@ -81,7 +88,7 @@
                                 <audio controls onplay="stopAllOtherAudios(this)">
                                     <source src="@brano.Audio" />
                                 </audio>
-                               
+
                             </td>
                             <td class="colonnePiccole fs-6 ps-3">
                                 <a asp-page="BranoDettaglio" class="ms-2" asp-route-id="@brano.Id">Info</a>
@@ -116,7 +123,25 @@
         <div>
             @for (int i = 1; i <= Model.numeroPagine; i++)
             {
-                <button type="submit" class="btn btn-dark" name="pageIndex" value="@i">@i</button>
+
+
+
+                if (Model.PageIndex == i)
+
+
+
+                {
+                    <button type="submit" class="active btn btn-dark" name="pageIndex" value="@i">@i</button>
+                }
+
+
+
+                else
+
+                {
+                    <button type="submit" class="btn btn-dark" name="pageIndex" value="@i">@i</button>
+                }
+
             }
         </div>
     </form>
@@ -131,23 +156,15 @@
         </form>
     </div>
 
-    <div style="height: 100px;">
-        <form method="get">
+    <script>
+        function stopAllOtherAudios(currentAudio) {
+            var allAudios = document.querySelectorAll('audio');
 
-        </form>
-    </div>
-
-<script>
-    function stopAllOtherAudios(currentAudio) {
-    var allAudios = document.querySelectorAll('audio');
-
-    allAudios.forEach(function(audio) {
-        if (audio !== currentAudio) {
-            audio.pause();
-            audio.currentTime = 0;
+            allAudios.forEach(function (audio) {
+                if (audio !== currentAudio) {
+                    audio.pause();
+                    audio.currentTime = 0;
+                }
+            });
         }
-    });
-}
-</script>
-
-
+    </script>
