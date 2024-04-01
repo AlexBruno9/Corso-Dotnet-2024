@@ -11,60 +11,25 @@
 
 
 
-<form method="post" asp-page="RimuoviDaPlaylist">
-    <div class="container-sm">
 
-        @if (Model.lunghezzaArray != 0)
+<div class="container-sm">
 
-        {
+    @if (Model.lunghezzaArray != 0)
 
-            <div class=" p-3 ms-4  ">
-                <button class="rounded-2" id="prevTrack"><i class="bi bi-caret-left"></i></button>
-                <button class="rounded-2" id="nextTrack"><i class="bi bi-caret-right"></i></button>
-            </div>
-            <audio id="audioPlayer" controls onplay="stopAllOtherAudios(this)">
+    {
 
-                <source id="audioSource" src="@playlist![0]" type="audio/mpeg">
-                Your browser does not support the audio element.
-            </audio>
-        }
+        <div class=" p-3 ms-4  ">
+            <button class="rounded-2" id="prevTrack"><i class="bi bi-caret-left"></i></button>
+            <button class="rounded-2" id="nextTrack"><i class="bi bi-caret-right"></i></button>
+        </div>
+        <audio id="audioPlayer" controls onplay="stopAllOtherAudios(this)">
 
-        <script>
-            var playlist = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(playlist));
+            <source id="audioSource" src="@playlist![0]" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+    }
 
-            var currentIndex = 0;
-
-            var audioPlayer = document.getElementById('audioPlayer');
-            var audioSource = document.getElementById('audioSource');
-
-            // Imposta il brano corrente sulla sorgente audio e riproduce il brano.
-            function setTrack(index) {
-                currentIndex = index;
-                audioSource.src = playlist[currentIndex];
-                audioPlayer.load();
-                audioPlayer.play();
-            }
-
-            // Vai al brano successivo nella playlist.
-            document.getElementById('nextTrack').addEventListener('click', function () {
-                currentIndex = (currentIndex + 1) % playlist.length;
-                setTrack(currentIndex);
-            });
-
-            // Vai al brano precedente nella playlist.
-            document.getElementById('prevTrack').addEventListener('click', function () {
-                currentIndex = (currentIndex - 1 + playlist.length) % playlist.length;
-                setTrack(currentIndex);
-            });
-
-            // Gestisci la fine di un brano per passare automaticamente al successivo.
-            audioPlayer.addEventListener('ended', function () {
-                currentIndex = (currentIndex + 1) % playlist.length;
-                setTrack(currentIndex);
-            });
-
-
-        </script>
+    <form method="post" asp-page="RimuoviDaPlaylist">
 
         <table class="table table-striped table-bordered align-middle mt-3">
             <thead>
@@ -79,10 +44,11 @@
 
                 </tr>
             </thead>
+
             <tbody>
 
                 @if (Model.Playlists != null)
-{
+                {
 
                     @foreach (var brano in Model.Playlists)
                     {
@@ -124,16 +90,55 @@
 
             </tbody>
         </table>
-    </div>
-    <br>
-    <div class="d-flex justify-content-end me-2   ">
-        <button type="submit" class="btn btn-dark" asp-asp-page="Playlist">Playlist <i class="fa fa-minus"></i></button>
-    </div>
-</form>
+
+        <br>
+
+        <div class="d-flex justify-content-end me-2   ">
+            <button type="submit" class="btn btn-dark" asp-asp-page="Playlist">Playlist <i
+                    class="fa fa-minus"></i></button>
+        </div>
+    </form>
+</div>
 <br><br><br><br>
 
 
 <script>
+
+
+    var playlist = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(playlist));
+
+    var currentIndex = 0;
+
+    var audioPlayer = document.getElementById('audioPlayer');
+    var audioSource = document.getElementById('audioSource');
+
+    // Imposta il brano corrente sulla sorgente audio e riproduce il brano.
+    function setTrack(index) {
+        currentIndex = index;
+        audioSource.src = playlist[currentIndex];
+        audioPlayer.load();
+        audioPlayer.play();
+    }
+
+    // Vai al brano successivo nella playlist.
+    document.getElementById('nextTrack').addEventListener('click', function () {
+        currentIndex = (currentIndex + 1) % playlist.length;
+        setTrack(currentIndex);
+    });
+
+    // Vai al brano precedente nella playlist.
+    document.getElementById('prevTrack').addEventListener('click', function () {
+        currentIndex = (currentIndex - 1 + playlist.length) % playlist.length;
+        setTrack(currentIndex);
+    });
+
+    // Gestisci la fine di un brano per passare automaticamente al successivo.
+    audioPlayer.addEventListener('ended', function () {
+        currentIndex = (currentIndex + 1) % playlist.length;
+        setTrack(currentIndex);
+    });
+
+
     function stopAllOtherAudios(currentAudio) {
         var allAudios = document.querySelectorAll('audio');
 

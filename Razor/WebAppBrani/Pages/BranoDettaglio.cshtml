@@ -20,7 +20,25 @@
                     <div class="card-body mt-4">
                         <h5 class="card-title"> @Model.Brano!.Titolo</h5>
                         <p class="card-text mt-4 ">Artista: @Model.Brano!.Artista</p>
-                        <p class="card-text ">Anno: @Model.Brano!.Anno</p>
+
+                        <p class="card-text ">Anno:
+
+                            @* @Model.Brano!.Anno *@
+
+                            @if (@Model.Brano!.Anno == 0)
+                            {
+
+                            }
+                            else
+                            {
+                                @Model.Brano!.Anno
+                                ;
+                            }
+
+                        </p>
+
+
+
                         <p class="card-text">Genere: @Model.Brano!.Genere</p>
                         <audio controls>
                             <source src="@Model.Brano.Audio" />
@@ -41,7 +59,7 @@
                     Modifica</a>
             </div>
             <div class="col-md-1 ">
-                <a asp-page="RimuoviDaBrani" asp-route-id="@Model.Brano.Id"
+                <a asp-page="RimuoviBrano" asp-route-id="@Model.Brano.Id"
                     class="bottonebrano btn me-4 mb-3 border-black  "
                     style="background-color: rgb(216, 228, 255);">Elimina</a>
             </div>

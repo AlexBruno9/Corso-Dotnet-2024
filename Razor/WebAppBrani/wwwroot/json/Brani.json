@@ -190,16 +190,6 @@
     "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2023/05/Jimi-Hendrix-Purple-Hazewith-vocals.mp3"
   },
   {
-    "Id": 26,
-    "Titolo": "No Sleep Till Brooklyn",
-    "Artista": "Beastie Boys",
-    "Anno": 1986,
-    "Immagine": "https://upload.wikimedia.org/wikipedia/en/6/67/Beastie_Boys_-_Licensed_to_Ill.png",
-    "Genere": "Rap",
-    "Durata": "03:30",
-    "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2023/05/Beastie-Boys-No-Sleep-Till-Brooklyn.mp3"
-  },
-  {
     "Id": 27,
     "Titolo": "Knockin on Heaven's Door",
     "Artista": "Bob Dylan",
@@ -218,15 +208,5 @@
     "Genere": "Pop",
     "Durata": "02:27",
     "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2023/05/The-Beatles-Michelle.mp3"
-  },
-  {
-    "Id": 29,
-    "Titolo": "gdgdsfds",
-    "Artista": null,
-    "Anno": 0,
-    "Immagine": null,
-    "Genere": "Rock",
-    "Durata": "12",
-    "Audio": "dsdsad"
   }
 ]
