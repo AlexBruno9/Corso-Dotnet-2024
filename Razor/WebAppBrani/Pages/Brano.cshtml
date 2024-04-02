@@ -54,8 +54,8 @@
                     <th scope="col" class="colonnePiuPiccole">#</th>
                     <th scope="col" class="colonnePiccole">IMG</th>
                     <th scope="col" class="ps-4">Titolo</th>
-                    <th scope="col" class="colonnePiuPiccole fw-medium "></th>
-                    <th scope="col" class="ps-4"></th>
+                    <th scope="col" class="colonnePiuPiccole fw-medium d-none d-md-table-cell"></th>
+                    <th scope="col" class="ps-4 d-none d-md-table-cell"></th>
                     <th scope="col" class="colonnePiuPiccole fw-medium ">Seleziona</th>
 
                 </tr>
@@ -84,13 +84,13 @@
                                 </div>
                             </td>
                             <td class="ps-4">@brano.Titolo</td>
-                            <td class="ps-4">
+                            <td class="ps-4 d-none d-md-table-cell">
                                 <audio controls onplay="stopAllOtherAudios(this)">
                                     <source src="@brano.Audio" />
                                 </audio>
 
                             </td>
-                            <td class="colonnePiccole fs-6 ps-3">
+                            <td class="colonnePiccole fs-6 ps-3 d-none d-md-table-cell">
                                 <a asp-page="BranoDettaglio" class="ms-2" asp-route-id="@brano.Id">Info</a>
                             </td>
 
@@ -117,6 +117,7 @@
         </div>
     </form>
     <br>
+
 
 
     <form method="get">
@@ -155,16 +156,17 @@
             <input type="hidden" name="cercaTitolo" value="@Request.Query["cercaTitolo"]" />
         </form>
     </div>
+</div>
 
-    <script>
-        function stopAllOtherAudios(currentAudio) {
-            var allAudios = document.querySelectorAll('audio');
+<script>
+    function stopAllOtherAudios(currentAudio) {
+        var allAudios = document.querySelectorAll('audio');
 
-            allAudios.forEach(function (audio) {
-                if (audio !== currentAudio) {
-                    audio.pause();
-                    audio.currentTime = 0;
-                }
-            });
-        }
-    </script>
+        allAudios.forEach(function (audio) {
+            if (audio !== currentAudio) {
+                audio.pause();
+                audio.currentTime = 0;
+            }
+        });
+    }
+</script>

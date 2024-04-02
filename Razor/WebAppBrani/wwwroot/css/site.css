@@ -91,4 +91,56 @@ a {
   }
 }
 
+@media screen and (max-width: 1400px) {
+
+  .bottonebrano{
+    width: 120px;
+    margin-left: 53px;
+  }
+  .btnFiltra {
+    margin-left: 55px;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+
+  .bottonebrano{
+    width: 120px;
+    margin-left: 30px;
+    width: 100px;
+  }
+  .btnFiltra {
+    margin-left: 10px!important;
+  }
+}
+
+
+@media screen and (max-width:1000px) {
+
+  .bottonebrano{
+    width: 120px;
+    margin-left: 70px;
+    width: 100px;
+  }
+  .btnFiltra {
+    margin-left: 40px!important;
+  }
+}
+
+
+
+ @media screen and (max-width: 770px) {
+
+  .bottonebrano{
+    width: 90px;
+    font-size: 12px!important;
+    margin-left: 5px!important;
+  }
+  .btnFiltra {
+    width: 90px;
+    font-size: 12px!important;
+    margin-left: 5px!important;
+  }
+}
+
 

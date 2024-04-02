@@ -13,21 +13,23 @@
 
 
 <div class="container-sm">
+    <div class="">
 
-    @if (Model.lunghezzaArray != 0)
+        @if (Model.lunghezzaArray != 0)
 
-    {
+        {
 
-        <div class=" p-3 ms-4  ">
-            <button class="rounded-2" id="prevTrack"><i class="bi bi-caret-left"></i></button>
-            <button class="rounded-2" id="nextTrack"><i class="bi bi-caret-right"></i></button>
-        </div>
-        <audio id="audioPlayer" controls onplay="stopAllOtherAudios(this)">
+            <div class=" p-3 ms-4  ">
+                <button class="rounded-2" id="prevTrack"><i class="bi bi-caret-left"></i></button>
+                <button class="rounded-2" id="nextTrack"><i class="bi bi-caret-right"></i></button>
+            </div>
+            <audio id="audioPlayer" controls onplay="stopAllOtherAudios(this)">
 
-            <source id="audioSource" src="@playlist![0]" type="audio/mpeg">
-            Your browser does not support the audio element.
-        </audio>
-    }
+                <source id="audioSource" src="@playlist![0]" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        }
+    </div>
 
     <form method="post" asp-page="RimuoviDaPlaylist">
 
@@ -38,8 +40,8 @@
                     <th scope="col" class="colonnePiuPiccole">#</th>
                     <th scope="col" class="colonnePiccole ps-4">IMG</th>
                     <th scope="col" class="ps-4">Titolo</th>
-                    <th scope="col" class="colonnePiuPiccole fw-medium "></th>
-                    <th scope="col" class="ps-4"></th>
+                    <th scope="col" class="colonnePiuPiccole fw-medium d-none d-md-table-cell"></th>
+                    <th scope="col" class="ps-4 d-none d-md-table-cell"></th>
                     <th scope="col" class="colonnePiuPiccole fw-medium ">Seleziona</th>
 
                 </tr>
@@ -61,13 +63,13 @@
 
                             </td>
                             <td class="ps-4">@brano.Titolo</td>
-                            <td class="ps-4">
+                            <td class="ps-4  d-none d-md-table-cell">
 
                                 <audio controls onplay="stopAllOtherAudios(this)">
                                     <source src="@brano.Audio" />
                                 </audio>
                             </td>
-                            <td class="colonnePiccole fs-6 ps-3">
+                            <td class="colonnePiccole fs-6 ps-3  d-none d-md-table-cell">
                                 <a asp-page="BranoDettaglioPlaylist" asp-route-id="@brano.Id">Info</a>
                             </td>
 
