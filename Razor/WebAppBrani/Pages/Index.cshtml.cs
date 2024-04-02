@@ -27,9 +27,6 @@ public class IndexModel : PageModel
                     ArrayFoto![i] = brano.Immagine!;
                     i++;
                 }
-            
-        
-        //RandomIndexFoto= rnd.Next(0, ArrayFoto!.Length);
 
 
     }

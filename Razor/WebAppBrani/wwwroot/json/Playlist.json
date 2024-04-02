@@ -48,5 +48,15 @@
     "Genere": "Punk",
     "Durata": "05:12",
     "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2022/05/Iggy-Pop-Lust-For-Life.mp3"
+  },
+  {
+    "Id": 6,
+    "Titolo": "Smoke on the Water ",
+    "Artista": "Bi Bi BoomBox",
+    "Anno": 1972,
+    "Immagine": "https://m.media-amazon.com/images/I/613ReiIy03L._AC_SX679_.jpg",
+    "Genere": "Rock",
+    "Durata": "2:00",
+    "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2023/05/Deep-Purple-Smoke-On-The-Water-v7.mp3"
   }
 ]
