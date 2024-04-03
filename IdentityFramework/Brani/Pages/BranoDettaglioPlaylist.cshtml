@@ -1,0 +1,52 @@
+@page
+@model BranoDettaglioPlaylistModel
+@{
+    ViewData["Title"] = "Dettaglio Brano";
+}
+
+<body>
+
+    <h1 class="display-6 p-3 text-muted">Info - @Model.Brano!.Titolo</h1>
+
+    <div>
+        <div class="card mb-3">
+            <div class="row g-0 p-5">
+                <div class="col-md-5">
+                    <img src="@Model.Brano!.Immagine" class="imginfo" alt="..." width="400" height="400">
+                </div>
+
+                <div class="col-md-7">
+                    <div class="card-body mt-4">
+                        <h5 class="card-title"> @Model.Brano!.Titolo</h5>
+                        <p class="card-text mt-4 ">Artista: @Model.Brano!.Artista</p>
+
+                        <p class="card-text ">Anno:
+                            @* @Model.Brano!.Anno *@
+
+                            @if (@Model.Brano!.Anno == 0)
+                            {
+
+                            }
+                            else
+                            {
+                                @Model.Brano!.Anno
+                                ;
+                            }
+                        </p>
+                        <p class="card-text">Genere: @Model.Brano!.Genere</p>
+                        <div class="bottoneAudioInfo">
+                            <audio controls>
+                                <source src="@Model.Brano.Audio" />
+                            </audio>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br><br>
+    </div>
+    <br>
+    <a asp-page="Playlist"> <i class="bi bi-arrow-return-left"></i> Torna alla Playlist</a>
+    </div>
+</body>
+<br><br><br>

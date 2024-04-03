@@ -1,0 +1,202 @@
+[
+  {
+    "Id": 2,
+    "Titolo": "The Great Gig in the Sky",
+    "Artista": "Pink Floyd",
+    "Anno": 1973,
+    "Immagine": "https://upload.wikimedia.org/wikipedia/en/3/3b/Dark_Side_of_the_Moon.png",
+    "Genere": "Rock",
+    "Durata": "03:10",
+    "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2023/05/Pink-Floyd-The-Great-Gig-In-The-Sky.mp3"
+  },
+  {
+    "Id": 3,
+    "Titolo": "Money",
+    "Artista": "Pink Floyd",
+    "Anno": 1973,
+    "Immagine": "https://upload.wikimedia.org/wikipedia/en/3/3b/Dark_Side_of_the_Moon.png",
+    "Genere": "Rock",
+    "Durata": "04:55",
+    "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2022/04/Pink-Floyd-Money.mp3"
+  },
+  {
+    "Id": 4,
+    "Titolo": "Come Together",
+    "Artista": "The Beatles",
+    "Anno": 1969,
+    "Immagine": "https://upload.wikimedia.org/wikipedia/en/4/42/Beatles_-_Abbey_Road.jpg",
+    "Genere": "Rock",
+    "Durata": "04:19",
+    "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2023/05/The-Beatles-Come-Together-v3.mp3"
+  },
+  {
+    "Id": 5,
+    "Titolo": "Here comes the Sun",
+    "Artista": "The Beatles",
+    "Anno": 1969,
+    "Immagine": "https://upload.wikimedia.org/wikipedia/en/4/42/Beatles_-_Abbey_Road.jpg",
+    "Genere": "Rock",
+    "Durata": "03:05",
+    "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2023/05/The-Beatles-Here-Comes-The-Sun.mp3"
+  },
+  {
+    "Id": 7,
+    "Titolo": "Riders on the Storm",
+    "Artista": "The Doors",
+    "Anno": 1970,
+    "Immagine": "https://upload.wikimedia.org/wikipedia/en/4/41/The_Doors_-_L.A._Woman.jpg",
+    "Genere": "Rock",
+    "Durata": "05:05",
+    "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2023/05/The-Doors-Riders-On-The-Storm.mp3"
+  },
+  {
+    "Id": 8,
+    "Titolo": "Roadhouse Blues",
+    "Artista": "The Doors",
+    "Anno": 1968,
+    "Immagine": "https://upload.wikimedia.org/wikipedia/en/thumb/c/cd/The_Doors_-_Morrison_Hotel.jpg/220px-The_Doors_-_Morrison_Hotel.jpg",
+    "Genere": "Rock",
+    "Durata": "03:52",
+    "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2023/05/The-Doors-Roadhouse-Blues.mp3"
+  },
+  {
+    "Id": 9,
+    "Titolo": "provaMiao",
+    "Artista": null,
+    "Anno": 0,
+    "Immagine": "https://i.pinimg.com/736x/4f/96/e1/4f96e159f2021d096fcbc09b4235f201.jpg",
+    "Genere": "Rock",
+    "Durata": "1:22",
+    "Audio": "https://quicksounds.com/library/sounds/cat"
+  },
+  {
+    "Id": 10,
+    "Titolo": "cane",
+    "Artista": null,
+    "Anno": 0,
+    "Immagine": "https://e.snmc.io/i/1200/s/d73d990d0fdb66ee2f660d69648f358f/3546754",
+    "Genere": "Rock",
+    "Durata": "04:12",
+    "Audio": ""
+  },
+  {
+    "Id": 11,
+    "Titolo": "topo",
+    "Artista": "gigio",
+    "Anno": 1985,
+    "Immagine": "https://f4.bcbits.com/img/a2846579031_65",
+    "Genere": "Rock",
+    "Durata": "02:00",
+    "Audio": ""
+  },
+  {
+    "Id": 14,
+    "Titolo": "Smoke on the Water ",
+    "Artista": "Bi Bi BoomBox",
+    "Anno": 1972,
+    "Immagine": "https://m.media-amazon.com/images/I/613ReiIy03L._AC_SX679_.jpg",
+    "Genere": "Rock",
+    "Durata": "2:00",
+    "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2023/05/Deep-Purple-Smoke-On-The-Water-v7.mp3"
+  },
+  {
+    "Id": 16,
+    "Titolo": "Sunshine Of Your Love",
+    "Artista": "Eric Clapton",
+    "Anno": 1967,
+    "Immagine": "https://www.londondrugs.com/on/demandware.static/-/Sites-londondrugs-master/default/dwc853053d/products/L8833204/large/L8833204.JPG",
+    "Genere": "Rock",
+    "Durata": "2:50",
+    "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2023/05/Eric-Clapton-Sunshine-Of-Your-Love.mp3"
+  },
+  {
+    "Id": 17,
+    "Titolo": "Jumpin' Jack Flash",
+    "Artista": "Rolling Stones",
+    "Anno": 1967,
+    "Immagine": "https://th.bing.com/th/id/OIP.CCa9qoEd4g2w9AC9JFcjwwHaHW?w=186&h=184&c=7&r=0&o=5&pid=1.7",
+    "Genere": "Rock",
+    "Durata": "04:00",
+    "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2022/04/The-Rolling-Stones-Jumpin-Jack-Flash.mp3"
+  },
+  {
+    "Id": 18,
+    "Titolo": "No Woman, No Cry",
+    "Artista": "Bob Marley",
+    "Anno": 1976,
+    "Immagine": "https://upload.wikimedia.org/wikipedia/en/thumb/c/c2/BobMarley-Legend.jpg/220px-BobMarley-Legend.jpg",
+    "Genere": "Reggae",
+    "Durata": "07:07",
+    "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2023/05/Bob-Marley-No-Woman-No-Cry.mp3"
+  },
+  {
+    "Id": 20,
+    "Titolo": "The Thrill is Gone",
+    "Artista": "BB King",
+    "Anno": 1975,
+    "Immagine": "https://m.media-amazon.com/images/I/51enUo6rwSL._UXNaN_FMjpg_QL85_.jpg",
+    "Genere": "Blues",
+    "Durata": "05:23",
+    "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2023/05/BB-King-The-Thrill-Is-Gone-v4.mp3"
+  },
+  {
+    "Id": 21,
+    "Titolo": "Heard it through the Grapevine",
+    "Artista": "Marvin Gaye",
+    "Anno": 1960,
+    "Immagine": "https://www.udiscovermusic.com/wp-content/uploads/2017/11/Marvin-Gaye-I-heard-It-Through-The-Grapevine-Single-cover-web-optimised-820.jpg",
+    "Genere": "Soul",
+    "Durata": "2:50",
+    "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2023/06/Marvin-Gaye-Heard-It-Through-The-Grapevine.mp3"
+  },
+  {
+    "Id": 22,
+    "Titolo": "Lust for Life",
+    "Artista": "Iggy Pop",
+    "Anno": 1976,
+    "Immagine": "https://upload.wikimedia.org/wikipedia/en/thumb/7/72/IggyPopLustForLife.jpg/220px-IggyPopLustForLife.jpg",
+    "Genere": "Punk",
+    "Durata": "05:12",
+    "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2022/05/Iggy-Pop-Lust-For-Life.mp3"
+  },
+  {
+    "Id": 24,
+    "Titolo": "September",
+    "Artista": "Earth, Wind and Fire",
+    "Anno": 1980,
+    "Immagine": "https://upload.wikimedia.org/wikipedia/en/thumb/1/18/EarthWindAndFireSeptember7InchSingleCover.jpg/220px-EarthWindAndFireSeptember7InchSingleCover.jpg",
+    "Genere": "Funk",
+    "Durata": "12:12",
+    "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2022/05/Earth-Wind-and-Fire-September.mp3"
+  },
+  {
+    "Id": 25,
+    "Titolo": "Purple Haze",
+    "Artista": "Jimi Hendrix",
+    "Anno": 1966,
+    "Immagine": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Are_You_Experienced_-_US_cover-edit.jpg/220px-Are_You_Experienced_-_US_cover-edit.jpg",
+    "Genere": "Rock",
+    "Durata": "05:05",
+    "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2023/05/Jimi-Hendrix-Purple-Hazewith-vocals.mp3"
+  },
+  {
+    "Id": 27,
+    "Titolo": "Knockin on Heaven's Door",
+    "Artista": "Bob Dylan",
+    "Anno": 1978,
+    "Immagine": "https://upload.wikimedia.org/wikipedia/en/thumb/f/fa/Bob_Dylan_-_Blood_on_the_Tracks.jpg/220px-Bob_Dylan_-_Blood_on_the_Tracks.jpg",
+    "Genere": "Pop",
+    "Durata": "04:12",
+    "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2023/05/Bob-Dylan-Knockin-On-Heavens-Door-1.mp3"
+  },
+  {
+    "Id": 28,
+    "Titolo": "Michelle",
+    "Artista": "The Beatlea",
+    "Anno": 1965,
+    "Immagine": "https://upload.wikimedia.org/wikipedia/en/thumb/7/74/Rubber_Soul.jpg/220px-Rubber_Soul.jpg",
+    "Genere": "Pop",
+    "Durata": "02:27",
+    "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2023/05/The-Beatles-Michelle.mp3"
+  }
+]
