@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcAuthApp", "IdentityFrame
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcProvaScaffolding", "IdentityFramework\MvcProvaScaffolding\MvcProvaScaffolding.csproj", "{9B6D4609-824A-4B3D-A66C-0DA592408043}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Brani", "IdentityFramework\Brani\Brani.csproj", "{298B4E9B-9D60-426C-97CB-1E6F1465A28F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -34,10 +36,15 @@ Global
 		{9B6D4609-824A-4B3D-A66C-0DA592408043}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9B6D4609-824A-4B3D-A66C-0DA592408043}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9B6D4609-824A-4B3D-A66C-0DA592408043}.Release|Any CPU.Build.0 = Release|Any CPU
+		{298B4E9B-9D60-426C-97CB-1E6F1465A28F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{298B4E9B-9D60-426C-97CB-1E6F1465A28F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{298B4E9B-9D60-426C-97CB-1E6F1465A28F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{298B4E9B-9D60-426C-97CB-1E6F1465A28F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{BFDB5790-134D-4B93-ABFA-2AFED5438418} = {FB84E4EF-C636-440F-A667-4E2DC218F419}
 		{E6E897F9-9A5A-400A-8FA0-F46E4D21F09B} = {E4CBD0D5-D882-45CD-AAA0-811AE52EB6DC}
 		{9B6D4609-824A-4B3D-A66C-0DA592408043} = {E4CBD0D5-D882-45CD-AAA0-811AE52EB6DC}
+		{298B4E9B-9D60-426C-97CB-1E6F1465A28F} = {E4CBD0D5-D882-45CD-AAA0-811AE52EB6DC}
 	EndGlobalSection
 EndGlobal
