@@ -1,0 +1,132 @@
+[
+  {
+    "Id": 1,
+    "Titolo": "Riders on the Storm",
+    "Artista": "The Doors",
+    "Anno": 1970,
+    "Immagine": "https://upload.wikimedia.org/wikipedia/en/4/41/The_Doors_-_L.A._Woman.jpg",
+    "Genere": "Rock",
+    "Durata": "05:05",
+    "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2023/05/The-Doors-Riders-On-The-Storm.mp3"
+  },
+  {
+    "Id": 2,
+    "Titolo": "Roadhouse Blues",
+    "Artista": "The Doors",
+    "Anno": 1968,
+    "Immagine": "https://upload.wikimedia.org/wikipedia/en/thumb/c/cd/The_Doors_-_Morrison_Hotel.jpg/220px-The_Doors_-_Morrison_Hotel.jpg",
+    "Genere": "Rock",
+    "Durata": "03:52",
+    "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2023/05/The-Doors-Roadhouse-Blues.mp3"
+  },
+  {
+    "Id": 763,
+    "Titolo": "The Great Gig in the Sky",
+    "Artista": "Pink Floyd",
+    "Anno": 1973,
+    "Immagine": "https://upload.wikimedia.org/wikipedia/en/3/3b/Dark_Side_of_the_Moon.png",
+    "Genere": "Rock",
+    "Durata": "03:10",
+    "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2023/05/Pink-Floyd-The-Great-Gig-In-The-Sky.mp3"
+  },
+  {
+    "Id": 1136,
+    "Titolo": "provaMiao",
+    "Artista": null,
+    "Anno": 0,
+    "Immagine": "https://i.pinimg.com/736x/4f/96/e1/4f96e159f2021d096fcbc09b4235f201.jpg",
+    "Genere": "Rock",
+    "Durata": "1:22",
+    "Audio": "https://quicksounds.com/library/sounds/cat"
+  },
+  {
+    "Id": 1427,
+    "Titolo": "provaMiao",
+    "Artista": null,
+    "Anno": 0,
+    "Immagine": "https://i.pinimg.com/736x/4f/96/e1/4f96e159f2021d096fcbc09b4235f201.jpg",
+    "Genere": "Rock",
+    "Durata": "1:22",
+    "Audio": "https://quicksounds.com/library/sounds/cat"
+  },
+  {
+    "Id": 1718,
+    "Titolo": "The Great Gig in the Sky",
+    "Artista": "Pink Floyd",
+    "Anno": 1973,
+    "Immagine": "https://upload.wikimedia.org/wikipedia/en/3/3b/Dark_Side_of_the_Moon.png",
+    "Genere": "Rock",
+    "Durata": "03:10",
+    "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2023/05/Pink-Floyd-The-Great-Gig-In-The-Sky.mp3"
+  },
+  {
+    "Id": 1719,
+    "Titolo": "Money",
+    "Artista": "Pink Floyd",
+    "Anno": 1973,
+    "Immagine": "https://upload.wikimedia.org/wikipedia/en/3/3b/Dark_Side_of_the_Moon.png",
+    "Genere": "Rock",
+    "Durata": "04:55",
+    "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2022/04/Pink-Floyd-Money.mp3"
+  },
+  {
+    "Id": 2428,
+    "Titolo": "Money",
+    "Artista": "Pink Floyd",
+    "Anno": 1973,
+    "Immagine": "https://upload.wikimedia.org/wikipedia/en/3/3b/Dark_Side_of_the_Moon.png",
+    "Genere": "Rock",
+    "Durata": "04:55",
+    "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2022/04/Pink-Floyd-Money.mp3"
+  },
+  {
+    "Id": 2764,
+    "Titolo": "Come Together",
+    "Artista": "The Beatles",
+    "Anno": 1969,
+    "Immagine": "https://upload.wikimedia.org/wikipedia/en/4/42/Beatles_-_Abbey_Road.jpg",
+    "Genere": "Rock",
+    "Durata": "04:19",
+    "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2023/05/The-Beatles-Come-Together-v3.mp3"
+  },
+  {
+    "Id": 10,
+    "Titolo": "Money",
+    "Artista": "Pink Floyd",
+    "Anno": 1973,
+    "Immagine": "https://upload.wikimedia.org/wikipedia/en/3/3b/Dark_Side_of_the_Moon.png",
+    "Genere": "Rock",
+    "Durata": "04:55",
+    "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2022/04/Pink-Floyd-Money.mp3"
+  },
+  {
+    "Id": 11,
+    "Titolo": "Come Together",
+    "Artista": "The Beatles",
+    "Anno": 1969,
+    "Immagine": "https://upload.wikimedia.org/wikipedia/en/4/42/Beatles_-_Abbey_Road.jpg",
+    "Genere": "Rock",
+    "Durata": "04:19",
+    "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2023/05/The-Beatles-Come-Together-v3.mp3"
+  },
+  {
+    "Id": 12,
+    "Titolo": "Here comes the Sun",
+    "Artista": "The Beatles",
+    "Anno": 1969,
+    "Immagine": "https://upload.wikimedia.org/wikipedia/en/4/42/Beatles_-_Abbey_Road.jpg",
+    "Genere": "Rock",
+    "Durata": "03:05",
+    "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2023/05/The-Beatles-Here-Comes-The-Sun.mp3"
+  },
+  {
+    "Id": 13,
+    "Titolo": "The Thrill is Gone",
+    "Artista": "BB King",
+    "Anno": 1975,
+    "Immagine": "https://m.media-amazon.com/images/I/51enUo6rwSL._UXNaN_FMjpg_QL85_.jpg",
+    "Genere": "Blues",
+    "Durata": "05:23",
+    "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2023/05/BB-King-The-Thrill-Is-Gone-v4.mp3"
+  }
+]

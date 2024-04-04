@@ -1,0 +1,32 @@
+[
+  {
+    "Id": 1,
+    "Titolo": "Riders on the Storm",
+    "Artista": "The Doors",
+    "Anno": 1970,
+    "Immagine": "https://upload.wikimedia.org/wikipedia/en/4/41/The_Doors_-_L.A._Woman.jpg",
+    "Genere": "Rock",
+    "Durata": "05:05",
+    "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2023/05/The-Doors-Riders-On-The-Storm.mp3"
+  },
+  {
+    "Id": 2,
+    "Titolo": "Roadhouse Blues",
+    "Artista": "The Doors",
+    "Anno": 1968,
+    "Immagine": "https://upload.wikimedia.org/wikipedia/en/thumb/c/cd/The_Doors_-_Morrison_Hotel.jpg/220px-The_Doors_-_Morrison_Hotel.jpg",
+    "Genere": "Rock",
+    "Durata": "03:52",
+    "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2023/05/The-Doors-Roadhouse-Blues.mp3"
+  },
+  {
+    "Id": 763,
+    "Titolo": "Here comes the Sun",
+    "Artista": "The Beatles",
+    "Anno": 1969,
+    "Immagine": "https://upload.wikimedia.org/wikipedia/en/4/42/Beatles_-_Abbey_Road.jpg",
+    "Genere": "Rock",
+    "Durata": "03:05",
+    "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2023/05/The-Beatles-Here-Comes-The-Sun.mp3"
+  }
+]
