@@ -134,6 +134,7 @@ a {
     width: 95px;
     margin-left: 50px;    
   }
+
   .btnFiltra {
     margin-left: 40px!important;
   }
@@ -155,6 +156,10 @@ a {
     font-size: 12px!important;
     margin-left: 5px!important;
   }
+  #Modifica{
+    margin-top: 20px;
+  }
+ 
   .btnFiltra {
     width: 90px;
     font-size: 12px!important;

@@ -9,7 +9,7 @@ namespace Brani.Pages
         public Brano? Brano { get; set; }
         public void OnGet(int id) // LEGGE I BRANI PRESENTI NELLA PLAYLIST
         {
-            var json = System.IO.File.ReadAllText("wwwroot/json/Playlist.json");
+            var json = System.IO.File.ReadAllText($"wwwroot/json/Playlist/{User.Identity!.Name!}.json");
             var brani = JsonConvert.DeserializeObject<List<Brano>>(json);
             Brano = brani!.FirstOrDefault(p => p.Id == id);
         }

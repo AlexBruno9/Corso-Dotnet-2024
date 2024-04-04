@@ -56,15 +56,17 @@
             <div class="col-md-10">
                 <a asp-page="Brano"> <i class="bi bi-arrow-return-left"></i> Torna ai Brani</a>
             </div>
+            
 
             @* <div class="col-md-1"> *@
 
             <div class="col-md-2 row">
                 @if (User.IsInRole("Admin"))
-                {
+                {   
+                    
                     <div>
                         <a asp-page="ModificaBrano" asp-route-id="@Model.Brano.Id"
-                            class="bottonebrano btn mb-1 border-black  " style="background-color: rgb(216, 228, 255);">
+                            class="bottonebrano btn mb-1 border-black" id="Modifica" style="background-color: rgb(216, 228, 255);">
                             Modifica</a>
                     </div>
 
@@ -74,10 +76,14 @@
                     </div>
                 }
             </div>
+            
+
+           
 
             @* <div class="col-md-1"></div> *@
 
         </div>
+        <br><br>
     </div>
 </body>
 <br><br>

@@ -11,12 +11,13 @@ public class IndexModel : PageModel
 
     public void OnGet()
     {
-        if (!System.IO.File.Exists($"wwwroot/json/Playlist/{User.Identity!.Name!}.json"))
+        if (User.IsInRole("User"))
         {
-            // Person person = new Person { Name = "John", Age = 30 };
-            // string json = JsonConvert.SerializeObject(person);
-         
-            System.IO.File.WriteAllText($"wwwroot/json/Playlist/{User.Identity!.Name!}.json", " ");
+            if (!System.IO.File.Exists($"wwwroot/json/Playlist/{User.Identity!.Name!}.json"))
+            {
+
+                System.IO.File.WriteAllText($"wwwroot/json/Playlist/{User.Identity!.Name!}.json", " ");
+            }
         }
 
         var json = System.IO.File.ReadAllText("wwwroot/json/Brani.json");

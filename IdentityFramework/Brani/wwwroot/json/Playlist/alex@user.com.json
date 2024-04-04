@@ -1,12 +1,12 @@
 [
   {
     "Id": 1,
-    "Titolo": "The Great Gig in the Sky",
+    "Titolo": "Money",
     "Artista": "Pink Floyd",
     "Anno": 1973,
     "Immagine": "https://upload.wikimedia.org/wikipedia/en/3/3b/Dark_Side_of_the_Moon.png",
     "Genere": "Rock",
-    "Durata": "03:10",
-    "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2023/05/Pink-Floyd-The-Great-Gig-In-The-Sky.mp3"
+    "Durata": "04:55",
+    "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2022/04/Pink-Floyd-Money.mp3"
   }
 ]

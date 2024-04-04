@@ -55,6 +55,7 @@ namespace Brani.Pages
                 {
                     counter++;
                 }
+                
                 foreach(var brano in braniDaAggiungere)
                 {
                     
@@ -62,6 +63,7 @@ namespace Brani.Pages
                     brano.Id=counter;
                     
                 }
+                
 
                 playlist!.AddRange(braniDaAggiungere);
                 System.IO.File.WriteAllText($"wwwroot/json/Playlist/{User.Identity!.Name!}.json", JsonConvert.SerializeObject(playlist, Formatting.Indented));
