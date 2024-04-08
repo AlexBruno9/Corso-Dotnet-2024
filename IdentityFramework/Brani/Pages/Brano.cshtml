@@ -25,32 +25,37 @@
             <div class="col-md-2"></div>
         }
 
-        <div class="dropdown col-md-1">
-            <form method="get" asp-page="Brano">
-                <div class="form-group">
-                    <button class="btnFiltra btn me-4 border-black dropdown-toggle"
-                        style="background-color: rgb(216, 228, 255); " type="button" data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                        Filtra
-                    </button>
-                    <ul class="dropdown-menu  p-2">
-                        <li> <label for="cercaArtista">Nome artista</label>
-                            <input type="text" class="form-control" name="cercaArtista" />
-                        </li>
-                        <li> <label for="cercaTitolo">Titolo brano</label>
-                            <input type="text" class="form-control" name="cercaTitolo" />
-                        </li>
-                        <br>
-                        <button type="submit" class="btn border-black  "
-                            style="background-color: rgb(216, 228, 255); ">Filtra</button>
 
-                    </ul>
 
-                </div>
+        @if (Model.Brani != null)
+        {
 
-            </form>
-        </div>
+            <div class="dropdown col-md-1">
+                <form method="get" asp-page="Brano">
+                    <div class="form-group">
+                        <button class="btnFiltra btn me-4 border-black dropdown-toggle"
+                            style="background-color: rgb(216, 228, 255); " type="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
+                            Filtra
+                        </button>
+                        <ul class="dropdown-menu  p-2">
+                            <li> <label for="cercaArtista">Nome artista</label>
+                                <input type="text" class="form-control" name="cercaArtista" />
+                            </li>
+                            <li> <label for="cercaTitolo">Titolo brano</label>
+                                <input type="text" class="form-control" name="cercaTitolo" />
+                            </li>
+                            <br>
+                            <button type="submit" class="btn border-black  "
+                                style="background-color: rgb(216, 228, 255); ">Filtra</button>
 
+                        </ul>
+
+                    </div>
+
+                </form>
+            </div>
+        }
 
 
         <div>@Model.FiltroArtista</div>
@@ -187,9 +192,12 @@
                     }
                 </tbody>
             </table>
-            <div class=" d-flex justify-content-end ">
-                <button type="submit" class="btn btn-dark">Elimina <i class="fa fa-minus"></i></button>
-            </div>
+            @if (Model.Brani != null)
+            {
+                <div class=" d-flex justify-content-end ">
+                    <button type="submit" class="btn btn-dark">Elimina <i class="fa fa-minus"></i></button>
+                </div>
+            }
         </form>
         <br>
     }
@@ -197,32 +205,36 @@
 
 
 
-    <form method="get">
-        <div>
-            @for (int i = 1; i <= Model.numeroPagine; i++)
-            {
+    @if (Model.Brani != null)
+    {
+        <form method="get">
+            <div>
 
-
-
-                if (Model.PageIndex == i)
-
-
-
+                @for (int i = 1; i <= Model.numeroPagine; i++)
                 {
-                    <button type="submit" class="active btn btn-dark" name="pageIndex" value="@i">@i</button>
+
+
+
+                    if (Model.PageIndex == i)
+
+
+
+                    {
+                        <button type="submit" class="active btn btn-dark" name="pageIndex" value="@i">@i</button>
+                    }
+
+
+
+                    else
+
+                    {
+                        <button type="submit" class="btn btn-dark" name="pageIndex" value="@i">@i</button>
+                    }
+
                 }
-
-
-
-                else
-
-                {
-                    <button type="submit" class="btn btn-dark" name="pageIndex" value="@i">@i</button>
-                }
-
-            }
-        </div>
-    </form>
+            </div>
+        </form>
+    }
 
     <br><br>
 

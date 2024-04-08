@@ -5,9 +5,16 @@ using System.Collections.Generic;
 using System.IO;
 
 using Brani.Pages;
+using Microsoft.AspNetCore.Authorization.Infrastructure;
+using Microsoft.AspNetCore.Authorization;
+using System.Security.Principal;
 
 namespace Brani.Pages
 {
+
+    [Authorize(Roles = "User, Admin")]
+
+
     public class BranoModel : PageModel
     {
 
@@ -31,17 +38,21 @@ namespace Brani.Pages
 
             if (!string.IsNullOrEmpty(cercaArtista))
             {
-                Brani = Brani.Where(p => p.Artista == cercaArtista);
+                Brani = Brani.Where(b => b.Artista!.Contains(cercaArtista, StringComparison.CurrentCultureIgnoreCase)).ToList();
                 FiltroArtista = $"Filtro attivo - ricerca per artista: '{cercaArtista}'";
             }
             if (!string.IsNullOrEmpty(cercaTitolo))
             {
-                Brani = Brani.Where(p => p.Titolo == cercaTitolo);
+                Brani = Brani.Where(b => b.Titolo!.Contains(cercaTitolo, StringComparison.CurrentCultureIgnoreCase)).ToList();
                 FiltroTitolo = $"Filtro attivo - ricerca per titolo brano: '{cercaTitolo}'";
             }
 
-            numeroPagine = (int)Math.Ceiling(Brani.Count() / 10.0);
-            Brani = Brani.Skip(((pageIndex ?? 1) - 1) * 10).Take(10);
+            if (Brani != null)
+            {
+
+                numeroPagine = (int)Math.Ceiling(Brani.Count() / 10.0);
+                Brani = Brani.Skip(((pageIndex ?? 1) - 1) * 10).Take(10);
+            }
         }
 
 

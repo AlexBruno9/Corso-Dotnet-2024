@@ -26,17 +26,22 @@ public class IndexModel : PageModel
 
 
         int index = 0;
-        foreach (var brano in Brani)
-        {
-            index++;
-        }
 
-        ArrayFoto = new string[index];
-        int i = 0;
-        foreach (var brano in Brani)
+        if (Brani != null)
         {
-            ArrayFoto![i] = brano.Immagine!;
-            i++;
+
+            foreach (var brano in Brani)
+            {
+                index++;
+            }
+
+            ArrayFoto = new string[index];
+            int i = 0;
+            foreach (var brano in Brani)
+            {
+                ArrayFoto![i] = brano.Immagine!;
+                i++;
+            }
         }
 
 

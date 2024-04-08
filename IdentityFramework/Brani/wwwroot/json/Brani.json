@@ -62,7 +62,7 @@
   {
     "Id": 9,
     "Titolo": "provaMiao",
-    "Artista": null,
+    "Artista": "Gatto",
     "Anno": 0,
     "Immagine": "https://i.pinimg.com/736x/4f/96/e1/4f96e159f2021d096fcbc09b4235f201.jpg",
     "Genere": "Rock",
@@ -72,7 +72,7 @@
   {
     "Id": 10,
     "Titolo": "cane",
-    "Artista": null,
+    "Artista": "Cane",
     "Anno": 0,
     "Immagine": "https://e.snmc.io/i/1200/s/d73d990d0fdb66ee2f660d69648f358f/3546754",
     "Genere": "Rock",
@@ -92,7 +92,7 @@
   {
     "Id": 14,
     "Titolo": "Smoke on the Water ",
-    "Artista": "Bi Bi BoomBox",
+    "Artista": "Deep Purple",
     "Anno": 1972,
     "Immagine": "https://m.media-amazon.com/images/I/613ReiIy03L._AC_SX679_.jpg",
     "Genere": "Rock",
@@ -112,7 +112,7 @@
   {
     "Id": 17,
     "Titolo": "Jumpin' Jack Flash",
-    "Artista": "Rolling Stones",
+    "Artista": "The Rolling Stones",
     "Anno": 1967,
     "Immagine": "https://th.bing.com/th/id/OIP.CCa9qoEd4g2w9AC9JFcjwwHaHW?w=186&h=184&c=7&r=0&o=5&pid=1.7",
     "Genere": "Rock",

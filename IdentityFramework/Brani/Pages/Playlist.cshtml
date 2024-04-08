@@ -120,9 +120,21 @@
     function setTrack(index) {
         currentIndex = index;
         audioSource.src = playlist[currentIndex];
+        console.log(audioSource)
         audioPlayer.load();
         audioPlayer.play();
+
+
     }
+
+    var tempoTrascorso;
+
+    document.getElementById('audioPlayer').addEventListener('timeupdate', function () {
+
+        tempoTrascorso = document.getElementById('audioPlayer').currentTime
+        console.log(document.getElementById('audioPlayer').currentTime)
+
+    });
 
     // Vai al brano successivo nella playlist.
     document.getElementById('nextTrack').addEventListener('click', function () {
@@ -132,8 +144,15 @@
 
     // Vai al brano precedente nella playlist.
     document.getElementById('prevTrack').addEventListener('click', function () {
-        currentIndex = (currentIndex - 1 + playlist.length) % playlist.length;
-        setTrack(currentIndex);
+        //console.log(currentIndex)
+        if (tempoTrascorso < 5) {
+            currentIndex = (currentIndex - 1 + playlist.length) % playlist.length;
+            setTrack(currentIndex);
+        }
+        else {
+            setTrack(currentIndex);
+        }
+
     });
 
     // Gestisci la fine di un brano per passare automaticamente al successivo.
