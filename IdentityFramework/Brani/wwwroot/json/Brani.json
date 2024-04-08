@@ -30,16 +30,6 @@
     "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2023/05/The-Beatles-Come-Together-v3.mp3"
   },
   {
-    "Id": 5,
-    "Titolo": "Here comes the Sun",
-    "Artista": "The Beatles",
-    "Anno": 1969,
-    "Immagine": "https://upload.wikimedia.org/wikipedia/en/4/42/Beatles_-_Abbey_Road.jpg",
-    "Genere": "Rock",
-    "Durata": "03:05",
-    "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2023/05/The-Beatles-Here-Comes-The-Sun.mp3"
-  },
-  {
     "Id": 7,
     "Titolo": "Riders on the Storm",
     "Artista": "The Doors",
@@ -58,36 +48,6 @@
     "Genere": "Rock",
     "Durata": "03:52",
     "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2023/05/The-Doors-Roadhouse-Blues.mp3"
-  },
-  {
-    "Id": 9,
-    "Titolo": "provaMiao",
-    "Artista": "Gatto",
-    "Anno": 0,
-    "Immagine": "https://i.pinimg.com/736x/4f/96/e1/4f96e159f2021d096fcbc09b4235f201.jpg",
-    "Genere": "Rock",
-    "Durata": "1:22",
-    "Audio": "https://quicksounds.com/library/sounds/cat"
-  },
-  {
-    "Id": 10,
-    "Titolo": "cane",
-    "Artista": "Cane",
-    "Anno": 0,
-    "Immagine": "https://e.snmc.io/i/1200/s/d73d990d0fdb66ee2f660d69648f358f/3546754",
-    "Genere": "Rock",
-    "Durata": "04:12",
-    "Audio": ""
-  },
-  {
-    "Id": 11,
-    "Titolo": "topo",
-    "Artista": "gigio",
-    "Anno": 1985,
-    "Immagine": "https://f4.bcbits.com/img/a2846579031_65",
-    "Genere": "Rock",
-    "Durata": "02:00",
-    "Audio": ""
   },
   {
     "Id": 14,
@@ -192,11 +152,81 @@
   {
     "Id": 28,
     "Titolo": "Michelle",
-    "Artista": "The Beatlea",
+    "Artista": "The Beatles",
     "Anno": 1965,
     "Immagine": "https://upload.wikimedia.org/wikipedia/en/thumb/7/74/Rubber_Soul.jpg/220px-Rubber_Soul.jpg",
     "Genere": "Pop",
     "Durata": "02:27",
     "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2023/05/The-Beatles-Michelle.mp3"
+  },
+  {
+    "Id": 29,
+    "Titolo": "Thriller",
+    "Artista": "Michael Jackson",
+    "Anno": 1982,
+    "Immagine": "https://upload.wikimedia.org/wikipedia/en/5/55/Michael_Jackson_-_Thriller.png",
+    "Genere": "Pop",
+    "Durata": "5:30",
+    "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2023/05/Michael-Jackson-Thriller.mp3"
+  },
+  {
+    "Id": 30,
+    "Titolo": "Psycho Killer",
+    "Artista": "Talking Heads",
+    "Anno": 1977,
+    "Immagine": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Talkingheads77.jpg/330px-Talkingheads77.jpg",
+    "Genere": "Rock",
+    "Durata": "4:30",
+    "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2023/05/Talking-Heads-Psycho-Killer.mp3"
+  },
+  {
+    "Id": 31,
+    "Titolo": "I'd Love to Change the World",
+    "Artista": "Ten Years After",
+    "Anno": 1971,
+    "Immagine": "https://upload.wikimedia.org/wikipedia/en/f/fb/A_Space_in_Time.jpg",
+    "Genere": "Rock",
+    "Durata": "3:45",
+    "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2023/05/Ten-Years-After-Id-Love-To-Change-The-World.mp3"
+  },
+  {
+    "Id": 32,
+    "Titolo": "White Rabbit",
+    "Artista": "Jefferson Airplane",
+    "Anno": 1967,
+    "Immagine": "https://upload.wikimedia.org/wikipedia/en/5/58/Jeffair.jpg",
+    "Genere": "Pop",
+    "Durata": "2:30",
+    "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2023/05/Jefferson-Airplane-White-Rabbit.mp3"
+  },
+  {
+    "Id": 33,
+    "Titolo": "Soul Kitchen",
+    "Artista": "The Doors",
+    "Anno": 1967,
+    "Immagine": "https://upload.wikimedia.org/wikipedia/en/d/d3/The_Doors_-_Waiting_for_the_Sun.jpg",
+    "Genere": "Rock",
+    "Durata": "3:37",
+    "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2023/05/The-Doors-Soul-Kitchen.mp3"
+  },
+  {
+    "Id": 34,
+    "Titolo": "21st Century Schizoid Man",
+    "Artista": "King Crimson",
+    "Anno": 1969,
+    "Immagine": "https://m.media-amazon.com/images/I/61myDA5knKL._AC_SX522_.jpg",
+    "Genere": "Rock",
+    "Durata": "7:02",
+    "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2023/05/King-Crimson-21st-Century-Schizoid-Man-v2.mp3"
+  },
+  {
+    "Id": 35,
+    "Titolo": "Misty Mountain Hop",
+    "Artista": "Led ",
+    "Anno": 1971,
+    "Immagine": "https://upload.wikimedia.org/wikipedia/en/2/26/Led_Zeppelin_-_Led_Zeppelin_IV.jpg",
+    "Genere": "Rock",
+    "Durata": "4:43",
+    "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2023/05/Led-Zeppelin-Misty-Mountain-Hop-Live.mp3"
   }
 ]

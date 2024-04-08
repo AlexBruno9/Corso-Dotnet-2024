@@ -8,5 +8,55 @@
     "Genere": "Rock",
     "Durata": "04:55",
     "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2022/04/Pink-Floyd-Money.mp3"
+  },
+  {
+    "Id": 2,
+    "Titolo": "Come Together",
+    "Artista": "The Beatles",
+    "Anno": 1969,
+    "Immagine": "https://upload.wikimedia.org/wikipedia/en/4/42/Beatles_-_Abbey_Road.jpg",
+    "Genere": "Rock",
+    "Durata": "04:19",
+    "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2023/05/The-Beatles-Come-Together-v3.mp3"
+  },
+  {
+    "Id": 3,
+    "Titolo": "Sunshine Of Your Love",
+    "Artista": "Eric Clapton",
+    "Anno": 1967,
+    "Immagine": "https://www.londondrugs.com/on/demandware.static/-/Sites-londondrugs-master/default/dwc853053d/products/L8833204/large/L8833204.JPG",
+    "Genere": "Rock",
+    "Durata": "2:50",
+    "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2023/05/Eric-Clapton-Sunshine-Of-Your-Love.mp3"
+  },
+  {
+    "Id": 4,
+    "Titolo": "No Woman, No Cry",
+    "Artista": "Bob Marley",
+    "Anno": 1976,
+    "Immagine": "https://upload.wikimedia.org/wikipedia/en/thumb/c/c2/BobMarley-Legend.jpg/220px-BobMarley-Legend.jpg",
+    "Genere": "Reggae",
+    "Durata": "07:07",
+    "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2023/05/Bob-Marley-No-Woman-No-Cry.mp3"
+  },
+  {
+    "Id": 5,
+    "Titolo": "Soul Kitchen",
+    "Artista": "The Doors",
+    "Anno": 1967,
+    "Immagine": "https://upload.wikimedia.org/wikipedia/en/d/d3/The_Doors_-_Waiting_for_the_Sun.jpg",
+    "Genere": "Rock",
+    "Durata": "3:37",
+    "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2023/05/The-Doors-Soul-Kitchen.mp3"
+  },
+  {
+    "Id": 6,
+    "Titolo": "21st Century Schizoid Man",
+    "Artista": "King Crimson",
+    "Anno": 1969,
+    "Immagine": "https://m.media-amazon.com/images/I/61myDA5knKL._AC_SX522_.jpg",
+    "Genere": "Rock",
+    "Durata": "7:02",
+    "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2023/05/King-Crimson-21st-Century-Schizoid-Man-v2.mp3"
   }
 ]
