@@ -43,6 +43,15 @@ public class IndexModel : PageModel
                 i++;
             }
         }
+        else
+        {
+            ArrayFoto![0] = "https://upload.wikimedia.org/wikipedia/en/thumb/7/74/Rubber_Soul.jpg/220px-Rubber_Soul.jpg";
+            ArrayFoto![1] = "https://upload.wikimedia.org/wikipedia/en/thumb/f/fa/Bob_Dylan_-_Blood_on_the_Tracks.jpg/220px-Bob_Dylan_-_Blood_on_the_Tracks.jpg";
+            ArrayFoto![2] = "https://m.media-amazon.com/images/I/51enUo6rwSL._UXNaN_FMjpg_QL85_.jpg";
+            ArrayFoto![3] = "https://upload.wikimedia.org/wikipedia/en/thumb/c/c2/BobMarley-Legend.jpg/220px-BobMarley-Legend.jpg";
+            // ArrayFoto![4] = brano.Immagine!;
+            // ArrayFoto![5] = brano.Immagine!;
+        }
 
 
     }
