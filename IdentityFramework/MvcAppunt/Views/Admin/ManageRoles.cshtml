@@ -1,0 +1,19 @@
+@model ManageRolesViewModel
+@{
+	ViewData["Title"] = "Manage Roles";
+}
+
+<h1>Manage Roles</h1>
+
+<h2>@Model.User.Email</h2>
+
+<form method="post">
+	@foreach (var role in Model.Roles)
+	{
+		<div>
+			<input type="checkbox" name="roles" value="@role.Name" @(Model.UserRoles.Contains(role.Name) ? "checked" : "") />
+			<label>@role.Name</label>
+		</div>
+	}
+	<button type="submit">Save</button> <button type="submit" asp-action="Index">Annulla</button>
+</form>
