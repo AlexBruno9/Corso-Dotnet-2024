@@ -19,7 +19,9 @@ namespace Brani.Pages
             Brano = brani.FirstOrDefault(p => p.Id == id);
         }
 
-        public IActionResult OnPost(int id) // ELIMINA IL BRANO DAL CATALOGO (FILE JSON)
+        // ELIMINA IL SINGOLO BRANO DAL CATALOGO QUANDO SI ELIMINA DALLA PAGINA DI DETTAGLIO DEL BRANO
+
+        public IActionResult OnPost(int id) 
         {
             var json = System.IO.File.ReadAllText("wwwroot/json/Brani.json");
             var brani = JsonConvert.DeserializeObject<List<Brano>>(json)!;

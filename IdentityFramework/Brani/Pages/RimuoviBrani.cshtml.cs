@@ -20,7 +20,7 @@ namespace Brani.Pages
    
         }
 
-        public IActionResult OnPost(int[] selezionatiBrani) // RIMUOVE I BRANI SELEZIONATI DALLA PLAYLIST
+        public IActionResult OnPost(int[] selezionatiBrani) // RIMUOVE I BRANI SELEZIONATI NELLE CHECKBOX DAL CATALOGO
         {
             
             var jsonBrani = System.IO.File.ReadAllText("wwwroot/json/Brani.json");
