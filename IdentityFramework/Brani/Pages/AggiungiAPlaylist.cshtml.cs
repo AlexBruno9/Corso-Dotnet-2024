@@ -26,7 +26,7 @@ namespace Brani.Pages
 
             var jsonPlaylist = System.IO.File.ReadAllText($"wwwroot/json/Playlist/{User.Identity!.Name!}.json");
             int counter=0;
-            //Console.WriteLine(jsonPlaylist.Count());
+        
 
             if (string.IsNullOrWhiteSpace(jsonPlaylist))
             {
@@ -48,7 +48,7 @@ namespace Brani.Pages
             else if(!string.IsNullOrWhiteSpace(jsonPlaylist))
             {
                 var playlist = JsonConvert.DeserializeObject<List<Brano>>(jsonPlaylist);
-               //Console.WriteLine(playlist!.Count());
+         
 
 
                 foreach(var brano in playlist!)
@@ -68,33 +68,6 @@ namespace Brani.Pages
                 playlist!.AddRange(braniDaAggiungere);
                 System.IO.File.WriteAllText($"wwwroot/json/Playlist/{User.Identity!.Name!}.json", JsonConvert.SerializeObject(playlist, Formatting.Indented));
             }
-
-            // var playlist = string.IsNullOrWhiteSpace(jsonPlaylist) ? new List<Brano>() : JsonConvert.DeserializeObject<List<Brano>>(jsonPlaylist);
-
-            // playlist!.AddRange(braniDaAggiungere);
-
-
-            // System.IO.File.WriteAllText("wwwroot/json/Playlist.json", JsonConvert.SerializeObject(playlist, Formatting.Indented));
-
-
-            // var json = System.IO.File.ReadAllText($"wwwroot/json/Playlist/{User.Identity!.Name!}.json");
-            // var brani = JsonConvert.DeserializeObject<List<Brano>>(json)!;
-
-            // if (brani != null)
-            // {
-            //     var Brano = brani.FirstOrDefault(p => p.Titolo == titolo);
-            // }
-
-            // int counter = 1;
-            // foreach (var brano in brani!)
-            // {
-            //     brano!.Id = counter;
-            //     counter++;
-            // }
-
-            //salva il file json formattato
-
-            //System.IO.File.WriteAllText($"wwwroot/json/Playlist/{User.Identity!.Name!}.json", JsonConvert.SerializeObject(brani, Formatting.Indented));
 
             return RedirectToPage("Playlist");
         }

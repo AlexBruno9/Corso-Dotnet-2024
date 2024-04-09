@@ -43,7 +43,7 @@ public class IndexModel : PageModel
                 i++;
             }
         }
-        else
+        else    //  IN CASO NON CI SIANO BRANI MEMORIZZATI E QUINDI NESSUNA IMMAGINE CHE RIEMPE L'ARRAY 
         {
             ArrayFoto = new string[8];
             ArrayFoto![0] = "https://upload.wikimedia.org/wikipedia/en/thumb/7/74/Rubber_Soul.jpg/220px-Rubber_Soul.jpg";

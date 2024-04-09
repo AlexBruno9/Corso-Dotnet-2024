@@ -5,9 +5,7 @@ using System.Collections.Generic;
 using System.IO;
 
 using Brani.Pages;
-using Microsoft.AspNetCore.Authorization.Infrastructure;
 using Microsoft.AspNetCore.Authorization;
-using System.Security.Principal;
 
 namespace Brani.Pages
 {

@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.Data;
 using Microsoft.EntityFrameworkCore;
-using MvcAuthApp.Data;
+using Brani.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
