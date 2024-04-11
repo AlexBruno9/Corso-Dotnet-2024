@@ -1,0 +1,16 @@
+@model AppUser
+@{
+	ViewData["Title"] = "Edit Codice";
+}
+
+<h1>Edit Codice</h1>
+
+<h2>@Model.Email</h2>
+
+<form method="post">
+	<div>
+		<label>Codice</label>
+		<input type="text" name="Codice" value="@Model.Codice" />
+	</div>
+	<button type="submit">Save</button> <button type="submit" asp-action="Index">Annulla</button>
+</form>

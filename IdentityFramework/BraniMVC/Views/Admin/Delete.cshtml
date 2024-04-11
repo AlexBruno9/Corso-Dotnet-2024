@@ -1,0 +1,12 @@
+@model AppUser
+@{
+	ViewData["Title"] = "Delete";
+}
+
+<h1>Delete</h1>
+
+<h2>@Model.Email</h2>
+
+<form method="post">
+	<button type="submit" name="confirm" value="true">Delete</button> <button type="submit" asp-action="Index">Annulla</button>
+</form>
