@@ -1,10 +1,10 @@
-# APP MvcAppunt
+# APP BraniMVC
 
 1. Generazione del Progetto
 Apri un terminale e naviga alla directory dove desideri creare il tuo progetto. Utilizza il seguente comando per generare un nuovo progetto MVC con autenticazione individuale:
 
 ```bash
-dotnet new mvc --auth Individual -o MvcAppunt
+dotnet new mvc --auth Individual -o BraniMVC
 ```
 
 2. Configurazione del Progetto
@@ -63,7 +63,7 @@ dotnet ef database update
 ```csharp
 using Microsoft.AspNetCore.Identity; 
 using Microsoft.EntityFrameworkCore;
-using MvcAppunt.Data;
+using BraniMVC.Data;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -195,13 +195,13 @@ public class SeedData
 9. scaffolding di identity ed assegnazione ruolo fornitore in automatico
 
 ```bash
-dotnet aspnet-codegenerator identity -dc MvcAppunt.Data.ApplicationDbContext --files "Account.Register"
+dotnet aspnet-codegenerator identity -dc BraniMVC.Data.ApplicationDbContext --files "Account.Register"
 ```
 
 oppure ogni files
 
 ```bash
-dotnet aspnet-codegenerator identity -dc MvcAppunt.Data.ApplicationDbContext --files "all"
+dotnet aspnet-codegenerator identity -dc BraniMVC.Data.ApplicationDbContext --files "all"
 ```
 
 10. Modifica del file Register.cshtml.cs
@@ -228,7 +228,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
 
-namespace MvcAppunt.Areas.Identity.Pages.Account
+namespace BraniMVC.Areas.Identity.Pages.Account
 {
 	public class RegisterModel : PageModel
 	{
@@ -465,8 +465,8 @@ in UsersController.cs in Controllers
 using Microsoft.AspNetCore.Mvc; 
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
-using MvcAppunt.Models;
-using MvcAppunt.Data;
+using BraniMVC.Models;
+using BraniMVC.Data;
 using System.Linq;
 
 public class UsersController : Controller
@@ -581,8 +581,8 @@ in Controllers, crea un nuovo controller chiamato AdminController.cs
 using Microsoft.AspNetCore.Mvc; 
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
-using MvcAppunt.Models;
-using MvcAppunt.Data;
+using BraniMVC.Models;
+using BraniMVC.Data;
 using System.Linq;
 
 public class AdminController : Controller
