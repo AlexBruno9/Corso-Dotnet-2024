@@ -5,17 +5,4 @@
 <div class="text-center">
     <h1 class="display-4">Welcome</h1>
     <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-
-    <h6> Sei autenticato? -> @User.Identity!.IsAuthenticated</h6>
-
-    <br>
-    @if(User.Identity.IsAuthenticated)
-    {
-        <h4>Ciao @User.Identity!.Name, sei autenticato!</h4>
-    }
-    else
-    {
-        <h4>Ciao guest, non sei autenticato!</h4>
-    }
-
 </div>

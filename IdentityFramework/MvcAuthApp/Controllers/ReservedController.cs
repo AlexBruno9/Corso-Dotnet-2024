@@ -21,7 +21,7 @@ namespace MyApp.Controllers
 
         // GET: /Reserved/User
         [Authorize(Roles = "User")]
-        public new IActionResult User()
+        public IActionResult User()
         {
             return View();
         }

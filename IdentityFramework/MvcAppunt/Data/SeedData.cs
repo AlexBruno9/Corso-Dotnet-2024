@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Identity; 
+using Microsoft.AspNetCore.Identity;
 
 public class SeedData
 {
@@ -16,27 +16,27 @@ public class SeedData
 
 		// Creazione dell'utente Admin se non esiste
 		if (await userManager.FindByEmailAsync("fdfdf@∂fdf.com") == null)
-	  {
-		  var adminUser = new AppUser
-		  {
-			  UserName = "admin@admin.com",
-			  Email = "admin@admin.com",
-			  Nome = "Admin",
-			  Codice = "12345678", // Genera un codice fornitore univoco per ogni fornitore
-			  EmailConfirmed = true // Accettazione in automatico
-		  };
-		  await userManager.CreateAsync(adminUser, "AdminPass1!");
-		  await userManager.AddToRoleAsync(adminUser, "Admin");
-	  }
-	  else
-	  {
-		  var adminUser = await userManager.FindByEmailAsync("fdfdf@∂fdf.com");
-		  await userManager.AddToRoleAsync(adminUser, "Admin");
-	  }
-	  
-	  
-			  
+		{
+			var adminUser = new AppUser
+			{
+				UserName = "alexAdmin",
+				Email = "alex@admin.com",
+				Nome = "alex@Admin",
+				Codice = "12345678", // Genera un codice fornitore univoco per ogni fornitore
+				EmailConfirmed = true // Accettazione in automatico
+			};
+			await userManager.CreateAsync(adminUser, "Alex1!");
+			await userManager.AddToRoleAsync(adminUser, "Admin");
+		}
+		else
+		{
+			var adminUser = await userManager.FindByEmailAsync("fdfdf@∂fdf.com");
+			await userManager.AddToRoleAsync(adminUser, "Admin");
+		}
 
-		
+
+
+
+
 	}
 }

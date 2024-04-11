@@ -7,11 +7,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
 
-namespace MvcAppunt.Data.Migrations
+namespace MvcAppunt.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240409114129_SCreate")]
-    partial class SCreate
+    [Migration("20240407175227_CambiaNomiColonne")]
+    partial class CambiaNomiColonne
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,10 +27,9 @@ namespace MvcAppunt.Data.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Codice")
+                    b.Property<string>("CodiceFornitore")
                         .IsRequired()
-                        .HasColumnType("TEXT")
-                        .HasColumnName("Codice");
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
@@ -73,9 +72,8 @@ namespace MvcAppunt.Data.Migrations
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("TEXT");
 
-                    b.Property<bool>("Stato")
-                        .HasColumnType("INTEGER")
-                        .HasColumnName("Stato");
+                    b.Property<bool>("StatoAttivo")
+                        .HasColumnType("INTEGER");
 
                     b.Property<bool>("TwoFactorEnabled")
                         .HasColumnType("INTEGER");

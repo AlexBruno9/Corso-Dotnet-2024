@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace MvcAppunt.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20240409095909_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20240406132539_AggiungiAdmi")]
+    partial class AggiungiAdmi
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -27,7 +27,7 @@ namespace MvcAppunt.Data.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Codice")
+                    b.Property<string>("CodiceFornitore")
                         .IsRequired()
                         .HasColumnType("TEXT");
 
@@ -72,7 +72,7 @@ namespace MvcAppunt.Data.Migrations
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("TEXT");
 
-                    b.Property<bool>("Stato")
+                    b.Property<bool>("StatoAttivo")
                         .HasColumnType("INTEGER");
 
                     b.Property<bool>("TwoFactorEnabled")

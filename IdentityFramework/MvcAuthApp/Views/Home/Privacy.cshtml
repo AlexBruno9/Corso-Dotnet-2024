@@ -2,7 +2,7 @@
     ViewData["Title"] = "Privacy Policy";
 }
 
-@if (User.Identity!.IsAuthenticated)
+@if (User.Identity.IsAuthenticated)
 {
     <h1>Hello, @User.Identity.Name!</h1>
 }

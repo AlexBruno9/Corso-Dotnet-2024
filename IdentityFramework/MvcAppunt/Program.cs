@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Identity; 
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using MvcAppunt.Data;
 
@@ -37,13 +37,13 @@ app.UseRouting();
 app.UseAuthentication();
 app.UseAuthorization();
 
-// app.UseEndpoints(endpoints =>
-// {
-// 	endpoints.MapControllerRoute(
-// 		name: "user",
-// 		pattern: "User/{email}",
-// 		defaults: new { controller = "Users", action = "Index" });
-// });
+app.UseEndpoints(endpoints =>
+{
+	endpoints.MapControllerRoute(
+		name: "user",
+		pattern: "User/{email}",
+		defaults: new { controller = "Users", action = "Index" });
+});
 
 app.MapControllerRoute(
 	name: "default",

@@ -2,10 +2,10 @@
 
 #nullable disable
 
-namespace MvcAppunt.Data.Migrations
+namespace MvcAppunt.Migrations
 {
     /// <inheritdoc />
-    public partial class SCreate : Migration
+    public partial class AggiungiFornitori : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

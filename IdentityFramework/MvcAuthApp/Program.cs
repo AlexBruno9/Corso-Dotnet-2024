@@ -1,5 +1,4 @@
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Identity.Data;
 using Microsoft.EntityFrameworkCore;
 using MvcAuthApp.Data;
 
@@ -50,8 +49,8 @@ else
     app.UseHsts();
 }
 
-// aggiungo admin
-using (var scope=app.Services.CreateScope())
+// Aggiungi qui lo script di seed
+using (var scope = app.Services.CreateScope())
 {
     var services = scope.ServiceProvider;
     var userManager = services.GetRequiredService<UserManager<IdentityUser>>();
@@ -73,29 +72,27 @@ app.MapRazorPages();
 
 app.Run();
 
-
-//  Definizione del metodo SeedAdminUser
+// Definizione del metodo SeedAdminUser
 async Task SeedAdminUser(UserManager<IdentityUser> userManager, RoleManager<IdentityRole> roleManager)
 {
-    //  assicurati che il ruolo admin esista
-    if(!await roleManager.RoleExistsAsync("Admin"))
+    // Assicurati che il ruolo Admin esista
+    if (!await roleManager.RoleExistsAsync("Admin"))
     {
         await roleManager.CreateAsync(new IdentityRole("Admin"));
     }
 
-    //  crea l'utente admin se non esiste
-    if(await userManager.FindByEmailAsync("prova1@admin.com")==null)
+    // Crea l'utente admin se non esiste già
+    if (await userManager.FindByEmailAsync("info3@admin.com") == null)
     {
         var user = new IdentityUser
         {
-            UserName="prova1@admin.com",
-            Email = "prova1@admin.com",
-            EmailConfirmed=true,
+            UserName = "info3@admin.com",
+            Email = "info3@admin.com",
+            EmailConfirmed = true,
         };
 
         var result = await userManager.CreateAsync(user, "Admin123!");
-
-        if(result.Succeeded)
+        if (result.Succeeded)
         {
             await userManager.AddToRoleAsync(user, "Admin");
         }

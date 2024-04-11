@@ -5,13 +5,13 @@
 namespace MvcAppunt.Data.Migrations
 {
     /// <inheritdoc />
-    public partial class InitialCreate : Migration
+    public partial class AggiungiAdmin : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.AddColumn<string>(
-                name: "Codice",
+                name: "CodiceFornitore",
                 table: "AspNetUsers",
                 type: "TEXT",
                 nullable: false,
@@ -25,7 +25,7 @@ namespace MvcAppunt.Data.Migrations
                 defaultValue: "");
 
             migrationBuilder.AddColumn<bool>(
-                name: "Stato",
+                name: "StatoAttivo",
                 table: "AspNetUsers",
                 type: "INTEGER",
                 nullable: false,
@@ -36,7 +36,7 @@ namespace MvcAppunt.Data.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropColumn(
-                name: "Codice",
+                name: "CodiceFornitore",
                 table: "AspNetUsers");
 
             migrationBuilder.DropColumn(
@@ -44,7 +44,7 @@ namespace MvcAppunt.Data.Migrations
                 table: "AspNetUsers");
 
             migrationBuilder.DropColumn(
-                name: "Stato",
+                name: "StatoAttivo",
                 table: "AspNetUsers");
         }
     }
