@@ -4,158 +4,87 @@ using Microsoft.AspNetCore.Identity;
 using BraniMVC.Models;
 using BraniMVC.Data;
 using System.Linq;
+using Newtonsoft.Json;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 public class AdminController : Controller
 {
-	private readonly ApplicationDbContext _context;
-	private readonly UserManager<AppUser> _userManager;
-	private readonly RoleManager<IdentityRole> _roleManager;
 
-	public AdminController(ApplicationDbContext context, UserManager<AppUser> userManager, RoleManager<IdentityRole> roleManager)
+	private readonly ILogger<AdminController> _logger;
+
+
+	public AdminController(ILogger<AdminController> logger)
 	{
-		_context = context;
-		_userManager = userManager;
-		_roleManager = roleManager;
+		_logger = logger;
 	}
 
-	[Authorize(Roles = "Admin")]
-	public IActionResult Index()
+	public required IEnumerable<string> Genere { get; set; }
+
+
+	[HttpGet]
+	public IActionResult AggiungiBrano()
 	{
-		var users = _context.Users.ToList();
-		return View(users);
-	}
 
-	[Authorize(Roles = "Admin")]
-	public async Task<IActionResult> ToggleActive(string id)
-	{
-		var user = await _userManager.FindByIdAsync(id);
-		if (user == null)
-		{
-			return NotFound();
-		}
+		Brano model = new Brano { };
 
-		user.Stato = !user.Stato;
-		await _userManager.UpdateAsync(user);
+		string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/json/Generi.json");
+		string jsonText = System.IO.File.ReadAllText(path);
+		var generiList = JsonConvert.DeserializeObject<List<string>>(jsonText);
+		model.GenereLista = generiList!;
 
-		return RedirectToAction(nameof(Index));
-	}
-
-	[Authorize(Roles = "Admin")]
-	public async Task<IActionResult> ManageRoles(string id)
-	{
-		var user = await _userManager.FindByIdAsync(id);
-		if (user == null)
-		{
-			return NotFound();
-		}
-
-		var roles = _roleManager.Roles.ToList();
-		var userRoles = await _userManager.GetRolesAsync(user);
-
-		var model = new ManageRolesViewModel
-		{
-			User = user,
-			Roles = roles,
-			UserRoles = userRoles
-		};
 
 		return View(model);
 	}
 
-	[Authorize(Roles = "Admin")]
+	public Brano? Brano { get; set; }
+	[HttpGet]
+	public IActionResult RimuoviBrani(int id)
+	{
+		Brano model = new Brano { };
+
+
+		var json = System.IO.File.ReadAllText("wwwroot/json/Brani.json");
+		var brani = JsonConvert.DeserializeObject<List<Brano>>(json)!;
+		Brano = brani.FirstOrDefault(p => p.Id == id);
+
+		return View(model);
+	}
+
 	[HttpPost]
-	public async Task<IActionResult> ManageRoles(string id, List<string> roles)
+	public IActionResult AggiungiBrano(string titolo, string artista, int anno, string genere, string durata, string immagine, string audio)
 	{
-		var user = await _userManager.FindByIdAsync(id);
-		if (user == null)
-		{
-			return NotFound();
-		}
+		Brano model = new Brano { };
 
-		var userRoles = await _userManager.GetRolesAsync(user);
-		var result = await _userManager.AddToRolesAsync(user, roles.Except(userRoles));
-		if (!result.Succeeded)
-		{
-			ModelState.AddModelError(string.Empty, "Impossibile aggiungere i ruoli selezionati all'utente.");
-			return View();
-		}
+		var json = System.IO.File.ReadAllText("wwwroot/json/Brani.json");
+		var brani = JsonConvert.DeserializeObject<List<Brano>>(json)!;
 
-		result = await _userManager.RemoveFromRolesAsync(user, userRoles.Except(roles));
-		if (!result.Succeeded)
-		{
-			ModelState.AddModelError(string.Empty, "Impossibile rimuovere i ruoli selezionati dall'utente.");
-			return View();
-		}
+		int id = brani.Max(b => b.Id);
+		id++;
 
-		return RedirectToAction(nameof(Index));
+		brani.Add(new Brano { Titolo = titolo, Artista = artista, Anno = anno, Immagine = immagine, Id = id, Genere = genere, Audio = audio, Durata = durata });
+		// salva il file json formattato
+		System.IO.File.WriteAllText("wwwroot/json/Brani.json", JsonConvert.SerializeObject(brani, Formatting.Indented));
+		return RedirectToAction("Brano", "Home");
 	}
 
-	[Authorize(Roles = "Admin")]
-	public async Task<IActionResult> Delete(string id)
-	{
-		var user = await _userManager.FindByIdAsync(id);
-		if (user == null)
-		{
-			return NotFound();
-		}
-
-		return View(user);
-	}
-
-	[Authorize(Roles = "Admin")]
 	[HttpPost]
-	public async Task<IActionResult> Delete(string id, bool confirm)
+	public IActionResult RimuoviBrani(int[] selezionatiBrani) // RIMUOVE I BRANI SELEZIONATI NELLE CHECKBOX DAL CATALOGO
 	{
-		var user = await _userManager.FindByIdAsync(id);
-		if (user == null)
+
+		var jsonBrani = System.IO.File.ReadAllText("wwwroot/json/Brani.json");
+		var tuttiBrani = JsonConvert.DeserializeObject<List<Brano>>(jsonBrani) ?? new List<Brano>();
+
+		var braniDaEliminare = tuttiBrani.Where(brano => selezionatiBrani.Contains(brano.Id)).ToList();
+
+		foreach (var brano in braniDaEliminare)
 		{
-			return NotFound();
+			tuttiBrani.Remove(brano);
 		}
 
-		if (confirm)
-		{
-			await _userManager.DeleteAsync(user);
-			return RedirectToAction(nameof(Index));
-		}
+		System.IO.File.WriteAllText("wwwroot/json/Brani.json", JsonConvert.SerializeObject(tuttiBrani, Formatting.Indented));
 
-		return RedirectToAction(nameof(Index));
+		return RedirectToAction("Brano", "Home");
+
 	}
 
-	// metodo per eliminare un utente
-	/* [Authorize(Roles = "Admin")]
-	public async Task<IActionResult> Delete(string id)
-	{
-		var user = await _userManager.FindByIdAsync(id);
-		if (user == null)
-		{
-			return NotFound();
-		} */
-
-	[Authorize(Roles = "Admin")]
-	public async Task<IActionResult> EditCodice(string id)
-	{
-		var user = await _userManager.FindByIdAsync(id);
-		if (user == null)
-		{
-			return NotFound();
-		}
-
-		return View(user);
-	}
-
-	[Authorize(Roles = "Admin")]
-	[HttpPost]
-	public async Task<IActionResult> EditCodice(string id, string Codice)
-	{
-		var user = await _userManager.FindByIdAsync(id);
-		if (user == null)
-		{
-			return NotFound();
-		}
-
-		user.Codice = Codice;
-		await _userManager.UpdateAsync(user);
-
-		return RedirectToAction(nameof(Index));
-	}
 }

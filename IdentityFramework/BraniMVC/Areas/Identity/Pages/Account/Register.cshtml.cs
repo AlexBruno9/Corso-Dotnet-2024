@@ -99,7 +99,7 @@ namespace BraniMVC.Areas.Identity.Pages.Account
 			[Display(Name = "Nome")]
 			public string Nome { get; set; }
 
-			[Display(Name = "Codice Fornitore")]
+			[Display(Name = "Codice")]
 			public string Codice { get; set; }
 
 			[Required]
@@ -110,7 +110,7 @@ namespace BraniMVC.Areas.Identity.Pages.Account
 
 		}
 		
-		// metodo per la creazione di un codice fornitore di 8 caratteri in automatico numeri ed caratteri maiuscoli ed minuscoli 
+		// metodo per la creazione di un codice di 8 caratteri in automatico numeri ed caratteri maiuscoli ed minuscoli 
 		public string SetCodice()
 		{
 			string Codice = "";
@@ -151,10 +151,10 @@ namespace BraniMVC.Areas.Identity.Pages.Account
 				var result = await _userManager.CreateAsync(user, Input.Password);
 				if (result.Succeeded)
 				{
-					// Assegna il ruolo "Fornitore" all'utente
-					await _userManager.AddToRoleAsync(user, "Cliente");
+					// Assegna il ruolo "User" all'utente
+					await _userManager.AddToRoleAsync(user, "User");
 					
-					// assegna un codice fornitore di 8 caratteri in automatico con il metodo SetCodice
+					// assegna un codice di 8 caratteri in automatico con il metodo SetCodice
 					SetCodice();
 					await _userManager.UpdateAsync(user);
 
