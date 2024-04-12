@@ -18,9 +18,7 @@
 {
 <div class="col-md-2">
 <a asp-controller="Admin" asp-action="AggiungiBrano" class="bottonebrano btn border-black "
-style="background-color: rgb(216, 228, 255);">Brano <i class="fa fa-plus"></i></a> 
-@* <a class="bottonebrano btn border-black "
-style="background-color: rgb(216, 228, 255);">Brano <i class="fa fa-plus"></i></a>  *@
+style="background-color: rgb(216, 228, 255);">Brano <i class="fa fa-plus"></i></a>
 </div>
 }
 else
@@ -66,6 +64,8 @@ style="background-color: rgb(216, 228, 255); ">Filtra</button>
 </div>
 
 
+@* //  SE ACCEDE UN USER *@
+
 @if (User.IsInRole("User"))
 {
     @* <form method="post" asp-page="AggiungiAPlaylist"> *@
@@ -94,8 +94,8 @@ style="background-color: rgb(216, 228, 255); ">Filtra</button>
                         <th scope="row">@brano.Id</th>
                         <td>
                             <div class=" h-25 d-inline-block " style="width: 80px">
-                                @* <a asp-page="BranoDettaglio" asp-route-id="@brano.Id"> *@
-                                <a>
+                                @* <a> *@
+                                 <a asp-controller="Home" asp-action="BranoDettaglio" asp-route-id="@brano.Id">
                                     <img src=@brano.Immagine width="70" height="70" class="img rounded ms-1" alt="image">
                                 </a>
                             </div>
@@ -108,8 +108,7 @@ style="background-color: rgb(216, 228, 255); ">Filtra</button>
 
                         </td>
                         <td class="colonnePiccole fs-6 ps-3 d-none d-md-table-cell">
-                            @* <a asp-page="BranoDettaglio" class="ms-2" asp-route-id="@brano.Id">Info</a> *@
-                            <a class="ms-2">Info</a>
+                            <a asp-controller="Home" asp-action="BranoDettaglio" class="ms-2" asp-route-id="@brano.Id">Info</a>
                         </td>
 
                         <td>
@@ -135,6 +134,9 @@ style="background-color: rgb(216, 228, 255); ">Filtra</button>
     @* </form> *@
     <br>
 }
+
+
+@* //  SE ACCEDE UN ADMIN *@
 
 @if (User.IsInRole("Admin"))
 {
@@ -164,8 +166,7 @@ style="background-color: rgb(216, 228, 255); ">Filtra</button>
                         <th scope="row">@brano.Id</th>
                         <td>
                             <div class=" h-25 d-inline-block " style="width: 80px">
-                                @* <a asp-page="BranoDettaglio" asp-route-id="@brano.Id"> *@
-                                    <a>
+                                    <a asp-controller="Home" asp-action="BranoDettaglio" asp-route-id="@brano.Id">
                                     <img src=@brano.Immagine width="70" height="70" class="img rounded ms-1" alt="image">
                                 </a>
                             </div>
@@ -178,8 +179,7 @@ style="background-color: rgb(216, 228, 255); ">Filtra</button>
 
                         </td>
                         <td class="colonnePiccole fs-6 ps-3 d-none d-md-table-cell">
-                            @* <a asp-page="BranoDettaglio" class="ms-2" asp-route-id="@brano.Id">Info</a> *@
-                            <a>Info</a> 
+                            <a asp-controller="Home" asp-action="BranoDettaglio" class="ms-2" asp-route-id="@brano.Id">Info</a>
                         </td>
 
                         <td>

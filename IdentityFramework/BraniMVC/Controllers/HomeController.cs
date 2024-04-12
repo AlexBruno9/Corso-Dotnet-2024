@@ -10,7 +10,7 @@ namespace BraniMVC.Controllers;
 
 public class HomeController : Controller
 {
-    
+
 
 
     private readonly ILogger<HomeController> _logger;
@@ -120,20 +120,43 @@ public class HomeController : Controller
 
     }
 
-    
-    //public Brano? Brano { get; set; } ARRIVATO QUI
-    
-    // [HttpGet]
-    //     public void OnGet(int id) // LEGGE I BRANI PRESENTI NEL CATALOGO
-    //     {
-    //         Brano model = new Brano { };
 
-    //         var json = System.IO.File.ReadAllText("wwwroot/json/Brani.json");
-    //         var brani = JsonConvert.DeserializeObject<List<Brano>>(json);
-    //         model.Brano = brani!.FirstOrDefault(p => p.Id == id);
+    //  ARRIVATO QUI
 
-    //         return RedirectToAction("BranoDettaglio", "Home");
-    //     }
+    //public Brano? Brano { get; set; }
+
+    [HttpGet]
+    public IActionResult BranoDettaglio(int id) // LEGGE I BRANI PRESENTI NEL CATALOGO
+    {
+        Brano model = new Brano { };
+
+
+        var json = System.IO.File.ReadAllText("wwwroot/json/Brani.json");
+        var brani = JsonConvert.DeserializeObject<List<Brano>>(json);
+        model = brani!.FirstOrDefault(p => p.Id == id)!;
+
+        return View(model);
+
+    }
+
+
+    /*
+     [HttpGet]
+    public IActionResult Brano(string cercaArtista, string cercaTitolo, int? pageIndex)
+    {
+        Brano model = new Brano { };
+
+        model.PageIndex = pageIndex;
+        var json = System.IO.File.ReadAllText("wwwroot/json/Brani.json");
+        model.Brani = JsonConvert.DeserializeObject<List<Brano>>(json)!;
+
+
+        if (!string.IsNullOrEmpty(cercaArtista))
+        {
+            model.Brani = model.Brani.Where(b => b.Artista!.Contains(cercaArtista, StringComparison.CurrentCultureIgnoreCase)).ToList();
+            model.FiltroArtista = $"Filtro attivo - ricerca per artista: '{cercaArtista}'";
+        }
+    */
 
 
 

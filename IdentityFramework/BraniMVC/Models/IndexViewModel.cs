@@ -1,4 +1,3 @@
-    
 namespace BraniMVC.Models;
 
 public class IndexViewModel
@@ -7,5 +6,5 @@ public class IndexViewModel
     public string[]? ArrayFoto { get; set; }
 }
 
-    
+
 

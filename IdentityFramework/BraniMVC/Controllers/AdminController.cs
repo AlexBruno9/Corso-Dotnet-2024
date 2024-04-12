@@ -36,7 +36,7 @@ public class AdminController : Controller
 		return View(model);
 	}
 
-	public Brano? Brano { get; set; }
+
 	[HttpGet]
 	public IActionResult RimuoviBrani(int id)
 	{
@@ -45,7 +45,7 @@ public class AdminController : Controller
 
 		var json = System.IO.File.ReadAllText("wwwroot/json/Brani.json");
 		var brani = JsonConvert.DeserializeObject<List<Brano>>(json)!;
-		Brano = brani.FirstOrDefault(p => p.Id == id);
+		model = brani.FirstOrDefault(p => p.Id == id)!;
 
 		return View(model);
 	}
@@ -86,5 +86,86 @@ public class AdminController : Controller
 		return RedirectToAction("Brano", "Home");
 
 	}
+
+
+	[HttpGet]
+
+	public IActionResult RimuoviBrano(int id)
+	{
+		Brano model = new Brano { };
+
+		var json = System.IO.File.ReadAllText("wwwroot/json/Brani.json");
+		var brani = JsonConvert.DeserializeObject<List<Brano>>(json)!;
+		model = brani.FirstOrDefault(p => p.Id == id)!;
+		return View(model);
+	}
+
+
+
+	// ELIMINA IL SINGOLO BRANO DAL CATALOGO QUANDO SI ELIMINA DALLA PAGINA DI DETTAGLIO DEL BRANO
+
+	[HttpPost]
+	public IActionResult RimuoviBrano(int id, int bho)
+	{
+		// Brano model = new Brano { };
+
+		var json = System.IO.File.ReadAllText("wwwroot/json/Brani.json");
+		var brani = JsonConvert.DeserializeObject<List<Brano>>(json)!;
+		var list = brani.FirstOrDefault(p => p.Id == id);
+		brani.Remove(list!);
+
+		System.IO.File.WriteAllText("wwwroot/json/Brani.json", JsonConvert.SerializeObject(brani, Formatting.Indented));
+
+		return RedirectToAction("Brano", "Home");
+
+	}
+
+
+
+	[HttpGet]
+
+	public IActionResult ModificaBrano(int id) // LETTURA BRANI E GENERI PER MODIFICARE IL BRANO
+	{
+
+		Brano model = new Brano { };
+
+		var json = System.IO.File.ReadAllText("wwwroot/json/Brani.json");
+		var brani = JsonConvert.DeserializeObject<List<Brano>>(json)!;
+		model = brani.FirstOrDefault(p => p.Id == id)!;
+
+		string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/json/Generi.json");
+		string jsonText = System.IO.File.ReadAllText(path);
+		var prenotazioniList = JsonConvert.DeserializeObject<List<string>>(jsonText);
+		Genere = prenotazioniList!;
+
+		// return RedirectToAction("Brano", "Home");
+		return View(model);
+
+
+	}
+
+
+
+	[HttpPost]
+
+	public IActionResult ModificaBrano(int id, string titolo, string artista, int anno, string immagine, string genere, string durata) // SALVA LE MODIFICHE
+	{
+		var json = System.IO.File.ReadAllText("wwwroot/json/Brani.json");
+		var brani = JsonConvert.DeserializeObject<List<Brano>>(json)!;
+		var Brano = brani.FirstOrDefault(p => p.Id == id);
+		Brano!.Titolo = titolo;
+		Brano!.Artista = artista;
+		Brano!.Anno = anno;
+		Brano!.Immagine = immagine;
+		Brano!.Genere = genere;
+		Brano!.Durata = durata;
+
+		System.IO.File.WriteAllText("wwwroot/json/Brani.json", JsonConvert.SerializeObject(brani, Formatting.Indented));
+
+
+		return RedirectToAction("Brano", "Home");
+		//	FORSE FARE CHE TORNI ALLA PAGE BRANODETTAGLIO MODIFICATA
+	}
+
 
 }

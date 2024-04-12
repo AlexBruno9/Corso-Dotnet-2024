@@ -1,0 +1,19 @@
+@model Brano
+@{
+    ViewData["Title"] = "Elimina brano";
+}
+
+
+
+
+<h1>@ViewData["Title"]</h1>
+
+<form method="post">
+
+    <br>
+    <h4> Confermi di voler eliminare questo brano?</h4>
+    <br>
+    <button type="submit" class="btn btn-dark mt-4">Elimina</button>
+    @* <button type="submit" asp-page="Brani" class="btn btn-dark mt-4">Annulla</button> *@
+
+</form>
