@@ -1,1 +1,50 @@
- 
+[
+  {
+    "Id": 2,
+    "Titolo": "Sunshine Of Your Love",
+    "Artista": "Eric Clapton",
+    "Anno": 1967,
+    "Immagine": "https://www.londondrugs.com/on/demandware.static/-/Sites-londondrugs-master/default/dwc853053d/products/L8833204/large/L8833204.JPG",
+    "Genere": "Rock",
+    "Durata": "2:50",
+    "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2023/05/Eric-Clapton-Sunshine-Of-Your-Love.mp3",
+    "Brani": null,
+    "numeroPagine": 0,
+    "FiltroArtista": null,
+    "FiltroTitolo": null,
+    "PageIndex": null,
+    "GenereLista": null
+  },
+  {
+    "Id": 3,
+    "Titolo": "Jumpin' Jack Flash",
+    "Artista": "The Rolling Stones",
+    "Anno": 1967,
+    "Immagine": "https://th.bing.com/th/id/OIP.CCa9qoEd4g2w9AC9JFcjwwHaHW?w=186&h=184&c=7&r=0&o=5&pid=1.7",
+    "Genere": "Rock",
+    "Durata": "04:00",
+    "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2022/04/The-Rolling-Stones-Jumpin-Jack-Flash.mp3",
+    "Brani": null,
+    "numeroPagine": 0,
+    "FiltroArtista": null,
+    "FiltroTitolo": null,
+    "PageIndex": null,
+    "GenereLista": null
+  },
+  {
+    "Id": 4,
+    "Titolo": "No Woman, No Cry",
+    "Artista": "Bob Marley",
+    "Anno": 1976,
+    "Immagine": "https://upload.wikimedia.org/wikipedia/en/thumb/c/c2/BobMarley-Legend.jpg/220px-BobMarley-Legend.jpg",
+    "Genere": "Reggae",
+    "Durata": "07:07",
+    "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2023/05/Bob-Marley-No-Woman-No-Cry.mp3",
+    "Brani": null,
+    "numeroPagine": 0,
+    "FiltroArtista": null,
+    "FiltroTitolo": null,
+    "PageIndex": null,
+    "GenereLista": null
+  }
+]

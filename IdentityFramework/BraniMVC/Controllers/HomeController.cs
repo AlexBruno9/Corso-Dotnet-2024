@@ -84,7 +84,7 @@ public class HomeController : Controller
 
 
     //[Authorize(Roles = "User, Admin")]
-
+    [Authorize]
     [HttpGet]
     public IActionResult Brano(string cercaArtista, string cercaTitolo, int? pageIndex)
     {
@@ -121,10 +121,8 @@ public class HomeController : Controller
     }
 
 
-    //  ARRIVATO QUI
-
-    //public Brano? Brano { get; set; }
-
+    
+    [Authorize]
     [HttpGet]
     public IActionResult BranoDettaglio(int id) // LEGGE I BRANI PRESENTI NEL CATALOGO
     {
@@ -140,27 +138,6 @@ public class HomeController : Controller
     }
 
 
-    /*
-     [HttpGet]
-    public IActionResult Brano(string cercaArtista, string cercaTitolo, int? pageIndex)
-    {
-        Brano model = new Brano { };
-
-        model.PageIndex = pageIndex;
-        var json = System.IO.File.ReadAllText("wwwroot/json/Brani.json");
-        model.Brani = JsonConvert.DeserializeObject<List<Brano>>(json)!;
-
-
-        if (!string.IsNullOrEmpty(cercaArtista))
-        {
-            model.Brani = model.Brani.Where(b => b.Artista!.Contains(cercaArtista, StringComparison.CurrentCultureIgnoreCase)).ToList();
-            model.FiltroArtista = $"Filtro attivo - ricerca per artista: '{cercaArtista}'";
-        }
-    */
-
-
-
-
 
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
@@ -170,7 +147,6 @@ public class HomeController : Controller
     }
 
 
-    // [HttpPost]
 }
 
 

@@ -16,7 +16,7 @@
         <label for="immagine">Link Immagine</label>
         <input type="text" class="form-control" name="immagine" value="@Model.Immagine" />
         <label for="genere">Genere</label>
-        @* <select class="form-select form-select-lm mb-3" aria-label="Large select example" name="Genere">
+        <select class="form-select form-select-lm mb-3" aria-label="Large select example" name="Genere">
 
         @foreach (var genere in Model.GenereLista!)
         {
@@ -24,12 +24,13 @@
 
         }
 
-        </select> *@
+        </select>
         <label for="durata">Durata Canzone</label>
         <input type="text" class="form-control" name="durata" value="@Model.Durata" required />
     </div>
 
 
     <button type="submit" class="btn btn-dark mt-4">Salva</button>
+    <a asp-controller="Home" asp-action="BranoDettaglio" asp-route-id="@Model.Id" class="btn btn-dark mt-4 text-light">Annulla</a> 
 
 </form>

@@ -7,6 +7,8 @@ using System.Linq;
 using Newtonsoft.Json;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
+[Authorize(Roles = "Admin")]
+
 public class AdminController : Controller
 {
 
@@ -37,19 +39,7 @@ public class AdminController : Controller
 	}
 
 
-	[HttpGet]
-	public IActionResult RimuoviBrani(int id)
-	{
-		Brano model = new Brano { };
-
-
-		var json = System.IO.File.ReadAllText("wwwroot/json/Brani.json");
-		var brani = JsonConvert.DeserializeObject<List<Brano>>(json)!;
-		model = brani.FirstOrDefault(p => p.Id == id)!;
-
-		return View(model);
-	}
-
+	
 	[HttpPost]
 	public IActionResult AggiungiBrano(string titolo, string artista, int anno, string genere, string durata, string immagine, string audio)
 	{
@@ -66,6 +56,9 @@ public class AdminController : Controller
 		System.IO.File.WriteAllText("wwwroot/json/Brani.json", JsonConvert.SerializeObject(brani, Formatting.Indented));
 		return RedirectToAction("Brano", "Home");
 	}
+
+	
+
 
 	[HttpPost]
 	public IActionResult RimuoviBrani(int[] selezionatiBrani) // RIMUOVE I BRANI SELEZIONATI NELLE CHECKBOX DAL CATALOGO
@@ -97,6 +90,7 @@ public class AdminController : Controller
 		var json = System.IO.File.ReadAllText("wwwroot/json/Brani.json");
 		var brani = JsonConvert.DeserializeObject<List<Brano>>(json)!;
 		model = brani.FirstOrDefault(p => p.Id == id)!;
+		
 		return View(model);
 	}
 
@@ -135,8 +129,8 @@ public class AdminController : Controller
 
 		string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/json/Generi.json");
 		string jsonText = System.IO.File.ReadAllText(path);
-		var prenotazioniList = JsonConvert.DeserializeObject<List<string>>(jsonText);
-		Genere = prenotazioniList!;
+		var generiList = JsonConvert.DeserializeObject<List<string>>(jsonText);
+		model.GenereLista = generiList!;
 
 		// return RedirectToAction("Brano", "Home");
 		return View(model);

@@ -31,7 +31,7 @@ public class SeedData
 		else
 		{
 			var adminUser = await userManager.FindByEmailAsync("fdfdf@∂fdf.com");
-			await userManager.AddToRoleAsync(adminUser, "Admin");
+			await userManager.AddToRoleAsync(adminUser!, "Admin");
 		}
 
 
