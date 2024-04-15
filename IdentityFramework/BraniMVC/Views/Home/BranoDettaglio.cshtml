@@ -1,4 +1,4 @@
-@model Brano
+@model BranoDettaglioViewModel
 @{
     ViewData["Title"] = "Dettaglio Brano";
 }
@@ -6,31 +6,31 @@
 
 <body>
 
-    <h1 class="display-6 p-3 text-muted">Info - @Model.Titolo</h1>
+    <h1 class="display-6 p-3 text-muted">Info - @Model.Brano!.Titolo</h1>
 
     <div class="container">
         <div class="card mb-3">
             <div class="row g-0 p-5">
                 <div class="col-md-5">
-                    <img src="@Model.Immagine" class="imginfo" alt="...">
+                    <img src="@Model.Brano!.Immagine" class="imginfo" alt="...">
                 </div>
-
 
                 <div class="col-md-7">
                     <div class="card-body mt-4">
-                        <h5 class="card-title"> @Model.Titolo</h5>
-                        <p class="card-text mt-4 ">Artista: @Model.Artista</p>
+                        <h5 class="card-title"> @Model.Brano!.Titolo</h5>
+                        <p class="card-text mt-4 ">Artista: @Model.Brano!.Artista</p>
 
                         <p class="card-text ">Anno:
 
+                            @* @Model.Brano!.Anno *@
 
-                            @if (@Model.Anno == 0)
+                            @if (@Model.Brano!.Anno == 0)
                             {
 
                             }
                             else
                             {
-                                @Model.Anno
+                                @Model.Brano!.Anno
                                 ;
                             }
 
@@ -38,10 +38,10 @@
 
 
 
-                        <p class="card-text">Genere: @Model.Genere</p>
+                        <p class="card-text">Genere: @Model.Brano!.Genere</p>
                         <div class="bottoneAudioInfo">
                             <audio controls>
-                                <source src="@Model.Audio" />
+                                <source src="@Model.Brano.Audio" />
                             </audio>
                         </div>
                     </div>
@@ -53,34 +53,33 @@
         <div class="container row">
 
             <div class="col-md-10">
-                <a asp-controller="Home" asp-action="Brano"> <i class="bi bi-arrow-return-left"></i> Torna ai Brani</a>
+                <a asp-controller="Home" asp-action="Brani"> <i class="bi bi-arrow-return-left"></i> Torna ai Brani</a>
             </div>
 
 
-            <div class="col-md-1">
+            @* <div class="col-md-1"> *@
 
-                <div class="col-md-2 row">
-                    @if (User.IsInRole("Admin"))
-                    {
+            @* <div class="col-md-2 row">
+            @if (User.IsInRole("Admin"))
+            {
 
-                        <div>
-                            <a asp-controller="Admin" asp-action="ModificaBrano" asp-route-id="@Model.Id"
-                                class="bottonebrano btn mb-1 border-black" id="Modifica"
-                                style="background-color: rgb(216, 228, 255);">
-                                Modifica</a>
-                        </div>
-
-                        <div>
-                            <a asp-controller="Admin" asp-action="RimuoviBrano"
-                                asp-route-id="@Model.Id" class="bottonebrano btn border-black "
-                                style="background-color: rgb(216, 228, 255);">Elimina</a>
-                        </div>
-                    }
-                </div>
-
-
+            <div>
+            <a asp-page="ModificaBrano" asp-route-id="@Model.Brano.Id"
+            class="bottonebrano btn mb-1 border-black" id="Modifica"
+            style="background-color: rgb(216, 228, 255);">
+            Modifica</a>
             </div>
-            <br><br>
+
+            <div>
+            <a asp-page="RimuoviBrano" asp-route-id="@Model.Brano.Id" class="bottonebrano btn border-black "
+            style="background-color: rgb(216, 228, 255);">Elimina</a>
+            </div>
+            }
+            </div> *@
+
+
         </div>
+        <br><br>
+    </div>
 </body>
 <br><br>

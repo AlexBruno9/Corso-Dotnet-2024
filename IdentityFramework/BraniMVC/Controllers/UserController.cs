@@ -1,17 +1,16 @@
+using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
 using BraniMVC.Models;
-using BraniMVC.Data;
-using System.Linq;
 using Newtonsoft.Json;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Microsoft.CodeAnalysis.FlowAnalysis.DataFlow;
 
 namespace BraniMVC.Controllers;
 
-[Authorize(Roles = "User")]
 public class UserController : Controller
 {
+
 
 
     private readonly ILogger<HomeController> _logger;
@@ -22,15 +21,13 @@ public class UserController : Controller
         _logger = logger;
     }
 
-  
+
     [HttpGet]
-    public IActionResult Playlist() // LEGGE DA PLAYLIST E CREA UN ARRAY DI STRINGHE CHE PASSA I LINK AUDIO AL BOTTONE PER LA RIPRODUZIONE TOTALE
+    // LEGGE DA PLAYLIST E CREA UN ARRAY DI STRINGHE CHE PASSA I LINK AUDIO AL BOTTONE PER LA RIPRODUZIONE TOTALE
+    public IActionResult Playlist()
     {
-        //string userName = User.Identity!.Name!;
+        PlaylistViewModel model = new PlaylistViewModel { };
 
-        PlaylistModel model = new PlaylistModel { };
-
-        // var json = System.IO.File.ReadAllText($"wwwroot/json/Playlist/{User.Identity!.Name!}.json");
         var json = System.IO.File.ReadAllText($"wwwroot/json/Playlist/{User.Identity!.Name!}.json");
 
 
@@ -53,46 +50,73 @@ public class UserController : Controller
                 i++;
             }
         }
-
         return View(model);
     }
 
-    // [HttpPost]
+
+    // [httpPost]
     // public IActionResult Playlist(string action) // FUNZIONE TRACCIA SUCCESSIVA - TRACCIA PRECEDENTE
     // {
-
-    //     PlaylistModel model = new PlaylistModel() { };
-
     //     switch (action)
     //     {
     //         case "previous":
-    //             model.CurrentTrackIndex = (model.CurrentTrackIndex - 1 + model.Tracks.Count) % model.Tracks.Count;
+    //             CurrentTrackIndex = (CurrentTrackIndex - 1 + Tracks.Count) % Tracks.Count;
     //             break;
     //         case "next":
-    //             model.CurrentTrackIndex = (model.CurrentTrackIndex + 1) % model.Tracks.Count;
+    //             CurrentTrackIndex = (CurrentTrackIndex + 1) % Tracks.Count;
     //             break;
     //     }
 
     //     // Restituisce la stessa pagina con il nuovo brano corrente
-    //     return RedirectToAction("Playlist", "User");
+    //     return Page();
     // }
 
 
-
     [HttpGet]
-    public IActionResult BranoDettaglioPlaylist(int id)
+    public IActionResult RimuoviDaPlaylist(int id)
     {
-        Brano model = new Brano { };
-
+        RimuoviDaPlaylistViewModel model = new RimuoviDaPlaylistViewModel { };
         var json = System.IO.File.ReadAllText($"wwwroot/json/Playlist/{User.Identity!.Name!}.json");
-        var brani = JsonConvert.DeserializeObject<List<Brano>>(json);
-        model = brani!.FirstOrDefault(p => p.Id == id)!;
+        var brani = JsonConvert.DeserializeObject<List<Brano>>(json)!;
+        model.Brano = brani.FirstOrDefault(p => p.Id == id);
 
         return View(model);
 
     }
 
 
+    [HttpPost]
+    public IActionResult RimuoviDaPlaylist(int[] selezionatiBrani) // RIMUOVE I BRANI SELEZIONATI DALLA PLAYLIST
+    {
+
+
+        var jsonBrani = System.IO.File.ReadAllText($"wwwroot/json/Playlist/{User.Identity!.Name!}.json");
+        var tuttiBrani = JsonConvert.DeserializeObject<List<Brano>>(jsonBrani) ?? new List<Brano>();
+
+        var braniDaEliminare = tuttiBrani.Where(brano => selezionatiBrani.Contains(brano.Id)).ToList();
+
+        foreach (var brano in braniDaEliminare)
+        {
+            tuttiBrani.Remove(brano);
+        }
+
+        System.IO.File.WriteAllText($"wwwroot/json/Playlist/{User.Identity!.Name!}.json", JsonConvert.SerializeObject(tuttiBrani, Formatting.Indented));
+
+        return RedirectToAction("Playlist", "User");
+    }
+
+
+    [HttpGet]
+    public IActionResult AggiungiAPlaylist(int id)
+    {
+        AggiungiAPlaylistViewModel model = new AggiungiAPlaylistViewModel { };
+        var json = System.IO.File.ReadAllText($"wwwroot/json/Playlist/{User.Identity!.Name!}.json");
+        var brani = JsonConvert.DeserializeObject<List<Brano>>(json)!;
+        model.Brano = brani.FirstOrDefault(p => p.Id == id);
+
+        return View(model);
+
+    }
 
     [HttpPost]
     public IActionResult AggiungiAPlaylist(int[] selezionatiBrani, string titolo)  // AGGIUNGE I BRANI SELEZIONATI ALLA PLAYLIST
@@ -152,38 +176,4 @@ public class UserController : Controller
     }
 
 
-    [HttpGet]
-    public IActionResult RimuoviDaPlaylist(int id)
-    {
-        Brano model = new Brano { };
-
-        var json = System.IO.File.ReadAllText($"wwwroot/json/Playlist/{User.Identity!.Name!}.json");
-        var brani = JsonConvert.DeserializeObject<List<Brano>>(json)!;
-        model = brani.FirstOrDefault(p => p.Id == id)!;
-
-        return View(model);
-    }
-
-
-    [HttpPost]
-    public IActionResult RimuoviDaPlaylist(int[] selezionatiBrani) // RIMUOVE I BRANI SELEZIONATI DALLA PLAYLIST
-    {
-
-        var jsonBrani = System.IO.File.ReadAllText($"wwwroot/json/Playlist/{User.Identity!.Name!}.json");
-        var tuttiBrani = JsonConvert.DeserializeObject<List<Brano>>(jsonBrani) ?? new List<Brano>();
-
-        var braniDaEliminare = tuttiBrani.Where(brano => selezionatiBrani.Contains(brano.Id)).ToList();
-
-        foreach (var brano in braniDaEliminare)
-        {
-            tuttiBrani.Remove(brano);
-        }
-
-        System.IO.File.WriteAllText($"wwwroot/json/Playlist/{User.Identity!.Name!}.json", JsonConvert.SerializeObject(tuttiBrani, Formatting.Indented));
-
-        return RedirectToAction("Playlist", "User");
-    }
-
-
 }
-

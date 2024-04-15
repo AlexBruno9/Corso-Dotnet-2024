@@ -83,15 +83,14 @@ public class HomeController : Controller
     }
 
 
-    //[Authorize(Roles = "User, Admin")]
     [Authorize]
     [HttpGet]
-    public IActionResult Brano(string cercaArtista, string cercaTitolo, int? pageIndex)
+    public IActionResult Brani(string cercaArtista, string cercaTitolo, int? pageIndex)
     {
 
 
 
-        Brano model = new Brano { };
+        BraniViewModel model = new BraniViewModel { };
 
         model.PageIndex = pageIndex;
         var json = System.IO.File.ReadAllText("wwwroot/json/Brani.json");
@@ -120,33 +119,17 @@ public class HomeController : Controller
 
     }
 
-
-    
-    [Authorize]
     [HttpGet]
+
     public IActionResult BranoDettaglio(int id) // LEGGE I BRANI PRESENTI NEL CATALOGO
     {
-        Brano model = new Brano { };
-
+        BranoDettaglioViewModel model = new BranoDettaglioViewModel { };
 
         var json = System.IO.File.ReadAllText("wwwroot/json/Brani.json");
         var brani = JsonConvert.DeserializeObject<List<Brano>>(json);
-        model = brani!.FirstOrDefault(p => p.Id == id)!;
+        model.Brano = brani!.FirstOrDefault(p => p.Id == id);
 
         return View(model);
-
     }
-
-
-
-
-    [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-    public IActionResult Error()
-    {
-        return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-    }
-
 
 }
-
-
