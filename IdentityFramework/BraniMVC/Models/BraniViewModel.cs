@@ -2,6 +2,7 @@ namespace BraniMVC.Models;
 
 public class BraniViewModel
 {
+    public Brano? Brano { get; set; }
     public IEnumerable<Brano>? Brani { get; set; }
     public int numeroPagine { get; set; }
     public string? FiltroArtista { get; set; }

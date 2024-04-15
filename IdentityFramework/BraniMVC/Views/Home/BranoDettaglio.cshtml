@@ -57,25 +57,28 @@
             </div>
 
 
-            @* <div class="col-md-1"> *@
+            <div class="col-md-1">
 
-            @* <div class="col-md-2 row">
+            <div class="col-md-2 row">
             @if (User.IsInRole("Admin"))
             {
 
             <div>
-            <a asp-page="ModificaBrano" asp-route-id="@Model.Brano.Id"
+            <a asp-controller="Admin" asp-action="ModificaBrano" asp-route-id="@Model.Brano.Id"
             class="bottonebrano btn mb-1 border-black" id="Modifica"
             style="background-color: rgb(216, 228, 255);">
             Modifica</a>
             </div>
 
             <div>
-            <a asp-page="RimuoviBrano" asp-route-id="@Model.Brano.Id" class="bottonebrano btn border-black "
-            style="background-color: rgb(216, 228, 255);">Elimina</a>
+            <a asp-controller="Admin" asp-action="RimuoviBrano" asp-route-id="@Model.Brano.Id" 
+            class="bottonebrano btn border-black "
+            style="background-color: rgb(216, 228, 255);">
+            Elimina</a>
             </div>
+
             }
-            </div> *@
+            </div>  
 
 
         </div>

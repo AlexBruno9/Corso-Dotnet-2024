@@ -11,8 +11,6 @@ namespace BraniMVC.Controllers;
 public class UserController : Controller
 {
 
-
-
     private readonly ILogger<HomeController> _logger;
 
 
@@ -21,7 +19,7 @@ public class UserController : Controller
         _logger = logger;
     }
 
-
+    [Authorize(Roles = "User")]
     [HttpGet]
     // LEGGE DA PLAYLIST E CREA UN ARRAY DI STRINGHE CHE PASSA I LINK AUDIO AL BOTTONE PER LA RIPRODUZIONE TOTALE
     public IActionResult Playlist()
@@ -53,25 +51,7 @@ public class UserController : Controller
         return View(model);
     }
 
-
-    // [httpPost]
-    // public IActionResult Playlist(string action) // FUNZIONE TRACCIA SUCCESSIVA - TRACCIA PRECEDENTE
-    // {
-    //     switch (action)
-    //     {
-    //         case "previous":
-    //             CurrentTrackIndex = (CurrentTrackIndex - 1 + Tracks.Count) % Tracks.Count;
-    //             break;
-    //         case "next":
-    //             CurrentTrackIndex = (CurrentTrackIndex + 1) % Tracks.Count;
-    //             break;
-    //     }
-
-    //     // Restituisce la stessa pagina con il nuovo brano corrente
-    //     return Page();
-    // }
-
-
+    [Authorize(Roles = "User")]
     [HttpGet]
     public IActionResult RimuoviDaPlaylist(int id)
     {
@@ -81,7 +61,6 @@ public class UserController : Controller
         model.Brano = brani.FirstOrDefault(p => p.Id == id);
 
         return View(model);
-
     }
 
 
@@ -106,19 +85,8 @@ public class UserController : Controller
     }
 
 
-    [HttpGet]
-    public IActionResult AggiungiAPlaylist(int id)
-    {
-        AggiungiAPlaylistViewModel model = new AggiungiAPlaylistViewModel { };
-        var json = System.IO.File.ReadAllText($"wwwroot/json/Playlist/{User.Identity!.Name!}.json");
-        var brani = JsonConvert.DeserializeObject<List<Brano>>(json)!;
-        model.Brano = brani.FirstOrDefault(p => p.Id == id);
-
-        return View(model);
-
-    }
-
-    [HttpPost]
+    
+     [HttpPost]
     public IActionResult AggiungiAPlaylist(int[] selezionatiBrani, string titolo)  // AGGIUNGE I BRANI SELEZIONATI ALLA PLAYLIST
     {
         var jsonBrani = System.IO.File.ReadAllText("wwwroot/json/Brani.json");
@@ -174,6 +142,7 @@ public class UserController : Controller
 
         return RedirectToAction("Playlist", "User");
     }
+
 
 
 }

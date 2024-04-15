@@ -1,6 +1,6 @@
 namespace BraniMVC.Models;
 
-public class AggiungiAPlaylistViewModel
+public class RimuoviBranoViewModel
 {
     public Brano? Brano { get; set; }
 }

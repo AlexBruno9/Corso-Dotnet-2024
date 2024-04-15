@@ -119,6 +119,7 @@ public class HomeController : Controller
 
     }
 
+    [Authorize]
     [HttpGet]
 
     public IActionResult BranoDettaglio(int id) // LEGGE I BRANI PRESENTI NEL CATALOGO
@@ -131,5 +132,7 @@ public class HomeController : Controller
 
         return View(model);
     }
+
+
 
 }

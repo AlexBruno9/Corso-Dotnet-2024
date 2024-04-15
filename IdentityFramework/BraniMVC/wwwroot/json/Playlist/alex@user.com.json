@@ -1,1 +1,52 @@
-[]
+[
+  {
+    "Id": 1,
+    "Titolo": "Riders on the Storm",
+    "Artista": "The Doors",
+    "Anno": 1970,
+    "Immagine": "https://upload.wikimedia.org/wikipedia/en/4/41/The_Doors_-_L.A._Woman.jpg",
+    "Genere": "R",
+    "Durata": "05:05",
+    "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2023/05/The-Doors-Riders-On-The-Storm.mp3"
+  },
+  {
+    "Id": 2,
+    "Titolo": "The Thrill is Gone",
+    "Artista": "BB King",
+    "Anno": 1975,
+    "Immagine": "https://m.media-amazon.com/images/I/51enUo6rwSL._UXNaN_FMjpg_QL85_.jpg",
+    "Genere": "Blues",
+    "Durata": "05:23",
+    "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2023/05/BB-King-The-Thrill-Is-Gone-v4.mp3"
+  },
+  {
+    "Id": 3,
+    "Titolo": "Purple Haze",
+    "Artista": "Jimi Hendrix",
+    "Anno": 1966,
+    "Immagine": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/33/Are_You_Experienced_-_US_cover-edit.jpg/220px-Are_You_Experienced_-_US_cover-edit.jpg",
+    "Genere": "Rock",
+    "Durata": "05:05",
+    "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2023/05/Jimi-Hendrix-Purple-Hazewith-vocals.mp3"
+  },
+  {
+    "Id": 4,
+    "Titolo": "White Rabbit",
+    "Artista": "Jefferson Airplane",
+    "Anno": 1967,
+    "Immagine": "https://upload.wikimedia.org/wikipedia/en/5/58/Jeffair.jpg",
+    "Genere": "Pop",
+    "Durata": "2:30",
+    "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2023/05/Jefferson-Airplane-White-Rabbit.mp3"
+  },
+  {
+    "Id": 5,
+    "Titolo": "Soul Kitchen",
+    "Artista": "The Doors",
+    "Anno": 1967,
+    "Immagine": "https://upload.wikimedia.org/wikipedia/en/d/d3/The_Doors_-_Waiting_for_the_Sun.jpg",
+    "Genere": "Rock",
+    "Durata": "3:37",
+    "Audio": "https://guitarbackingtrack.org/wp-content/uploads/2023/05/The-Doors-Soul-Kitchen.mp3"
+  }
+]
