@@ -1,0 +1,35 @@
+@model ModificaBranoViewModel
+@{
+    ViewData["Title"] = "Modifica Brano";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label for="titolo">Titolo</label>
+        <input type="text" class="form-control" name="titolo" value="@Model.Brano!.Titolo" required />
+        <label for="artista">Artista</label>
+        <input type="text" class="form-control" name="artista" value="@Model.Brano!.Artista" />
+        <label for="anno">Anno</label>
+        <input type="text" class="form-control" name="anno" value="@Model.Brano!.Anno" />
+        <label for="immagine">Link Immagine</label>
+        <input type="text" class="form-control" name="immagine" value="@Model.Brano!.Immagine" />
+        <label for="genere">Genere</label>
+        <select class="form-select form-select-lm mb-3" aria-label="Large select example" name="Genere" >
+          
+            @foreach (var genere in Model.Genere)
+            {
+                <option value="@genere">@genere</option>
+            
+            }
+            
+        </select>
+        <label for="durata">Durata Canzone</label>
+        <input type="text" class="form-control" name="durata" value="@Model.Brano!.Durata" required />
+    </div>
+
+
+    <button type="submit" class="btn btn-dark mt-4">Salva</button>
+
+</form>

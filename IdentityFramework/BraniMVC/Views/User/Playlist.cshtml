@@ -1,0 +1,178 @@
+@model PlaylistViewModel
+@{
+    ViewData["Title"] = "Playlist";
+    var playlist = Model.arrayAudio;
+}
+
+
+<div class="d-flex justify-content-between align-items-center ">
+    <h1 class="display-6 p-3 text-muted">La tua Playlist</h1>
+</div>
+
+
+
+
+<div class="container-sm">
+    <div class="">
+
+        @if (Model.lunghezzaArray != 0)
+
+        {
+
+            <div class="p-3">
+                <button class="rounded-2" id="prevTrack"><i class="bi bi-caret-left"></i><i
+                        class="bi bi-caret-left"></i></button>
+                <button class="rounded-2 ms-3" id="nextTrack"><i class="bi bi-caret-right"></i><i
+                        class="bi bi-caret-right"></i></button>
+            </div>
+            <audio id="audioPlayer" controls onplay="stopAllOtherAudios(this)">
+
+                <source id="audioSource" src="@playlist![0]" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        }
+    </div>
+
+    <form method="post" asp-controller="User" asp-action="RimuoviDaPlaylist">
+      
+
+        <table class="table table-striped table-bordered align-middle mt-3">
+            <thead>
+                <tr>
+
+                    <th scope="col" class="colonnePiuPiccole">#</th>
+                    <th scope="col" class="colonnePiccole ps-4">IMG</th>
+                    <th scope="col" class="ps-4">Titolo</th>
+                    <th scope="col" class="colonnePiuPiccole fw-medium d-none d-md-table-cell"></th>
+                    <th scope="col" class="ps-4 d-none d-md-table-cell"></th>
+                    <th scope="col" class="colonnePiuPiccole fw-medium ">Seleziona</th>
+
+                </tr>
+            </thead>
+
+            <tbody>
+
+                @if (Model.Playlists != null)
+                {
+
+                    @foreach (var brano in Model.Playlists)
+                    {
+                        <tr>
+                            <th scope="row">@brano.Id</th>
+                            <td>
+                                <div class="h-25 d-inline-block" style="width: 80px">
+                                    <a asp-controller="Home" asp-action="BranoDettaglio"  asp-route-id="@brano.Id">
+                                        <img src=@brano.Immagine width="70" height="70" class="img rounded ms-1" alt="image">
+                                    </a>
+                                </div>
+
+                            </td>
+                            <td class="ps-4">@brano.Titolo</td>
+                            <td class="ps-4  d-none d-md-table-cell">
+
+                                <audio controls onplay="stopAllOtherAudios(this)">
+                                    <source src="@brano.Audio" />
+                                </audio>
+                            </td>
+                            <td class="colonnePiccole fs-6 ps-3  d-none d-md-table-cell">
+                                <a asp-controller="Home" asp-action="BranoDettaglio" asp-route-id="@brano.Id">Info</a>
+                            </td>
+
+                            <td>
+                                <div class="d-flex justify-content-center  ">
+                                    <div class="form-check">
+
+                                        <input class="form-check-input " type="checkbox" name="selezionatiBrani"
+                                            value="@brano.Id">
+
+                                        <label class="form-check-label" for="flexCheckDefault">
+                                        </label>
+
+                                    </div>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                }
+
+            </tbody>
+        </table>
+
+        <br>
+
+        <div class="d-flex justify-content-end me-2   ">
+            <button type="submit" class="btn btn-dark" asp-asp-page="Playlist">Playlist <i
+                    class="fa fa-minus"></i></button>
+        </div>
+    </form>
+</div>
+<br><br><br><br>
+
+
+<script>
+
+
+    var playlist = @Html.Raw(Newtonsoft.Json.JsonConvert.SerializeObject(playlist));
+
+    var currentIndex = 0;
+
+    var audioPlayer = document.getElementById('audioPlayer');
+    var audioSource = document.getElementById('audioSource');
+
+    // Imposta il brano corrente sulla sorgente audio e riproduce il brano.
+    function setTrack(index) {
+        currentIndex = index;
+        audioSource.src = playlist[currentIndex];
+        console.log(audioSource)
+        audioPlayer.load();
+        audioPlayer.play();
+
+
+    }
+
+    var tempoTrascorso;
+
+    document.getElementById('audioPlayer').addEventListener('timeupdate', function () {
+
+        tempoTrascorso = document.getElementById('audioPlayer').currentTime
+        console.log(document.getElementById('audioPlayer').currentTime)
+
+    });
+
+    // Vai al brano successivo nella playlist.
+    document.getElementById('nextTrack').addEventListener('click', function () {
+        currentIndex = (currentIndex + 1) % playlist.length;
+        setTrack(currentIndex);
+    });
+
+    // Vai al brano precedente nella playlist.
+    document.getElementById('prevTrack').addEventListener('click', function () {
+        //console.log(currentIndex)
+        if (tempoTrascorso < 5) {
+            currentIndex = (currentIndex - 1 + playlist.length) % playlist.length;
+            setTrack(currentIndex);
+        }
+        else {
+            setTrack(currentIndex);
+        }
+
+    });
+
+    // Gestisci la fine di un brano per passare automaticamente al successivo.
+    audioPlayer.addEventListener('ended', function () {
+        currentIndex = (currentIndex + 1) % playlist.length;
+        setTrack(currentIndex);
+    });
+
+
+    function stopAllOtherAudios(currentAudio) {
+        var allAudios = document.querySelectorAll('audio');
+
+        allAudios.forEach(function (audio) {
+            if (audio !== currentAudio) {
+                audio.pause();
+                audio.currentTime = 0;
+            }
+        });
+    }
+</script>
