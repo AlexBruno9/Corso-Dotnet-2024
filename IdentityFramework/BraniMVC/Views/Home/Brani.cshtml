@@ -140,8 +140,7 @@ style="background-color: rgb(216, 228, 255); ">Filtra</button>
 
 @if (User.IsInRole("Admin"))
 {
-    <form>
-    @* method="post" asp-controller="Admin" asp-action="RimuoviBrani" *@
+    <form method="get" asp-controller="Admin" asp-action="RimuoviBrani">
     
     <table class="table table-striped table-bordered align-middle mt-3">
         <thead>

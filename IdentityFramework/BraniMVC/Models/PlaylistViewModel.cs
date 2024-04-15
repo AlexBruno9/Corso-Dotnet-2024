@@ -7,7 +7,6 @@ public class PlaylistViewModel
     public int lunghezzaArray { get; set; }
 
 
-
     private static readonly List<string> Tracks = new List<string>
     {
 

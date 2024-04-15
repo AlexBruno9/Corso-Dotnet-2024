@@ -18,7 +18,7 @@
         <label for="genere">Genere</label>
         <select class="form-select form-select-lm mb-3" aria-label="Large select example" name="Genere" >
           
-            @foreach (var genere in Model.Genere)
+            @foreach (var genere in Model.Genere!)
             {
                 <option value="@genere">@genere</option>
             

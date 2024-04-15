@@ -105,4 +105,40 @@ public class AdminController : Controller
             return RedirectToAction("Brani", "Home");
         }
 
+
+/// //////////////////////////////////////////////
+
+
+        [Authorize(Roles="Admin")]
+        [HttpGet]
+         public IActionResult RimuoviBrani(int id)
+        {
+            RimuoviBraniViewModel model=new RimuoviBraniViewModel{};
+            var json = System.IO.File.ReadAllText("wwwroot/json/Brani.json");
+            var brani = JsonConvert.DeserializeObject<List<Brano>>(json)!;
+            model.Brano=brani.FirstOrDefault(p=>p.Id==id);
+            return View(model);
+   
+        }
+
+
+        [HttpPost]
+        public IActionResult RimuoviBrani(int[] selezionatiBrani) // RIMUOVE I BRANI SELEZIONATI NELLE CHECKBOX DAL CATALOGO
+        {
+            
+            var jsonBrani = System.IO.File.ReadAllText("wwwroot/json/Brani.json");
+            var tuttiBrani = JsonConvert.DeserializeObject<List<Brano>>(jsonBrani) ?? new List<Brano>();
+
+            var braniDaEliminare = tuttiBrani.Where(brano => selezionatiBrani.Contains(brano.Id)).ToList();
+
+            foreach(var brano in braniDaEliminare)
+            {
+            tuttiBrani.Remove(brano);
+            }
+
+            System.IO.File.WriteAllText("wwwroot/json/Brani.json", JsonConvert.SerializeObject(tuttiBrani, Formatting.Indented));
+
+            return RedirectToAction("Brani", "Home");
+        }
+
 }

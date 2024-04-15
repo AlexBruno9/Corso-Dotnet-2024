@@ -61,7 +61,7 @@
                             <th scope="row">@brano.Id</th>
                             <td>
                                 <div class="h-25 d-inline-block" style="width: 80px">
-                                    <a asp-controller="Home" asp-action="BranoDettaglio"  asp-route-id="@brano.Id">
+                                    <a asp-controller="User" asp-action="BranoDettaglioPlaylist"  asp-route-id="@brano.Id">
                                         <img src=@brano.Immagine width="70" height="70" class="img rounded ms-1" alt="image">
                                     </a>
                                 </div>
@@ -75,7 +75,7 @@
                                 </audio>
                             </td>
                             <td class="colonnePiccole fs-6 ps-3  d-none d-md-table-cell">
-                                <a asp-controller="Home" asp-action="BranoDettaglio" asp-route-id="@brano.Id">Info</a>
+                                <a asp-controller="User" asp-action="BranoDettaglioPlaylist" asp-route-id="@brano.Id">Info</a>
                             </td>
 
                             <td>
