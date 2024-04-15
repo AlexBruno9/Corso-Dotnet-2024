@@ -26,11 +26,9 @@ public class UserController : Controller
     [HttpGet]
     public IActionResult Playlist() // LEGGE DA PLAYLIST E CREA UN ARRAY DI STRINGHE CHE PASSA I LINK AUDIO AL BOTTONE PER LA RIPRODUZIONE TOTALE
     {
-        //string userName = User.Identity!.Name!;
 
-        PlaylistModel model = new PlaylistModel { };
+        Playlist model = new PlaylistModel { };
 
-        // var json = System.IO.File.ReadAllText($"wwwroot/json/Playlist/{User.Identity!.Name!}.json");
         var json = System.IO.File.ReadAllText($"wwwroot/json/Playlist/{User.Identity!.Name!}.json");
 
 
