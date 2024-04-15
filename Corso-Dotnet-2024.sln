@@ -3,15 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Razor", "Razor", "{FB84E4EF-C636-440F-A667-4E2DC218F419}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IdentityFramework", "IdentityFramework", "{88DBC982-62E7-4A88-8AB2-845BEF2884A5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebAppBrani", "Razor\WebAppBrani\WebAppBrani.csproj", "{BFDB5790-134D-4B93-ABFA-2AFED5438418}"
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "IdentityFramework", "IdentityFramework", "{E4CBD0D5-D882-45CD-AAA0-811AE52EB6DC}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Brani", "IdentityFramework\Brani\Brani.csproj", "{298B4E9B-9D60-426C-97CB-1E6F1465A28F}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BraniMVC", "IdentityFramework\BraniMVC\BraniMVC.csproj", "{FC08BB1E-62ED-4425-9DCA-149A939BCCF5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BraniMVC", "IdentityFramework\BraniMVC\BraniMVC.csproj", "{1B855A07-2623-47FA-9956-68E1ABB09E98}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -22,22 +16,12 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{BFDB5790-134D-4B93-ABFA-2AFED5438418}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BFDB5790-134D-4B93-ABFA-2AFED5438418}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BFDB5790-134D-4B93-ABFA-2AFED5438418}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BFDB5790-134D-4B93-ABFA-2AFED5438418}.Release|Any CPU.Build.0 = Release|Any CPU
-		{298B4E9B-9D60-426C-97CB-1E6F1465A28F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{298B4E9B-9D60-426C-97CB-1E6F1465A28F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{298B4E9B-9D60-426C-97CB-1E6F1465A28F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{298B4E9B-9D60-426C-97CB-1E6F1465A28F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FC08BB1E-62ED-4425-9DCA-149A939BCCF5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FC08BB1E-62ED-4425-9DCA-149A939BCCF5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FC08BB1E-62ED-4425-9DCA-149A939BCCF5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FC08BB1E-62ED-4425-9DCA-149A939BCCF5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1B855A07-2623-47FA-9956-68E1ABB09E98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1B855A07-2623-47FA-9956-68E1ABB09E98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1B855A07-2623-47FA-9956-68E1ABB09E98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1B855A07-2623-47FA-9956-68E1ABB09E98}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{BFDB5790-134D-4B93-ABFA-2AFED5438418} = {FB84E4EF-C636-440F-A667-4E2DC218F419}
-		{298B4E9B-9D60-426C-97CB-1E6F1465A28F} = {E4CBD0D5-D882-45CD-AAA0-811AE52EB6DC}
-		{FC08BB1E-62ED-4425-9DCA-149A939BCCF5} = {E4CBD0D5-D882-45CD-AAA0-811AE52EB6DC}
+		{1B855A07-2623-47FA-9956-68E1ABB09E98} = {88DBC982-62E7-4A88-8AB2-845BEF2884A5}
 	EndGlobalSection
 EndGlobal
