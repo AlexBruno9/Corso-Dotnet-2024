@@ -6,7 +6,7 @@
 
 <body>
     <br><br>
-    <h1 class="display-6 p-3 text-muted">Info - @Model.Brano!.Titolo</h1>
+    <h1 class="display-6 p-3 text-light">Info - @Model.Brano!.Titolo</h1>
 
     <div class="container">
         <div class="card mb-3">
@@ -52,8 +52,9 @@
 
         <div class="container row">
 
-            <div class="col-md-10">
-                <a asp-controller="Home" asp-action="Brani"> <i class="bi bi-arrow-return-left"></i> Torna ai Brani</a>
+            <div class="col-md-10 text-light">
+                <a asp-controller="Home" asp-action="Brani" class="col-md-10 text-light"> <i class=" bi
+                    bi-arrow-return-left"></i> Torna ai Brani</a>
             </div>
 
 
@@ -65,17 +66,15 @@
 
                         <div>
                             <a asp-controller="Admin" asp-action="ModificaBrano" asp-route-id="@Model.Brano.Id"
-                                class="bottonebrano btn mb-1 border-black" id="Modifica"
-                                style="background-color: rgb(216, 228, 255);">
+                                class="bottonebrano btn mb-1 btn-dark border-light" id="Modifica">
                                 Modifica</a>
                         </div>
 
                         <div>
-                            <a asp-controller="Admin" asp-action="RimuoviBrano"
-                                asp-route-id="@Model.Brano.Id" class="bottonebrano btn border-black "
-                                style="background-color: rgb(216, 228, 255);">Elimina</a>
+                            <a asp-controller="Admin" asp-action="RimuoviBrano" asp-route-id="@Model.Brano.Id"
+                                class="bottonebrano btn btn-dark border-light">Elimina</a>
                         </div>
-                    } 
+                    }
                 </div>
 
 
@@ -83,4 +82,4 @@
             <br><br>
         </div>
 </body>
-<br><br>
+<br><br><br><br><br><br><br><br><br><br>

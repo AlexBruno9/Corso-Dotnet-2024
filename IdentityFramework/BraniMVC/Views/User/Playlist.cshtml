@@ -5,15 +5,16 @@
 }
 
 
+
 <div class="d-flex justify-content-between align-items-center ">
-    <h1 class="display-6 p-3 text-muted">La tua Playlist</h1>
+    <h1 class="display-6 p-3 text-light mt-2">Playlist di @User.Identity!.Name</h1>
 </div>
 
 
 
 
 <div class="container-sm">
-    <div class="">
+    <div>
 
         @if (Model.lunghezzaArray != 0)
 
@@ -34,9 +35,9 @@
     </div>
 
     <form method="post" asp-controller="User" asp-action="RimuoviDaPlaylist">
-      
 
-        <table class="table table-striped table-bordered align-middle mt-3">
+
+        <table class="table table-bordered align-middle mt-3 rounded-table">
             <thead>
                 <tr>
 
@@ -61,7 +62,7 @@
                             <th scope="row">@brano.Id</th>
                             <td>
                                 <div class="h-25 d-inline-block" style="width: 80px">
-                                    <a asp-controller="User" asp-action="BranoDettaglioPlaylist"  asp-route-id="@brano.Id">
+                                    <a asp-controller="User" asp-action="BranoDettaglioPlaylist" asp-route-id="@brano.Id">
                                         <img src=@brano.Immagine width="70" height="70" class="img rounded ms-1" alt="image">
                                     </a>
                                 </div>
@@ -101,12 +102,13 @@
         <br>
 
         <div class="d-flex justify-content-end me-2   ">
-            <button type="submit" class="btn btn-dark" asp-asp-page="Playlist">Playlist <i
+            <button type="submit" class="btn btn-dark border-light" asp-asp-page="Playlist">Playlist <i
                     class="fa fa-minus"></i></button>
         </div>
     </form>
 </div>
-<br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br>
+
 
 
 <script>

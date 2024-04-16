@@ -4,16 +4,18 @@
 }
 
 
+<div class="text-light">
+    <h1>@ViewData["Title"]</h1>
 
+    <form method="post">
 
-<h1>@ViewData["Title"]</h1>
+        <br>
+        <h4> Confermi di voler eliminare questo brano?</h4>
+        <br>
+        <button type="submit" class="btn btn-dark border-light mt-4">Elimina</button>
+        <a asp-controller="Home" asp-action="Brani" class="btn btn-dark border-light text-light mt-4">Annulla</a>
 
-<form method="post">
+    </form>
+</div>
 
-    <br>
-    <h4> Confermi di voler eliminare questo brano?</h4>
-    <br>
-    <button type="submit" class="btn btn-dark mt-4">Elimina</button>
-    <button type="submit" asp-controller="Admin" asp-action="Brani" class="btn btn-dark mt-4">Annulla</button>
-
-</form>
+<br><br><br><br><br><br><br><br><br><br>
