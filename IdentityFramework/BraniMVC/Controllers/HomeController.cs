@@ -123,7 +123,7 @@ public class HomeController : Controller
     [HttpGet]
     public IActionResult BranoDettaglio(int id) // LEGGE I BRANI PRESENTI NEL CATALOGO
     {
-        BranoDettaglioViewModel model = new BranoDettaglioViewModel { };
+        BranoViewModel model = new BranoViewModel { };
 
 
         var json = System.IO.File.ReadAllText("wwwroot/json/Brani.json");

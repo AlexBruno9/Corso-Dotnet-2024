@@ -16,7 +16,7 @@ public class AdminController : Controller
     [HttpGet]
      public IActionResult AggiungiBrano() // LEGGE I GENERI PER LA SELEZIONE NEL FORM
         {
-            AggiungiBranoViewModel model = new AggiungiBranoViewModel{};
+            GenereViewModel model = new GenereViewModel{};
             string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/json/Generi.json");
             string jsonText = System.IO.File.ReadAllText(path);
             var generiList = JsonConvert.DeserializeObject<List<string>>(jsonText);
@@ -80,7 +80,7 @@ public class AdminController : Controller
         [HttpGet]
          public IActionResult RimuoviBrano(int id)
         {
-            RimuoviBranoViewModel model=new RimuoviBranoViewModel{};
+            BranoViewModel model=new BranoViewModel{};
             var json = System.IO.File.ReadAllText("wwwroot/json/Brani.json");
             var brani = JsonConvert.DeserializeObject<List<Brano>>(json)!;
             model.Brano = brani.FirstOrDefault(p => p.Id == id);
@@ -113,7 +113,7 @@ public class AdminController : Controller
         [HttpGet]
          public IActionResult RimuoviBrani(int id)
         {
-            RimuoviBraniViewModel model=new RimuoviBraniViewModel{};
+            BranoViewModel model=new BranoViewModel{};
             var json = System.IO.File.ReadAllText("wwwroot/json/Brani.json");
             var brani = JsonConvert.DeserializeObject<List<Brano>>(json)!;
             model.Brano=brani.FirstOrDefault(p=>p.Id==id);

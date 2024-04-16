@@ -107,7 +107,7 @@ public class UserController : Controller
     [HttpGet]
     public IActionResult RimuoviDaPlaylist(int id)
     {
-        RimuoviDaPlaylistViewModel model = new RimuoviDaPlaylistViewModel { };
+        BranoViewModel model = new BranoViewModel { };
         var json = System.IO.File.ReadAllText($"wwwroot/json/Playlist/{User.Identity!.Name!}.json");
         var brani = JsonConvert.DeserializeObject<List<Brano>>(json)!;
         model.Brano = brani.FirstOrDefault(p => p.Id == id);
@@ -140,7 +140,7 @@ public class UserController : Controller
     [HttpGet]
     public IActionResult BranoDettaglioPlaylist(int id) // LEGGE DALLA PLAYLIST LE INFO DEL BRANO SPECIFICO RICHIESTO 
     {
-        BranoDettaglioPlaylistViewModel model=new BranoDettaglioPlaylistViewModel{};
+        BranoViewModel model=new BranoViewModel{};
         var json = System.IO.File.ReadAllText($"wwwroot/json/Playlist/{User.Identity!.Name!}.json");
         var brani = JsonConvert.DeserializeObject<List<Brano>>(json);
         model.Brano = brani!.FirstOrDefault(p => p.Id == id);

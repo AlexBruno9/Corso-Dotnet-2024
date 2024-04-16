@@ -1,6 +1,6 @@
 namespace BraniMVC.Models;
 
-public class AggiungiBranoViewModel
+public class GenereViewModel
 {
      public IEnumerable<string>? Genere { get; set; }
 

@@ -1,5 +1,5 @@
 namespace BraniMVC.Models;
-public class BranoDettaglioPlaylistViewModel
+public class BranoViewModel
 {
  public Brano? Brano { get; set; }
 }
