@@ -88,10 +88,7 @@ public class HomeController : Controller
     [HttpGet]
     public IActionResult Brano(string cercaArtista, string cercaTitolo, int? pageIndex)
     {
-
-
-
-        Brano model = new Brano { };
+        BraniViewModel model = new BraniViewModel { };
 
         model.PageIndex = pageIndex;
         var json = System.IO.File.ReadAllText("wwwroot/json/Brani.json");
@@ -121,17 +118,17 @@ public class HomeController : Controller
     }
 
 
-    
+
     [Authorize]
     [HttpGet]
     public IActionResult BranoDettaglio(int id) // LEGGE I BRANI PRESENTI NEL CATALOGO
     {
-        Brano model = new Brano { };
+        BranoViewModel model = new BranoViewModel { };
 
 
         var json = System.IO.File.ReadAllText("wwwroot/json/Brani.json");
         var brani = JsonConvert.DeserializeObject<List<Brano>>(json);
-        model = brani!.FirstOrDefault(p => p.Id == id)!;
+        model.Brano = brani!.FirstOrDefault(p => p.Id == id)!;
 
         return View(model);
 

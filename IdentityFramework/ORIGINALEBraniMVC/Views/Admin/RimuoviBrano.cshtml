@@ -1,4 +1,4 @@
-@model Brano
+@model BranoViewModel
 @{
     ViewData["Title"] = "Elimina brano";
 }
@@ -14,8 +14,9 @@
     <h4> Confermi di voler eliminare questo brano?</h4>
     <br>
     <button type="submit" class="btn btn-dark mt-4">Elimina</button>
-    <a asp-controller="Home" asp-action="BranoDettaglio" asp-route-id="@Model.Id" class="btn btn-dark mt-4 text-light">Annulla</a> 
+    <a asp-controller="Home" asp-action="BranoDettaglio" asp-route-id="@Model.Brano!.Id"
+        class="btn btn-dark mt-4 text-light">Annulla</a>
 
-    
+
 
 </form>

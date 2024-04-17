@@ -1,4 +1,4 @@
-@model Brano
+@model GenereViewModel
 @{
     ViewData["Title"] = "Aggiungi Brani";
 }
@@ -23,7 +23,7 @@
         <label for="genere"> Genere </label>
         <select class="form-select form-select-lm mb-3" aria-label="Large select example" name="Genere">
 
-            @foreach (var genere in Model.GenereLista!)
+            @foreach (var genere in Model.Genere!)
             {
                 <option value="@genere">@genere</option>
 

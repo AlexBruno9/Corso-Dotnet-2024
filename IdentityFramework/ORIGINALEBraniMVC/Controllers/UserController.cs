@@ -1,33 +1,22 @@
+using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Identity;
 using BraniMVC.Models;
-using BraniMVC.Data;
-using System.Linq;
 using Newtonsoft.Json;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
+using Microsoft.CodeAnalysis.FlowAnalysis.DataFlow;
 
 namespace BraniMVC.Controllers;
 
-[Authorize(Roles = "User")]
 public class UserController : Controller
 {
 
 
-    private readonly ILogger<HomeController> _logger;
-
-
-    public UserController(ILogger<HomeController> logger)
-    {
-        _logger = logger;
-    }
-
-  
+    [Authorize(Roles = "User")]
     [HttpGet]
     public IActionResult Playlist() // LEGGE DA PLAYLIST E CREA UN ARRAY DI STRINGHE CHE PASSA I LINK AUDIO AL BOTTONE PER LA RIPRODUZIONE TOTALE
     {
-
-        Playlist model = new PlaylistModel { };
+        PlaylistViewModel model = new PlaylistViewModel { };
 
         var json = System.IO.File.ReadAllText($"wwwroot/json/Playlist/{User.Identity!.Name!}.json");
 
@@ -54,42 +43,6 @@ public class UserController : Controller
 
         return View(model);
     }
-
-    // [HttpPost]
-    // public IActionResult Playlist(string action) // FUNZIONE TRACCIA SUCCESSIVA - TRACCIA PRECEDENTE
-    // {
-
-    //     PlaylistModel model = new PlaylistModel() { };
-
-    //     switch (action)
-    //     {
-    //         case "previous":
-    //             model.CurrentTrackIndex = (model.CurrentTrackIndex - 1 + model.Tracks.Count) % model.Tracks.Count;
-    //             break;
-    //         case "next":
-    //             model.CurrentTrackIndex = (model.CurrentTrackIndex + 1) % model.Tracks.Count;
-    //             break;
-    //     }
-
-    //     // Restituisce la stessa pagina con il nuovo brano corrente
-    //     return RedirectToAction("Playlist", "User");
-    // }
-
-
-
-    [HttpGet]
-    public IActionResult BranoDettaglioPlaylist(int id)
-    {
-        Brano model = new Brano { };
-
-        var json = System.IO.File.ReadAllText($"wwwroot/json/Playlist/{User.Identity!.Name!}.json");
-        var brani = JsonConvert.DeserializeObject<List<Brano>>(json);
-        model = brani!.FirstOrDefault(p => p.Id == id)!;
-
-        return View(model);
-
-    }
-
 
 
     [HttpPost]
@@ -150,14 +103,14 @@ public class UserController : Controller
     }
 
 
+    [Authorize(Roles = "User")]
     [HttpGet]
     public IActionResult RimuoviDaPlaylist(int id)
     {
-        Brano model = new Brano { };
-
+        BranoViewModel model = new BranoViewModel { };
         var json = System.IO.File.ReadAllText($"wwwroot/json/Playlist/{User.Identity!.Name!}.json");
         var brani = JsonConvert.DeserializeObject<List<Brano>>(json)!;
-        model = brani.FirstOrDefault(p => p.Id == id)!;
+        model.Brano = brani.FirstOrDefault(p => p.Id == id);
 
         return View(model);
     }
@@ -183,5 +136,18 @@ public class UserController : Controller
     }
 
 
-}
+    [Authorize(Roles = "User")]
+    [HttpGet]
+    public IActionResult BranoDettaglioPlaylist(int id) // LEGGE DALLA PLAYLIST LE INFO DEL BRANO SPECIFICO RICHIESTO 
+    {
+        BranoViewModel model=new BranoViewModel{};
+        var json = System.IO.File.ReadAllText($"wwwroot/json/Playlist/{User.Identity!.Name!}.json");
+        var brani = JsonConvert.DeserializeObject<List<Brano>>(json);
+        model.Brano = brani!.FirstOrDefault(p => p.Id == id);
 
+        return View(model);
+    }
+
+
+
+}

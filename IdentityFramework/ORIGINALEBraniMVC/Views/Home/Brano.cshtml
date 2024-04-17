@@ -1,4 +1,4 @@
-@model Brano
+@model BraniViewModel
 @{
     ViewData["Title"] = "Brani";
 }
@@ -17,8 +17,8 @@
 @if (User.IsInRole("Admin"))
 {
 <div class="col-md-2">
-<a asp-controller="Admin" asp-action="AggiungiBrano" class="bottonebrano btn border-black "
-style="background-color: rgb(216, 228, 255);">Brano <i class="fa fa-plus"></i></a>
+<a asp-controller="Admin" asp-action="AggiungiBrano" class="bottonebrano btn border-black text-light "
+style="background-color: black;">Brano <i class="fa fa-plus"></i></a>
 </div>
 }
 else
@@ -34,8 +34,8 @@ else
 <div class="dropdown col-md-1">
 <form method="get" asp-action="Brano">
 <div class="form-group">
-<button class="btnFiltra btn me-4 border-black dropdown-toggle"
-style="background-color: rgb(216, 228, 255); " type="button" data-bs-toggle="dropdown"
+<button class="btnFiltra btn me-4 border-black dropdown-toggle text-light"
+style="background-color: black; " type="button" data-bs-toggle="dropdown"
 aria-expanded="false">
 Filtra
 </button>
@@ -47,8 +47,8 @@ Filtra
 <input type="text" class="form-control" name="cercaTitolo" />
 </li>
 <br>
-<button type="submit" class="btn border-black "
-style="background-color: rgb(216, 228, 255); ">Filtra</button>
+<button type="submit" class="btn border-black text-light "
+style="background-color: black; ">Filtra</button>
 
 </ul>
 
@@ -69,78 +69,7 @@ style="background-color: rgb(216, 228, 255); ">Filtra</button>
 @if (User.IsInRole("User"))
 {
     <form method="post" asp-controller="User" asp-action="AggiungiAPlaylist"> 
-    <table class="table table-striped table-bordered align-middle mt-3">
-        <thead>
-            <tr>
-
-                <th scope="col" class="colonnePiuPiccole">#</th>
-                <th scope="col" class="colonnePiccole">IMG</th>
-                <th scope="col" class="ps-4">Titolo</th>
-                <th scope="col" class="colonnePiuPiccole fw-medium d-none d-md-table-cell"></th>
-                <th scope="col" class="ps-4 d-none d-md-table-cell"></th>
-                <th scope="col" class="colonnePiuPiccole fw-medium ">Seleziona</th>
-
-            </tr>
-        </thead>
-        <tbody>
-
-            @if (Model.Brani != null)
-
-            {
-
-                @foreach (var brano in Model.Brani)
-                {
-                    <tr>
-                        <th scope="row">@brano.Id</th>
-                        <td>
-                            <div class=" h-25 d-inline-block " style="width: 80px">
-                                 <a asp-controller="Home" asp-action="BranoDettaglio" asp-route-id="@brano.Id">
-                                    <img src=@brano.Immagine width="70" height="70" class="img rounded ms-1" alt="image">
-                                </a>
-                            </div>
-                        </td>
-                        <td class="ps-4">@brano.Titolo</td>
-                        <td class="ps-4 d-none d-md-table-cell">
-                            <audio controls onplay="stopAllOtherAudios(this)">
-                                <source src="@brano.Audio" />
-                            </audio>
-
-                        </td>
-                        <td class="colonnePiccole fs-6 ps-3 d-none d-md-table-cell">
-                            <a asp-controller="Home" asp-action="BranoDettaglio" class="ms-2" asp-route-id="@brano.Id">Info</a>
-                        </td>
-
-                        <td>
-                            <div class="d-flex justify-content-center ms-2 ">
-                                <div class="form-check ">
-
-                                    <input class="form-check-input" type="checkbox" name="selezionatiBrani" value="@brano.Id">
-
-                                    <label class="form-check-label" for="flexCheckDefault">
-                                    </label>
-
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                }
-            }
-        </tbody>
-    </table>
-    <div class=" d-flex justify-content-end ">
-        <button type="submit" class="btn btn-dark">Playlist <i class="fa fa-plus"></i></button>
-    </div>
-    </form> 
-    <br>
-}
-
-
-@* //  SE ACCEDE UN ADMIN *@
-
-@if (User.IsInRole("Admin"))
-{
-    <form method="post" asp-controller="Admin" asp-action="RimuoviBrani">
-    <table class="table table-striped table-bordered align-middle mt-3">
+    <table class="table table-striped table-bordered align-middle mt-3 rounded-table">
         <thead>
             <tr>
 
@@ -171,14 +100,109 @@ style="background-color: rgb(216, 228, 255); ">Filtra</button>
                             </div>
                         </td>
                         <td class="ps-4">@brano.Titolo</td>
-                        <td class="ps-4 d-none d-md-table-cell">
-                            <audio controls onplay="stopAllOtherAudios(this)">
-                                <source src="@brano.Audio" />
-                            </audio>
+    
 
+                        <td class="colonnePiccole">
+                            <div class="d-flex justify-content-center ms-2 ">
+                                <div class="form-check d-flex justify-content-center align-items-center me-3">
+                                    <button type="button" class="btn" onclick="playAudio('@brano.Audio')">
+                                        <i class="fa fa-play-circle fa-lg"></i>
+                                    </button>
+                                </div>
+                            </div>
                         </td>
+    
+
+
                         <td class="colonnePiccole fs-6 ps-3 d-none d-md-table-cell">
-                            <a asp-controller="Home" asp-action="BranoDettaglio" class="ms-2" asp-route-id="@brano.Id">Info</a>
+                            <a asp-controller="Home" asp-action="BranoDettaglio" class="ms-2 text-dark" asp-route-id="@brano.Id">Info</a>
+                        </td>
+
+                        <td>
+                            <div class="d-flex justify-content-center ms-2 ">
+                                <div class="form-check ">
+
+                                    <input class="form-check-input" type="checkbox" name="selezionatiBrani" value="@brano.Id">
+
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                    </label>
+
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+
+    @if (Model.Brani != null)
+    {
+        <div class=" d-flex justify-content-end ">
+            <button type="submit" class="btn btn-dark border-light">Playlist <i class="fa fa-plus"></i></button>
+        </div>
+    }
+    </form> 
+    <br>
+
+    
+}
+
+
+@* //  SE ACCEDE UN ADMIN *@
+
+@if (User.IsInRole("Admin"))
+{
+    <form method="get" asp-controller="Admin" asp-action="RimuoviBrani">
+    
+    
+    <table class="table table-striped table-bordered align-middle mt-3 rounded-table">
+        <thead>
+            <tr>
+
+                <th scope="col" class="colonnePiuPiccole">#</th>
+                <th scope="col" class="colonnePiccole">IMG</th>
+                <th scope="col" class="ps-4">Titolo</th>
+                <th scope="col" class="colonnePiuPiccole fw-medium d-none d-md-table-cell"></th>
+                <th scope="col" class="ps-4 d-none d-md-table-cell"></th>
+                <th scope="col" class="colonnePiuPiccole fw-medium ">Seleziona</th>
+
+            </tr>
+        </thead>
+        <tbody>
+
+            @if (Model.Brani != null)
+
+            {
+
+                @foreach (var brano in Model.Brani)
+                {
+                    <tr>
+                        <th scope="row">@brano.Id</th>
+                        <td>
+                            <div class=" h-25 d-inline-block " style="width: 80px">
+                                    <a asp-controller="Home" asp-action="BranoDettaglio" asp-route-id="@brano.Id">
+                                    <img src=@brano.Immagine width="70" height="70" class="img rounded ms-1" alt="image">
+                                </a>
+                            </div>
+                        </td>
+                        <td class="ps-4">@brano.Titolo</td>
+    
+
+                        <td class="colonnePiccole">
+                            <div class="d-flex justify-content-center ms-2 ">
+                                <div class="form-check d-flex justify-content-center align-items-center me-3">
+                                    <button type="button" class="btn" onclick="playAudio('@brano.Audio')">
+                                        <i class="fa fa-play-circle fa-lg"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </td>
+    
+
+
+                        <td class="colonnePiccole fs-6 ps-3 d-none d-md-table-cell">
+                            <a asp-controller="Home" asp-action="BranoDettaglio" class="ms-2 text-dark" asp-route-id="@brano.Id">Info</a>
                         </td>
 
                         <td>
@@ -201,19 +225,13 @@ style="background-color: rgb(216, 228, 255); ">Filtra</button>
     @if (Model.Brani != null)
     {
         <div class=" d-flex justify-content-end ">
-
-                            
-          
-
-                 
-            
-        
-                           
-            <button class="btn btn-dark">Elimina <i class="fa fa-minus"></i></button>
-        
+           
+            <button class="btn btn-dark border-light">Elimina <i class="fa fa-minus"></i></button>
         
         </div>
     }
+
+
     </form>
     <br>
 }
@@ -245,7 +263,8 @@ style="background-color: rgb(216, 228, 255); ">Filtra</button>
     </form>
 }
 
-<br><br>
+<br><br><br><br><br><br>
+
 
 
 @* <div style="height: 100px;">
@@ -257,6 +276,14 @@ style="background-color: rgb(216, 228, 255); ">Filtra</button>
 </div>
 
 <script>
+    // JavaScript function to play the audio
+    function playAudio(audioUrl) {
+        var audioPlayer = document.getElementById('audioPlayer');
+        audioPlayer.src = audioUrl; // Set the source to the provided audio URL
+        audioPlayer.play(); // Play the audio
+    }
+
+    // Function to stop all other audio players
     function stopAllOtherAudios(currentAudio) {
         var allAudios = document.querySelectorAll('audio');
 

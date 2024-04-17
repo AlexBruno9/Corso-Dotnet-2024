@@ -15,11 +15,25 @@ html {
   
 }
 
-footer{
-  background-color: rgb(216, 228, 255);
+
+footer {
+  background-color: black;
+  /* position: fixed; /* Fixed position to stick at the bottom */
+  /*bottom: 0; */
+  width: 100%;
 }
+
+
+.rounded-table {
+  border-radius: 10px;
+  /* Adjust the radius as needed */
+  overflow: hidden;
+  /* Ensures the border-radius is applied to the table */
+}
+
+
 nav {
-  background-color: rgb(216, 228, 255);
+  background-color:black;
 }
 
 /* body {
