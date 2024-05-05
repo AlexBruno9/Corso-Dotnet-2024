@@ -1,0 +1,56 @@
+[
+  {
+    "Data": "22/03/2024",
+    "Ora": "12:35:48",
+    "Operazione": "Inserimento Prodotto",
+    "Errore": "Codice non valido"
+  },
+  {
+    "Data": "22/03/2024",
+    "Ora": "12:41:40",
+    "Operazione": "Inserimento Prodotto",
+    "Errore": "Codice non valido"
+  },
+  {
+    "Data": "22/03/2024",
+    "Ora": "12:42:35",
+    "Operazione": "Inserimento Prodotto",
+    "Errore": ""
+  },
+  {
+    "Data": "22/03/2024",
+    "Ora": "14:11:35",
+    "Operazione": "Inserimento Prodotto",
+    "Errore": "Codice non valido"
+  },
+  {
+    "Data": "22/03/2024",
+    "Ora": "14:11:46",
+    "Operazione": "Inserimento Prodotto",
+    "Errore": "Codice non valido"
+  },
+  {
+    "Data": "25/03/2024",
+    "Ora": "10:10:11",
+    "Operazione": "Modifica Prodotto",
+    "Errore": "Codice non valido"
+  },
+  {
+    "Data": "25/03/2024",
+    "Ora": "10:10:25",
+    "Operazione": "Modifica Prodotto",
+    "Errore": "Codice non valido"
+  },
+  {
+    "Data": "25/03/2024",
+    "Ora": "10:10:48",
+    "Operazione": "Modifica Prodotto",
+    "Errore": ""
+  },
+  {
+    "Data": "25/03/2024",
+    "Ora": "10:31:05",
+    "Operazione": "Modifica Prodotto",
+    "Errore": ""
+  }
+]

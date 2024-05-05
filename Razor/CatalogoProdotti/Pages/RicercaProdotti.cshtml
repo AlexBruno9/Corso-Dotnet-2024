@@ -1,0 +1,86 @@
+@page
+@model RicercaProdottiModel
+@{
+    ViewData["Title"] = "Ricerca Prodotti";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<form method="get">
+    <div class="form-group">
+        <label for="nome">Nome</label>
+        <input type="text" class="form-control" name="nome" value="@Request.Query["nome"]" />
+    </div>
+    <div class="form-group">
+        <label for="minPrezzo">Prezzo Minimo</label>
+        <input type="text" class="form-control" name="minPrezzo" value="@Request.Query["minPrezzo"]" />
+    </div>
+    <div class="form-group">
+        <label for="maxPrezzo">Prezzo Massimo</label>
+        <input type="text" class="form-control" name="maxPrezzo" value="@Request.Query["maxPrezzo"]" />
+    </div>
+    <div class="form-group mb-3">
+        <label for="categoria">Categoria</label>
+        <select class="form-control" name="categoria">
+            <option value="">Seleziona Categoria</option>
+            @foreach (var categoria in Model.Categorie)
+            {
+                <option value="@categoria">@categoria</option>
+            }
+        </select>
+    </div>
+    <button type="submit" class="btn btn-dark">Cerca</button>
+</form>
+<br>
+
+
+<div class="row">
+    @foreach (var item in Model.Prodotti)
+    {
+        <div class="col-md-4">
+            <div class="card my-card">
+                <img src="@item.Immagine" class="card-img-top img-fluid" alt="@item.Nome">
+                <div class="card-body">
+                    <h5 class="card-title">@item.Nome</h5>
+                    @switch (item.Prezzo)
+                    {
+                        case var expression when expression < 300:
+                            <p class="card-text text-success">€ @item.Prezzo</p>
+                            break;
+                        case var expression when expression < 600:
+                            <p class="card-text text-warning">€ @item.Prezzo</p>
+                            break;
+                        default:
+                            <p class="card-text text-danger">€ @item.Prezzo</p>
+                            break;
+                    }
+                    <p class="card-text"><strong>Quantità:</strong> @item.Quantita</p>
+                    <p class="card-text"><strong>Categoria:</strong> @item.Categoria</p>
+                    <p class="card-text"><strong>Dettagli:</strong> @if (item.Dettaglio.Length > 25)
+                    {
+                        <p class="card-text text-dark">@item.Dettaglio.Substring(0, 25) ...</p>
+                    }
+                    else
+                    {
+                        <p class="card-text text-dark">@item.Dettaglio</p>
+                    }</p>
+                    <div class="card-actions">
+                        <a asp-page="ProdottoDettaglio" asp-route-id="@item.Id" class="btn btn-sm btn-outline-secondary">Dettaglio</a>
+                        <a asp-page="ModificaProdotto" asp-route-id="@item.Id" class="btn btn-sm btn-outline-secondary">Modifica</a>
+                        <a asp-page="CancellaProdotto" asp-route-id="@item.Id" class="btn btn-sm btn-outline-secondary">Cancella</a>
+                    </div>
+                </div>
+            </div>
+            <br>
+        </div>
+    }
+</div>
+
+<form method="get">
+    
+    @for (int i = 1; i <= Model.numeroPagine; i++)
+    {
+        <button type="submit" class="btn btn-dark" name="pageIndex" value="@i">@i</button>
+    }
+</form>
+<!-- <br> -->

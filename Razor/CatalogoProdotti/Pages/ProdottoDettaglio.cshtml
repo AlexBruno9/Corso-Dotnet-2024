@@ -1,0 +1,25 @@
+@page
+@model ProdottoDettaglioModel
+@{
+    ViewData["Title"] = "Prodotto Dettaglio";
+}
+
+<h1>@ViewData["Title"]</h1>
+
+<div class="card my-card">
+    <img src="@Model.Prodotto.Immagine" class="card-img-top img-fluid" alt="@Model.Prodotto.Nome">
+    <div class="card-body">
+        <h5 class="card-title">@Model.Prodotto.Nome</h5>
+        <p class="card-text"><strong>Prezzo:</strong> @Model.Prodotto.Prezzo €</p>
+        <p class="card-text"><strong>Quantità disponibile:</strong> @Model.Prodotto.Quantita</p>
+        <p class="card-text"><strong>Categoria:</strong> @Model.Prodotto.Categoria</p>
+        <p class="card-text"><strong>Dettagli:</strong> @Model.Prodotto.Dettaglio</p>
+        <!-- Inizio pulsanti -->
+        <div class="card-actions">
+            <a asp-page="Prodotti" class="btn btn-sm btn-outline-secondary">Torna a Prodotti</a>
+            <a asp-page="ModificaProdotto" asp-route-id="@Model.Prodotto.Id" class="btn btn-sm btn-outline-secondary">Modifica</a>
+            <a asp-page="CancellaProdotto" asp-route-id="@Model.Prodotto.Id" class="btn btn-sm btn-outline-secondary">Cancella</a>
+        </div>
+        <!-- Fine pulsanti -->
+    </div>
+</div>

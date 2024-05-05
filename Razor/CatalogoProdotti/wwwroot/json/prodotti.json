@@ -1,0 +1,65 @@
+[
+  {
+    "Id": 6,
+    "Nome": "T-Shirt",
+    "Prezzo": 10.0,
+    "Dettaglio": "T-Shirt nera con scritta bianca 'Hello World' sul fronte e 'Goodbye World' sul retro",
+    "Immagine": "https://source.unsplash.com/random/1280x800?sig=10&buildings",
+    "Quantita": 30,
+    "Categoria": "Abbigliamento"
+  },
+  {
+    "Id": 7,
+    "Nome": "Pantaloni",
+    "Prezzo": 20.0,
+    "Dettaglio": "Pantaloni neri con tasche laterali  e tasche posteriori con bottoni",
+    "Immagine": "https://source.unsplash.com/random/1280x800?sig=9&buildings",
+    "Quantita": 25,
+    "Categoria": "Abbigliamento"
+  },
+  {
+    "Id": 8,
+    "Nome": "Maglione",
+    "Prezzo": 30.0,
+    "Dettaglio": "Maglione nero con scollo a V e maniche lunghe con polsini elasticizzati e orlo a costine",
+    "Immagine": "https://source.unsplash.com/random/1280x800?sig=8&buildings",
+    "Quantita": 20,
+    "Categoria": "Abbigliamento"
+  },
+  {
+    "Id": 9,
+    "Nome": "Cappotto",
+    "Prezzo": 100.0,
+    "Dettaglio": "Cappotto nero con cappuccio e tasche laterali con bottoni e cerniera",
+    "Immagine": "https://source.unsplash.com/random/1280x800?sig=7&buildings",
+    "Quantita": 10,
+    "Categoria": "Abbigliamento"
+  },
+  {
+    "Id": 10,
+    "Nome": "Divano",
+    "Prezzo": 300.00,
+    "Dettaglio": "Divano in pelle nera con cuscini in tessuto grigio e piedini in legno",
+    "Immagine": "https://source.unsplash.com/random/1280x800?sig=6&buildings",
+    "Quantita": 5,
+    "Categoria": "Casa"
+  },
+  {
+    "Id": 11,
+    "Nome": "Tavolo da pranzo",
+    "Prezzo": 200.0,
+    "Dettaglio": "Tavolo in legno",
+    "Immagine": "https://source.unsplash.com/random/1280x800?sig=5&buildings",
+    "Quantita": 10,
+    "Categoria": "Casa"
+  },
+  {
+    "Id": 12,
+    "Nome": "Sedia da cucina",
+    "Prezzo": 50.0,
+    "Dettaglio": "Sedia in legno",
+    "Immagine": "https://source.unsplash.com/random/1280x800?sig=4&buildings",
+    "Quantita": 20,
+    "Categoria": "Casa"
+  }
+]
