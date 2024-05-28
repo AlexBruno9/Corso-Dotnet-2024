@@ -1,0 +1,235 @@
+<!--!inizializzo pagina digitando "html:5"-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!--  importo bootstrap  -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <!--  importo icone bootstrap  -->
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+
+    <!--  importo css  -->
+
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    />
+    <link rel="stylesheet" href="style.css" />
+
+    <title>Titolo pagina</title>
+  </head>
+
+  <body>
+    <!-- navbar -->
+    <nav class="navbar bg-light navbar-expand-md navbar-light pt-5 pb-4 border border-dark">
+      <div class="container-xxl">
+        <!-- navbar brand / title -->
+
+        <span class="text-secondary fw-bold">
+          <i class="bi bi-boombox"></i>
+          Pagina prova
+        </span>
+
+        <!-- bottone resposività menu  -->
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#main-nav"
+          aria-controls="main-nav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- navbar links -->
+        <div
+          class="collapse navbar-collapse justify-content-end align-center"
+          id="main-nav"
+        >
+          <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Esempi
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a class="dropdown-item" href="#elenco"
+                    >1. esempio elenco</a
+                  >
+                </li>
+
+                <li>
+                  <a class="dropdown-item" href="#paragrafo"
+                    >2. esempio paragrafo</a
+                  >
+                </li>
+
+                <li>
+                  <a class="dropdown-item" href="#grid"
+                    >3. esempio grid</a
+                  >
+                </li>
+              </ul>
+            </li>
+
+          
+            <li class="nav-item">
+              <a class="nav-link" href="#foto">Foto</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+
+
+
+    <section id="documentazione">
+
+        <div class="row justify-content-center align-items-center m-4">
+          <div class="col-md-8 text-md-start">
+    
+            <div class="display-4 my-3">
+              Documentazione
+            </div>
+    
+            <section id="elenco">
+    
+              <div class="display-5 text-muted mt-5">Esempio elenco</div>
+    
+              <p class="lead my-4">
+              <ul>
+                <li class="my-2"> il programma deve prendere in inserimento dei dischi e li va a catalogare</li>
+                <li class="my-2"> al lancio del programma verrà creata una cartella Catalogo</li>
+                <li class="my-2"> per ogni artista di cui viene inserito un disco, verrà creata una cartella all'interno
+                  della cartella Catalogo:</li>
+                <ul>
+                  <li class="my-2"> ogni cartella di un artista conterrà un file json per ogni suo album registrato nel
+                    catalogo</li>
+                  <li class="my-2"> ogni file json conterrà il nome dell'album, l'anno di pubblicazione e le copie
+                    disponibili in negozio</li>
+                </ul>
+                <li class="my-2">se viene inserito un album di un artista di cui non è ancora presente una cartella
+                  all'interno del Catalogo, verrà creata;</li>
+                <li class="my-2">se viene inserito un album già presente in catalogo, verrà aggiornata la quantità di copie
+                  disponibili</li>
+                <li class="my-2">possibilità di rimuovere album dal catalogo (in caso vengano venduti)</li>
+                <li class="my-2">possibilità di stampare elenco album di un determinato artista presenti in catalogo</li>
+              </ul>
+              </p>
+            </section>
+    
+          </div>
+        </div>
+    
+    
+    
+    
+    
+        <div class="row justify-content-center align-items-center m-4">
+          <div class="col-md-8 text-md-start">
+    
+            <section id="paragrafo">
+              <div class="display-5 text-muted mt-5">Esempio paragrafo</div>
+    
+              <p class="lead my-4">
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quod veniam amet mollitia, voluptatem quam quis totam sequi culpa nobis ipsum esse neque ipsam tempore? Impedit ipsa repellendus, eius, tempore assumenda numquam illum quis debitis suscipit velit sapiente accusamus inventore? Deleniti libero quia dolores eaque quos sed ut ipsam, consequatur hic cum, officiis, itaque autem rem?
+              </p>
+            </section>
+    
+    
+          </div>
+        </div>
+    
+    
+        <div class="row justify-content-center align-items-center m-4">
+          <div class="col-md-8 text-md-start">
+    
+            <section id="grid">
+              <div class="display-5 text-muted mt-5">Esempio grid</div>
+
+              <br>
+    
+              <div class="container">
+                <div class="row">
+                  <div class="col-2">
+                  </div>
+                  <div class="col-5">
+                    One of two columns
+                  </div>
+                  <div class="col-4">
+                    One of two columns
+                  </div>
+                  <div class="col-1">
+                </div>
+                </div>
+              </div>
+            </section>
+    
+          </div>
+        </div>
+    
+      </section>
+
+
+
+      <br><br>
+
+    <section id="foto">
+      <div class="row justify-content-center align-items-center m-4">
+        <div class="col-md-8 text-md-start">
+
+            <!--    media query sotto i 770 pixel   -->
+          <div class="scritta display-4 my-3">File JSON</div>
+
+
+          <div class="text-center d-none d-md-block">
+            <img src="code.png" class="img-fluid rounded-3" alt="immagine" />
+          </div>
+        </div>
+      </div>
+
+
+
+
+
+
+    </section>
+
+
+
+
+    <!--    footer  -->
+    <br><br><br>
+    <footer class="text-center p-5 bg-light border border-dark">
+        <p>&copy; 2024 Prova AB. Tutti i diritti riservati.</p>
+    </footer>
+
+    <!-- questo ci vuole per far funzionare bootstrap -->
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
